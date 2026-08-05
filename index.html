@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCS 3213 — Engenharia de Software · Guia de estudo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg: #0A0E14;
+    --bg-1: #0E141C;
+    --surface: #131A24;
+    --surface-2: #1A222E;
+    --ink: #E8EDF5;
+    --ink-soft: #9FAAB9;
+    --ink-faint: #5C6774;
+    --line: #232C39;
+    --line-soft: #1B222D;
+    --indigo: #7C8CFF;
+    --indigo-deep: #5A67D8;
+    --indigo-soft: rgba(124,140,255,0.12);
+    --cyan: #39D6BE;
+    --cyan-deep: #1B9E8C;
+    --cyan-soft: rgba(57,214,190,0.12);
+    --amber: #F0A93C;
+    --amber-soft: rgba(240,169,60,0.14);
+    --rose: #F1596F;
+    --rose-soft: rgba(241,89,111,0.13);
+    --white: #FFFFFF;
+    --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 14px 32px rgba(0,0,0,0.4);
+    --radius: 14px;
+    --display: "Space Grotesk", sans-serif;
+    --body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "JetBrains Mono", monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16.5px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:var(--display);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+
+  a{color:var(--indigo); text-decoration-thickness:1px;}
+  a:focus-visible, button:focus-visible, .tab:focus-visible, .qa-toggle:focus-visible, .module-link:focus-visible{
+    outline:3px solid var(--cyan);
+    outline-offset:2px;
+    border-radius:4px;
+  }
+
+  code, .kbd{
+    font-family:var(--mono); font-size:0.92em; background:var(--surface-2); border:1px solid var(--line);
+    border-radius:5px; padding:1px 6px; color:var(--cyan);
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.02em;
+    color:var(--indigo);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{ content:"//"; color:var(--ink-faint); font-weight:600; }
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- APP SHELL ---------- */
+  .app{ display:flex; align-items:stretch; min-height:100vh; }
+
+  .sidebar{
+    width:272px; flex:0 0 272px;
+    background:var(--bg-1); border-right:1px solid var(--line);
+    position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto;
+    padding:26px 0 40px;
+    display:flex; flex-direction:column;
+  }
+  .sidebar-brand{ padding:0 22px 20px; border-bottom:1px solid var(--line); margin-bottom:20px; }
+  .brand-mark{ font-family:var(--display); font-weight:700; font-size:16px; letter-spacing:.01em; display:flex; align-items:center; gap:8px; }
+  .brand-mark .cursor{ display:inline-block; width:8px; height:16px; background:var(--cyan); animation:blink 1.1s steps(1) infinite; border-radius:1px; }
+  @keyframes blink{ 50%{ opacity:0; } }
+  .brand-sub{ font-family:var(--mono); font-size:11px; color:var(--ink-faint); margin-top:5px; }
+
+  .module-group{ padding:0 14px; margin-bottom:26px; }
+  .group-label{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-faint); padding:0 10px 8px; display:flex; align-items:center; gap:8px;
+  }
+  .group-label::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .module-link{
+    width:100%; display:flex; align-items:center; gap:10px;
+    background:none; border:none; text-align:left; cursor:pointer;
+    padding:10px 10px; border-radius:9px; font-family:var(--body); font-size:14.5px; color:var(--ink-soft);
+    transition:background .15s, color .15s;
+  }
+  .module-link:hover{ background:var(--indigo-soft); color:var(--ink); }
+  .module-link.active{ background:var(--indigo); color:var(--white); }
+  .module-link.active .ml-index{ color:var(--bg); }
+  .ml-index{ font-family:var(--mono); font-size:11px; color:var(--cyan); flex:0 0 auto; }
+  .ml-title{ flex:1; line-height:1.28; }
+  .ml-tag{
+    font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--ink-faint); background:var(--surface-2); border:1px solid var(--line); padding:3px 7px; border-radius:999px; flex:0 0 auto;
+  }
+  .module-link.active .ml-tag{ background:rgba(255,255,255,0.16); color:var(--white); border-color:transparent; }
+  .module-link[data-status="soon"]{ opacity:0.55; cursor:default; }
+  .module-link[data-status="soon"]:hover{ background:none; color:var(--ink-soft); }
+
+  .sidebar-foot{
+    margin-top:auto; padding:16px 22px 0; border-top:1px solid var(--line);
+    font-family:var(--mono); font-size:11px; color:var(--ink-faint); line-height:1.7;
+  }
+
+  .main-col{ flex:1; min-width:0; }
+
+  .mobile-topbar{ display:none; }
+  .sidebar-scrim{ display:none; }
+
+  @media (max-width:900px){
+    .app{ display:block; }
+    .sidebar{
+      position:fixed; left:0; top:0; height:100vh; width:82vw; max-width:300px; z-index:90;
+      transform:translateX(-100%); transition:transform .25s ease; box-shadow:var(--shadow);
+    }
+    .sidebar.open{ transform:translateX(0); }
+    .sidebar-scrim{
+      display:block; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:80;
+      opacity:0; pointer-events:none; transition:opacity .2s;
+    }
+    .sidebar-scrim.show{ opacity:1; pointer-events:auto; }
+    .mobile-topbar{
+      display:flex; align-items:center; gap:12px; height:56px; padding:0 18px;
+      border-bottom:1px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:60;
+    }
+    .mobile-topbar .brand-mark{ font-size:14px; }
+    .hamburger{
+      background:var(--surface); border:1px solid var(--line); border-radius:8px;
+      padding:8px 12px; cursor:pointer; font-family:var(--mono); font-size:13px; color:var(--ink);
+    }
+  }
+
+  /* ---------- PAGE SUBNAV (per module) ---------- */
+  .page-subnav{
+    position:sticky; top:0; z-index:40;
+    background:rgba(10,14,20,0.86); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .page-subnav-inner{
+    max-width:1080px; margin:0 auto; padding:0 28px;
+    display:flex; align-items:center; gap:22px; height:52px;
+  }
+  .psn-title{ font-family:var(--mono); font-size:12.5px; font-weight:600; color:var(--ink); white-space:nowrap; }
+  .navlinks{ display:flex; gap:18px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; }
+  .navlinks::-webkit-scrollbar{display:none;}
+  .navlinks .navlink{
+    font-family:var(--mono); font-size:12.5px; color:var(--ink-soft);
+    background:none; border:none; padding:4px 2px; margin:0; cursor:pointer;
+    white-space:nowrap; border-bottom:2px solid transparent; transition:color .15s, border-color .15s;
+  }
+  .navlinks .navlink:hover, .navlinks .navlink.active{ color:var(--ink); border-color:var(--cyan); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; padding:64px 0 60px; overflow:hidden;
+    background: radial-gradient(ellipse 900px 500px at 78% -10%, rgba(124,140,255,0.14), transparent 60%), var(--bg);
+  }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center; }
+  .hero h1{ font-size:clamp(1.9rem, 3.6vw, 2.9rem); line-height:1.1; margin:16px 0 20px; }
+  .hero h1 em{ font-style:normal; color:var(--indigo); }
+  .hero p.lede{ font-size:17.5px; color:var(--ink-soft); max-width:48ch; margin:0 0 26px; }
+  .hero-meta{ display:flex; gap:22px; flex-wrap:wrap; font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); }
+  .hero-meta strong{ color:var(--ink-soft); font-weight:600; }
+
+  #heroPipeline{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:26px 22px 22px;
+  }
+  .hp-titlebar{ display:flex; align-items:center; gap:7px; margin-bottom:20px; }
+  .hp-dot{ width:9px; height:9px; border-radius:50%; background:var(--line); }
+  .hp-dot.r{ background:#F1596F55; } .hp-dot.y{ background:#F0A93C55; } .hp-dot.g{ background:#39D6BE55; }
+  .hp-label{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); margin-left:6px; }
+  .hp-track{ display:flex; align-items:center; }
+  .hp-node{ width:15%; aspect-ratio:1/1; border-radius:50%; background:var(--surface-2); border:2px solid var(--line); transition:background .4s, border-color .4s, transform .4s; flex:0 0 auto; }
+  .hp-node.on{ background:var(--indigo); border-color:var(--indigo); transform:scale(1.12); box-shadow:0 0 0 5px var(--indigo-soft); }
+  .hp-node.done{ background:var(--cyan); border-color:var(--cyan); }
+  .hp-line{ flex:1; height:2px; background:var(--line); position:relative; }
+  .hp-line.on{ background:var(--cyan); }
+  .hp-labels{ display:flex; margin-top:12px; }
+  .hp-labels span{ width:15%; text-align:center; font-family:var(--mono); font-size:8.5px; color:var(--ink-faint); flex:0 0 auto; }
+  .hp-labels span.on{ color:var(--cyan); }
+  .hp-readout{ margin-top:18px; font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); text-align:center; min-height:16px; }
+
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr;}
+    #heroPipeline{max-width:400px; margin:0 auto;}
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section{ padding:72px 0; border-bottom:1px solid var(--line); }
+  .section.alt{ background:var(--bg-1); }
+  .section h2{ font-size:clamp(1.5rem, 2.6vw, 2.1rem); margin-bottom:20px; }
+  .section .intro{ color:var(--ink-soft); max-width:66ch; font-size:17px; margin-bottom:36px; }
+  .section .intro:last-child{margin-bottom:0;}
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* ---------- FLUXOGRAMA ---------- */
+  .flow{ display:flex; align-items:stretch; justify-content:space-between; gap:0; margin-top:8px; flex-wrap:wrap; }
+  .flow-box{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px 16px; flex:1 1 145px; min-width:120px; box-shadow:var(--shadow); }
+  .flow-box .fb-label{ font-family:var(--mono); font-size:10.5px; color:var(--cyan); letter-spacing:.06em; text-transform:uppercase;}
+  .flow-box .fb-title{ font-family:var(--display); font-weight:600; font-size:16px; margin-top:6px;}
+  .flow-box .fb-cluster{ font-family:var(--mono); font-size:10px; color:var(--ink-faint); margin-top:8px; border-top:1px dashed var(--line); padding-top:8px; }
+  .flow-arrow{ display:flex; align-items:center; justify-content:center; flex:0 0 30px; color:var(--ink-faint); font-size:18px; }
+  @media (max-width:760px){ .flow{flex-direction:column;} .flow-arrow{transform:rotate(90deg); flex:0 0 24px;} }
+  .flow-note{ margin-top:18px; font-family:var(--mono); font-size:13px; color:var(--ink-soft); border-left:3px solid var(--indigo); padding-left:14px; }
+
+  /* ---------- ACTIVITY EXPLORER ---------- */
+  .act-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+  .tab{ font-family:var(--mono); font-size:13px; cursor:pointer; background:var(--surface); border:1px solid var(--line); color:var(--ink-soft); padding:10px 15px; border-radius:999px; transition:all .15s; }
+  .tab:hover{ border-color:var(--indigo); color:var(--indigo); }
+  .tab.active{ background:var(--indigo); border-color:var(--indigo); color:var(--white); }
+
+  .act-panel{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:28px 30px; box-shadow:var(--shadow); }
+  .act-panel .ap-tag{ font-family:var(--mono); font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.06em; }
+  .act-panel h3{ font-size:21px; margin:8px 0 16px; }
+  .act-panel .ap-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:700px){ .act-panel .ap-grid{ grid-template-columns:1fr; } }
+  .act-panel .ap-block h4{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); margin:0 0 8px; }
+  .act-panel .ap-block ul{ margin:0; padding-left:18px; color:var(--ink-soft); font-size:15px; }
+  .act-panel .ap-block li{ margin-bottom:6px; }
+  .act-panel .ap-block p{ margin:0; color:var(--ink-soft); font-size:15px; }
+
+  /* ---------- CONCEITOS / CHAIN ---------- */
+  .concept-chain{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:40px; }
+  .cc-node{ font-family:var(--mono); font-weight:600; font-size:13.5px; background:var(--surface); border:1.5px solid var(--line); color:var(--ink-soft); border-radius:999px; padding:9px 16px; }
+  .cc-node.hi{ border-color:var(--indigo); color:var(--indigo); }
+  .cc-arrow{ color:var(--ink-faint); }
+
+  .def-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:760px){ .def-grid{grid-template-columns:1fr;} }
+  .def-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; }
+  .def-card h3{ font-size:16px; margin-bottom:8px; }
+  .def-card p{ margin:0; color:var(--ink-soft); font-size:15.5px; }
+  .def-card .tag{ font-family:var(--mono); font-size:11px; color:var(--indigo); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; display:block; }
+
+  /* ---------- CALLOUT ---------- */
+  .callout{ background:var(--rose-soft); border:1px solid rgba(241,89,111,0.35); border-radius:var(--radius); padding:26px 28px; margin-top:8px; }
+  .callout .eyebrow{ color:var(--rose); }
+  .callout .eyebrow::before{ color:var(--rose); opacity:.7; }
+  .callout p{ margin:0 0 10px; color:var(--ink); }
+  .callout p:last-child{margin-bottom:0;}
+  .callout.cyan{ background:var(--cyan-soft); border-color:rgba(57,214,190,0.35); }
+  .callout.cyan .eyebrow{ color:var(--cyan); }
+  .callout.amber{ background:var(--amber-soft); border-color:rgba(240,169,60,0.35); }
+  .callout.amber .eyebrow{ color:var(--amber); }
+
+  /* ---------- COMPARE (cascata / iterativo, etc.) ---------- */
+  .compare{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media (max-width:760px){ .compare{grid-template-columns:1fr;} }
+  .compare-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:28px; }
+  .compare-card.a{ border-top:4px solid var(--indigo); }
+  .compare-card.b{ border-top:4px solid var(--cyan); }
+  .compare-card h3{ font-size:19px; margin-bottom:10px; }
+  .compare-card ul{ margin:16px 0 0; padding-left:20px; color:var(--ink-soft); }
+  .compare-card li{ margin-bottom:6px; }
+  .compare-card .verdict{ margin-top:16px; font-family:var(--mono); font-size:13px; padding:10px 12px; border-radius:8px; }
+  .compare-card.a .verdict{ background:var(--indigo-soft); color:#C3CBFF; }
+  .compare-card.b .verdict{ background:var(--cyan-soft); color:#9CF0E3; }
+
+  /* ---------- SIMULADOR CASCATA x ITERATIVO ---------- */
+  .sim-layout{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:32px; align-items:start; }
+  @media (max-width:860px){ .sim-layout{grid-template-columns:1fr;} }
+
+  .sim-board{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
+  .sim-counters{ display:flex; gap:22px; margin-bottom:20px; font-family:var(--mono); font-size:12px; color:var(--ink-faint); }
+  .sim-counters strong{ color:var(--cyan); font-size:16px; display:block; font-family:var(--display); }
+  .sim-stage{ display:flex; align-items:center; gap:14px; padding:12px 14px; border-radius:10px; border:1px solid var(--line); margin-bottom:8px; background:var(--bg-1); transition:background .3s, border-color .3s; }
+  .sim-stage .ss-dot{ width:11px; height:11px; border-radius:50%; background:var(--line); flex:0 0 auto; transition:background .3s; }
+  .sim-stage .ss-name{ font-family:var(--body); font-size:14.5px; color:var(--ink-faint); flex:1; transition:color .3s; }
+  .sim-stage.active{ background:var(--indigo-soft); border-color:var(--indigo); }
+  .sim-stage.active .ss-dot{ background:var(--indigo); box-shadow:0 0 0 4px var(--indigo-soft); }
+  .sim-stage.active .ss-name{ color:var(--ink); font-weight:600; }
+  .sim-stage.done .ss-dot{ background:var(--cyan); }
+  .sim-stage.done .ss-name{ color:var(--ink-soft); }
+  .sim-stage.done .ss-name::after{ content:" ✓"; color:var(--cyan); }
+
+  .sim-panel h3{ font-size:19px; margin-bottom:10px; }
+  .sim-panel p{ color:var(--ink-soft); margin:0 0 16px; }
+  .sim-btn{ font-family:var(--display); font-weight:600; font-size:14.5px; background:var(--indigo); color:var(--white); border:none; border-radius:10px; padding:13px 22px; cursor:pointer; transition:background .15s, transform .1s; }
+  .sim-btn:hover{ background:var(--indigo-deep); }
+  .sim-btn:active{ transform:scale(0.98); }
+  .sim-btn:disabled{ background:var(--surface-2); color:var(--ink-faint); cursor:not-allowed; }
+  .sim-btn.ghost{ background:none; border:1px solid var(--line); color:var(--ink-soft); margin-left:10px; }
+  .sim-btn.ghost:hover{ background:var(--surface-2); }
+
+  .sim-readout{ margin-top:18px; background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-family:var(--mono); font-size:13px; color:var(--ink-soft); min-height:44px; line-height:1.6; }
+  .sim-readout .warn{ color:var(--rose); }
+  .sim-readout .ok{ color:var(--cyan); }
+
+  /* ---------- TABLE ---------- */
+  table.datatab{ width:100%; border-collapse:collapse; font-family:var(--body); font-size:15px; background:var(--surface); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+  table.datatab caption{ text-align:left; font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--indigo); padding:12px 14px 0; }
+  table.datatab th, table.datatab td{ padding:12px 16px; text-align:left; border-bottom:1px solid var(--line); }
+  table.datatab thead th{ background:var(--surface-2); color:var(--ink); font-family:var(--display); font-weight:600; font-size:13.5px; border-bottom:2px solid var(--indigo); }
+  table.datatab td.less{ color:var(--ink-faint); font-size:14px; }
+  table.datatab tr:last-child td{ border-bottom:none; }
+
+  /* ---------- PRINCIPIOS AGEIS ---------- */
+  .np-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:860px){ .np-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .np-grid{grid-template-columns:1fr;} }
+  .np-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px; }
+  .np-card .n{ font-family:var(--mono); font-size:12px; color:var(--indigo); font-weight:700; letter-spacing:.05em; }
+  .np-card p{ margin:8px 0 0; color:var(--ink-soft); font-size:14px; line-height:1.55; }
+
+  /* ---------- TIMELINE (histórico ágil) ---------- */
+  .tl{ position:relative; padding-left:28px; margin-top:8px; }
+  .tl::before{ content:""; position:absolute; left:6px; top:4px; bottom:4px; width:2px; background:var(--line); }
+  .tl-item{ position:relative; padding-bottom:26px; }
+  .tl-item::before{ content:""; position:absolute; left:-28px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--indigo); border:2px solid var(--bg); box-shadow:0 0 0 1px var(--indigo); }
+  .tl-item .yr{ font-family:var(--mono); font-weight:600; color:var(--indigo); font-size:14px; }
+  .tl-item p{ margin:4px 0 0; color:var(--ink-soft); }
+
+  .curio{ margin-top:32px; background:var(--bg-1); border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px; font-size:15px; color:var(--ink-soft); }
+  .curio .eyebrow{margin-bottom:10px;}
+  .curio blockquote{ margin:12px 0; padding-left:16px; border-left:3px solid var(--cyan); color:var(--ink); font-style:normal; }
+
+  /* ---------- QUIZ ---------- */
+  .qa-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 26px; margin-bottom:16px; }
+  .qa-card .qlabel{ font-family:var(--mono); font-size:12px; color:var(--indigo); text-transform:uppercase; letter-spacing:.06em; }
+  .qa-card p.q{ margin:8px 0 16px; font-size:16.5px; }
+  .qa-toggle{ font-family:var(--mono); font-size:13px; background:none; border:1px solid var(--ink-faint); color:var(--ink); padding:8px 16px; border-radius:999px; cursor:pointer; }
+  .qa-toggle:hover{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  .qa-answer{ display:none; margin-top:16px; padding-top:16px; border-top:1px dashed var(--line); }
+  .qa-answer.show{ display:block; }
+  .qa-answer .verdict{ font-family:var(--display); font-weight:600; color:var(--cyan); font-size:15.5px; margin-bottom:6px; }
+  .qa-answer p{ margin:0; color:var(--ink-soft); }
+
+  .module-footer{ padding:48px 0 64px; }
+  .module-footer .refs{ font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); line-height:1.9; }
+  .module-footer .credit{ font-family:var(--mono); font-size:12px; color:var(--ink-faint); border-top:1px solid var(--line); padding-top:18px; margin-top:18px; }
+
+  /* ---------- PLACEHOLDER (future modules) ---------- */
+  .placeholder-wrap{ padding:110px 0 80px; }
+  .placeholder-dots{ margin-top:40px; display:grid; grid-template-columns:repeat(16,1fr); gap:8px; max-width:520px; }
+  .placeholder-dots .pd{ aspect-ratio:1/1; border-radius:50%; background:var(--line); opacity:.5; }
+
+</style>
+</head>
+<body>
+
+<div class="sidebar-scrim" id="scrim"></div>
+
+<div class="mobile-topbar">
+  <button class="hamburger" id="hamburger" aria-label="Abrir menu de módulos">☰ Módulos</button>
+  <div class="brand-mark">PCS&nbsp;3213<span class="cursor"></span></div>
+</div>
+
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">PCS&nbsp;3213<span class="cursor"></span></div>
+      <div class="brand-sub">Engenharia de Software · EP-USP</div>
+    </div>
+    <nav id="moduleNav"></nav>
+    <div class="sidebar-foot">Guia de estudo vivo — novos módulos entram conforme as aulas chegam.</div>
+  </aside>
+
+  <div class="main-col">
+    <div class="module-stage" id="moduleStage">
+
+      <!-- ================= MODULE: MODELOS DE PROCESSOS DE SOFTWARE (P1) ================= -->
+      <div class="module-page" data-module="modelos-processo" id="page-modelos-processo">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Modelos de Processos de Software</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="atividades">Atividades</button>
+              <button class="navlink" data-target="processo">Processo</button>
+              <button class="navlink" data-target="convencionais">Convencionais</button>
+              <button class="navlink" data-target="simulador">Simulador</button>
+              <button class="navlink" data-target="agil">Ágil</button>
+              <button class="navlink" data-target="quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 01</div>
+              <h1>Modelos de <em>Processos</em> de Software</h1>
+              <p class="lede">Antes de escrever a primeira linha de código, alguém precisa decidir em que <strong style="color:var(--ink)">ordem</strong> as atividades de desenvolvimento vão acontecer. Um processo de software é exatamente essa decisão — e ela muda o resultado do projeto tanto quanto o código em si.</p>
+              <div class="hero-meta">
+                <span><strong>Profs.</strong> Jorge L. Risco Becerra · Selma S. S. Melnikoff</span>
+                <span><strong>Curso</strong> EPUSP · PCS</span>
+                <span><strong>Aula</strong> 03/08/2026</span>
+              </div>
+            </div>
+            <div>
+              <div id="heroPipeline">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">pipeline.run()</span>
+                </div>
+                <div class="hp-track" id="hpTrack"></div>
+                <div class="hp-labels" id="hpLabels"></div>
+                <div class="hp-readout" id="hpReadout">inicializando…</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ ATIVIDADES ============ -->
+        <section class="section" id="atividades">
+          <div class="wrap">
+            <div class="eyebrow">Fluxo</div>
+            <h2 class="reveal">Atividades de desenvolvimento de software</h2>
+            <p class="intro reveal">Todo sistema de software nasce de seis atividades típicas. Elas não são um framework específico — são o esqueleto comum sobre o qual quase todo processo de software é construído, do modelo mais rígido ao mais flexível.</p>
+
+            <div class="flow reveal">
+              <div class="flow-box"><div class="fb-label">01</div><div class="fb-title">Levantamento de requisitos</div><div class="fb-cluster">Descobrir necessidades</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><div class="fb-label">02</div><div class="fb-title">Análise de requisitos</div><div class="fb-cluster">Descrever requisitos</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><div class="fb-label">03</div><div class="fb-title">Projeto</div><div class="fb-cluster">Estruturar elementos</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><div class="fb-label">04</div><div class="fb-title">Implementação</div><div class="fb-cluster">Codificar</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><div class="fb-label">05</div><div class="fb-title">Testes</div><div class="fb-cluster">Testar</div></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box"><div class="fb-label">06</div><div class="fb-title">Implantação</div><div class="fb-cluster">Finalizar</div></div>
+            </div>
+            <div class="flow-note reveal">Na prática, essas seis atividades quase nunca acontecem uma única vez, em linha reta — a forma como se organizam no tempo é justamente o que define um <strong style="color:var(--ink)">modelo de processo</strong>.</div>
+          </div>
+        </section>
+
+        <!-- ============ EXPLORADOR DE ATIVIDADES ============ -->
+        <section class="section alt">
+          <div class="wrap">
+            <div class="eyebrow">Explorador</div>
+            <h2 class="reveal">O que acontece em cada etapa</h2>
+            <p class="intro reveal">Clique em cada atividade para ver objetivo, produto e detalhes — a mesma informação que orienta o cronograma de qualquer projeto de software.</p>
+
+            <div class="act-tabs" id="actTabs"></div>
+            <div class="act-panel reveal" id="actPanel"></div>
+          </div>
+        </section>
+
+        <!-- ============ PROCESSO DE SOFTWARE ============ -->
+        <section class="section" id="processo">
+          <div class="wrap">
+            <div class="eyebrow">Conceito</div>
+            <h2 class="reveal">O que é um processo de software</h2>
+            <p class="intro reveal">As seis atividades podem ser <strong style="color:var(--ink)">concatenadas de formas diferentes</strong>. Um processo de software é justamente essa organização — a sequência escolhida para as atividades de desenvolvimento.</p>
+
+            <div class="concept-chain reveal">
+              <span class="cc-node">Requisitos</span><span class="cc-arrow">→</span>
+              <span class="cc-node">Análise</span><span class="cc-arrow">→</span>
+              <span class="cc-node">Projeto</span><span class="cc-arrow">→</span>
+              <span class="cc-node">Implementação</span><span class="cc-arrow">→</span>
+              <span class="cc-node">Testes</span><span class="cc-arrow">→</span>
+              <span class="cc-node">Implantação</span><span class="cc-arrow">=</span>
+              <span class="cc-node hi">Processo de software</span>
+            </div>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <span class="tag">Definição</span>
+                <h3>Processo de software</h3>
+                <p>Organiza as atividades de desenvolvimento em uma sequência adequada ao projeto — não existe uma única forma "correta", existe a forma mais adequada a cada contexto.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Para que serve</span>
+                <h3>Avaliar o andamento</h3>
+                <p>Ao definir a sequência das atividades, o processo permite acompanhar o progresso do desenvolvimento e gerar o cronograma do projeto.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ MODELOS CONVENCIONAIS ============ -->
+        <section class="section alt" id="convencionais">
+          <div class="wrap">
+            <div class="eyebrow">Modelos convencionais</div>
+            <h2 class="reveal">Cascata e Iterativo-Incremental</h2>
+            <p class="intro reveal">Modelos convencionais são os utilizados antes dos modelos ágeis. Os dois mais representativos são o modelo de cascata (o mais antigo, de 1970) e o modelo iterativo e incremental, que nasceu da constatação de que a cascata era pouco realista na prática.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Modelo de Cascata</h3>
+                <ul>
+                  <li>Uma atividade só é iniciada após o término da anterior.</li>
+                  <li>Cada fase deve ser concluída antes do início da próxima.</li>
+                  <li>Execução segue como uma cascata — pode-se voltar a atividades anteriores só em caso de necessidade.</li>
+                  <li>Interação com o cliente ocorre, tipicamente, no início e no fim do desenvolvimento.</li>
+                </ul>
+                <div class="verdict">1970 · o modelo de processo mais antigo</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Modelo Iterativo e Incremental</h3>
+                <ul>
+                  <li><strong>Iterativo</strong>: o sistema é desenvolvido através de vários passos similares.</li>
+                  <li><strong>Incremental</strong>: em cada passo, o sistema é estendido com mais funcionalidades.</li>
+                  <li>Divide o desenvolvimento em ciclos; cada ciclo cobre um subconjunto de requisitos.</li>
+                  <li>Cada ciclo repete as atividades típicas de desenvolvimento de software.</li>
+                </ul>
+                <div class="verdict">Modelo mais realista, nascido da experiência prática</div>
+              </div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">Comentários sobre a cascata</div>
+              <p>O modelo assume que é possível definir todos os requisitos no início do desenvolvimento — mas nem sempre isso acontece, e não é viável parar o projeto esperando informação. Na prática, resolve-se seguindo com os requisitos existentes e encaixando os que faltaram conforme forem sendo definidos.</p>
+              <p>Também na prática não se implementa tudo de uma vez para testar no final: usa-se o ciclo de implementação/teste por parte. Ou seja, mesmo quem "usa cascata" costuma adequar o modelo à realidade de cada desenvolvimento.</p>
+            </div>
+
+            <div class="def-grid reveal" style="margin-top:28px;">
+              <div class="def-card">
+                <span class="tag">Vantagens do iterativo-incremental</span>
+                <h3>Participação e risco</h3>
+                <p>Incentiva a participação do usuário ao longo do projeto e permite gerenciar melhor os riscos de desenvolvimento — a possibilidade de eventos que causem prejuízo ao projeto (custo, cronograma, qualidade, satisfação do cliente).</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Desvantagem</span>
+                <h3>Gestão mais difícil</h3>
+                <p>Coordenar múltiplos ciclos, decidir o que entra em cada iteração e manter a coerência entre incrementos torna o gerenciamento do desenvolvimento mais complexo do que numa sequência única.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SIMULADOR ============ -->
+        <section class="section" id="simulador">
+          <div class="wrap">
+            <div class="eyebrow">Simulador</div>
+            <h2 class="reveal">Rode um ciclo de desenvolvimento</h2>
+            <p class="intro reveal">Escolha um modelo e avance etapa por etapa. A diferença que mais importa não é visual — é o que acontece quando um requisito novo chega no meio do caminho.</p>
+
+            <div class="sim-tabs" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
+              <button class="tab active" data-simmode="cascata">Cascata</button>
+              <button class="tab" data-simmode="iterativo">Iterativo e Incremental</button>
+            </div>
+
+            <div class="sim-layout">
+              <div class="sim-board">
+                <div class="sim-counters" id="simCounters">
+                  <div><strong id="simIter">1</strong>iteração</div>
+                  <div><strong id="simFeat">0</strong>funcionalidades entregues</div>
+                </div>
+                <div id="simStages"></div>
+              </div>
+              <div class="sim-panel">
+                <h3 id="simTitle">Modelo de Cascata</h3>
+                <p id="simDesc">Cada etapa só começa quando a anterior termina. Não há como voltar sem reiniciar o projeto.</p>
+                <button class="sim-btn" id="simAdvance">Avançar etapa</button>
+                <button class="sim-btn ghost" id="simReset">Reiniciar</button>
+                <div class="sim-readout" id="simReadout">Clique em "Avançar etapa" para iniciar o levantamento de requisitos.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ MODELOS ÁGEIS ============ -->
+        <section class="section alt" id="agil">
+          <div class="wrap">
+            <div class="eyebrow">Modelos ágeis</div>
+            <h2 class="reveal">O Manifesto Ágil</h2>
+            <p class="intro reveal">Modelos ágeis são utilizados a partir da elaboração do Manifesto Ágil, em 2001 — uma resposta direta à insatisfação com a forma como o desenvolvimento de software vinha sendo conduzido.</p>
+
+            <div class="tl reveal">
+              <div class="tl-item">
+                <div class="yr">Antes de 2001</div>
+                <p>Insatisfação crescente na condução do desenvolvimento de software com os modelos convencionais, vistos como rígidos e burocráticos.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">Agosto de 2001</div>
+                <p>17 especialistas de projeção internacional se reúnem e lançam o Manifesto Ágil — um documento que passa a guiar os métodos ágeis.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">Hoje</div>
+                <p>A Agile Alliance, organização sem fins lucrativos com membros globais, mantém e promove os princípios e práticas de desenvolvimento ágil.</p>
+              </div>
+            </div>
+
+            <table class="datatab reveal" style="margin-top:8px;">
+              <caption>Valores do Manifesto Ágil</caption>
+              <thead>
+                <tr><th>Valor mais importante</th><th>Apesar de importante</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Indivíduos e interação</td><td class="less">Processos e ferramentas</td></tr>
+                <tr><td>Software em funcionamento</td><td class="less">Documentação compreensível</td></tr>
+                <tr><td>Colaboração do cliente</td><td class="less">Negociação de contrato</td></tr>
+                <tr><td>Resposta à mudança</td><td class="less">Cumprimento de plano</td></tr>
+              </tbody>
+            </table>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Na fonte original</div>
+              <blockquote>"We are uncovering better ways of developing software by doing it and helping others do it. […] That is, while there is value in the items on the right, we value the items on the left more." — Agile Alliance, Manifesto for Agile Software Development, 2001.</blockquote>
+            </div>
+
+            <h3 class="reveal" style="margin-top:44px; font-size:1.25rem;">Os 12 princípios da Agile Alliance</h3>
+            <p class="intro reveal" style="margin-top:12px;">O Manifesto se desdobra em 12 princípios mais concretos — o que muda no dia a dia de um time que decide segui-los.</p>
+            <div class="np-grid reveal">
+              <div class="np-card"><span class="n">01</span><p>Prioridade mais alta: satisfazer o cliente com entregas antecipadas e contínuas de software com valor.</p></div>
+              <div class="np-card"><span class="n">02</span><p>Aceitar mudanças de requisitos mesmo em fases adiantadas — mudança é vantagem competitiva, não transtorno.</p></div>
+              <div class="np-card"><span class="n">03</span><p>Entregar frequentemente software em funcionamento, de semanas a dois meses, de preferência em intervalos menores.</p></div>
+              <div class="np-card"><span class="n">04</span><p>Pessoas de negócio e desenvolvedores trabalham em colaboração diária ao longo do projeto.</p></div>
+              <div class="np-card"><span class="n">05</span><p>Projetos são conduzidos com indivíduos motivados, com o ambiente e o suporte de que precisam, e a confiança de que vão concluir o trabalho.</p></div>
+              <div class="np-card"><span class="n">06</span><p>A conversa face a face é o método mais eficiente de troca de informação entre cliente e equipe, e entre a própria equipe.</p></div>
+              <div class="np-card"><span class="n">07</span><p>Software em funcionamento é a principal medida de progresso.</p></div>
+              <div class="np-card"><span class="n">08</span><p>Processos ágeis promovem desenvolvimento sustentável — patrocinadores, desenvolvedores e usuários mantêm um ritmo constante indefinidamente.</p></div>
+              <div class="np-card"><span class="n">09</span><p>Atenção contínua à excelência técnica e ao bom projeto melhora a agilidade.</p></div>
+              <div class="np-card"><span class="n">10</span><p>Simplicidade — a arte de maximizar a quantidade de trabalho não feito — é essencial.</p></div>
+              <div class="np-card"><span class="n">11</span><p>As melhores arquiteturas, requisitos e projetos emergem de equipes auto-organizadas.</p></div>
+              <div class="np-card"><span class="n">12</span><p>Em intervalos regulares, a equipe reflete sobre como ser mais eficaz e ajusta seu comportamento a isso.</p></div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:32px;">
+              <div class="eyebrow">Mitos comuns sobre processo ágil</div>
+              <p><strong style="color:var(--ink)">Mito 1:</strong> "não é necessário gerar documentos durante o desenvolvimento". Na prática, o manifesto valoriza mais o software funcionando do que documentação exaustiva — o que não é o mesmo que documentação zero.</p>
+              <p><strong style="color:var(--ink)">Mito 2:</strong> "não é necessário definir requisitos no processo ágil". Requisitos continuam existindo; o que muda é a forma como são levantados e revisados ao longo dos ciclos.</p>
+              <p><strong style="color:var(--ink)">Mito 3:</strong> "o software deve ser produzido rapidamente, sem perder tempo com documentos". Velocidade não substitui excelência técnica — o princípio 9 é explícito sobre isso.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section" id="quiz">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">As quatro perguntas de resumo da aula — tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Quais são as principais atividades do desenvolvimento de software?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Seis atividades típicas</div>
+                <p>Levantamento de requisitos, análise de requisitos, projeto, implementação, testes e implantação — nessa ordem lógica, ainda que não necessariamente sequencial.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">O que são modelos de processo de software?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">A organização das atividades no tempo</div>
+                <p>São as diferentes formas de concatenar as atividades de desenvolvimento em uma sequência adequada ao projeto, permitindo avaliar o andamento do trabalho e gerar o cronograma.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Como as atividades de desenvolvimento podem ser organizadas?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Cascata ou iterativo-incremental (entre outras)</div>
+                <p>No modelo de cascata, cada fase termina antes da próxima começar. No modelo iterativo e incremental, as atividades se repetem em ciclos, cada um entregando um incremento de funcionalidade.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Quais são as mensagens dos métodos ágeis?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Pessoas e adaptação acima de processos rígidos</div>
+                <p>Valorizar indivíduos e interação, software em funcionamento, colaboração com o cliente e resposta à mudança — sem descartar processos, documentação, contratos e planos, apenas priorizando o primeiro grupo quando os dois entram em conflito.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Referências · Princípios de Análise e Projeto de Sistemas com UML (2ª e 3ª edições)<br>
+              Manifesto for Agile Software Development, Agile Alliance, 2001 — agilealliance.org
+            </div>
+            <div class="credit">P1 · Módulo 01 · Profs. Jorge Luis Risco Becerra e Selma Shin Shimizu Melnikoff — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: MODELOS DE PROCESSOS DE SOFTWARE ================= -->
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ============================================================
+     MODULE REGISTRY + SIDEBAR + NAVIGATION
+     ============================================================ */
+  const MODULES = [
+    {id:'modelos-processo', group:'P1', title:'Modelos de Processos de Software'}
+  ];
+
+  const nav = document.getElementById('moduleNav');
+  const byGroup = {};
+  MODULES.forEach(m=>{ (byGroup[m.group] = byGroup[m.group] || []).push(m); });
+  Object.keys(byGroup).forEach(g=>{
+    const wrap = document.createElement('div'); wrap.className = 'module-group';
+    const label = document.createElement('div'); label.className = 'group-label'; label.textContent = g;
+    wrap.appendChild(label);
+    byGroup[g].forEach((m, i)=>{
+      const btn = document.createElement('button');
+      btn.className = 'module-link'; btn.dataset.module = m.id;
+      btn.innerHTML = '<span class="ml-index">' + String(i+1).padStart(2,'0') + '</span><span class="ml-title">' + m.title + '</span>';
+      btn.addEventListener('click', ()=>{ showModule(m.id); closeSidebar(); });
+      wrap.appendChild(btn);
+    });
+    nav.appendChild(wrap);
+  });
+
+  function showModule(id){
+    document.querySelectorAll('.module-page').forEach(p=>{ p.hidden = (p.dataset.module !== id); });
+    document.querySelectorAll('.module-link').forEach(b=>{ b.classList.toggle('active', b.dataset.module === id); });
+    window.scrollTo({top:0, behavior:'auto'});
+  }
+  window.__showModule = showModule;
+  showModule(MODULES[0].id);
+
+  // mobile sidebar
+  const sidebar = document.getElementById('sidebar');
+  const scrim = document.getElementById('scrim');
+  const hamburger = document.getElementById('hamburger');
+  function openSidebar(){ sidebar.classList.add('open'); scrim.classList.add('show'); }
+  function closeSidebar(){ sidebar.classList.remove('open'); scrim.classList.remove('show'); }
+  if(hamburger){ hamburger.addEventListener('click', openSidebar); }
+  if(scrim){ scrim.addEventListener('click', closeSidebar); }
+
+  /* ============================================================
+     REVEAL-ON-SCROLL + PAGE SUBNAV SPY + QA TOGGLES
+     ============================================================ */
+  const revealObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); revealObserver.unobserve(e.target); } });
+  }, {threshold:0.1, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+  document.querySelectorAll('.module-page').forEach(page=>{
+    const navlinks = page.querySelectorAll('.navlink');
+    const sections = page.querySelectorAll('.section[id], header.hero[id]');
+    if(!navlinks.length || !sections.length) return;
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          navlinks.forEach(l=>l.classList.toggle('active', l.dataset.target === e.target.id));
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    sections.forEach(s=>spy.observe(s));
+    navlinks.forEach(l=>{
+      l.addEventListener('click', ()=>{
+        const target = document.getElementById(l.dataset.target);
+        if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  });
+
+  document.querySelectorAll('.qa-toggle').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const ans = btn.nextElementSibling;
+      const open = ans.classList.toggle('show');
+      btn.textContent = open ? 'Ocultar resposta' : 'Revelar resposta';
+    });
+  });
+
+  /* ============================================================
+     HERO PIPELINE ANIMATION
+     ============================================================ */
+  const HP_STAGES = ['REQ','ANL','PRJ','IMP','TST','DEP'];
+  const hpTrack = document.getElementById('hpTrack');
+  const hpLabels = document.getElementById('hpLabels');
+  const hpReadout = document.getElementById('hpReadout');
+  if(hpTrack && hpLabels){
+    HP_STAGES.forEach((s, i)=>{
+      const node = document.createElement('div'); node.className = 'hp-node'; node.dataset.i = i;
+      hpTrack.appendChild(node);
+      if(i < HP_STAGES.length - 1){
+        const line = document.createElement('div'); line.className = 'hp-line'; line.dataset.i = i;
+        hpTrack.appendChild(line);
+      }
+      const lab = document.createElement('span'); lab.textContent = s; lab.dataset.i = i;
+      hpLabels.appendChild(lab);
+    });
+    const readouts = [
+      'levantando requisitos…', 'analisando requisitos…', 'projetando arquitetura…',
+      'implementando módulos…', 'executando testes…', 'implantando release…'
+    ];
+    let hpIdx = 0;
+    function hpTick(){
+      const nodes = hpTrack.querySelectorAll('.hp-node');
+      const lines = hpTrack.querySelectorAll('.hp-line');
+      const labs = hpLabels.querySelectorAll('span');
+      nodes.forEach((n,i)=>{
+        n.classList.remove('on','done');
+        if(i < hpIdx) n.classList.add('done');
+        else if(i === hpIdx) n.classList.add('on');
+      });
+      lines.forEach((l,i)=>{ l.classList.toggle('on', i < hpIdx); });
+      labs.forEach((l,i)=>{ l.classList.toggle('on', i <= hpIdx); });
+      hpReadout.textContent = readouts[hpIdx];
+      hpIdx = (hpIdx + 1) % HP_STAGES.length;
+    }
+    hpTick();
+    setInterval(hpTick, 1300);
+  }
+
+  /* ============================================================
+     ACTIVITY EXPLORER (tabs)
+     ============================================================ */
+  const ACTIVITIES = [
+    {
+      id:'req', title:'1 · Levantamento de requisitos',
+      objetivo:'Identificar e definir os requisitos do sistema a partir das necessidades dos futuros usuários, diretos e indiretos. Envolve consultas diversas a documentos e interessados.',
+      produto:['Conjunto de requisitos e sua descrição.', 'Documento (ou Especificação) de Requisitos.'],
+      extra:['Requisitos funcionais: o que o sistema faz.', 'Requisitos não funcionais: desempenho, portabilidade, segurança, usabilidade, tolerância a falhas.', 'Restrições: custos, prazos, plataforma, aspectos legais, regras de negócio.']
+    },
+    {
+      id:'analise', title:'2 · Análise de requisitos',
+      objetivo:'Verificar se os requisitos levantados são consistentes e completos.',
+      produto:['Análise de domínio — dados e regras de negócio obtidos com especialistas.', 'Análise de aplicação — descrição do sistema através de modelos.'],
+      extra:['Análise de domínio identifica elementos do mundo real, regras e processos de negócio.', 'Análise de aplicação foca em aspectos lógicos, independentes de plataforma, linguagem ou banco de dados.']
+    },
+    {
+      id:'projeto', title:'3 · Projeto',
+      objetivo:'Detalhar e definir os aspectos dependentes da implementação, incluindo restrições de tecnologia (linguagem, BD, interface, sistema operacional).',
+      produto:['Projeto de arquitetura — componentes e estrutura geral.', 'Projeto detalhado — detalhamento de cada componente.', 'Projeto de interface do usuário.', 'Projeto de dados — dados armazenados no sistema.'],
+      extra:['Existem atividades específicas para cada parte do sistema (arquitetura, dados, interface).']
+    },
+    {
+      id:'implementacao', title:'4 · Implementação',
+      objetivo:'Converter os modelos de projeto em código executável.',
+      produto:['Codificação dos componentes definidos no projeto.'],
+      extra:['Reutilização de componentes de software já existentes.', 'Incorporação de bibliotecas e frameworks.']
+    },
+    {
+      id:'testes', title:'5 · Testes',
+      objetivo:'Verificar o sistema em relação aos requisitos (verificação) e validá-lo em relação à necessidade real (validação).',
+      produto:['Plano de teste, roteiro de testes e relatório de resultados.'],
+      extra:['Tipos de teste: unidade, integração, validação, regressão.']
+    },
+    {
+      id:'implantacao', title:'6 · Implantação',
+      objetivo:'Empacotar, distribuir e instalar o sistema no ambiente de uso real.',
+      produto:['Sistema instalado e em operação no ambiente do cliente.'],
+      extra:['Elaboração de manuais e treinamento de usuários.', 'Migração de software e dados pré-existentes.']
+    }
+  ];
+
+  const actTabs = document.getElementById('actTabs');
+  const actPanel = document.getElementById('actPanel');
+  function renderActivity(id){
+    const a = ACTIVITIES.find(x=>x.id===id);
+    if(!a) return;
+    actPanel.innerHTML =
+      '<span class="ap-tag">Objetivo</span>' +
+      '<h3>' + a.title + '</h3>' +
+      '<div class="ap-grid">' +
+        '<div class="ap-block"><p>' + a.objetivo + '</p></div>' +
+        '<div class="ap-block"><h4>Produto / sub-atividades</h4><ul>' + a.produto.map(x=>'<li>'+x+'</li>').join('') + '</ul></div>' +
+      '</div>' +
+      (a.extra && a.extra.length ? '<div class="ap-block" style="margin-top:18px;"><h4>Detalhes</h4><ul>' + a.extra.map(x=>'<li>'+x+'</li>').join('') + '</ul></div>' : '');
+  }
+  if(actTabs && actPanel){
+    ACTIVITIES.forEach((a, i)=>{
+      const btn = document.createElement('button');
+      btn.className = 'tab' + (i===0 ? ' active' : '');
+      btn.textContent = a.title.split('·')[1].trim();
+      btn.addEventListener('click', ()=>{
+        actTabs.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        btn.classList.add('active');
+        renderActivity(a.id);
+      });
+      actTabs.appendChild(btn);
+    });
+    renderActivity(ACTIVITIES[0].id);
+  }
+
+  /* ============================================================
+     SIMULADOR CASCATA x ITERATIVO
+     ============================================================ */
+  const SIM_STAGES = ['Levantamento de requisitos','Análise de requisitos','Projeto','Implementação','Testes','Implantação'];
+  const simStagesEl = document.getElementById('simStages');
+  const simAdvanceBtn = document.getElementById('simAdvance');
+  const simResetBtn = document.getElementById('simReset');
+  const simReadout = document.getElementById('simReadout');
+  const simTitle = document.getElementById('simTitle');
+  const simDesc = document.getElementById('simDesc');
+  const simIter = document.getElementById('simIter');
+  const simFeat = document.getElementById('simFeat');
+  const simCounters = document.getElementById('simCounters');
+
+  const simState = { mode:'cascata', stage:-1, iteration:1, features:0, locked:false };
+
+  function buildStages(){
+    simStagesEl.innerHTML = SIM_STAGES.map((s,i)=>
+      '<div class="sim-stage" data-i="'+i+'"><span class="ss-dot"></span><span class="ss-name">'+s+'</span></div>'
+    ).join('');
+  }
+
+  function renderSim(){
+    const stages = simStagesEl.querySelectorAll('.sim-stage');
+    stages.forEach((el,i)=>{
+      el.classList.remove('active','done');
+      if(i < simState.stage) el.classList.add('done');
+      else if(i === simState.stage) el.classList.add('active');
+    });
+    simIter.textContent = simState.iteration;
+    simFeat.textContent = simState.features;
+    simCounters.style.display = simState.mode === 'iterativo' ? 'flex' : 'none';
+
+    if(simState.mode === 'cascata'){
+      simAdvanceBtn.disabled = simState.locked;
+      simAdvanceBtn.textContent = simState.stage < 0 ? 'Avançar etapa' : (simState.stage >= SIM_STAGES.length - 1 ? 'Cascata concluída' : 'Avançar etapa');
+    } else {
+      simAdvanceBtn.disabled = false;
+      simAdvanceBtn.textContent = 'Avançar etapa';
+    }
+  }
+
+  function setSimMode(mode){
+    simState.mode = mode;
+    simState.stage = -1;
+    simState.iteration = 1;
+    simState.features = 0;
+    simState.locked = false;
+    document.querySelectorAll('[data-simmode]').forEach(t=>t.classList.toggle('active', t.dataset.simmode === mode));
+    if(mode === 'cascata'){
+      simTitle.textContent = 'Modelo de Cascata';
+      simDesc.textContent = 'Cada etapa só começa quando a anterior termina. Não há como voltar sem reiniciar o projeto.';
+      simReadout.innerHTML = 'Clique em "Avançar etapa" para iniciar o levantamento de requisitos.';
+    } else {
+      simTitle.textContent = 'Modelo Iterativo e Incremental';
+      simDesc.textContent = 'As mesmas seis atividades se repetem em ciclos. Cada ciclo completo entrega um novo incremento de funcionalidade.';
+      simReadout.innerHTML = 'Clique em "Avançar etapa" para iniciar a iteração 1.';
+    }
+    buildStages();
+    renderSim();
+  }
+
+  function advanceSim(){
+    if(simState.mode === 'cascata'){
+      if(simState.locked) return;
+      simState.stage++;
+      if(simState.stage >= SIM_STAGES.length){
+        simState.stage = SIM_STAGES.length - 1;
+        simState.locked = true;
+        simReadout.innerHTML = '<span class="warn">Ciclo concluído.</span> Um requisito novo chegou? Só entra num novo projeto — a cascata não tem como voltar ao levantamento sem reiniciar tudo.';
+      } else {
+        simReadout.textContent = 'Executando: ' + SIM_STAGES[simState.stage] + '.';
+      }
+    } else {
+      simState.stage++;
+      if(simState.stage >= SIM_STAGES.length){
+        simState.stage = 0;
+        simState.iteration++;
+        simState.features += 2;
+        simReadout.innerHTML = '<span class="ok">Iteração concluída.</span> Incremento entregue — total de ' + simState.features + ' funcionalidades. Voltando ao levantamento com o próximo subconjunto de requisitos (inclusive os que chegaram atrasados).';
+      } else {
+        simReadout.textContent = 'Iteração ' + simState.iteration + ' — executando: ' + SIM_STAGES[simState.stage] + '.';
+      }
+    }
+    renderSim();
+  }
+
+  document.querySelectorAll('[data-simmode]').forEach(t=>{
+    t.addEventListener('click', ()=> setSimMode(t.dataset.simmode));
+  });
+  if(simAdvanceBtn) simAdvanceBtn.addEventListener('click', advanceSim);
+  if(simResetBtn) simResetBtn.addEventListener('click', ()=> setSimMode(simState.mode));
+  if(simStagesEl) setSimMode('cascata');
+
+})();
+</script>
+</body>
+</html>

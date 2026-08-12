@@ -1241,6 +1241,352 @@
       </div>
       <!-- ================= END MODULE: LEVANTAMENTO E ANÁLISE DE REQUISITOS ================= -->
 
+      <!-- ================= MODULE 03: MODELO DE CASOS DE USO ================= -->
+      <div class="module-page" data-module="casos-uso" id="page-casos-uso">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Modelo de Casos de Uso</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="uc-finalidade">Finalidade</button>
+              <button class="navlink" data-target="uc-modelo">O modelo</button>
+              <button class="navlink" data-target="uc-elementos">Elementos</button>
+              <button class="navlink" data-target="uc-descricao">Descrição</button>
+              <button class="navlink" data-target="uc-relacionamentos">Relacionamentos</button>
+              <button class="navlink" data-target="uc-caixa">Caixa eletrônico</button>
+              <button class="navlink" data-target="uc-treino">Treino</button>
+              <button class="navlink" data-target="uc-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="uc-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 03</div>
+              <h1>Modelo de <em>Casos de Uso</em></h1>
+              <p class="lede">O primeiro modelo da UML a ser construído descreve o sistema <strong style="color:var(--ink)">visto de fora</strong>: quais funções ele oferece e quais agentes externos interagem com ele. É o modelo que o cliente consegue ler — e, por isso, o que se valida com ele.</p>
+              <div class="hero-meta">
+                <span><strong>Profs.</strong> Selma S. S. Melnikoff · Jorge Risco Becerra</span>
+                <span><strong>Curso</strong> EPUSP · PCS</span>
+                <span><strong>Aula</strong> 12/08/2026</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card" id="ucHeroCard">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">casosDeUso.modelar()</span>
+                </div>
+                <div id="ucHeroDiagram"></div>
+                <div class="src-out" id="ucHeroOut">montando o diagrama…</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ FINALIDADE ============ -->
+        <section class="section" id="uc-finalidade">
+          <div class="wrap">
+            <div class="eyebrow">Finalidade</div>
+            <h2 class="reveal">O que esse modelo representa</h2>
+            <p class="intro reveal">O Modelo de Casos de Uso é uma representação das <strong style="color:var(--ink)">funções do sistema observáveis externamente</strong> e dos <strong style="color:var(--ink)">agentes externos</strong> que interagem com ele. Tudo o que acontece por dentro fica de fora deste modelo — deliberadamente.</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card" style="border-top:3px solid var(--cyan);">
+                <span class="tag">Metade 01</span>
+                <h3>Funções</h3>
+                <p>O que o sistema faz do ponto de vista de quem o usa. Não é o algoritmo, não é a tela: é a função completa que atende a uma necessidade — fazer saque, reservar quarto, cadastrar usuário.</p>
+              </div>
+              <div class="def-card" style="border-top:3px solid var(--indigo);">
+                <span class="tag">Metade 02</span>
+                <h3>Agentes externos</h3>
+                <p>Quem interage com o sistema a partir de fora: pessoas, outros sistemas, dispositivos. São eles que definem onde o sistema termina e o mundo começa.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:48px; font-size:1.25rem;">Onde ele entra entre os modelos da UML</h3>
+            <p class="intro reveal" style="margin-top:12px;">Os três modelos principais se encadeiam: a descrição dos casos de uso alimenta a identificação de classes e relacionamentos, que por sua vez sustenta a modelagem da interação entre objetos.</p>
+
+            <div class="concept-chain reveal">
+              <span class="cc-node hi">Modelo de casos de uso</span><span class="cc-arrow">→</span>
+              <span class="cc-node">Modelo de classes</span><span class="cc-arrow">→</span>
+              <span class="cc-node">Modelo de interação</span>
+            </div>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Modelo de Casos de Uso</h4>
+                <p>Descreve as <strong style="color:var(--ink)">funções</strong> do sistema.</p>
+                <div class="uml-ex">diagrama de casos de uso + descrições</div>
+              </div>
+              <div class="uml-card">
+                <h4>Modelo de Classes</h4>
+                <p>Descreve a <strong style="color:var(--ink)">estrutura</strong> do sistema.</p>
+                <div class="uml-ex">diagrama de classes</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Modelo Dinâmico</h4>
+                <p>Descreve o <strong style="color:var(--ink)">comportamento</strong> do sistema.</p>
+                <div class="uml-ex">diagrama de interação · diagrama de estados</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Encadeamento</h4>
+                <p>Casos de uso mal descritos comprometem a identificação das classes — e o erro se propaga para todos os modelos seguintes.</p>
+                <div class="uml-ex">a qualidade aqui é a base de tudo</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ O MODELO: DUAS PARTES ============ -->
+        <section class="section alt" id="uc-modelo">
+          <div class="wrap">
+            <div class="eyebrow">Composição</div>
+            <h2 class="reveal">O modelo tem duas partes — e as duas são obrigatórias</h2>
+            <p class="intro reveal">Só o desenho não basta e só o texto não basta. O diagrama dá a visão de conjunto; a descrição detalhada dá a precisão que o diagrama não consegue expressar.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Diagramas de casos de uso</h3>
+                <p style="color:var(--ink-soft); margin:0;">Representam o sistema graficamente através de atores, casos de uso e relacionamentos entre eles.</p>
+                <ul>
+                  <li>Definem o <strong style="color:var(--ink)">contexto</strong> do sistema através dos elementos externos (atores).</li>
+                  <li>Descrevem a <strong style="color:var(--ink)">funcionalidade</strong> através dos casos de uso — funcionalidade é um conjunto de funções.</li>
+                  <li>Trabalham num nível <strong style="color:var(--ink)">alto de abstração</strong>.</li>
+                </ul>
+                <div class="verdict">Visão de conjunto — cabe numa página</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Descrição detalhada</h3>
+                <p style="color:var(--ink-soft); margin:0;">Para cada caso de uso, um texto padronizado.</p>
+                <ul>
+                  <li>Relaciona os atores envolvidos.</li>
+                  <li>Lista os passos do caso de uso.</li>
+                  <li>Define condições para iniciar e para terminar.</li>
+                  <li>Registra inclusões e extensões.</li>
+                </ul>
+                <div class="verdict">Precisão — um documento por caso de uso</div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Por que padronizar a descrição</div>
+              <p>Cada caso de uso deve ser descrito segundo um <strong style="color:var(--ink)">padrão adotado</strong>, para entendimento mais preciso. O padrão uniformiza o entendimento do modelo entre todos os participantes do desenvolvimento — analistas, projetistas, programadores e testadores leem a mesma coisa da mesma forma.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ELEMENTOS ============ -->
+        <section class="section" id="uc-elementos">
+          <div class="wrap">
+            <div class="eyebrow">Notação</div>
+            <h2 class="reveal">Os elementos do diagrama</h2>
+            <p class="intro reveal">A notação é pequena de propósito: sete símbolos dão conta de todo o diagrama. Quanto menos notação, mais gente consegue ler o modelo.</p>
+
+            <div class="uc-elems reveal" id="ucElems"></div>
+
+            <h3 class="reveal" style="margin-top:52px; font-size:1.25rem;">Ator</h3>
+            <div class="def-grid reveal" style="margin-top:18px;">
+              <div class="def-card">
+                <span class="tag">Definição</span>
+                <h3>Agente externo</h3>
+                <p>É um agente externo que interage com o sistema. Os atores <strong style="color:var(--ink)">definem o contorno</strong> do sistema: o que é ator está fora, o que é caso de uso está dentro.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Exemplo</span>
+                <h3>Caixa eletrônico</h3>
+                <p>O sistema recebe o acionamento do cliente e consulta o sistema do banco. Atores: <strong style="color:var(--ink)">Cliente</strong> e <strong style="color:var(--ink)">Sistema do Banco</strong> — um humano e um sistema, ambos externos.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:44px; font-size:1.25rem;">Caso de uso</h3>
+            <p class="intro reveal" style="margin-top:12px;">Caso de uso é uma <strong style="color:var(--ink)">função do sistema relevante para um ator</strong>, descrita em linguagem natural. Descreve uma sequência completa de interações entre o sistema e um ou mais atores, para atender à necessidade do ator que acionou o sistema.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Ator primário</h3>
+                <p style="color:var(--ink-soft); margin:0;">Inicia o caso de uso. É dele a necessidade que o caso de uso atende.</p>
+                <div class="verdict">Cliente, no "fazer saque"</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Ator secundário</h3>
+                <p style="color:var(--ink-soft); margin:0;">Participa do caso de uso, mas é acionado por ele — não o inicia.</p>
+                <div class="verdict">Sistema do Banco, no "fazer saque"</div>
+              </div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">Onde isso custa caro</div>
+              <p>Os casos de uso formam a <strong style="color:var(--ink)">base para a definição das classes</strong> e das interações entre elas. Descrição mal feita de casos de uso causa erro na identificação de classes — e esse erro só aparece muito depois, já no projeto ou na implementação.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ DESCRIÇÃO DETALHADA ============ -->
+        <section class="section alt" id="uc-descricao">
+          <div class="wrap">
+            <div class="eyebrow">Padrão de descrição</div>
+            <h2 class="reveal">Anatomia de uma descrição de caso de uso</h2>
+            <p class="intro reveal">Exemplo real: o caso de uso <strong style="color:var(--ink)">2.1 — cadastrar usuário</strong>, de um sistema de biblioteca. Clique em cada campo para ver o conteúdo e o papel que ele cumpre.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="ucFieldList"></div>
+              <div class="hotel-detail" id="ucFieldDetail"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ RELACIONAMENTOS ============ -->
+        <section class="section" id="uc-relacionamentos">
+          <div class="wrap">
+            <div class="eyebrow">Relacionamentos</div>
+            <h2 class="reveal">As quatro conexões possíveis</h2>
+            <p class="intro reveal">Um relacionamento representa conexão entre ator e caso de uso, entre casos de uso, ou entre atores. São quatro tipos, e confundi-los é o erro mais comum em prova e em projeto. Clique para ver o diagrama de cada um.</p>
+
+            <div class="act-tabs" id="relTabs"></div>
+            <div class="ucd-wrap reveal">
+              <div id="relDiagram"></div>
+              <div class="ucd-caption" id="relCaption"></div>
+            </div>
+            <div class="act-panel reveal" id="relPanel" style="margin-top:20px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ ESTUDO DE CASO: CAIXA ELETRÔNICO ============ -->
+        <section class="section alt" id="uc-caixa">
+          <div class="wrap">
+            <div class="eyebrow">Estudo de caso</div>
+            <h2 class="reveal">Do texto corrido aos casos de uso</h2>
+            <p class="intro reveal">Este é o enunciado do caixa eletrônico como o cliente o contaria. Dentro dele há <strong style="color:var(--ink)">dois casos de uso</strong>, não um. Alterne entre eles para ver qual trecho do texto cada um cobre e como vira sequência de eventos.</p>
+
+            <div class="act-tabs reveal" id="atmTabs">
+              <button class="tab active" data-atm="saque">Fazer saque</button>
+              <button class="tab" data-atm="auth">Autenticar cliente</button>
+            </div>
+
+            <div class="uc-story reveal" id="atmStory">
+              <span class="uc-hl" data-part="auth">O cliente chega ao caixa eletrônico e insere seu cartão. O sistema requisita a senha do cliente. Após o cliente fornecer sua senha e esta ser validada, o sistema exibe as opções de operações possíveis.</span>
+              <span class="uc-hl" data-part="saque">O cliente opta por realizar um saque. Então o sistema requisita o total a ser sacado. O cliente fornece o valor da quantidade que deseja sacar. O sistema fornece a quantia desejada. O cliente retira a quantia.</span>
+            </div>
+
+            <div class="uc-scene">
+              <div class="uc-seqbox reveal">
+                <span class="uc-badge in" id="atmEvent">evento iniciador</span>
+                <h3 id="atmTitle">Fazer saque</h3>
+                <ol class="seq" id="atmSeq"></ol>
+                <div style="margin-top:16px;"><span class="uc-badge out" id="atmPost">pós-condição</span></div>
+              </div>
+              <div>
+                <div class="callout amber reveal">
+                  <div class="eyebrow">E a parte inicial do texto?</div>
+                  <p>A sequência de "fazer saque" começa quando o cliente <strong style="color:var(--ink)">seleciona a operação</strong>. Tudo o que vem antes — inserir cartão, digitar senha, validar — é outra função completa, com evento iniciador e pós-condição próprios. Logo, é <strong style="color:var(--ink)">outro caso de uso</strong>.</p>
+                  <p style="margin-top:12px;">Reconhecer isso é o teste prático: se um trecho tem começo, fim e valor próprio para o ator, ele é um caso de uso separado.</p>
+                </div>
+                <div class="callout cyan reveal" style="margin-top:20px;">
+                  <div class="eyebrow">Outros cenários</div>
+                  <p>A função de uso do caixa eletrônico não se restringe ao saque: depósito, saldo, transferência e outros. <strong style="color:var(--ink)">Cada cenário deve ser descrito como um caso de uso</strong>, de forma semelhante ao "fazer saque".</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TREINO ============ -->
+        <section class="section" id="uc-treino">
+          <div class="wrap">
+            <div class="eyebrow">Treino</div>
+            <h2 class="reveal">Identificador de relacionamentos</h2>
+            <p class="intro reveal">Oito situações. Para cada uma, decida qual relacionamento do diagrama de casos de uso a representa.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="relCounter">Situação 1 de 8</div>
+              <div class="cls-stmt" id="relStmt">—</div>
+              <div class="cls-opts" id="relOpts">
+                <button class="tab" data-rel="COM">Comunicação</button>
+                <button class="tab" data-rel="INC">Inclusão</button>
+                <button class="tab" data-rel="EXT">Extensão</button>
+                <button class="tab" data-rel="GEN">Generalização</button>
+              </div>
+              <div class="cls-feedback" id="relFeedback">Escolha um relacionamento para ver a justificativa.</div>
+              <div class="cls-score" id="relScore">Acertos: <strong>0</strong> / 0</div>
+              <button class="sim-btn ghost" id="relReset" style="margin-left:0; margin-top:16px;">Reiniciar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="uc-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">As cinco perguntas de resumo da aula — tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Para que serve o modelo de casos de uso?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para representar as funções do sistema observáveis externamente e os agentes que interagem com ele</div>
+                <p>É a descrição do sistema em alto nível de abstração, feita do lado de fora. Serve para acordar com o cliente o que o sistema faz, e serve de base para todos os modelos seguintes.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">O que é caso de uso? O que é ator?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Função relevante para um ator · agente externo que interage com o sistema</div>
+                <p>O caso de uso descreve, em linguagem natural, uma sequência completa de interações entre o sistema e um ou mais atores, para atender à necessidade de quem o acionou. O ator é o agente externo — pessoa ou sistema — e é ele quem define o contorno do sistema.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Para que relacionar atores e casos de uso?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para mostrar quem interage com o quê — e delimitar o sistema</div>
+                <p>A comunicação indica que aquele ator interage com aquele caso de uso. Um ator pode se relacionar com vários casos de uso e um caso de uso pode envolver vários atores (um primário, que inicia, e secundários, acionados por ele). O conjunto dessas ligações define o contexto do sistema.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Quais são as partes do modelo de casos de uso?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Diagramas de casos de uso e descrição detalhada de cada caso de uso</div>
+                <p>Os diagramas trazem atores, casos de uso e relacionamentos. A descrição detalhada traz, por caso de uso, os atores, os passos, as condições de início e término, as inclusões e as extensões.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Para que serve cada parte do modelo?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">O diagrama dá o contexto; a descrição dá a precisão</div>
+                <p>O diagrama define o contexto (pelos atores) e a funcionalidade (pelos casos de uso) em alto nível de abstração. A descrição detalhada, seguindo um padrão adotado, uniformiza o entendimento entre todos os participantes do desenvolvimento e é a fonte usada para identificar classes.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Referências · Princípios de Análise e Projeto de Sistemas com UML (2ª e 3ª edições)<br>
+              Booch, G.; Rumbaugh, J.; Jacobson, I. — The Unified Modeling Language User Guide
+            </div>
+            <div class="credit">P1 · Módulo 03 · Profa. Selma S. S. Melnikoff e Prof. Jorge Risco Becerra — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: MODELO DE CASOS DE USO ================= -->
+
     </div>
   </div>
 </div>
@@ -1254,7 +1600,8 @@
      ============================================================ */
   const MODULES = [
     {id:'modelos-processo', group:'P1', title:'Modelos de Processos de Software'},
-    {id:'requisitos', group:'P1', title:'Levantamento e Análise de Requisitos'}
+    {id:'requisitos', group:'P1', title:'Levantamento e Análise de Requisitos'},
+    {id:'casos-uso', group:'P1', title:'Modelo de Casos de Uso'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -1730,6 +2077,387 @@
       boiaTabs.appendChild(btn);
     });
     renderBoia(BOIA[0].id);
+  }
+
+  /* ============================================================
+     MÓDULO 03 — CONSTRUTORES DE DIAGRAMA (SVG)
+     ============================================================ */
+  function ucSVG(w, h, body){
+    return '<svg class="ucd-svg" viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg" role="img">' + body + '</svg>';
+  }
+  function ucActor(x, y, label, cls){
+    return '<g class="ucd-actor ' + (cls||'') + '">' +
+      '<circle cx="'+x+'" cy="'+(y-26)+'" r="8"/>' +
+      '<line x1="'+x+'" y1="'+(y-18)+'" x2="'+x+'" y2="'+(y+6)+'"/>' +
+      '<line x1="'+(x-12)+'" y1="'+(y-8)+'" x2="'+(x+12)+'" y2="'+(y-8)+'"/>' +
+      '<line x1="'+x+'" y1="'+(y+6)+'" x2="'+(x-10)+'" y2="'+(y+22)+'"/>' +
+      '<line x1="'+x+'" y1="'+(y+6)+'" x2="'+(x+10)+'" y2="'+(y+22)+'"/>' +
+      '<text x="'+x+'" y="'+(y+40)+'" text-anchor="middle">'+label+'</text>' +
+    '</g>';
+  }
+  function ucCase(cx, cy, rx, ry, lines, cls){
+    var txt = lines.map(function(l, i){
+      var dy = (i - (lines.length - 1) / 2) * 14 + 4;
+      return '<text x="'+cx+'" y="'+(cy+dy)+'" text-anchor="middle">'+l+'</text>';
+    }).join('');
+    return '<g class="ucd-case ' + (cls||'') + '"><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'"/>' + txt + '</g>';
+  }
+  function ucBox(x, y, w, h, label){
+    return '<g class="ucd-box"><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="12"/>' +
+      '<text x="'+(x+18)+'" y="'+(y+24)+'">'+label+'</text></g>';
+  }
+  function ucConn(x1, y1, x2, y2, opts){
+    opts = opts || {};
+    var ang = Math.atan2(y2 - y1, x2 - x1);
+    var ax = x1 + (opts.pad1||0) * Math.cos(ang), ay = y1 + (opts.pad1||0) * Math.sin(ang);
+    var bx = x2 - (opts.pad2||0) * Math.cos(ang), by = y2 - (opts.pad2||0) * Math.sin(ang);
+    var s = '<line class="ucd-link' + (opts.dash ? ' dash' : '') + '" x1="'+ax.toFixed(1)+'" y1="'+ay.toFixed(1)+'" x2="'+bx.toFixed(1)+'" y2="'+by.toFixed(1)+'"/>';
+    if(opts.head === 'open'){
+      var d = 0.42, L = 12;
+      var o1x = bx - L*Math.cos(ang-d), o1y = by - L*Math.sin(ang-d);
+      var o2x = bx - L*Math.cos(ang+d), o2y = by - L*Math.sin(ang+d);
+      s += '<polyline class="ucd-head" points="'+o1x.toFixed(1)+','+o1y.toFixed(1)+' '+bx.toFixed(1)+','+by.toFixed(1)+' '+o2x.toFixed(1)+','+o2y.toFixed(1)+'"/>';
+    } else if(opts.head === 'tri'){
+      var TL = 13, TW = 7.5;
+      var qx = bx - TL*Math.cos(ang), qy = by - TL*Math.sin(ang);
+      var t1x = qx - TW*Math.sin(ang), t1y = qy + TW*Math.cos(ang);
+      var t2x = qx + TW*Math.sin(ang), t2y = qy - TW*Math.cos(ang);
+      s += '<polygon class="ucd-head tri" points="'+bx.toFixed(1)+','+by.toFixed(1)+' '+t1x.toFixed(1)+','+t1y.toFixed(1)+' '+t2x.toFixed(1)+','+t2y.toFixed(1)+'"/>';
+    }
+    if(opts.label){
+      var mx = (ax + bx) / 2 + (opts.lx || 0), my = (ay + by) / 2 + (typeof opts.ly === 'number' ? opts.ly : -9);
+      s += '<text class="ucd-note" x="'+mx.toFixed(1)+'" y="'+my.toFixed(1)+'" text-anchor="middle">'+opts.label+'</text>';
+    }
+    return s;
+  }
+  var INC = '&lt;&lt;include&gt;&gt;', EXT = '&lt;&lt;extend&gt;&gt;';
+
+  /* ============================================================
+     MÓDULO 03 — HERO: DIAGRAMA SENDO MONTADO
+     ============================================================ */
+  var ucHeroDiagram = document.getElementById('ucHeroDiagram');
+  var ucHeroOut = document.getElementById('ucHeroOut');
+  if(ucHeroDiagram && ucHeroOut){
+    ucHeroDiagram.innerHTML = ucSVG(320, 210,
+      '<g class="ucd-step" data-s="0">' + ucActor(42, 80, 'cliente') + '</g>' +
+      '<g class="ucd-step" data-s="1">' + ucCase(190, 72, 78, 28, ['fazer saque']) + '</g>' +
+      '<g class="ucd-step" data-s="2">' + ucConn(58, 72, 112, 72, {}) + '</g>' +
+      '<g class="ucd-step" data-s="3">' + ucCase(190, 165, 78, 26, ['consultar saldo'], 'amber') + '</g>' +
+      '<g class="ucd-step" data-s="4">' + ucConn(190, 100, 190, 139, {dash:true, head:'open', label:INC, lx:0, ly:-6}) + '</g>'
+    );
+    var ucSteps = ucHeroDiagram.querySelectorAll('.ucd-step');
+    var ucReadouts = [
+      'ator identificado: <strong>cliente</strong>',
+      'caso de uso definido: <strong>fazer saque</strong>',
+      'comunicação entre ator e caso de uso',
+      'parte comum extraída: <strong>consultar saldo</strong>',
+      'inclusão registrada · <strong>diagrama completo</strong>'
+    ];
+    var ucIdx = 0;
+    (function ucTick(){
+      ucSteps.forEach(function(el, i){ el.classList.toggle('on', i <= ucIdx); });
+      ucHeroOut.innerHTML = ucReadouts[ucIdx];
+      ucIdx = (ucIdx + 1) % ucReadouts.length;
+      setTimeout(ucTick, 1700);
+    })();
+  }
+
+  /* ============================================================
+     MÓDULO 03 — ELEMENTOS DO DIAGRAMA
+     ============================================================ */
+  var UC_ELEMS = [
+    {g: ucSVG(150, 92, ucActor(75, 45, 'ator')), t:'Ator', d:'Agente externo que interage com o sistema — pessoa, outro sistema ou dispositivo. Define o contorno do sistema.'},
+    {g: ucSVG(200, 92, ucCase(100, 46, 88, 30, ['caso de uso'])), t:'Caso de uso', d:'Função do sistema, relevante para um ator, descrita como sequência completa de interações.'},
+    {g: ucSVG(200, 92, ucBox(12, 12, 176, 68, 'sistema')), t:'Sistema', d:'Delimita a fronteira: o que está dentro do retângulo é responsabilidade do sistema. Elemento opcional no diagrama.'},
+    {g: ucSVG(200, 92, ucConn(20, 46, 180, 46, {})), t:'Comunicação', d:'Liga ator e caso de uso. Significa: este ator interage com este caso de uso.'},
+    {g: ucSVG(200, 92, ucConn(20, 52, 180, 52, {dash:true, head:'open', label:INC, ly:-12})), t:'Inclusão', d:'Entre casos de uso. O caso de uso que chama sempre executa o caso de uso incluído — como chamada de rotina.'},
+    {g: ucSVG(200, 92, ucConn(20, 52, 180, 52, {dash:true, head:'open', label:EXT, ly:-12})), t:'Extensão', d:'Entre casos de uso. O caso de uso estendido é inserido no outro apenas sob uma determinada condição.'},
+    {g: ucSVG(200, 92, ucConn(20, 46, 180, 46, {head:'tri', label:'gen/esp', ly:-12})), t:'Generalização', d:'Entre atores ou entre casos de uso. O herdeiro reaproveita o comportamento do elemento mais genérico.'}
+  ];
+  var ucElemsEl = document.getElementById('ucElems');
+  if(ucElemsEl){
+    ucElemsEl.innerHTML = UC_ELEMS.map(function(e){
+      return '<div class="uc-elem"><div class="ue-glyph">' + e.g + '</div><h4>' + e.t + '</h4><p>' + e.d + '</p></div>';
+    }).join('');
+  }
+
+  /* ============================================================
+     MÓDULO 03 — DESCRIÇÃO DETALHADA (ficha do caso de uso)
+     ============================================================ */
+  var UC_FIELDS = [
+    {id:'id', nome:'Identificação', itens:['Caso de uso 2.1: cadastrar usuário'],
+     nota:'A numeração amarra o caso de uso ao requisito que lhe deu origem — é o que permite rastrear requisito → modelo → código → teste.'},
+    {id:'desc', nome:'Descrição', itens:['Este caso de uso descreve a inserção de um novo usuário no sistema.'],
+     nota:'Uma frase. Serve para o leitor saber, sem ler o resto, se é esse o caso de uso que ele procura.'},
+    {id:'ev', nome:'Evento iniciador', itens:['Solicitação de cadastro de usuário.'],
+     nota:'O que faz o caso de uso começar. Se você não consegue nomear o evento iniciador, provavelmente não é um caso de uso — é um pedaço de outro.'},
+    {id:'ator', nome:'Ator', itens:['Bibliotecário (ator primário).'],
+     nota:'Quem inicia. Quando existem atores secundários, eles também entram aqui, marcados como tal.'},
+    {id:'pre', nome:'Pré-condição', itens:['Ator autenticado como Bibliotecário.'],
+     nota:'O que precisa ser verdade antes de começar. É aqui que aparecem as dependências entre casos de uso — alguém teve que autenticar antes.'},
+    {id:'seq', nome:'Sequência de eventos', itens:['Bibliotecário solicita operação de cadastro de usuário.','Sistema solicita os dados relativos ao novo usuário.','Bibliotecário fornece os dados do novo usuário.','Sistema verifica a consistência dos dados do usuário.','Sistema insere o novo usuário e exibe o resultado.'],
+     nota:'O corpo do caso de uso: passos alternando ator e sistema, sempre no caminho de sucesso. Erros e exceções não entram aqui — vão para as extensões.'},
+    {id:'pos', nome:'Pós-condição', itens:['Novo usuário cadastrado.'],
+     nota:'O estado do sistema quando o caso de uso termina bem. É o critério objetivo de "terminou".'},
+    {id:'ext', nome:'Extensões', itens:['Usuário a ser cadastrado já existe (passo 4): sistema apresenta mensagem ao Bibliotecário e vai para o passo 2.','Dados fornecidos do usuário com erros (passo 4): sistema apresenta mensagem ao Bibliotecário e vai para o passo 2.'],
+     nota:'Cada extensão indica o passo em que a condição pode ocorrer e para onde o fluxo volta. É o que mantém a sequência principal limpa.'},
+    {id:'inc', nome:'Inclusão', itens:['Busca usuário (passo 4).'],
+     nota:'Trecho comum a vários casos de uso, extraído para ser chamado. Sempre executa — diferente da extensão, que depende de condição.'}
+  ];
+  var ucFieldList = document.getElementById('ucFieldList');
+  var ucFieldDetail = document.getElementById('ucFieldDetail');
+  function renderUcField(id){
+    var f = UC_FIELDS.filter(function(x){ return x.id === id; })[0];
+    if(!f) return;
+    ucFieldDetail.innerHTML =
+      '<span class="hd-tag">Caso de uso 2.1 · cadastrar usuário</span>' +
+      '<h3>' + f.nome + '</h3>' +
+      '<ul>' + f.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>' +
+      '<div class="hd-note">' + f.nota + '</div>';
+    ucFieldList.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', b.dataset.fid === id); });
+  }
+  if(ucFieldList && ucFieldDetail){
+    ucFieldList.innerHTML = UC_FIELDS.map(function(f, i){
+      return '<button class="hotel-item" data-fid="'+f.id+'"><span class="hi-n">'+String(i+1).padStart(2,'0')+'</span>'+f.nome+'</button>';
+    }).join('');
+    ucFieldList.querySelectorAll('.hotel-item').forEach(function(btn){
+      btn.addEventListener('click', function(){ renderUcField(btn.dataset.fid); });
+    });
+    renderUcField(UC_FIELDS[0].id);
+  }
+
+  /* ============================================================
+     MÓDULO 03 — RELACIONAMENTOS
+     ============================================================ */
+  var RELS = [
+    {
+      id:'com', tab:'Comunicação', title:'Comunicação',
+      svg: ucSVG(660, 210,
+        ucActor(70, 110, 'cliente') +
+        ucCase(330, 102, 96, 40, ['fazer saque']) +
+        ucActor(590, 110, 'Sistema do Banco') +
+        ucConn(86, 102, 234, 102, {label:'comunicação'}) +
+        ucConn(426, 102, 574, 102, {label:'comunicação'})
+      ),
+      cap:'Um caso de uso pode envolver mais de um ator: o cliente é o ator primário (inicia), o Sistema do Banco é o ator secundário (é acionado pelo caso de uso).',
+      resumo:'Representa a conexão entre um ator e um caso de uso. Significado: o ator interage com esse caso de uso.',
+      regras:['Um ator pode se relacionar com mais de um caso de uso.','Um caso de uso pode se relacionar com mais de um ator.','É o único relacionamento que atravessa a fronteira do sistema.'],
+      quando:['Sempre que um agente externo aciona ou é acionado por uma função do sistema.','O conjunto das comunicações é o que define o contexto do sistema.']
+    },
+    {
+      id:'inc', tab:'Inclusão', title:'Inclusão · ' + INC,
+      svg: ucSVG(680, 300,
+        ucActor(40, 150, 'cliente') +
+        ucCase(195, 55, 100, 32, ['obter extrato']) +
+        ucCase(195, 148, 100, 32, ['realizar transferência']) +
+        ucCase(195, 240, 100, 32, ['realizar saque']) +
+        ucCase(545, 148, 100, 36, ['consultar saldo'], 'amber') +
+        ucConn(56, 142, 100, 62, {}) +
+        ucConn(56, 142, 95, 148, {}) +
+        ucConn(56, 142, 100, 232, {}) +
+        ucConn(296, 62, 448, 126, {dash:true, head:'open', label:INC, ly:-8}) +
+        ucConn(296, 148, 444, 148, {dash:true, head:'open', label:INC, ly:-10}) +
+        ucConn(296, 234, 448, 170, {dash:true, head:'open', label:INC, ly:18})
+      ),
+      cap:'Em verde-água, os casos de uso que chamam; em âmbar, o caso de uso chamado. A seta parte de quem inclui e aponta para o incluído.',
+      resumo:'Partes comuns a vários casos de uso podem ser transformadas em um caso de uso separado, a ser chamado (incluído) pelos demais. O conceito é semelhante à chamada de rotinas.',
+      regras:['A execução do caso de uso incluído é obrigatória — não depende de condição.','O caso de uso incluído pode ser chamado por quantos casos de uso for preciso.','Na descrição detalhada, a inclusão indica em qual passo ela ocorre.'],
+      quando:['Quando o mesmo trecho de sequência se repete em três, quatro casos de uso diferentes.','Evita duplicar descrição — e evita que as cópias divirjam com o tempo.']
+    },
+    {
+      id:'ext', tab:'Extensão', title:'Extensão · ' + EXT,
+      svg: ucSVG(680, 240,
+        ucActor(60, 120, 'cliente') +
+        ucCase(300, 112, 95, 38, ['fazer saque']) +
+        ucCase(560, 112, 100, 42, ['emitir mensagem', 'de erro'], 'amber') +
+        ucConn(76, 112, 204, 112, {}) +
+        ucConn(459, 112, 397, 112, {dash:true, head:'open', label:EXT, ly:-12}) +
+        '<text class="ucd-note" x="428" y="180" text-anchor="middle">se o cliente não tiver saldo suficiente</text>'
+      ),
+      cap:'A seta parte do caso de uso que estende (âmbar) e aponta para o caso de uso estendido (verde-água) — sentido inverso ao da inclusão.',
+      resumo:'Um caso de uso pode ser estendido por outro. A extensão descreve um caso de uso que pode ser inserido no caso de uso considerado, em uma determinada condição.',
+      regras:['A execução é condicional — só acontece se a condição ocorrer.','O caso de uso estendido é completo e faz sentido sozinho, sem a extensão.','A condição e o ponto de inserção ficam registrados na descrição detalhada.'],
+      quando:['Comportamento excepcional, opcional ou raro que polui a sequência principal.','Exemplo: emitir mensagem de saldo insuficiente durante o "fazer saque".']
+    },
+    {
+      id:'genuc', tab:'Generalização · casos de uso', title:'Generalização entre casos de uso',
+      svg: ucSVG(680, 300,
+        ucActor(45, 95, 'cliente') +
+        ucCase(345, 62, 112, 34, ['receber pagamento'], 'rose') +
+        ucCase(180, 225, 122, 42, ['receber pagamento', 'em dinheiro']) +
+        ucCase(515, 225, 122, 42, ['receber pagamento', 'por cartão']) +
+        ucConn(61, 87, 234, 66, {}) +
+        ucConn(205, 184, 300, 94, {head:'tri'}) +
+        ucConn(492, 184, 392, 94, {head:'tri'})
+      ),
+      cap:'Em vermelho, o caso de uso genérico com a parte comum. Em verde-água, os herdeiros: cada um acrescenta apenas a parte específica (dinheiro ou cartão).',
+      resumo:'Sequências de comportamento descritas no caso de uso mais genérico são reutilizadas pelos casos de uso herdeiros, que acrescentam o que têm de específico.',
+      regras:['O herdeiro tem todo o comportamento do genérico, mais o seu próprio.','O triângulo vazado aponta sempre para o elemento mais genérico.','Não confundir com inclusão: aqui não há chamada, há herança de comportamento.'],
+      quando:['Quando duas ou mais funções são variações da mesma função.','Exemplo: receber pagamento em dinheiro e receber pagamento por cartão.']
+    },
+    {
+      id:'genat', tab:'Generalização · atores', title:'Generalização entre atores',
+      svg: ucSVG(680, 320,
+        ucBox(285, 22, 365, 276, 'Sistema de Biblioteca') +
+        ucCase(470, 105, 105, 30, ['pesquisar catálogo']) +
+        ucCase(470, 185, 105, 30, ['reservar livro']) +
+        ucCase(470, 265, 105, 30, ['solicitar compra'], 'amber') +
+        ucActor(105, 115, 'usuário') +
+        ucActor(105, 260, 'professor') +
+        ucConn(121, 107, 363, 105, {}) +
+        ucConn(121, 107, 363, 182, {}) +
+        ucConn(121, 252, 363, 265, {}) +
+        ucConn(105, 228, 105, 162, {head:'tri', label:'gen/esp', lx:34, ly:4})
+      ),
+      cap:'O usuário tem 2 casos de uso; o professor tem 3 — os 2 herdados mais "solicitar compra". Um diagrama equivalente ligaria o professor diretamente aos três, mas repetiria informação.',
+      resumo:'Atores herdeiros possuem o mesmo comportamento do ator pai em relação ao sistema, além do comportamento próprio.',
+      regras:['O triângulo aponta para o ator mais genérico.','O herdeiro nunca perde casos de uso do pai — só acrescenta.','Evita repetir as mesmas ligações para vários atores parecidos.'],
+      quando:['Perfis de usuário que se contêm: usuário comum → professor → coordenador.','Se um perfil faz tudo o que outro faz e mais um pouco, é generalização.']
+    }
+  ];
+  var relTabs = document.getElementById('relTabs');
+  var relDiagram = document.getElementById('relDiagram');
+  var relCaption = document.getElementById('relCaption');
+  var relPanel = document.getElementById('relPanel');
+  function renderRel(id){
+    var r = RELS.filter(function(x){ return x.id === id; })[0];
+    if(!r) return;
+    relDiagram.innerHTML = r.svg;
+    relCaption.innerHTML = r.cap;
+    relPanel.innerHTML =
+      '<span class="ap-tag">Definição</span>' +
+      '<h3>' + r.title + '</h3>' +
+      '<div class="ap-grid">' +
+        '<div class="ap-block"><p>' + r.resumo + '</p></div>' +
+        '<div class="ap-block"><h4>Regras</h4><ul>' + r.regras.map(function(x){ return '<li>'+x+'</li>'; }).join('') + '</ul></div>' +
+      '</div>' +
+      '<div class="ap-block" style="margin-top:18px;"><h4>Quando usar</h4><ul>' + r.quando.map(function(x){ return '<li>'+x+'</li>'; }).join('') + '</ul></div>';
+  }
+  if(relTabs && relDiagram && relPanel){
+    RELS.forEach(function(r, i){
+      var btn = document.createElement('button');
+      btn.className = 'tab' + (i === 0 ? ' active' : '');
+      btn.textContent = r.tab;
+      btn.addEventListener('click', function(){
+        relTabs.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+        btn.classList.add('active');
+        renderRel(r.id);
+      });
+      relTabs.appendChild(btn);
+    });
+    renderRel(RELS[0].id);
+  }
+
+  /* ============================================================
+     MÓDULO 03 — CAIXA ELETRÔNICO: DOIS CASOS DE USO
+     ============================================================ */
+  var ATM = {
+    saque: {
+      title:'Fazer saque',
+      evento:'Evento iniciador · cliente seleciona a operação de saque',
+      post:'Pós-condição · quantia retirada',
+      passos:['Cliente seleciona a operação de saque.','Sistema requisita a quantia a ser sacada.','Cliente fornece a quantia que deseja sacar.','Sistema consulta o Sistema do Banco.','Sistema fornece a quantia desejada.','Cliente retira a quantia solicitada.']
+    },
+    auth: {
+      title:'Autenticar cliente',
+      evento:'Evento iniciador · cliente insere o cartão no caixa eletrônico',
+      post:'Pós-condição · cliente autenticado e operações disponíveis na tela',
+      passos:['Cliente insere seu cartão no caixa eletrônico.','Sistema apresenta solicitação de senha.','Cliente digita a senha.','Sistema solicita validação da senha para o Sistema do Banco.','Sistema exibe menu de operações disponíveis.']
+    }
+  };
+  var atmTabs = document.getElementById('atmTabs');
+  var atmStory = document.getElementById('atmStory');
+  var atmSeq = document.getElementById('atmSeq');
+  var atmTitle = document.getElementById('atmTitle');
+  var atmEvent = document.getElementById('atmEvent');
+  var atmPost = document.getElementById('atmPost');
+  function renderATM(key){
+    var a = ATM[key];
+    if(!a) return;
+    atmTitle.textContent = a.title;
+    atmEvent.textContent = a.evento;
+    atmPost.textContent = a.post;
+    atmSeq.innerHTML = a.passos.map(function(p){ return '<li>' + p + '</li>'; }).join('');
+    atmStory.querySelectorAll('.uc-hl').forEach(function(sp){
+      sp.classList.remove('on-a', 'on-b');
+      if(sp.dataset.part === key) sp.classList.add(key === 'saque' ? 'on-b' : 'on-a');
+    });
+    if(atmTabs) atmTabs.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t.dataset.atm === key); });
+  }
+  if(atmTabs && atmSeq){
+    atmTabs.querySelectorAll('.tab').forEach(function(t){
+      t.addEventListener('click', function(){ renderATM(t.dataset.atm); });
+    });
+    renderATM('saque');
+  }
+
+  /* ============================================================
+     MÓDULO 03 — TREINO: IDENTIFICADOR DE RELACIONAMENTOS
+     ============================================================ */
+  var REL_ITEMS = [
+    {t:'O cliente aciona o caixa eletrônico para realizar um saque.', a:'COM', w:'Conexão entre um ator e um caso de uso — o ator interage com essa função.'},
+    {t:'"Realizar saque", "obter extrato" e "realizar transferência" sempre precisam consultar o saldo antes de prosseguir.', a:'INC', w:'Parte comum extraída como caso de uso próprio e chamada pelos três. Execução obrigatória.'},
+    {t:'Se o cliente não tiver saldo suficiente, o sistema emite uma mensagem de erro durante o "fazer saque".', a:'EXT', w:'Comportamento condicional inserido em um ponto do caso de uso — só acontece se a condição ocorrer.'},
+    {t:'"Receber pagamento em dinheiro" e "receber pagamento por cartão" reaproveitam toda a sequência de "receber pagamento".', a:'GEN', w:'Herança de comportamento entre casos de uso: cada herdeiro acrescenta apenas a parte específica.'},
+    {t:'O professor faz tudo o que um usuário da biblioteca faz e ainda pode solicitar a compra de livros.', a:'GEN', w:'Generalização entre atores — o herdeiro mantém os casos de uso do pai e acrescenta os seus.'},
+    {t:'O Sistema do Banco é acionado pelo caso de uso "fazer saque" para validar a senha.', a:'COM', w:'Também é comunicação: o Sistema do Banco é ator secundário, acionado pelo caso de uso.'},
+    {t:'O trecho "buscar usuário" aparece em vários casos de uso e foi extraído para ser chamado por eles.', a:'INC', w:'Exatamente a definição de inclusão — semelhante à chamada de uma rotina.'},
+    {t:'Em datas de alta demanda, o caso de uso "reservar quarto" passa a cobrar uma taxa extra.', a:'EXT', w:'Depende de uma condição e não faz parte da sequência principal: extensão.'}
+  ];
+  var REL_NAMES = {COM:'Comunicação', INC:'Inclusão', EXT:'Extensão', GEN:'Generalização'};
+  var relStmt = document.getElementById('relStmt');
+  var relOpts = document.getElementById('relOpts');
+  var relFeedback = document.getElementById('relFeedback');
+  var relCounter = document.getElementById('relCounter');
+  var relScore = document.getElementById('relScore');
+  var relResetBtn = document.getElementById('relReset');
+  var relState = { i:0, hits:0, answered:0, locked:false };
+
+  function relRender(){
+    relStmt.textContent = REL_ITEMS[relState.i].t;
+    relCounter.textContent = 'Situação ' + (relState.i + 1) + ' de ' + REL_ITEMS.length;
+    relOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right', 'wrong'); });
+    relFeedback.textContent = 'Escolha um relacionamento para ver a justificativa.';
+    relScore.innerHTML = 'Acertos: <strong>' + relState.hits + '</strong> / ' + relState.answered;
+    relState.locked = false;
+  }
+  function relAnswer(choice, btn){
+    if(relState.locked) return;
+    relState.locked = true;
+    relState.answered++;
+    var item = REL_ITEMS[relState.i];
+    var correct = choice === item.a;
+    if(correct) relState.hits++;
+    relOpts.querySelectorAll('.tab').forEach(function(b){
+      if(b.dataset.rel === item.a) b.classList.add('right');
+      else if(b === btn) b.classList.add('wrong');
+    });
+    relFeedback.innerHTML =
+      (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + REL_NAMES[item.a] + '</span>') +
+      '<br>' + item.w;
+    relScore.innerHTML = 'Acertos: <strong>' + relState.hits + '</strong> / ' + relState.answered;
+    setTimeout(function(){
+      if(relState.i < REL_ITEMS.length - 1){
+        relState.i++;
+        relRender();
+      } else {
+        relCounter.textContent = 'Fim · ' + REL_ITEMS.length + ' situações';
+        relStmt.textContent = 'Você acertou ' + relState.hits + ' de ' + REL_ITEMS.length + '.';
+        relFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+      }
+    }, 2600);
+  }
+  if(relStmt && relOpts){
+    relOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ relAnswer(btn.dataset.rel, btn); });
+    });
+    if(relResetBtn){
+      relResetBtn.addEventListener('click', function(){
+        relState.i = 0; relState.hits = 0; relState.answered = 0;
+        relRender();
+      });
+    }
+    relRender();
   }
 
 })();

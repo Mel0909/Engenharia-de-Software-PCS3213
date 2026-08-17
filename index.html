@@ -476,6 +476,55 @@
   .uc-field{ font-family:var(--mono); font-size:12.5px; color:var(--cyan); }
   .uc-fieldval{ margin-top:6px; color:var(--ink-soft); font-size:15px; }
 
+  /* ---------- MÓDULO 04: CONSTRUÇÃO DO MODELO (banco de perguntas) ---------- */
+  .qbank{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 26px; box-shadow:var(--shadow); }
+  .qb-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:16px; }
+  .qb-head h4{ font-family:var(--display); font-size:16px; margin:0; color:var(--ink); }
+  .qb-count{ font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); }
+  .qb-count strong{ color:var(--cyan); }
+  .qb-item{ display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
+    background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:8px;
+    color:var(--ink-soft); font-family:var(--body); font-size:14.5px; line-height:1.5; transition:all .15s; }
+  .qb-item:hover{ border-color:var(--indigo); color:var(--ink); }
+  .qb-item:last-child{ margin-bottom:0; }
+  .qb-mark{ font-family:var(--mono); font-size:11px; color:var(--ink-faint); border:1px solid var(--line); border-radius:6px;
+    width:23px; height:23px; flex:0 0 auto; display:flex; align-items:center; justify-content:center; transition:all .15s; }
+  .qb-item.on{ background:var(--cyan-soft); border-color:rgba(57,214,190,0.45); color:var(--ink); }
+  .qb-item.on .qb-mark{ color:var(--cyan); border-color:var(--cyan); }
+  .qb-hint{ margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-family:var(--mono); font-size:12px; color:var(--ink-faint); line-height:1.7; }
+  .qb-2col{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
+  @media (max-width:860px){ .qb-2col{ grid-template-columns:1fr; } }
+
+  /* ---------- MÓDULO 04: FICHA COMPLETA DE CASO DE USO ---------- */
+  .ficha{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px; box-shadow:var(--shadow); }
+  .ficha-title{ font-family:var(--display); font-weight:600; font-size:19px; color:var(--ink); margin:0 0 4px; }
+  .ficha-id{ font-family:var(--mono); font-size:11px; color:var(--cyan); text-transform:uppercase; letter-spacing:.06em; }
+  .ficha-row{ display:grid; grid-template-columns:170px 1fr; gap:18px; padding:12px 0; border-bottom:1px dashed var(--line); }
+  @media (max-width:640px){ .ficha-row{ grid-template-columns:1fr; gap:5px; } }
+  .ficha-row:last-child{ border-bottom:none; padding-bottom:0; }
+  .ficha-row .fr-k{ font-family:var(--mono); font-size:12px; color:var(--cyan); }
+  .ficha-row .fr-v{ color:var(--ink-soft); font-size:15px; line-height:1.6; }
+  .ficha-row .fr-v ol, .ficha-row .fr-v ul{ margin:0; padding-left:20px; }
+  .ficha-row .fr-v li{ margin-bottom:5px; }
+  .ficha-row .fr-v .mark{ color:var(--amber); font-family:var(--mono); font-size:11px; }
+  .ficha-rows{ margin-top:16px; }
+
+  /* ---------- MÓDULO 04: PACOTE (figura 1) ---------- */
+  .pkg-stack{ display:flex; flex-direction:column; gap:0; align-items:stretch; max-width:420px; }
+  .pkg-node{ background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--cyan); border-radius:10px;
+    padding:14px 18px; font-family:var(--mono); font-size:13px; color:var(--ink-soft); }
+  .pkg-node .pn-h{ color:var(--ink); font-family:var(--display); font-size:14.5px; }
+  .pkg-bar{ width:2px; height:14px; background:var(--line); margin-left:24px; }
+
+  /* ---------- MÓDULO 04: ESTRUTURA DO DOCUMENTO ---------- */
+  .docstruct{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:760px){ .docstruct{ grid-template-columns:1fr; } }
+  .doc-item{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px; position:relative; }
+  .doc-item .di-n{ font-family:var(--mono); font-size:11.5px; color:var(--indigo); font-weight:700; letter-spacing:.05em; }
+  .doc-item h4{ font-family:var(--display); font-size:15.5px; margin:6px 0 8px; color:var(--ink); }
+  .doc-item ul{ margin:0; padding-left:17px; color:var(--ink-soft); font-size:14px; line-height:1.55; }
+  .doc-item li{ margin-bottom:5px; }
+
   /* ---------- PLACEHOLDER (future modules) ---------- */
   .placeholder-wrap{ padding:110px 0 80px; }
   .placeholder-dots{ margin-top:40px; display:grid; grid-template-columns:repeat(16,1fr); gap:8px; max-width:520px; }
@@ -1587,6 +1636,508 @@
       </div>
       <!-- ================= END MODULE: MODELO DE CASOS DE USO ================= -->
 
+      <!-- ================= MODULE 04: CONSTRUÇÃO DO MODELO DE CASOS DE USO ================= -->
+      <div class="module-page" data-module="construcao-casos-uso" id="page-construcao-casos-uso">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Construção do Modelo de Casos de Uso</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="cmc-passos">Os 7 passos</button>
+              <button class="navlink" data-target="cmc-atores">Atores</button>
+              <button class="navlink" data-target="cmc-casos">Casos de uso</button>
+              <button class="navlink" data-target="cmc-diagrama">Diagrama</button>
+              <button class="navlink" data-target="cmc-padrao">Descrição</button>
+              <button class="navlink" data-target="cmc-revisao">Revisão</button>
+              <button class="navlink" data-target="cmc-svie">Exemplo SVIE</button>
+              <button class="navlink" data-target="cmc-treino">Treino</button>
+              <button class="navlink" data-target="cmc-documento">Documento</button>
+              <button class="navlink" data-target="cmc-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="cmc-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 04</div>
+              <h1>Construção do Modelo de <em>Casos de Uso</em></h1>
+              <p class="lede">O módulo anterior definiu <strong style="color:var(--ink)">o que</strong> é o modelo. Este é o roteiro de <strong style="color:var(--ink)">como construí-lo</strong>: sete passos, quatro bancos de perguntas para não deixar nada de fora e um padrão de descrição para preencher campo por campo.</p>
+              <div class="hero-meta">
+                <span><strong>Autora</strong> Selma Shin Shimizu Melnikoff</span>
+                <span><strong>Revisor</strong> Jorge Luis Risco Becerra</span>
+                <span><strong>Emissão</strong> 15/08/2025</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card" id="cmcHeroCard">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">modelo.construir()</span>
+                </div>
+                <div class="src-list" id="cmcSteps"></div>
+                <div class="src-out" id="cmcStepOut">iniciando construção…</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ OS SETE PASSOS ============ -->
+        <section class="section" id="cmc-passos">
+          <div class="wrap">
+            <div class="eyebrow">Roteiro</div>
+            <h2 class="reveal">A construção tem ordem — e a ordem importa</h2>
+            <p class="intro reveal">O modelo é constituído por <strong style="color:var(--ink)">diagramas de casos de uso</strong> e pela <strong style="color:var(--ink)">descrição detalhada</strong> de cada caso de uso. Os diagramas dão a visão de alto nível; a descrição textual padronizada detalha a informação contida neles. A construção segue sete passos — e repare que a revisão de atores e casos de uso vem <em style="color:var(--ink); font-style:normal">antes</em> de desenhar o diagrama.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="cmcPassoList"></div>
+              <div class="hotel-detail" id="cmcPassoDetail"></div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Pré-requisito do passo 1</div>
+              <p>Tudo começa por analisar e compreender uma descrição do sistema a ser modelado — e <strong style="color:var(--ink)">supõe-se que essa descrição seja a mais consistente possível</strong>. Se o enunciado ainda tem contradições, elas se propagam para atores, casos de uso e para todos os modelos seguintes.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ESTRATÉGIA: ATORES ============ -->
+        <section class="section alt" id="cmc-atores">
+          <div class="wrap">
+            <div class="eyebrow">Passo 2</div>
+            <h2 class="reveal">Estratégia para identificar os atores</h2>
+            <p class="intro reveal">Os atores são identificados <strong style="color:var(--ink)">com base nos requisitos</strong> da descrição do sistema. A técnica é interrogar o enunciado: cada pergunta abaixo tende a revelar um grupo de usuários que você não tinha considerado. Clique para marcar as que já respondeu.</p>
+
+            <div class="qbank reveal" id="qbAtores"></div>
+
+            <h3 class="reveal" style="margin-top:48px; font-size:1.25rem;">Depois das perguntas, três acabamentos</h3>
+            <div class="np-grid reveal" style="margin-top:20px;">
+              <div class="np-card">
+                <div class="n">01 · CONSISTÊNCIA</div>
+                <p>Avaliar a consistência dos grupos de usuários levantados e, a partir deles, identificar os atores.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">02 · SIMILARIDADE</div>
+                <p>Organizar os atores em função da similaridade do seu perfil, caso seja necessário — dois cargos com o mesmo papel diante do sistema podem ser um único ator.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">03 · PAPEL</div>
+                <p>Descrever resumidamente o papel de cada ator. Essa descrição é reaproveitada depois, no campo <em style="font-style:normal; color:var(--ink)">Atores</em> da descrição detalhada.</p>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:28px;">
+              <div class="eyebrow">A pergunta que mais gente esquece</div>
+              <p>"Quem está interessado em algum requisito funcional do sistema, <strong style="color:var(--ink)">mesmo que não use diretamente o sistema</strong>?" — e também "quem fornece suporte e manutenção?". São atores legítimos que raramente aparecem no enunciado de forma explícita.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ESTRATÉGIA: CASOS DE USO ============ -->
+        <section class="section" id="cmc-casos">
+          <div class="wrap">
+            <div class="eyebrow">Passo 3</div>
+            <h2 class="reveal">Estratégia para identificar os casos de uso</h2>
+            <p class="intro reveal">Os casos de uso são identificados a partir <strong style="color:var(--ink)">dos atores e dos requisitos</strong>. São duas rodadas de perguntas: a primeira parte da necessidade do ator; a segunda olha o contexto das operações e costuma revelar os casos de uso que ninguém pediu, mas o sistema precisa ter.</p>
+
+            <div class="act-tabs reveal" id="cmcCasoTabs">
+              <button class="tab active" data-qb="necessidade">Rodada 1 · necessidade do ator</button>
+              <button class="tab" data-qb="contexto">Rodada 2 · contexto das operações</button>
+            </div>
+            <div class="qbank reveal" id="qbCasos"></div>
+
+            <h3 class="reveal" style="margin-top:52px; font-size:1.25rem;">Para cada caso de uso identificado</h3>
+            <div class="def-grid reveal" style="margin-top:20px;">
+              <div class="def-card" style="border-top:3px solid var(--indigo);">
+                <span class="tag">Evento iniciador</span>
+                <h3>Identificar o que dispara a interação</h3>
+                <p>Para cada caso de uso, identificar o evento que inicia cada interação do ator com o sistema. É esse evento que vai preencher o campo <em style="font-style:normal; color:var(--ink)">Evento Iniciador</em> da descrição detalhada.</p>
+              </div>
+              <div class="def-card" style="border-top:3px solid var(--cyan);">
+                <span class="tag">Nome</span>
+                <h3>Adequar os nomes</h3>
+                <p>Os nomes devem <strong style="color:var(--ink)">caracterizar as funções realizadas pelo sistema</strong> — na forma verbo + objeto, como <em style="font-style:normal; color:var(--ink)">pagar compras</em>, ou substantivo de ação, como <em style="font-style:normal; color:var(--ink)">pagamento das compras</em>.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:48px; font-size:1.25rem;">Duas classificações que mudam o plano de trabalho</h3>
+            <div class="compare reveal" style="margin-top:20px;">
+              <div class="compare-card a">
+                <h3>Primários</h3>
+                <p style="color:var(--ink-soft); margin:0;">Representam os <strong style="color:var(--ink)">objetivos dos atores no negócio</strong>.</p>
+                <ul>
+                  <li>Trazem benefício direto ao ator.</li>
+                  <li>São a razão de existir do sistema.</li>
+                </ul>
+                <div class="verdict">Ex.: montar lista de compras</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Secundários</h3>
+                <p style="color:var(--ink-soft); margin:0;">Não trazem benefícios diretos ao ator em relação ao negócio, mas são <strong style="color:var(--ink)">necessários para o funcionamento adequado</strong> do sistema.</p>
+                <ul>
+                  <li>Sustentam a operação: cadastros, manutenção de dados.</li>
+                  <li>Sem eles os primários não funcionam.</li>
+                </ul>
+                <div class="verdict">Ex.: cadastrar produto da loja</div>
+              </div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">Segunda classificação: criticidade</div>
+              <p>Classificar também os casos de uso <strong style="color:var(--ink)">mais críticos</strong> — os mais complexos, os mais desconhecidos, os mais importantes para o negócio. Essa classificação impacta a estratégia de detalhamento: detalhar os mais complexos no começo evita surpresas; detalhar antes os mais importantes para o cliente melhora o diálogo com ele.</p>
+            </div>
+
+            <div class="qb-2col reveal" style="margin-top:32px;">
+              <div>
+                <h3 style="font-size:1.15rem; margin-bottom:12px;">Descrição sucinta</h3>
+                <p style="color:var(--ink-soft); margin:0;">Descrever sucintamente cada caso de uso — <strong style="color:var(--ink)">cerca de 3 linhas</strong> — para se ter uma visão de conjunto do sistema. Esse texto é depois reaproveitado no campo <em style="font-style:normal; color:var(--ink)">Descrição</em> da ficha detalhada.</p>
+              </div>
+              <div>
+                <h3 style="font-size:1.15rem; margin-bottom:12px;">Pacotes</h3>
+                <p style="color:var(--ink-soft); margin:0;">Agrupar os casos de uso relacionados em <strong style="color:var(--ink)">pacotes</strong>, para não poluir o modelo. O pacote <em style="font-style:normal; color:var(--ink)">cadastrar produto</em> contém cadastrar, excluir, alterar e buscar produto.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ESTRATÉGIA: DIAGRAMA ============ -->
+        <section class="section alt" id="cmc-diagrama">
+          <div class="wrap">
+            <div class="eyebrow">Passo 5</div>
+            <h2 class="reveal">Estratégia para construir o diagrama</h2>
+            <p class="intro reveal">Com atores e casos de uso já identificados e revistos, o diagrama é quase transcrição. As convenções abaixo são <strong style="color:var(--ink)">sugestões de legibilidade</strong>, não regras da notação — e o critério de decisão é sempre o mesmo: o diagrama precisa ser de fácil entendimento.</p>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Posicionamento</h4>
+                <p>De uma forma geral, os atores ficam na <strong style="color:var(--ink)">parte periférica</strong> da área do diagrama e os casos de uso na <strong style="color:var(--ink)">parte central</strong>.</p>
+                <div class="uml-ex">é sugestão, não regra</div>
+              </div>
+              <div class="uml-card">
+                <h4>Pacotes em vez de tudo</h4>
+                <p>Para manter o diagrama legível, pode-se representar o <strong style="color:var(--ink)">pacote</strong> no lugar de todos os casos de uso que ele contém.</p>
+                <div class="uml-ex">cadastrar produto ⊃ cadastrar · excluir · alterar · buscar</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Escala típica</h4>
+                <p>Um sistema de pequeno a médio porte possui, tipicamente, <strong style="color:var(--ink)">10 a 20 casos de uso</strong> — e cabe em uma folha A4 ou em uma tela de ferramenta de modelagem.</p>
+                <div class="uml-ex">10 a 20 casos de uso · 1 página</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Sistemas maiores</h4>
+                <p>Para sistemas de maior porte, recomenda-se <strong style="color:var(--ink)">mais de um diagrama</strong>, cada um apresentando grupos de casos de uso logicamente relacionados.</p>
+                <div class="uml-ex">divida por afinidade lógica, não por tamanho</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PADRÃO DE DESCRIÇÃO ============ -->
+        <section class="section" id="cmc-padrao">
+          <div class="wrap">
+            <div class="eyebrow">Passo 6</div>
+            <h2 class="reveal">Estratégia para descrever um caso de uso</h2>
+            <p class="intro reveal">Antes de detalhar qualquer coisa, três decisões: definir os critérios de priorização, priorizar os casos de uso segundo esses critérios e selecionar um padrão de descrição. Só então descrever — <strong style="color:var(--ink)">na ordem de prioridade e no padrão escolhido</strong>.</p>
+
+            <div class="flow reveal">
+              <div class="flow-box">
+                <div class="fb-label">antes</div>
+                <div class="fb-title">Definir critérios</div>
+                <div class="fb-cluster">pode usar ou aprimorar a classificação de criticidade</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">antes</div>
+                <div class="fb-title">Priorizar</div>
+                <div class="fb-cluster">ordenar os casos de uso em função dos critérios</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">antes</div>
+                <div class="fb-title">Selecionar padrão</div>
+                <div class="fb-cluster">uniformizar o conteúdo entre toda a equipe</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">então</div>
+                <div class="fb-title">Descrever</div>
+                <div class="fb-cluster">seguindo a prioridade e o padrão</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">O uso de padrão uniformiza a descrição que é feita por uma equipe — analistas, projetistas, programadores e testadores leem a mesma coisa da mesma forma.</div>
+
+            <h3 class="reveal" style="margin-top:52px; font-size:1.25rem;">As dez partes do padrão</h3>
+            <p class="intro reveal" style="margin-top:12px;">Cada campo tem uma função, um exemplo e um passo de preenchimento próprio. Clique para ver o que entra em cada um — e o que <em style="font-style:normal; color:var(--ink)">não</em> entra.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="cmcCampoList"></div>
+              <div class="hotel-detail" id="cmcCampoDetail"></div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px; font-size:1.25rem;">Quando o caso de uso é um pacote</h3>
+            <p class="intro reveal" style="margin-top:12px;">Um caso de uso pode ser composto por mais de um caso de uso — é o caso de <em style="font-style:normal; color:var(--ink)">cadastrar cliente</em>, que reúne cadastrar, alterar, remover e consultar cliente. Nesse caso, o conjunto é descrito como um pacote, com <strong style="color:var(--ink)">cada caso de uso constituinte descrito segundo o mesmo padrão</strong>.</p>
+
+            <div class="pkg-stack reveal">
+              <div class="pkg-node"><span class="pn-h">Caso de uso n</span><br>pacote — descrito como sequência dos constituintes</div>
+              <div class="pkg-bar"></div>
+              <div class="pkg-node">Descrição do caso de uso <strong style="color:var(--ink)">n.1</strong></div>
+              <div class="pkg-bar"></div>
+              <div class="pkg-node">Descrição do caso de uso <strong style="color:var(--ink)">n.2</strong></div>
+              <div class="pkg-bar"></div>
+              <div class="pkg-node">Descrição do caso de uso <strong style="color:var(--ink)">n.3</strong></div>
+            </div>
+            <div class="flow-note reveal" style="margin-top:18px;">Figura 1 do documento — descrição de um pacote de casos de uso.</div>
+          </div>
+        </section>
+
+        <!-- ============ REVISÃO ============ -->
+        <section class="section alt" id="cmc-revisao">
+          <div class="wrap">
+            <div class="eyebrow">Passos 4 e 7</div>
+            <h2 class="reveal">Estratégia para rever atores e casos de uso</h2>
+            <p class="intro reveal">Depois de elaborado, o modelo é revisto em relação à sua <strong style="color:var(--ink)">consistência e completeza</strong>. As listas abaixo não são exaustivas — são as perguntas que conduzem a revisão. Use-as como checklist antes de entregar o modelo.</p>
+
+            <div class="qb-2col reveal">
+              <div class="qbank" id="qbRevAtores"></div>
+              <div class="qbank" id="qbRevCasos"></div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Dois testes que reprovam na hora</div>
+              <p><strong style="color:var(--ink)">Ator sem caso de uso:</strong> se um ator não está envolvido em pelo menos um caso de uso, ou ele não é ator, ou falta um caso de uso.</p>
+              <p><strong style="color:var(--ink)">Passos com objetivos diferentes:</strong> se os passos da descrição não fazem parte de um mesmo objetivo, é preciso separar em outros casos de uso.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ EXEMPLO: SVIE ============ -->
+        <section class="section" id="cmc-svie">
+          <div class="wrap">
+            <div class="eyebrow">Exemplo completo</div>
+            <h2 class="reveal">SVIE — Sistema de Venda de Ingressos para Espetáculos</h2>
+            <p class="intro reveal">O documento aplica toda a estratégia a um caso único. Leia o enunciado como o cliente o entregaria e acompanhe o que sai dele: três atores, quatro casos de uso, um diagrama e as fichas detalhadas.</p>
+
+            <div class="uc-story reveal">
+              O Banco BXX deseja desenvolver um sistema para venda de ingressos para espetáculos para os seus clientes. Esse sistema é acionado através de um serviço incluído no aplicativo desse banco. Ao solicitar a venda de ingressos, o SVIE apresenta a lista dos espetáculos em cartaz na cidade, em teatros conveniados com o Banco BXX. O cliente deve escolher o espetáculo, dia, horário e os lugares no teatro. O SVIE reserva temporariamente os lugares selecionados, calcula o valor total e solicita, ao Sistema On-line de Autorização de Débito (SOAD) do Banco BXX, verificar se o cliente tem saldo suficiente na sua conta. O SOAD faz a verificação, atualiza o saldo do cliente e envia a resposta ao SVIE. Se o saldo for suficiente, o SVIE reserva os lugares e envia os ingressos ao cliente. Se o saldo não for suficiente, o SVIE avisa o cliente e libera os lugares que foram reservados temporariamente.
+            </div>
+
+            <h3 class="reveal" style="margin-top:48px; font-size:1.25rem;">Os atores</h3>
+            <div class="np-grid reveal" style="margin-top:20px;">
+              <div class="np-card">
+                <div class="n">CLIENTE</div>
+                <p>Cliente do Banco BXX que vai comprar os ingressos. Ator primário de <em style="font-style:normal; color:var(--ink)">vender ingresso</em>.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">SOAD</div>
+                <p>Sistema On-line de Autorização de Débito, que verifica o estado financeiro do cliente. Ator secundário — é acionado pelo caso de uso, não o inicia.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">ADMINISTRADOR</div>
+                <p>Faz a manutenção dos dados de espetáculos, sessões e teatros no sistema, para a operação adequada do SVIE.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:48px; font-size:1.25rem;">O diagrama de casos de uso</h3>
+            <div class="ucd-wrap reveal" style="margin-top:20px;">
+              <div id="svieDiagram"></div>
+              <div class="ucd-caption">Figura 2 · O caso de uso <strong style="color:var(--ink-soft)">vender ingresso</strong> é usado pelo Cliente e consulta o SOAD para verificar o saldo. Os três cadastros são usados pelo Administrador e cada um é, na verdade, um pacote: cadastrar, alterar, remover e consultar.</div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px; font-size:1.25rem;">As fichas detalhadas</h3>
+            <p class="intro reveal" style="margin-top:12px;">O diagrama dá a visão geral, mas não descreve o funcionamento. Alterne entre as fichas — a primeira é o caso de uso primário; as quatro seguintes são os constituintes do pacote <em style="font-style:normal; color:var(--ink)">cadastrar espetáculo</em>. A descrição de <em style="font-style:normal; color:var(--ink)">cadastrar sessão</em> e <em style="font-style:normal; color:var(--ink)">cadastrar teatro</em> é semelhante.</p>
+
+            <div class="act-tabs reveal" id="svieTabs"></div>
+            <div class="ficha reveal" id="svieFicha"></div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">Leitura da ficha de "vender ingresso"</div>
+              <p>Os passos <strong style="color:var(--ink)">9 e 11</strong> são os pontos em que podem ocorrer atividades alternativas. No passo 9 o cliente pode alterar a seleção de lugares ou cancelar a reserva, em vez de confirmar. No passo 11 o sistema pode receber a autorização, a recusa, ou a informação de que a resposta do SOAD não chegou no intervalo de tempo esperado.</p>
+              <p style="margin-top:12px;">Já <em style="font-style:normal; color:var(--ink)">enviar dados da transação</em> e <em style="font-style:normal; color:var(--ink)">receber dados da transação</em> podem ser usados por outros casos de uso — por isso são descritos separadamente e aparecem como <strong style="color:var(--ink)">inclusões</strong>.</p>
+              <p style="margin-top:12px;">Repare no nível de abstração: o engenheiro precisa conhecer o processo de venda de ingresso e definir os passos da interação, mas <strong style="color:var(--ink)">não detalha ainda algoritmos nem estruturas de dados</strong>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TREINO ============ -->
+        <section class="section alt" id="cmc-treino">
+          <div class="wrap">
+            <div class="eyebrow">Treino</div>
+            <h2 class="reveal">Primário, secundário ou pacote?</h2>
+            <p class="intro reveal">Oito casos de uso de sistemas diferentes. Para cada um, decida como você o classificaria na etapa de identificação.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="cmcCounter">Situação 1 de 8</div>
+              <div class="cls-stmt" id="cmcStmt">—</div>
+              <div class="cls-opts" id="cmcOpts">
+                <button class="tab" data-cmc="PRI">Primário</button>
+                <button class="tab" data-cmc="SEC">Secundário</button>
+                <button class="tab" data-cmc="PAC">Pacote</button>
+              </div>
+              <div class="cls-feedback" id="cmcFeedback">Escolha uma classificação para ver a justificativa.</div>
+              <div class="cls-score" id="cmcScore">Acertos: <strong>0</strong> / 0</div>
+              <button class="sim-btn ghost" id="cmcReset" style="margin-left:0; margin-top:16px;">Reiniciar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ DOCUMENTO DE CASOS DE USO ============ -->
+        <section class="section" id="cmc-documento">
+          <div class="wrap">
+            <div class="eyebrow">Apêndice</div>
+            <h2 class="reveal">Estrutura do Documento de Casos de Uso</h2>
+            <p class="intro reveal">O modelo pronto é organizado em um documento com sete seções mais referências. A ordem não é decorativa: ela leva o leitor do contexto ao detalhe e termina na rastreabilidade.</p>
+
+            <div class="docstruct reveal">
+              <div class="doc-item">
+                <div class="di-n">01</div>
+                <h4>Introdução</h4>
+                <ul>
+                  <li>Apresentar o objetivo do documento.</li>
+                  <li>Referenciar e ser compatível com o documento de Especificação de Requisitos.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">02</div>
+                <h4>Descrição do Sistema</h4>
+                <ul>
+                  <li>Apresentar a descrição sucinta do sistema.</li>
+                  <li>Ser compatível com a descrição fornecida como enunciado do desenvolvimento.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">03</div>
+                <h4>Diagramas de Casos de Uso</h4>
+                <ul>
+                  <li>Apresentar os diagramas de casos de uso.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">04</div>
+                <h4>Descrição de Atores</h4>
+                <ul>
+                  <li>Descrever sucintamente os atores.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">05</div>
+                <h4>Descrição Sucinta de Casos de Uso</h4>
+                <ul>
+                  <li>Apresentar cada caso de uso em 2 ou 3 linhas, para ajudar a entender a visão geral do diagrama.</li>
+                  <li>Essa descrição pode ser reaproveitada na descrição detalhada.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">06</div>
+                <h4>Descrição de Casos de Uso</h4>
+                <ul>
+                  <li>Descrever os casos de uso conforme o padrão de dez campos.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">07</div>
+                <h4>Relação entre funções do sistema e casos de uso</h4>
+                <ul>
+                  <li>As funções devem ser as descritas na Especificação de Requisitos e realizadas pelos casos de uso identificados.</li>
+                  <li>Finalidade: apresentar a <strong style="color:var(--ink)">rastreabilidade</strong> dos casos de uso para as funções de software.</li>
+                  <li>Pode-se usar uma tabela.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">08</div>
+                <h4>Referências</h4>
+                <ul>
+                  <li>Listar os documentos e textos utilizados na elaboração.</li>
+                  <li>Citar, pelo menos, o documento que contenha a descrição do sistema.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="cmc-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">Seis perguntas sobre o processo de construção — tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Quais são os sete passos da construção do modelo de casos de uso?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Compreender a descrição → identificar atores → identificar casos de uso → rever atores e casos de uso → elaborar diagramas → elaborar descrição detalhada → rever o modelo</div>
+                <p>Note as duas revisões: uma logo depois da identificação, antes de desenhar, e outra no fim, sobre o modelo completo. Revisar antes do diagrama é mais barato do que redesenhar depois.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">Qual é a diferença entre caso de uso primário e secundário?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Primário representa o objetivo do ator no negócio; secundário é necessário ao funcionamento, sem benefício direto</div>
+                <p>Montar lista de compras é primário — é o que o ator quer. Cadastrar produto da loja é secundário — ninguém compra um sistema para cadastrar produtos, mas sem isso a lista de compras não existe.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Para que serve classificar os casos de uso por criticidade?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para definir a estratégia de detalhamento</div>
+                <p>Os mais críticos são os mais complexos, os mais desconhecidos e os mais importantes para o negócio. Detalhar os mais complexos primeiro evita surpresas; detalhar antes os mais importantes para o cliente melhora o diálogo com ele.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">O que vai na sequência de eventos e o que vai nas extensões?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Sequência de eventos: o fluxo principal, numerado, com o sujeito explícito. Extensões: fluxos alternativos e exceções</div>
+                <p>Cada passo do fluxo principal precisa explicitar se o sujeito é o ator ou o sistema. As extensões cobrem operações alternativas (outro tipo de pagamento) e exceções (pagamento não autorizado), sempre anotando o passo em que ocorrem e a condição que leva até elas.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Quantos casos de uso tem um sistema de pequeno a médio porte, e o que fazer quando há mais?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Tipicamente 10 a 20 casos de uso, em uma folha A4 ou uma tela</div>
+                <p>Para sistemas de maior porte, usar mais de um diagrama, cada um com grupos de casos de uso logicamente relacionados. Também se pode representar pacotes no lugar de todos os casos de uso, para não poluir o diagrama.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 6</span>
+              <p class="q">Para que serve a seção de relação entre funções do sistema e casos de uso?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para apresentar a rastreabilidade dos casos de uso para as funções de software</div>
+                <p>As funções devem ser as descritas na Especificação de Requisitos, e cada uma precisa ser realizada por algum caso de uso identificado. Uma tabela costuma resolver — e é o que prova que nada do requisito ficou de fora do modelo.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Construção do Modelo de Casos de Uso · EPUSP — Dep. de Engenharia de Computação e Sistemas Digitais · 15/08/2025<br>
+              [1] Material de aula da disciplina PCS3213 Engenharia de Software<br>
+              [2] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 2ª ed., Elsevier, 2007, 369p.<br>
+              [3] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 3ª ed., Elsevier, 2015, 416p.
+            </div>
+            <div class="credit">P1 · Módulo 04 · Autora Selma Shin Shimizu Melnikoff · Revisor Jorge Luis Risco Becerra — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: CONSTRUÇÃO DO MODELO DE CASOS DE USO ================= -->
+
     </div>
   </div>
 </div>
@@ -1601,7 +2152,8 @@
   const MODULES = [
     {id:'modelos-processo', group:'P1', title:'Modelos de Processos de Software'},
     {id:'requisitos', group:'P1', title:'Levantamento e Análise de Requisitos'},
-    {id:'casos-uso', group:'P1', title:'Modelo de Casos de Uso'}
+    {id:'casos-uso', group:'P1', title:'Modelo de Casos de Uso'},
+    {id:'construcao-casos-uso', group:'P1', title:'Construção do Modelo de Casos de Uso'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -2459,6 +3011,486 @@
     }
     relRender();
   }
+
+  /* ============================================================
+     MÓDULO 04 — HERO: OS SETE PASSOS EM CICLO
+     ============================================================ */
+  var CMC_PASSOS = [
+    {n:'01', curto:'Compreender a descrição', t:'Analisar e compreender a descrição do sistema',
+     d:'Analisar e compreender uma descrição do sistema a ser modelado. Supõe-se que essa descrição seja a mais consistente possível.',
+     itens:['A descrição do sistema é a matéria-prima de tudo o que vem depois.','Inconsistências no enunciado se propagam para atores, casos de uso e para todos os modelos seguintes.'],
+     nota:'Se você não consegue explicar o sistema com suas palavras, não tem como identificar atores — pare aqui e resolva o enunciado.'},
+    {n:'02', curto:'Identificar atores', t:'Identificar os atores',
+     d:'Identificar os atores com base nos requisitos identificados na descrição do sistema, por meio de um conjunto de perguntas dirigidas ao enunciado.',
+     itens:['Identificar os grupos de usuários participantes do sistema.','Avaliar a consistência dos grupos e identificar os atores.','Organizar os atores em função da similaridade do seu perfil, se necessário.','Descrever resumidamente o papel dos atores.'],
+     nota:'Os atores definem o contorno do sistema: quem está fora e o que, portanto, o sistema não faz.'},
+    {n:'03', curto:'Identificar casos de uso', t:'Identificar os casos de uso para cada ator',
+     d:'Identificar os casos de uso com base nos atores e nos requisitos, em duas rodadas: pela necessidade do ator e pelo contexto das operações.',
+     itens:['Identificar os casos de uso necessários para cada ator.','Considerar o contexto das operações para complementar os casos de uso.','Identificar o evento iniciador de cada um e adequar os nomes.','Classificar em primários e secundários, e por criticidade.','Descrever sucintamente cada caso de uso (cerca de 3 linhas).','Agrupar os relacionados em pacotes.'],
+     nota:'É o passo mais longo da construção — e o que mais se beneficia de perguntas sistemáticas em vez de intuição.'},
+    {n:'04', curto:'Rever atores e casos de uso', t:'Rever os atores e os casos de uso',
+     d:'Revisar consistência e completeza do que foi identificado, antes de investir tempo em diagramas e fichas.',
+     itens:['Todos os atores foram encontrados? Cada ator está em pelo menos um caso de uso?','O conjunto de casos de uso de cada ator cumpre a responsabilidade dele?','Existem atores com papéis semelhantes que deveriam ser um só?'],
+     nota:'Revisar antes de desenhar é mais barato do que redesenhar depois. Esse passo vem propositalmente antes do diagrama.'},
+    {n:'05', curto:'Elaborar diagramas', t:'Elaborar o(s) diagrama(s) de casos de uso',
+     d:'Com atores e casos de uso já revistos, montar o diagrama seguindo as convenções da notação e as recomendações de legibilidade.',
+     itens:['Atores na periferia, casos de uso no centro — sugestão, não regra.','Usar pacotes em vez de todos os casos de uso, para não poluir.','10 a 20 casos de uso é o típico para porte pequeno/médio.','Sistemas maiores: mais de um diagrama, por grupos logicamente relacionados.'],
+     nota:'Critério único de decisão: o diagrama tem de ser de fácil entendimento por quem não construiu o modelo.'},
+    {n:'06', curto:'Descrição detalhada', t:'Elaborar a descrição detalhada dos casos de uso',
+     d:'Definir critérios de priorização, priorizar, selecionar um padrão de descrição e então descrever cada caso de uso nessa ordem e nesse padrão.',
+     itens:['Definir os critérios para priorizar os casos de uso para detalhamento.','Priorizar os casos de uso em função dos critérios definidos.','Selecionar um padrão de descrição para uniformizar o conteúdo.','Descrever, seguindo a prioridade e o padrão.'],
+     nota:'O padrão existe para que a descrição feita por pessoas diferentes seja lida da mesma forma por toda a equipe.'},
+    {n:'07', curto:'Rever o modelo', t:'Rever o Modelo de Casos de Uso',
+     d:'Revisão final do modelo completo — diagramas e descrições — em relação à sua consistência e completeza.',
+     itens:['A descrição dá uma visão completa de como o sistema se comporta em resposta ao estímulo externo?','Todos os passos fazem parte de um mesmo objetivo? Se não, separar.','As condições de falha e sucesso e as pré/pós-condições estão claras?','No final do caso de uso, os objetivos do ator são atingidos?'],
+     nota:'As perguntas de revisão não são exaustivas: servem para conduzir a revisão, não para encerrá-la.'}
+  ];
+
+  var cmcStepsEl = document.getElementById('cmcSteps');
+  var cmcStepOut = document.getElementById('cmcStepOut');
+  if(cmcStepsEl && cmcStepOut){
+    cmcStepsEl.innerHTML = CMC_PASSOS.map(function(p){
+      return '<div class="src-item"><span class="si-dot"></span><span class="si-name">' + p.n + ' · ' + p.curto + '</span></div>';
+    }).join('');
+    var cmcItems = cmcStepsEl.querySelectorAll('.src-item');
+    var cmcHIdx = 0;
+    (function cmcTick(){
+      cmcItems.forEach(function(el, i){ el.classList.toggle('on', i <= cmcHIdx); });
+      cmcStepOut.innerHTML = 'passo ' + CMC_PASSOS[cmcHIdx].n + ' · <strong>' + CMC_PASSOS[cmcHIdx].curto.toLowerCase() + '</strong>';
+      cmcHIdx = (cmcHIdx + 1) % CMC_PASSOS.length;
+      setTimeout(cmcTick, 1500);
+    })();
+  }
+
+  /* ============================================================
+     MÓDULO 04 — EXPLORADOR DOS SETE PASSOS
+     ============================================================ */
+  var cmcPassoList = document.getElementById('cmcPassoList');
+  var cmcPassoDetail = document.getElementById('cmcPassoDetail');
+  function renderCmcPasso(n){
+    var p = CMC_PASSOS.filter(function(x){ return x.n === n; })[0];
+    if(!p) return;
+    cmcPassoDetail.innerHTML =
+      '<span class="hd-tag">Passo ' + p.n + ' de 07</span>' +
+      '<h3>' + p.t + '</h3>' +
+      '<p style="color:var(--ink-soft); font-size:15px; margin:0 0 14px;">' + p.d + '</p>' +
+      '<ul>' + p.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>' +
+      '<div class="hd-note">' + p.nota + '</div>';
+    cmcPassoList.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', b.dataset.pn === n); });
+  }
+  if(cmcPassoList && cmcPassoDetail){
+    cmcPassoList.innerHTML = CMC_PASSOS.map(function(p){
+      return '<button class="hotel-item" data-pn="' + p.n + '"><span class="hi-n">' + p.n + '</span>' + p.curto + '</button>';
+    }).join('');
+    cmcPassoList.querySelectorAll('.hotel-item').forEach(function(btn){
+      btn.addEventListener('click', function(){ renderCmcPasso(btn.dataset.pn); });
+    });
+    renderCmcPasso(CMC_PASSOS[0].n);
+  }
+
+  /* ============================================================
+     MÓDULO 04 — BANCOS DE PERGUNTAS (checklists)
+     ============================================================ */
+  function buildQbank(el, cfg){
+    if(!el) return;
+    el.innerHTML =
+      '<div class="qb-head"><h4>' + cfg.titulo + '</h4><span class="qb-count">marcadas <strong>0</strong> / ' + cfg.itens.length + '</span></div>' +
+      '<div class="qb-body">' + cfg.itens.map(function(q, i){
+        return '<button class="qb-item" data-i="' + i + '"><span class="qb-mark">' + String(i+1) + '</span><span>' + q + '</span></button>';
+      }).join('') + '</div>' +
+      (cfg.hint ? '<div class="qb-hint">' + cfg.hint + '</div>' : '');
+    var counter = el.querySelector('.qb-count strong');
+    el.querySelectorAll('.qb-item').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        btn.classList.toggle('on');
+        var mark = btn.querySelector('.qb-mark');
+        mark.textContent = btn.classList.contains('on') ? '✓' : btn.dataset.i * 1 + 1;
+        counter.textContent = el.querySelectorAll('.qb-item.on').length;
+      });
+    });
+  }
+
+  buildQbank(document.getElementById('qbAtores'), {
+    titulo: 'Perguntas para identificar os grupos de usuários',
+    itens: [
+      'Que órgãos, empresas ou pessoas (cargos) irão utilizar o sistema?',
+      'Que outros sistemas irão se comunicar com o sistema?',
+      'Quem / o que obtém informação do sistema?',
+      'Quem / o que fornece informação ao sistema?',
+      'Alguém deve ser informado de alguma ocorrência no sistema?',
+      'Quem está interessado em algum requisito funcional do sistema, mesmo que não use diretamente o sistema?',
+      'Em que lugar da organização o sistema vai ser usado?',
+      'Quem / o que fornece suporte e manutenção ao sistema?'
+    ],
+    hint: 'Depois de responder: avaliar a consistência dos grupos, identificar os atores, organizá-los por similaridade de perfil e descrever resumidamente o papel de cada um.'
+  });
+
+  var QB_CASOS = {
+    necessidade: {
+      titulo: 'Rodada 1 · perguntas a partir da necessidade do ator',
+      itens: [
+        'Por que e para que o ator quer usar o sistema?',
+        'Quais são as necessidades e os objetivos do ator em relação ao uso do sistema?',
+        'Que informações o sistema deve produzir?',
+        'O sistema deve realizar alguma ação que ocorre regularmente no tempo?',
+        'Para cada requisito funcional, existe um (ou mais) caso(s) de uso para atendê-lo?',
+        'O ator precisa informar o sistema sobre eventos externos ou mudanças?'
+      ],
+      hint: 'Esta rodada cobre o que o ator pede. A pergunta sobre requisitos funcionais é a que garante a rastreabilidade: nenhum requisito pode ficar sem caso de uso.'
+    },
+    contexto: {
+      titulo: 'Rodada 2 · perguntas a partir do contexto das operações',
+      itens: [
+        'A função realizada deve ser desfeita (caso de uso oposto)?',
+        'Existe a necessidade de um caso de uso que preceda o caso de uso considerado?',
+        'Existe a necessidade de um caso de uso que suceda o caso de uso considerado?',
+        'Existe alguma função do sistema que o ator não inicia? Como é iniciada?',
+        'O ator precisa ser informado sobre ocorrências internas do sistema?'
+      ],
+      hint: 'A consideração destas perguntas define os casos de uso adicionais, necessários aos atores — normalmente os que ninguém pediu, mas sem os quais o sistema não opera.'
+    }
+  };
+  var cmcCasoTabs = document.getElementById('cmcCasoTabs');
+  var qbCasosEl = document.getElementById('qbCasos');
+  if(cmcCasoTabs && qbCasosEl){
+    cmcCasoTabs.querySelectorAll('.tab').forEach(function(t){
+      t.addEventListener('click', function(){
+        cmcCasoTabs.querySelectorAll('.tab').forEach(function(x){ x.classList.remove('active'); });
+        t.classList.add('active');
+        buildQbank(qbCasosEl, QB_CASOS[t.dataset.qb]);
+      });
+    });
+    buildQbank(qbCasosEl, QB_CASOS.necessidade);
+  }
+
+  buildQbank(document.getElementById('qbRevAtores'), {
+    titulo: 'Revisão dos atores',
+    itens: [
+      'Todos os atores foram encontrados? Todos os papéis representados pelos usuários no ambiente do sistema foram identificados e modelados?',
+      'Cada ator está envolvido com pelo menos um caso de uso?',
+      'É possível identificar pessoas na organização que possam desempenhar o papel de cada ator identificado?',
+      'Existem atores que desempenham papéis semelhantes em relação ao sistema? Se sim, avaliar transformá-los em um único ator e ajustar o caso de uso.'
+    ]
+  });
+
+  buildQbank(document.getElementById('qbRevCasos'), {
+    titulo: 'Revisão dos casos de uso',
+    itens: [
+      'O conjunto de casos de uso de cada ator permite o cumprimento da sua responsabilidade através do sistema?',
+      'A descrição é clara em relação à necessidade do ator, para atingir o objetivo do caso de uso?',
+      'A descrição apresenta uma visão completa de como o sistema se comporta (ação e reação) em resposta ao estímulo externo?',
+      'O caso de uso mostra claramente o evento iniciador e a participação dos atores em termos de papéis e responsabilidades?',
+      'O caso de uso identifica a informação que o ator precisa saber para atingir seu objetivo?',
+      'O caso de uso identifica a informação que o sistema precisa possuir para atender à solicitação do ator?',
+      'O caso de uso descreve as ações necessárias para atingir o objetivo desejado pelo ator?',
+      'O caso de uso identifica as interações que o sistema deve realizar com os atores, de acordo com as suas responsabilidades?',
+      'Todos os passos estão de acordo com o que o usuário deseja durante a operação do sistema?',
+      'Todos os passos fazem parte de um mesmo objetivo? Se não, separar em outros casos de uso.',
+      'As condições de falha e sucesso são identificadas claramente? Quais são as características consideradas pelo ator como sucesso?',
+      'As pré e pós-condições estão claramente identificadas?',
+      'No final do caso de uso, os objetivos desejados pelo ator são atingidos?'
+    ]
+  });
+
+  /* ============================================================
+     MÓDULO 04 — OS DEZ CAMPOS DO PADRÃO
+     ============================================================ */
+  var CMC_CAMPOS = [
+    {id:'ident', nome:'Identificador', papel:'Identificador numérico, para facilitar a referência a um caso de uso.',
+     itens:['Caso de uso 1 · vender ingresso','Caso de uso 2.1 · cadastrar espetáculo (constituinte do pacote 2)'],
+     como:'A numeração hierárquica (n.1, n.2) é o que permite descrever um pacote como sequência de casos de uso constituintes.'},
+    {id:'nome', nome:'Nome', papel:'Um nome que identifica a atividade realizada pelo caso de uso. Deve ser da forma verbo + objeto, ou substantivo que mostra uma ação + objeto.',
+     itens:['pagar compras','pagamento das compras'],
+     como:'O nome deve ser o mesmo do Diagrama de Casos de Uso — divergência entre diagrama e ficha é erro de consistência.'},
+    {id:'desc', nome:'Descrição', papel:'Deve definir o objetivo do caso de uso.',
+     itens:['Este caso de uso descreve o processo de venda de ingressos para os espetáculos cadastrados.'],
+     como:'Recomenda-se reaproveitar a descrição sucinta (cerca de 3 linhas) elaborada na etapa de identificação dos casos de uso.'},
+    {id:'evento', nome:'Evento Iniciador', papel:'Nome do evento que inicia a execução do caso de uso.',
+     itens:['solicitação de pagamento da compra','seleção da venda de ingresso no aplicativo do banco'],
+     como:'Já foi identificado na etapa anterior, ao definir o evento que inicia cada interação do ator com o sistema.'},
+    {id:'atores', nome:'Atores', papel:'Agentes externos participantes do caso de uso, com indicação de primário e secundário.',
+     itens:['Cliente do banco BXX (primário)','SOAD (secundário)'],
+     como:'Recomenda-se usar a descrição sucinta do papel elaborada na identificação dos atores. Se aparecer um ator que não estava na lista, incluí-lo e descrevê-lo.'},
+    {id:'pre', nome:'Pré-condições', papel:'Condições que permitem iniciar a execução do caso de uso.',
+     itens:['Cliente autenticado no aplicativo do banco.','usuário autenticado como Administrador no sistema'],
+     como:'É o estado inicial do sistema que permite a execução. Se o cliente não se autenticou, a opção nem aparece na tela — a pré-condição explica por quê.'},
+    {id:'seq', nome:'Sequência de Eventos', papel:'Descrição dos passos da sequência do fluxo principal, explicitando o que o sistema faz.',
+     itens:['A principal sequência deve ser identificada — ex.: pagamento com cartão ou com dinheiro.','Os passos devem ser numerados.','Cada passo deve explicitar o sujeito da ação: ator ou sistema.'],
+     como:'É a interação entre os atores e o sistema no caminho de sucesso. Erros e alternativas não entram aqui — vão para as extensões.'},
+    {id:'pos', nome:'Pós-condições', papel:'Condições que devem ser verdadeiras após a execução do caso de uso.',
+     itens:['pagamento finalizado','lugares marcados como vendidos, ingressos e mensagem de confirmação enviados ao cliente'],
+     como:'É o estado final do sistema. O caso de uso termina quando o ator tem a sua necessidade satisfeita — a pós-condição é o critério objetivo disso.'},
+    {id:'ext', nome:'Extensões', papel:'Sequências de passos dos fluxos alternativos (não principais) do caso de uso.',
+     itens:['Operação alternativa: o fluxo principal descreve o pagamento por cartão; os alternativos, outros tipos de pagamento.','Exceção em fluxo normal: emitir mensagem de erro se o pagamento não for autorizado.'],
+     como:'Anotar o passo do fluxo principal em que cada extensão ocorre e a condição que leva ao fluxo alternativo. Descrever o fluxo alternativo se um detalhamento for necessário.'},
+    {id:'inc', nome:'Inclusões', papel:'Lista de casos de uso usados pelo caso de uso corrente, com descrição sucinta se necessário.',
+     itens:['Buscar cliente (para acessar os dados do cliente)','Enviar dados de transação (passo 10) · Receber dados de transação (passo 11)'],
+     como:'Identificar os passos que possuem partes comuns a outros casos de uso e transformá-los em casos de uso para inclusão.'}
+  ];
+  var cmcCampoList = document.getElementById('cmcCampoList');
+  var cmcCampoDetail = document.getElementById('cmcCampoDetail');
+  function renderCmcCampo(id){
+    var c = CMC_CAMPOS.filter(function(x){ return x.id === id; })[0];
+    if(!c) return;
+    cmcCampoDetail.innerHTML =
+      '<span class="hd-tag">Padrão de descrição · campo</span>' +
+      '<h3>' + c.nome + '</h3>' +
+      '<p style="color:var(--ink-soft); font-size:15px; margin:0 0 14px;">' + c.papel + '</p>' +
+      '<ul>' + c.itens.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>' +
+      '<div class="hd-note">' + c.como + '</div>';
+    cmcCampoList.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', b.dataset.cid === id); });
+  }
+  if(cmcCampoList && cmcCampoDetail){
+    cmcCampoList.innerHTML = CMC_CAMPOS.map(function(c, i){
+      return '<button class="hotel-item" data-cid="' + c.id + '"><span class="hi-n">' + String(i+1).padStart(2,'0') + '</span>' + c.nome + '</button>';
+    }).join('');
+    cmcCampoList.querySelectorAll('.hotel-item').forEach(function(btn){
+      btn.addEventListener('click', function(){ renderCmcCampo(btn.dataset.cid); });
+    });
+    renderCmcCampo(CMC_CAMPOS[0].id);
+  }
+
+  /* ============================================================
+     MÓDULO 04 — DIAGRAMA DO SVIE
+     ============================================================ */
+  var svieDiagram = document.getElementById('svieDiagram');
+  if(svieDiagram && typeof ucSVG === 'function'){
+    svieDiagram.innerHTML = ucSVG(700, 360,
+      ucActor(58, 92, 'Cliente') +
+      ucCase(350, 84, 96, 34, ['vender ingresso']) +
+      ucActor(648, 92, 'SOAD') +
+      ucConn(76, 84, 250, 84, {}) +
+      ucConn(450, 84, 628, 84, {}) +
+      ucCase(140, 215, 88, 32, ['cadastrar', 'teatro'], 'amber') +
+      ucCase(350, 215, 88, 32, ['cadastrar', 'espetáculo'], 'amber') +
+      ucCase(560, 215, 88, 32, ['cadastrar', 'sessão'], 'amber') +
+      ucActor(350, 305, 'Administrador') +
+      ucConn(340, 280, 160, 250, {}) +
+      ucConn(350, 279, 350, 249, {}) +
+      ucConn(360, 280, 540, 250, {})
+    );
+  }
+
+  /* ============================================================
+     MÓDULO 04 — FICHAS DETALHADAS DO SVIE
+     ============================================================ */
+  var SVIE_FICHAS = [
+    {
+      key:'vender', tab:'1 · Vender ingresso', id:'Caso de uso 1', nome:'Vender ingresso',
+      desc:'Este caso de uso descreve o processo de venda de ingressos para os espetáculos cadastrados.',
+      evento:'seleção da venda de ingresso no aplicativo do banco',
+      atores:['Cliente do banco BXX <span class="mark">(primário)</span>', 'SOAD <span class="mark">(secundário)</span>'],
+      pre:'Cliente autenticado no aplicativo do banco.',
+      seq:[
+        'Cliente aciona venda de ingresso.',
+        'Sistema apresenta a lista de espetáculos em cartaz.',
+        'Cliente seleciona o espetáculo desejado.',
+        'Sistema exibe as datas e as sessões dos espetáculos em cartaz, com lugares vagos.',
+        'Cliente seleciona uma sessão com lugares vagos.',
+        'Sistema apresenta um mapa do teatro, com os lugares vagos em destaque.',
+        'Cliente informa os lugares desejados e finaliza.',
+        'Sistema exibe estes lugares como reservados (temporariamente indisponíveis) e solicita confirmação ao cliente.',
+        'Cliente confirma a reserva.',
+        'Sistema envia mensagem de solicitação de venda de ingressos ao SOAD do banco BXX (através do caso de uso enviar dados de transação).',
+        'Sistema recebe mensagem do SOAD com a autorização (através do caso de uso receber dados de transação).',
+        'Sistema efetiva a reserva, marcando os lugares como vendidos (indisponíveis).',
+        'Sistema envia os ingressos e a mensagem de confirmação da venda ao Cliente e encerra o caso de uso.'
+      ],
+      pos:'Lugares do espetáculo marcados como vendidos; ingressos e mensagem de confirmação de venda enviados ao cliente.',
+      ext:[
+        'Cliente cancela a reserva <span class="mark">(passo 9)</span>: sistema cancela a reserva dos lugares selecionados e encerra o caso de uso.',
+        'Cliente solicita alteração dos lugares <span class="mark">(passo 9)</span>: sistema permite alteração dos lugares selecionados e vai para o passo 7.',
+        'SOAD não autoriza o débito <span class="mark">(passo 11)</span>: sistema cancela a reserva temporária, apresenta a mensagem de erro ao cliente e encerra o caso de uso.',
+        'Erro de temporização na comunicação com o SOAD <span class="mark">(passo 11)</span>: sistema cancela a reserva temporária, apresenta a mensagem de erro ao cliente e encerra o caso de uso.'
+      ],
+      inc:['Caso de uso Enviar dados de transação <span class="mark">(passo 10)</span>.', 'Caso de uso Receber dados de transação <span class="mark">(passo 11)</span>.']
+    },
+    {
+      key:'cad', tab:'2.1 · Cadastrar espetáculo', id:'Caso de uso 2.1', nome:'Cadastrar espetáculo',
+      desc:'Este caso de uso descreve a inserção de um novo espetáculo no sistema.',
+      evento:'solicitação de cadastro de espetáculo',
+      atores:['Administrador'],
+      pre:'Usuário autenticado como Administrador no sistema.',
+      seq:[
+        'Administrador solicita operação de cadastro de espetáculo.',
+        'Sistema solicita os dados relativos ao novo espetáculo.',
+        'Administrador fornece os dados do novo espetáculo.',
+        'Sistema verifica se o espetáculo já está cadastrado.',
+        'Sistema insere o novo espetáculo e exibe o resultado.',
+        'Administrador finaliza a operação.'
+      ],
+      pos:'Novo espetáculo cadastrado.',
+      ext:[
+        'Espetáculo a ser cadastrado já existe <span class="mark">(passo 4)</span>: sistema apresenta mensagem ao administrador e vai para o passo 2.',
+        'Dados fornecidos do espetáculo não consistentes <span class="mark">(passo 4)</span>: sistema apresenta mensagem e vai para o passo 2.',
+        'Administrador cancela a operação <span class="mark">(passo 3)</span>: o sistema finaliza a operação.'
+      ],
+      inc:['Caso de uso Consultar espetáculo <span class="mark">(passo 4)</span>.']
+    },
+    {
+      key:'rem', tab:'2.2 · Remover espetáculo', id:'Caso de uso 2.2', nome:'Remover espetáculo',
+      desc:'Este caso de uso descreve a remoção de um espetáculo existente no sistema.',
+      evento:'solicitação de remoção de espetáculo',
+      atores:['Administrador'],
+      pre:'Usuário autenticado como Administrador no sistema.',
+      seq:[
+        'Administrador solicita operação de remoção de espetáculo.',
+        'Sistema solicita a identificação do espetáculo a ser removido.',
+        'Administrador fornece a identificação do espetáculo.',
+        'Sistema verifica se tem sessões programadas.',
+        'Sistema remove o espetáculo e exibe a mensagem de sucesso.',
+        'Administrador finaliza a operação.'
+      ],
+      pos:'Espetáculo removido.',
+      ext:[
+        'Espetáculo a ser removido tem sessões programadas <span class="mark">(passo 4)</span>: sistema apresenta mensagem ao administrador e vai para o passo 2.',
+        'Administrador cancela a operação <span class="mark">(passo 3)</span>.'
+      ],
+      inc:['Caso de uso Consultar sessões do espetáculo <span class="mark">(passo 4)</span>.']
+    },
+    {
+      key:'alt', tab:'2.3 · Alterar espetáculo', id:'Caso de uso 2.3', nome:'Alterar espetáculo',
+      desc:'Este caso de uso descreve a alteração dos dados de um espetáculo existente no sistema.',
+      evento:'solicitação de alteração de espetáculo',
+      atores:['Administrador'],
+      pre:'Usuário autenticado como Administrador no sistema.',
+      seq:[
+        'Administrador solicita operação de alteração de espetáculo.',
+        'Sistema solicita a identificação do espetáculo a ser alterado.',
+        'Administrador fornece a identificação do espetáculo.',
+        'Sistema apresenta os dados do espetáculo.',
+        'Administrador altera os dados do espetáculo e finaliza alteração.',
+        'Sistema verifica consistência dos dados.',
+        'Sistema altera os dados do espetáculo e exibe o resultado.',
+        'Administrador finaliza a operação.'
+      ],
+      pos:'Espetáculo alterado.',
+      ext:[
+        'Dados fornecidos do espetáculo não consistentes <span class="mark">(passo 6)</span>: sistema apresenta mensagem ao administrador e vai para o passo 5.',
+        'Administrador cancela a operação <span class="mark">(passo 5)</span>.'
+      ],
+      inc:['Caso de uso Consultar espetáculo <span class="mark">(passo 4)</span>.']
+    },
+    {
+      key:'con', tab:'2.4 · Consultar espetáculo', id:'Caso de uso 2.4', nome:'Consultar espetáculo',
+      desc:'Este caso de uso descreve a consulta aos dados de um espetáculo existente.',
+      evento:'solicitação de consulta de espetáculo',
+      atores:['Administrador'],
+      pre:'Usuário autenticado como Administrador no sistema.',
+      seq:[
+        'Administrador solicita operação de consulta de espetáculo.',
+        'Sistema solicita a identificação do espetáculo a ser consultado.',
+        'Administrador fornece a identificação do espetáculo.',
+        'Sistema apresenta os dados do espetáculo.'
+      ],
+      pos:'Dados do espetáculo apresentados.',
+      ext:['Administrador cancela a operação <span class="mark">(passo 3)</span>.'],
+      inc:['—']
+    }
+  ];
+
+  var svieTabs = document.getElementById('svieTabs');
+  var svieFicha = document.getElementById('svieFicha');
+  function fichaRow(k, v){
+    return '<div class="ficha-row"><div class="fr-k">' + k + '</div><div class="fr-v">' + v + '</div></div>';
+  }
+  function renderSvie(key){
+    var f = SVIE_FICHAS.filter(function(x){ return x.key === key; })[0];
+    if(!f) return;
+    svieFicha.innerHTML =
+      '<span class="ficha-id">' + f.id + '</span>' +
+      '<h3 class="ficha-title">' + f.nome + '</h3>' +
+      '<div class="ficha-rows">' +
+        fichaRow('descrição', f.desc) +
+        fichaRow('evento iniciador', f.evento) +
+        fichaRow('atores', '<ul>' + f.atores.map(function(a){ return '<li>' + a + '</li>'; }).join('') + '</ul>') +
+        fichaRow('pré-condição', f.pre) +
+        fichaRow('sequência de eventos', '<ol>' + f.seq.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ol>') +
+        fichaRow('pós-condição', f.pos) +
+        fichaRow('extensões', '<ol>' + f.ext.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ol>') +
+        fichaRow('inclusões', '<ol>' + f.inc.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ol>') +
+      '</div>';
+    svieTabs.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t.dataset.sv === key); });
+  }
+  if(svieTabs && svieFicha){
+    svieTabs.innerHTML = SVIE_FICHAS.map(function(f, i){
+      return '<button class="tab' + (i === 0 ? ' active' : '') + '" data-sv="' + f.key + '">' + f.tab + '</button>';
+    }).join('');
+    svieTabs.querySelectorAll('.tab').forEach(function(t){
+      t.addEventListener('click', function(){ renderSvie(t.dataset.sv); });
+    });
+    renderSvie(SVIE_FICHAS[0].key);
+  }
+
+  /* ============================================================
+     MÓDULO 04 — TREINO: PRIMÁRIO, SECUNDÁRIO OU PACOTE
+     ============================================================ */
+  var CMC_ITEMS = [
+    {t:'Montar lista de compras, num sistema de compras de supermercado.', a:'PRI', w:'Representa o objetivo do ator no negócio — é por isso que o sistema existe.'},
+    {t:'Cadastrar produto da loja, no mesmo sistema de compras.', a:'SEC', w:'Não traz benefício direto ao ator em relação ao negócio, mas é necessário para o funcionamento adequado do sistema.'},
+    {t:'Cadastrar cliente, reunindo cadastrar, alterar, remover e consultar cliente.', a:'PAC', w:'Um caso de uso composto por mais de um caso de uso: descreve-se como pacote, com cada constituinte no mesmo padrão.'},
+    {t:'Vender ingresso, no SVIE.', a:'PRI', w:'É o objetivo do Cliente do banco: comprar os ingressos desejados. Ator primário, benefício direto.'},
+    {t:'Cadastrar espetáculo, no SVIE.', a:'PAC', w:'No SVIE ele reúne cadastrar, alterar, remover e consultar espetáculo — a Figura 4 do documento descreve os quatro constituintes.'},
+    {t:'Manter os dados de teatros atualizados para que o SVIE opere corretamente.', a:'SEC', w:'Serve à operação adequada do sistema, não ao objetivo de negócio do Cliente.'},
+    {t:'Pagar compras, num sistema de comércio eletrônico.', a:'PRI', w:'Atende diretamente à necessidade do ator que acionou o sistema.'},
+    {t:'Cadastrar produto, contendo cadastrar, excluir, alterar e buscar produto.', a:'PAC', w:'É o exemplo do documento para agrupar casos de uso relacionados em pacotes, para não poluir o modelo.'}
+  ];
+  var CMC_NAMES = {PRI:'Primário', SEC:'Secundário', PAC:'Pacote'};
+  var cmcStmt = document.getElementById('cmcStmt');
+  var cmcOpts = document.getElementById('cmcOpts');
+  var cmcFeedback = document.getElementById('cmcFeedback');
+  var cmcCounter = document.getElementById('cmcCounter');
+  var cmcScore = document.getElementById('cmcScore');
+  var cmcResetBtn = document.getElementById('cmcReset');
+  var cmcState = { i:0, hits:0, answered:0, locked:false };
+
+  function cmcRender(){
+    cmcStmt.textContent = CMC_ITEMS[cmcState.i].t;
+    cmcCounter.textContent = 'Situação ' + (cmcState.i + 1) + ' de ' + CMC_ITEMS.length;
+    cmcOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right', 'wrong'); });
+    cmcFeedback.textContent = 'Escolha uma classificação para ver a justificativa.';
+    cmcScore.innerHTML = 'Acertos: <strong>' + cmcState.hits + '</strong> / ' + cmcState.answered;
+    cmcState.locked = false;
+  }
+  function cmcAnswer(choice, btn){
+    if(cmcState.locked) return;
+    cmcState.locked = true;
+    cmcState.answered++;
+    var item = CMC_ITEMS[cmcState.i];
+    var correct = choice === item.a;
+    if(correct) cmcState.hits++;
+    cmcOpts.querySelectorAll('.tab').forEach(function(b){
+      if(b.dataset.cmc === item.a) b.classList.add('right');
+      else if(b === btn) b.classList.add('wrong');
+    });
+    cmcFeedback.innerHTML =
+      (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + CMC_NAMES[item.a] + '</span>') +
+      '<br>' + item.w;
+    cmcScore.innerHTML = 'Acertos: <strong>' + cmcState.hits + '</strong> / ' + cmcState.answered;
+    setTimeout(function(){
+      if(cmcState.i < CMC_ITEMS.length - 1){
+        cmcState.i++;
+        cmcRender();
+      } else {
+        cmcCounter.textContent = 'Fim · ' + CMC_ITEMS.length + ' situações';
+        cmcStmt.textContent = 'Você acertou ' + cmcState.hits + ' de ' + CMC_ITEMS.length + '.';
+        cmcFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+      }
+    }, 2600);
+  }
+  if(cmcStmt && cmcOpts){
+    cmcOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ cmcAnswer(btn.dataset.cmc, btn); });
+    });
+    if(cmcResetBtn){
+      cmcResetBtn.addEventListener('click', function(){
+        cmcState.i = 0; cmcState.hits = 0; cmcState.answered = 0;
+        cmcRender();
+      });
+    }
+    cmcRender();
+  }
+
 
 })();
 </script>

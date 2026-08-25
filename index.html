@@ -525,6 +525,246 @@
   .doc-item ul{ margin:0; padding-left:17px; color:var(--ink-soft); font-size:14px; line-height:1.55; }
   .doc-item li{ margin-bottom:5px; }
 
+  /* ============================================================
+     MODULE 06 — MODELO DE CLASSES
+     ============================================================ */
+
+  /* ---------- UML CLASS BOX (HTML version) ---------- */
+  .umlbox{ background:var(--surface); border:1px solid var(--line); border-radius:8px; overflow:hidden; box-shadow:var(--shadow); font-family:var(--mono); min-width:190px; }
+  .umlbox .ub-name{ background:var(--surface-2); border-bottom:1px solid var(--line); padding:11px 14px; font-family:var(--display); font-weight:600; font-size:15px; color:var(--ink); text-align:center; letter-spacing:-0.01em; }
+  .umlbox .ub-name em{ font-style:normal; color:var(--indigo); }
+  .umlbox .ub-compartment{ padding:10px 14px; border-bottom:1px solid var(--line-soft); font-size:12.5px; color:var(--ink-soft); line-height:1.75; }
+  .umlbox .ub-compartment:last-child{ border-bottom:none; }
+  .umlbox .ub-compartment.empty{ min-height:14px; }
+  .umlbox .ub-compartment.resp{ font-family:var(--body); font-size:13px; color:var(--cyan); }
+  .umlbox .ub-slot{ display:block; }
+  .umlbox .ub-slot.on{ color:var(--ink); }
+  .umlbox.dim{ opacity:.45; }
+  .umlbox .ub-tag{ font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); padding:6px 14px 0; display:block; }
+
+  /* ---------- ANATOMIA DA CLASSE (interactive) ---------- */
+  .anat{ display:grid; grid-template-columns:minmax(0,260px) 1fr; gap:28px; align-items:start; }
+  @media (max-width:820px){ .anat{ grid-template-columns:1fr; } }
+  .anat-side{ display:flex; flex-direction:column; gap:8px; }
+  .anat-side .tab{ text-align:left; }
+  .anat-panel{ background:var(--bg-1); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; }
+  .anat-panel h4{ font-family:var(--display); font-size:16px; margin:0 0 8px; color:var(--ink); }
+  .anat-panel p{ margin:0 0 14px; color:var(--ink-soft); font-size:14.5px; line-height:1.65; }
+  .anat-panel p:last-child{ margin-bottom:0; }
+  .anat-panel .anat-hint{ font-family:var(--mono); font-size:11.5px; color:var(--cyan); }
+  .anat-stage{ display:flex; justify-content:center; margin-bottom:20px; }
+
+  /* ---------- CLASS DIAGRAM SVG ---------- */
+  .cdw{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 22px; box-shadow:var(--shadow); }
+  .cd-svg{ display:block; width:100%; height:auto; }
+  .cd-svg text{ font-family:var(--mono); font-size:10.5px; fill:var(--ink-soft); }
+  .cd-cls rect{ fill:var(--surface-2); stroke:var(--indigo); stroke-width:1.6; }
+  .cd-cls line{ stroke:var(--indigo); stroke-width:1.1; opacity:.6; }
+  .cd-cls .cn{ fill:var(--ink); font-family:"Space Grotesk", sans-serif; font-size:12px; font-weight:600; }
+  .cd-cls .cf{ fill:var(--ink-soft); font-size:10px; }
+  .cd-cls.cyan rect, .cd-cls.cyan line{ stroke:var(--cyan); }
+  .cd-cls.amber rect, .cd-cls.amber line{ stroke:var(--amber); }
+  .cd-cls.rose rect, .cd-cls.rose line{ stroke:var(--rose); }
+  .cd-link{ stroke:var(--ink-faint); stroke-width:1.5; fill:none; }
+  .cd-link.dash{ stroke-dasharray:6 5; }
+  .cd-mult{ font-family:var(--mono); font-size:10px; fill:var(--cyan); }
+  .cd-role{ font-family:var(--mono); font-size:9.5px; fill:var(--ink-faint); font-style:italic; }
+  .cd-assoc{ font-family:var(--mono); font-size:10px; fill:var(--ink); }
+  .cd-note{ font-family:var(--mono); font-size:9.5px; fill:var(--ink-faint); }
+  .cd-dia{ stroke:var(--ink-faint); stroke-width:1.5; fill:var(--bg); }
+  .cd-dia.filled{ fill:var(--ink-faint); }
+  .cd-tri{ stroke:var(--ink-faint); stroke-width:1.5; fill:var(--bg); stroke-linejoin:round; }
+  .cd-caption{ margin-top:14px; font-family:var(--mono); font-size:12px; color:var(--ink-soft); border-left:3px solid var(--indigo); padding-left:12px; }
+  .cd-step{ opacity:.13; transition:opacity .5s ease; }
+  .cd-step.on{ opacity:1; }
+
+  /* ---------- MULTIPLICIDADE TABLE / BUILDER ---------- */
+  .multab{ width:100%; border-collapse:collapse; font-size:14px; }
+  .multab th{ text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; padding:10px 14px; border-bottom:1px solid var(--line); }
+  .multab td{ padding:11px 14px; border-bottom:1px solid var(--line-soft); color:var(--ink-soft); }
+  .multab td.sym{ font-family:var(--mono); color:var(--cyan); font-size:13.5px; }
+  .multab tr:last-child td{ border-bottom:none; }
+  .multab-wrap{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+
+  .mbuild{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px; box-shadow:var(--shadow); }
+  .mb-row{ display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
+  .mb-line{ position:relative; flex:0 0 190px; height:2px; background:var(--line); }
+  .mb-line .mb-m{ position:absolute; top:-24px; font-family:var(--mono); font-size:12.5px; color:var(--cyan); }
+  .mb-line .mb-m.l{ left:0; }
+  .mb-line .mb-m.r{ right:0; }
+  @media (max-width:640px){ .mb-line{ flex:0 0 120px; } }
+  .mb-controls{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:640px){ .mb-controls{ grid-template-columns:1fr; } }
+  .mb-ctl-label{ font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:9px; }
+  .mb-opts{ display:flex; gap:7px; flex-wrap:wrap; }
+  .mb-opts .tab{ padding:8px 13px; font-size:12.5px; }
+  .mb-out{ margin-top:22px; background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:16px 18px; }
+  .mb-out .mb-conn{ font-family:var(--mono); font-size:12px; color:var(--indigo); letter-spacing:.05em; text-transform:uppercase; }
+  .mb-out .mb-read{ margin:8px 0 0; color:var(--ink); font-size:15px; line-height:1.6; }
+  .mb-out .mb-read span{ color:var(--cyan); }
+
+  /* ---------- GRAU DE ASSOCIAÇÃO ---------- */
+  .grau-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:860px){ .grau-grid{ grid-template-columns:1fr; } }
+  .grau-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; display:flex; flex-direction:column; }
+  .grau-card .gc-n{ font-family:var(--mono); font-size:11px; color:var(--indigo); letter-spacing:.07em; text-transform:uppercase; }
+  .grau-card h4{ font-family:var(--display); font-size:16px; margin:6px 0 8px; color:var(--ink); }
+  .grau-card p{ margin:0 0 14px; color:var(--ink-soft); font-size:14px; line-height:1.6; }
+  .grau-card svg{ display:block; width:100%; height:auto; margin-top:auto; }
+
+  /* ---------- AGREGAÇÃO vs COMPOSIÇÃO ---------- */
+  .whole-part{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media (max-width:820px){ .whole-part{ grid-template-columns:1fr; } }
+  .wp-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px; }
+  .wp-card.agg{ border-top:4px solid var(--amber); }
+  .wp-card.comp{ border-top:4px solid var(--rose); }
+  .wp-card h3{ font-size:18px; margin:0 0 4px; }
+  .wp-card .wp-sym{ font-family:var(--mono); font-size:12px; color:var(--ink-faint); margin-bottom:14px; }
+  .wp-card ul{ margin:0; padding-left:19px; color:var(--ink-soft); font-size:14.5px; }
+  .wp-card li{ margin-bottom:7px; }
+  .wp-card .wp-test{ margin-top:16px; font-family:var(--mono); font-size:12.5px; padding:11px 13px; border-radius:8px; }
+  .wp-card.agg .wp-test{ background:var(--amber-soft); color:#F5C77E; }
+  .wp-card.comp .wp-test{ background:var(--rose-soft); color:#F79AA8; }
+
+  /* ---------- DESTRUCTION SIMULATOR ---------- */
+  .destr{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px; box-shadow:var(--shadow); }
+  .destr-head{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; }
+  .destr-stage{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:760px){ .destr-stage{ grid-template-columns:1fr; } }
+  .destr-col{ background:var(--bg-1); border:1px solid var(--line); border-radius:12px; padding:18px 20px; }
+  .destr-col .dc-title{ font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; margin-bottom:14px; }
+  .destr-col.agg .dc-title{ color:var(--amber); }
+  .destr-col.comp .dc-title{ color:var(--rose); }
+  .dobj{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:11px 14px; margin-bottom:9px; font-family:var(--mono); font-size:12.5px; color:var(--ink); transition:opacity .45s ease, transform .45s ease, border-color .3s; }
+  .dobj .do-tag{ font-size:9.5px; color:var(--ink-faint); letter-spacing:.06em; text-transform:uppercase; display:block; margin-top:3px; }
+  .dobj.whole{ border-left:3px solid var(--indigo); }
+  .dobj.dead{ opacity:.18; transform:translateX(-8px); border-color:var(--rose); text-decoration:line-through; }
+  .dobj.survives{ border-color:var(--cyan); }
+  .destr-out{ margin-top:20px; background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:15px 17px; font-size:14.5px; color:var(--ink-soft); min-height:52px; line-height:1.6; }
+  .destr-out .ok{ color:var(--cyan); font-family:var(--mono); font-size:12.5px; }
+
+  /* ---------- HERANÇA / POLIMORFISMO ---------- */
+  .poly{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px; box-shadow:var(--shadow); }
+  .poly-opts{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; }
+  .poly-body{ display:grid; grid-template-columns:1fr minmax(0,300px); gap:24px; align-items:start; }
+  @media (max-width:820px){ .poly-body{ grid-template-columns:1fr; } }
+  .poly-code{ background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:18px 20px; font-family:var(--mono); font-size:12.5px; line-height:1.85; color:var(--ink-soft); overflow-x:auto; }
+  .poly-code .kw{ color:var(--indigo); }
+  .poly-code .fn{ color:var(--cyan); }
+  .poly-code .num{ color:var(--amber); }
+  .poly-code .cm{ color:var(--ink-faint); }
+  .poly-out{ background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .poly-out .po-label{ font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); }
+  .poly-out .po-val{ font-family:var(--display); font-weight:600; font-size:26px; color:var(--cyan); margin:6px 0 12px; }
+  .poly-out .po-note{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; margin:0; }
+
+  /* ---------- SUBSISTEMAS ---------- */
+  .subsys{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 22px; box-shadow:var(--shadow); }
+  .subsys-svg{ display:block; width:100%; height:auto; }
+  .subsys-svg text{ font-family:var(--mono); font-size:10.5px; fill:var(--ink-soft); }
+  .ss-pkg rect{ fill:var(--surface-2); stroke:var(--indigo); stroke-width:1.6; }
+  .ss-pkg .ss-tab{ fill:var(--indigo-soft); stroke:var(--indigo); stroke-width:1.6; }
+  .ss-pkg text{ fill:var(--ink); font-family:"Space Grotesk", sans-serif; font-size:11.5px; font-weight:600; }
+  .ss-pkg.cyan rect, .ss-pkg.cyan .ss-tab{ stroke:var(--cyan); }
+  .ss-pkg.amber rect, .ss-pkg.amber .ss-tab{ stroke:var(--amber); }
+  .ss-dep{ stroke:var(--ink-faint); stroke-width:1.4; fill:none; stroke-dasharray:6 5; }
+
+  /* ---------- CHECKLIST / EVOLUÇÃO ---------- */
+  .evo{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:860px){ .evo{ grid-template-columns:1fr; } }
+  .evo-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; border-top:3px solid var(--line); }
+  .evo-card.a{ border-top-color:var(--indigo); }
+  .evo-card.b{ border-top-color:var(--cyan); }
+  .evo-card.c{ border-top-color:var(--amber); }
+  .evo-card .ev-when{ font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); }
+  .evo-card h4{ font-family:var(--display); font-size:15.5px; margin:6px 0 8px; color:var(--ink); }
+  .evo-card p{ margin:0; color:var(--ink-soft); font-size:14px; line-height:1.6; }
+
+  /* ============================================================
+     MODULE 07 — CLASSIFICAÇÃO DE CLASSES (entidade · fronteira · controle)
+     ============================================================ */
+
+  /* ---------- TRÊS CATEGORIAS ---------- */
+  .efc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  @media (max-width:900px){ .efc-grid{ grid-template-columns:1fr; } }
+  .efc-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 24px 22px; display:flex; flex-direction:column; box-shadow:var(--shadow); }
+  .efc-card.ent{ border-top:4px solid var(--cyan); }
+  .efc-card.fro{ border-top:4px solid var(--indigo); }
+  .efc-card.ctr{ border-top:4px solid var(--amber); }
+  .efc-card .ec-glyph{ width:52px; height:52px; margin-bottom:14px; }
+  .efc-card .ec-en{ font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); }
+  .efc-card h3{ font-size:18px; margin:5px 0 10px; }
+  .efc-card p{ margin:0 0 14px; color:var(--ink-soft); font-size:14.5px; line-height:1.6; }
+  .efc-card ul{ margin:0 0 16px; padding-left:18px; color:var(--ink-soft); font-size:14px; }
+  .efc-card li{ margin-bottom:6px; }
+  .efc-card .ec-ex{ margin-top:auto; font-family:var(--mono); font-size:12px; padding:11px 13px; border-radius:8px; line-height:1.6; }
+  .efc-card.ent .ec-ex{ background:var(--cyan-soft); color:#9CF0E3; }
+  .efc-card.fro .ec-ex{ background:var(--indigo-soft); color:#C3CBFF; }
+  .efc-card.ctr .ec-ex{ background:var(--amber-soft); color:#F5C77E; }
+
+  /* ---------- GLIFOS DE ESTEREÓTIPO ---------- */
+  .ec-glyph .g-ent circle, .ec-glyph .g-ent line{ stroke:var(--cyan); stroke-width:2; fill:none; }
+  .ec-glyph .g-fro circle, .ec-glyph .g-fro line{ stroke:var(--indigo); stroke-width:2; fill:none; }
+  .ec-glyph .g-ctr circle, .ec-glyph .g-ctr path{ stroke:var(--amber); stroke-width:2; fill:none; }
+
+  /* ---------- SEQUÊNCIA (reserva de quarto) ---------- */
+  .seqsim{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 22px; box-shadow:var(--shadow); }
+  .seq-svg{ display:block; width:100%; height:auto; min-height:340px; }
+  .seq-svg text{ font-family:var(--mono); font-size:10px; fill:var(--ink-soft); }
+  .seq-life{ stroke:var(--line); stroke-width:1.4; stroke-dasharray:5 5; }
+  .seq-box rect{ fill:var(--surface-2); stroke:var(--line); stroke-width:1.5; }
+  .seq-box text{ font-family:"Space Grotesk", sans-serif; font-size:11px; font-weight:600; fill:var(--ink); }
+  .seq-box.ent rect{ stroke:var(--cyan); }
+  .seq-box.fro rect{ stroke:var(--indigo); }
+  .seq-box.ctr rect{ stroke:var(--amber); }
+  .seq-box.act rect{ stroke:var(--ink-faint); fill:var(--bg-1); }
+  .seq-box .sb-st{ font-family:var(--mono); font-size:8.5px; font-weight:400; fill:var(--ink-faint); }
+  .seq-arrow{ stroke:var(--ink-soft); stroke-width:1.6; fill:none; }
+  .seq-arrow.ret{ stroke:var(--ink-faint); stroke-dasharray:6 4; stroke-width:1.4; }
+  .seq-msg{ font-family:var(--mono); font-size:10px; fill:var(--ink); }
+  .seq-msg.ret{ fill:var(--ink-faint); }
+  .seq-step{ opacity:.1; transition:opacity .4s ease; }
+  .seq-step.on{ opacity:1; }
+  .seq-step.cur .seq-arrow{ stroke:var(--cyan); stroke-width:2.2; }
+  .seq-step.cur .seq-msg{ fill:var(--cyan); }
+  .seq-readout{ margin-top:18px; background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:15px 17px; min-height:70px; }
+  .seq-readout .sr-n{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--indigo); }
+  .seq-readout .sr-t{ margin:6px 0 0; color:var(--ink); font-size:15px; line-height:1.6; }
+  .seq-readout .sr-t em{ font-style:normal; color:var(--cyan); }
+  .seq-controls{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:16px; }
+  .seq-dots{ display:flex; gap:6px; margin-left:auto; }
+  .seq-dots .sd{ width:9px; height:9px; border-radius:50%; background:var(--line); transition:background .25s; }
+  .seq-dots .sd.on{ background:var(--indigo); }
+  @media (max-width:640px){ .seq-dots{ margin-left:0; } }
+
+  /* ---------- TESTE DE IMPACTO DE MUDANÇA ---------- */
+  .impact{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px; box-shadow:var(--shadow); }
+  .imp-opts{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+  .imp-layers{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:760px){ .imp-layers{ grid-template-columns:1fr; } }
+  .imp-layer{ background:var(--bg-1); border:1px solid var(--line); border-radius:12px; padding:18px 20px; transition:border-color .3s, background .3s, opacity .3s; }
+  .imp-layer .il-name{ font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); }
+  .imp-layer .il-cls{ font-family:var(--mono); font-size:12px; color:var(--ink-soft); margin-top:9px; line-height:1.75; }
+  .imp-layer .il-verdict{ margin-top:12px; font-family:var(--mono); font-size:11.5px; }
+  .imp-layer.hit{ border-color:var(--rose); background:var(--rose-soft); }
+  .imp-layer.hit .il-name{ color:var(--rose); }
+  .imp-layer.hit .il-verdict{ color:var(--rose); }
+  .imp-layer.safe{ border-color:var(--cyan); }
+  .imp-layer.safe .il-name{ color:var(--cyan); }
+  .imp-layer.safe .il-verdict{ color:var(--cyan); }
+  .imp-out{ margin-top:20px; background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:15px 17px; font-size:14.5px; color:var(--ink-soft); line-height:1.65; min-height:50px; }
+  .imp-out strong{ color:var(--ink); }
+
+  /* ---------- REGRA DE UMA CATEGORIA SÓ ---------- */
+  .onecat{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px; }
+  @media (max-width:760px){ .onecat{ grid-template-columns:1fr; } }
+  .onecat-item{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px; }
+  .onecat-item .oc-k{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; }
+  .onecat-item.ent .oc-k{ color:var(--cyan); }
+  .onecat-item.fro .oc-k{ color:var(--indigo); }
+  .onecat-item.ctr .oc-k{ color:var(--amber); }
+  .onecat-item p{ margin:7px 0 0; color:var(--ink-soft); font-size:14px; line-height:1.55; }
+
   /* ---------- PLACEHOLDER (future modules) ---------- */
   .placeholder-wrap{ padding:110px 0 80px; }
   .placeholder-dots{ margin-top:40px; display:grid; grid-template-columns:repeat(16,1fr); gap:8px; max-width:520px; }
@@ -2723,6 +2963,1456 @@
       </div>
       <!-- ================= END MODULE: EXERCÍCIO SGRB ================= -->
 
+      <!-- ================= MODULE 06: MODELO DE CLASSES ================= -->
+      <div class="module-page" data-module="modelo-classes" id="page-modelo-classes">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Modelo de Classes</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="mc-contexto">Contexto</button>
+              <button class="navlink" data-target="mc-classe">Classe</button>
+              <button class="navlink" data-target="mc-relacionamentos">Relacionamentos</button>
+              <button class="navlink" data-target="mc-associacao">Associação</button>
+              <button class="navlink" data-target="mc-grau">Grau</button>
+              <button class="navlink" data-target="mc-associativa">Classe associativa</button>
+              <button class="navlink" data-target="mc-todoparte">Todo-parte</button>
+              <button class="navlink" data-target="mc-heranca">Herança</button>
+              <button class="navlink" data-target="mc-subsistema">Subsistema</button>
+              <button class="navlink" data-target="mc-treino">Treino</button>
+              <button class="navlink" data-target="mc-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="mc-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 06</div>
+              <h1>Modelo de <em>Classes</em></h1>
+              <p class="lede">O modelo de casos de uso descreve <strong style="color:var(--ink)">o que</strong> o sistema faz, visto de fora. O modelo de classes descreve <strong style="color:var(--ink)">como ele é feito por dentro</strong>: quais classes existem, o que cada uma sabe, o que cada uma faz e como elas dependem umas das outras. A entrada desta etapa é exatamente a saída da anterior — a descrição dos casos de uso.</p>
+              <div class="hero-meta">
+                <span><strong>Profs.</strong> Selma S. S. Melnikoff · Jorge Luis Risco Becerra</span>
+                <span><strong>Curso</strong> EPUSP · PCS</span>
+                <span><strong>Modelo</strong> Estrutural</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">classes.modelar()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="uc-badge">01</span> Classe: nome · atributos · operações</div>
+                  <div class="src-item"><span class="uc-badge">02</span> Responsabilidade: para que existe</div>
+                  <div class="src-item"><span class="uc-badge">03</span> Associação + multiplicidade</div>
+                  <div class="src-item"><span class="uc-badge">04</span> Conectividade e grau</div>
+                  <div class="src-item"><span class="uc-badge">05</span> Classe associativa</div>
+                  <div class="src-item"><span class="uc-badge in">06</span> Agregação e composição</div>
+                  <div class="src-item"><span class="uc-badge in">07</span> Herança e polimorfismo</div>
+                  <div class="src-item"><span class="uc-badge in">08</span> Subsistemas</div>
+                </div>
+                <div class="src-out">classes + relacionamentos = estrutura do sistema</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ CONTEXTO ============ -->
+        <section class="section" id="mc-contexto">
+          <div class="wrap">
+            <div class="eyebrow">1 · Introdução</div>
+            <h2 class="reveal">Onde o modelo de classes entra</h2>
+            <p class="intro reveal">A UML não tem um modelo só. Tem três grandes visões complementares, e cada uma responde a uma pergunta diferente sobre o mesmo sistema. O modelo de classes é a visão <strong style="color:var(--ink)">estrutural</strong> — e ele é construído a partir da descrição dos casos de uso.</p>
+
+            <div class="np-grid reveal">
+              <div class="np-card">
+                <div class="n">MODELO DE CASOS DE USO</div>
+                <p><strong style="color:var(--ink)">Descreve as funções do sistema.</strong><br>Diagrama de casos de uso.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">MODELO ESTRUTURAL</div>
+                <p><strong style="color:var(--ink)">Descreve a estrutura do sistema.</strong><br>Diagrama de classes. <span style="color:var(--cyan)">← esta aula</span></p>
+              </div>
+              <div class="np-card">
+                <div class="n">MODELO DINÂMICO</div>
+                <p><strong style="color:var(--ink)">Descreve o comportamento do sistema.</strong><br>Diagrama de interação e diagrama de estados.</p>
+              </div>
+            </div>
+
+            <div class="flow reveal" style="margin-top:36px;">
+              <div class="flow-box">
+                <div class="fb-label">entrada</div>
+                <div class="fb-title">Descrição de casos de uso</div>
+                <div class="fb-cluster">texto em linguagem natural</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">leitura</div>
+                <div class="fb-title">Substantivos e verbos</div>
+                <div class="fb-cluster">candidatos a classe e a operação</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">saída</div>
+                <div class="fb-title">Classes e relacionamentos</div>
+                <div class="fb-cluster">diagrama de classes</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">A funcionalidade de um sistema orientado a objetos é resultado da <strong style="color:var(--ink)">colaboração entre os objetos</strong>. Essa colaboração se dá por troca de mensagens — e é por isso que as classes desses objetos possuem dependências entre elas.</div>
+
+            <div class="cdw reveal" style="margin-top:36px;">
+              <svg class="cd-svg" viewBox="0 0 900 250" role="img" aria-label="Execução de uma função como colaboração entre quatro classes">
+                <text x="10" y="20" class="cd-note">execução da função 1 — a mensagem percorre as classes que colaboram</text>
+
+                <g class="cd-cls">
+                  <rect x="40" y="50" width="150" height="52" rx="4"/>
+                  <text class="cn" x="115" y="82" text-anchor="middle">Classe 1</text>
+                </g>
+                <g class="cd-cls cyan">
+                  <rect x="270" y="50" width="150" height="52" rx="4"/>
+                  <text class="cn" x="345" y="82" text-anchor="middle">Classe 2</text>
+                </g>
+                <g class="cd-cls cyan">
+                  <rect x="500" y="50" width="150" height="52" rx="4"/>
+                  <text class="cn" x="575" y="82" text-anchor="middle">Classe 3</text>
+                </g>
+                <g class="cd-cls amber">
+                  <rect x="385" y="165" width="150" height="52" rx="4"/>
+                  <text class="cn" x="460" y="197" text-anchor="middle">Classe 4</text>
+                </g>
+
+                <path class="cd-link" d="M190 76 L262 76"/>
+                <path d="M255 71 L263 76 L255 81" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+                <path class="cd-link" d="M420 76 L492 76"/>
+                <path d="M485 71 L493 76 L485 81" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+                <path class="cd-link" d="M345 102 L345 191 L377 191"/>
+                <path d="M370 186 L378 191 L370 196" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+                <path class="cd-link" d="M575 102 L575 191 L543 191"/>
+                <path d="M550 186 L542 191 L550 196" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+
+                <text x="205" y="70" class="cd-note">mensagem</text>
+                <text x="700" y="80" class="cd-note">o conjunto de funções emerge</text>
+                <text x="700" y="96" class="cd-note">da colaboração, não de</text>
+                <text x="700" y="112" class="cd-note">uma classe isolada</text>
+              </svg>
+              <div class="cd-caption">Uma função do sistema raramente vive dentro de uma classe só. Ela é o caminho que a mensagem percorre entre várias — e cada seta desse caminho é um relacionamento que vai aparecer no diagrama.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CLASSE ============ -->
+        <section class="section alt" id="mc-classe">
+          <div class="wrap">
+            <div class="eyebrow">2 · Diagrama de classes</div>
+            <h2 class="reveal">Anatomia de uma classe</h2>
+            <p class="intro reveal">Classe é a descrição de um conjunto de objetos que compartilham os mesmos <strong style="color:var(--ink)">atributos, operações, relacionamentos e semântica</strong>. No diagrama ela é um retângulo dividido em compartimentos — e você mostra só os compartimentos que interessam naquele momento do desenvolvimento. Clique em cada parte para ver o que ela significa.</p>
+
+            <div class="anat reveal">
+              <div class="anat-side" id="anatSide">
+                <button class="tab active" data-anat="nome">Nome da classe</button>
+                <button class="tab" data-anat="attr">Lista de atributos</button>
+                <button class="tab" data-anat="oper">Lista de operações</button>
+                <button class="tab" data-anat="resp">Responsabilidade</button>
+              </div>
+              <div>
+                <div class="anat-stage">
+                  <div class="umlbox" id="anatBox" style="min-width:230px;">
+                    <div class="ub-name" id="anatName">ContaBancaria</div>
+                    <div class="ub-compartment" id="anatAttr">
+                      <span class="ub-slot">numero</span>
+                      <span class="ub-slot">saldo</span>
+                      <span class="ub-slot">dataAbertura</span>
+                    </div>
+                    <div class="ub-compartment" id="anatOper">
+                      <span class="ub-slot">criar ()</span>
+                      <span class="ub-slot">bloquear ()</span>
+                      <span class="ub-slot">desbloquear ()</span>
+                      <span class="ub-slot">creditar ()</span>
+                      <span class="ub-slot">debitar ()</span>
+                    </div>
+                    <div class="ub-compartment resp" id="anatResp">Representar uma conta bancária de um cliente</div>
+                  </div>
+                </div>
+                <div class="anat-panel">
+                  <h4 id="anatTitle">Nome da classe</h4>
+                  <p id="anatText">Classe é a descrição de um conjunto de objetos que compartilham mesmos atributos, operações, relacionamentos e semântica (significado). O nome vai no primeiro compartimento, centralizado, no singular.</p>
+                  <div class="anat-hint" id="anatHint">ContaBancaria — um nome, milhares de objetos</div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">A classe evolui ao longo do desenvolvimento</h3>
+            <p class="intro reveal">Você não precisa (nem deve) preencher todos os compartimentos na primeira passada. O nível de detalhe acompanha a fase do projeto.</p>
+            <div class="evo reveal">
+              <div class="evo-card a">
+                <div class="ev-when">Início da análise</div>
+                <h4>Nome + responsabilidade</h4>
+                <p>É o mínimo indispensável. Se você não consegue escrever a responsabilidade em uma frase, provavelmente a classe não deveria existir — ou é duas classes.</p>
+              </div>
+              <div class="evo-card b">
+                <div class="ev-when">Durante análise e projeto</div>
+                <h4>Atributos e operações principais</h4>
+                <p>Entram os atributos e as operações que importam para entender o modelo. Detalhes de tipo e visibilidade ainda podem ficar de fora.</p>
+              </div>
+              <div class="evo-card c">
+                <div class="ev-when">Após a implementação</div>
+                <h4>Tudo</h4>
+                <p>Todos os atributos e todas as operações, inclusive os auxiliares. É o diagrama que espelha o código de fato escrito.</p>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:36px;">
+              <div class="eyebrow">Atalho de estudo</div>
+              <p><strong>Responsabilidade responde a uma pergunta só: para que existe esta classe?</strong> Ela não é a lista de operações nem um resumo dos atributos — é a finalidade da classe no sistema considerado. É o que impede o modelo de virar um saco de dados sem intenção.</p>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Vindo da programação</div>
+              <p>Os conceitos de classe, atributo, operação, associação e herança são <strong style="color:var(--ink)">os mesmos</strong> que você já viu em programação orientada a objetos. O que muda aqui é o foco: a ênfase está na <strong style="color:var(--ink)">representação desses elementos no diagrama</strong> — na notação, na multiplicidade, no que a seta significa. O conceito você já tem.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ RELACIONAMENTOS: VISÃO GERAL ============ -->
+        <section class="section" id="mc-relacionamentos">
+          <div class="wrap">
+            <div class="eyebrow">Relacionamento</div>
+            <h2 class="reveal">Os tipos de relacionamento entre classes</h2>
+            <p class="intro reveal">Se existe relacionamento entre duas classes, é porque existe <strong style="color:var(--ink)">troca de mensagens entre os objetos delas</strong>. Todo o resto da aula é aprender a distinguir e a desenhar quatro famílias.</p>
+
+            <div class="concept-chain reveal">
+              <span class="cc-node">Associação</span>
+              <span class="cc-arrow">·</span>
+              <span class="cc-node">Classe associativa</span>
+              <span class="cc-arrow">·</span>
+              <span class="cc-node">Agregação e composição</span>
+              <span class="cc-arrow">·</span>
+              <span class="cc-node">Herança</span>
+            </div>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Associação</h4>
+                <p>O caso geral: as duas classes se conhecem e trocam mensagens. Vem com três informações a decidir — <strong style="color:var(--ink)">multiplicidade</strong>, <strong style="color:var(--ink)">conectividade</strong> e <strong style="color:var(--ink)">grau</strong>.</p>
+                <div class="uml-ex">linha simples · Cliente tem ContaCorrente</div>
+              </div>
+              <div class="uml-card">
+                <h4>Classe associativa</h4>
+                <p>Quando a informação não pertence a nenhuma das duas classes, mas <strong style="color:var(--ink)">à associação entre elas</strong>. Uma classe pendurada na linha.</p>
+                <div class="uml-ex">linha tracejada · Pessoa–Empresa → Trabalho</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Agregação e composição</h4>
+                <p>Relacionamento <strong style="color:var(--ink)">todo-parte</strong>: um objeto está contido no outro. A diferença entre as duas é o que acontece quando o todo é destruído.</p>
+                <div class="uml-ex">losango vazio ◇ · losango cheio ◆</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Herança</h4>
+                <p>Compartilha a parte comum de várias classes em uma superclasse. Relacionamento do tipo <strong style="color:var(--ink)">é-um</strong>.</p>
+                <div class="uml-ex">triângulo vazio △ apontando para o pai</div>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">Não confunda</div>
+              <p>Associação e agregação parecem a mesma coisa no diagrama — as duas ligam duas classes com uma linha. A diferença é <strong>semântica</strong>: agregação afirma que um objeto <em>está contido</em> no outro. Se não há contenção, é associação simples, e colocar um losango ali é dizer algo que não é verdade sobre o sistema.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ASSOCIAÇÃO ============ -->
+        <section class="section alt" id="mc-associacao">
+          <div class="wrap">
+            <div class="eyebrow">Associação</div>
+            <h2 class="reveal">Notação, multiplicidade e conectividade</h2>
+            <p class="intro reveal">A linha de associação carrega até cinco anotações. Nenhuma é obrigatória, mas cada uma remove uma ambiguidade: o <strong style="color:var(--ink)">nome</strong> diz o que a ligação significa, a <strong style="color:var(--ink)">direção de leitura</strong> diz por qual ponta começar a frase, o <strong style="color:var(--ink)">papel</strong> diz como cada lado é visto pelo outro e as <strong style="color:var(--ink)">multiplicidades</strong> dizem quantos objetos participam.</p>
+
+            <div class="cdw reveal">
+              <svg class="cd-svg" viewBox="0 0 880 230" role="img" aria-label="Associação entre Pessoa e Empresa com multiplicidade, nome, direção de leitura e papéis">
+                <g class="cd-cls">
+                  <rect x="60" y="70" width="180" height="76" rx="4"/>
+                  <line x1="60" y1="100" x2="240" y2="100"/>
+                  <text class="cn" x="150" y="91" text-anchor="middle">Pessoa</text>
+                  <text class="cf" x="72" y="122">nome : string</text>
+                </g>
+                <g class="cd-cls">
+                  <rect x="640" y="70" width="180" height="76" rx="4"/>
+                  <line x1="640" y1="100" x2="820" y2="100"/>
+                  <text class="cn" x="730" y="91" text-anchor="middle">Empresa</text>
+                  <text class="cf" x="652" y="122">nome : string</text>
+                </g>
+
+                <path class="cd-link" d="M240 108 L640 108"/>
+
+                <text class="cd-assoc" x="404" y="100" text-anchor="middle">trabalha para</text>
+                <path d="M472 96 L482 100 L472 104 Z" fill="var(--ink)" stroke="none"/>
+
+                <text class="cd-mult" x="252" y="102">1..*</text>
+                <text class="cd-mult" x="628" y="102" text-anchor="end">*</text>
+                <text class="cd-role" x="252" y="128">empregado</text>
+                <text class="cd-role" x="628" y="128" text-anchor="end">empregador</text>
+
+                <text class="cd-note" x="252" y="40">multiplicidade</text>
+                <path class="cd-link dash" d="M262 46 L262 94"/>
+                <text class="cd-note" x="404" y="40" text-anchor="middle">nome da associação + direção da leitura</text>
+                <path class="cd-link dash" d="M404 46 L404 90"/>
+                <text class="cd-note" x="628" y="175" text-anchor="end">papel</text>
+                <path class="cd-link dash" d="M600 168 L600 134"/>
+              </svg>
+              <div class="cd-caption">Leitura: uma <strong style="color:var(--ink)">Pessoa</strong> trabalha para <strong style="color:var(--cyan)">*</strong> (zero ou muitas) <strong style="color:var(--ink)">Empresas</strong>; uma <strong style="color:var(--ink)">Empresa</strong> emprega <strong style="color:var(--cyan)">1..*</strong> (uma ou mais) <strong style="color:var(--ink)">Pessoas</strong>. A multiplicidade fica sempre na ponta oposta à classe cuja frase você está lendo.</div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Simbologia da multiplicidade</h3>
+            <p class="intro reveal">Multiplicidade é o par de limites — inferior e superior — do número de objetos associados a um determinado objeto. Cada associação tem <strong style="color:var(--ink)">duas</strong> multiplicidades, uma em cada extremo da linha.</p>
+
+            <div class="multab-wrap reveal">
+              <table class="multab">
+                <thead><tr><th style="width:34%">Nome</th><th style="width:24%">Simbologia</th><th>Significa</th></tr></thead>
+                <tbody>
+                  <tr><td>Apenas um</td><td class="sym">1..1 (ou 1)</td><td>exatamente um objeto, nem zero nem dois</td></tr>
+                  <tr><td>Zero ou muitos</td><td class="sym">0..* (ou *)</td><td>pode não haver nenhum; não há limite superior</td></tr>
+                  <tr><td>Um ou muitos</td><td class="sym">1..*</td><td>tem que haver pelo menos um</td></tr>
+                  <tr><td>Zero ou um</td><td class="sym">0..1</td><td>opcional, e no máximo um</td></tr>
+                  <tr><td>Intervalo específico</td><td class="sym">lim<sub>i</sub>..lim<sub>s</sub></td><td>faixa explícita, ex.: 2..4 jogadores por time</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Construtor de conectividade</h3>
+            <p class="intro reveal">Conectividade é o <strong style="color:var(--ink)">tipo</strong> de associação entre duas classes, e ela é consequência direta das duas multiplicidades. Escolha os dois extremos e veja qual conectividade sai — e como a associação se lê nas duas direções.</p>
+
+            <div class="mbuild reveal">
+              <div class="mb-row">
+                <div class="umlbox" style="min-width:150px;">
+                  <div class="ub-name">Cliente</div>
+                  <div class="ub-compartment"><span class="ub-slot">nome</span><span class="ub-slot">telefone</span></div>
+                </div>
+                <div class="mb-line">
+                  <span class="mb-m l" id="mbLeft">1</span>
+                  <span class="mb-m r" id="mbRight">*</span>
+                </div>
+                <div class="umlbox" style="min-width:150px;">
+                  <div class="ub-name">ContaCorrente</div>
+                  <div class="ub-compartment"><span class="ub-slot">agencia</span><span class="ub-slot">numero</span></div>
+                </div>
+              </div>
+
+              <div class="mb-controls">
+                <div>
+                  <div class="mb-ctl-label">Extremo do Cliente</div>
+                  <div class="mb-opts" id="mbOptsL">
+                    <button class="tab" data-m="0..1">0..1</button>
+                    <button class="tab active" data-m="1">1</button>
+                    <button class="tab" data-m="1..*">1..*</button>
+                    <button class="tab" data-m="*">*</button>
+                  </div>
+                </div>
+                <div>
+                  <div class="mb-ctl-label">Extremo da ContaCorrente</div>
+                  <div class="mb-opts" id="mbOptsR">
+                    <button class="tab" data-m="0..1">0..1</button>
+                    <button class="tab" data-m="1">1</button>
+                    <button class="tab" data-m="1..*">1..*</button>
+                    <button class="tab active" data-m="*">*</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-out">
+                <div class="mb-conn" id="mbConn">Conectividade: um para muitos</div>
+                <p class="mb-read" id="mbRead">—</p>
+              </div>
+            </div>
+
+            <div class="multab-wrap reveal" style="margin-top:28px;">
+              <table class="multab">
+                <thead><tr><th style="width:34%">Conectividade</th><th style="width:33%">Em um extremo</th><th>No outro extremo</th></tr></thead>
+                <tbody>
+                  <tr><td>Um para um</td><td class="sym">0..1 ou 1</td><td class="sym">0..1 ou 1</td></tr>
+                  <tr><td>Um para muitos</td><td class="sym">0..1 ou 1</td><td class="sym">* ou 1..* ou 0..*</td></tr>
+                  <tr><td>Muitos para muitos</td><td class="sym">* ou 1..* ou 0..*</td><td class="sym">* ou 1..* ou 0..*</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ GRAU DE ASSOCIAÇÃO ============ -->
+        <section class="section" id="mc-grau">
+          <div class="wrap">
+            <div class="eyebrow">Grau de associação</div>
+            <h2 class="reveal">Quantas classes a associação envolve</h2>
+            <p class="intro reveal">Grau é simplesmente a contagem de classes que participam da associação. Três casos, e o terceiro quase sempre vira o segundo.</p>
+
+            <div class="grau-grid reveal">
+              <div class="grau-card">
+                <div class="gc-n">1 classe</div>
+                <h4>Reflexiva</h4>
+                <p>Também chamada de auto-associação: associa objetos <strong style="color:var(--ink)">da mesma classe</strong>. Papéis diferentes em cada ponta são obrigatórios para a leitura fazer sentido.</p>
+                <svg viewBox="0 0 260 150" role="img" aria-label="Associação reflexiva em Funcionario">
+                  <g class="cd-cls">
+                    <rect x="60" y="55" width="140" height="42" rx="4"/>
+                    <text class="cn" x="130" y="81" text-anchor="middle">Funcionario</text>
+                  </g>
+                  <path class="cd-link" d="M85 55 L85 25 L205 25 L205 76 L200 76"/>
+                  <text class="cd-mult" x="90" y="45">1</text>
+                  <text class="cd-role" x="14" y="45">supervisor</text>
+                  <text class="cd-mult" x="212" y="76">*</text>
+                  <text class="cd-role" x="196" y="122" text-anchor="end">supervisionado</text>
+                </svg>
+              </div>
+              <div class="grau-card">
+                <div class="gc-n">2 classes</div>
+                <h4>Binária</h4>
+                <p>O caso normal, e o único que você deve mesmo desenhar no dia a dia. Associa <strong style="color:var(--ink)">duas classes</strong>.</p>
+                <svg viewBox="0 0 260 150" role="img" aria-label="Associação binária entre Pessoa e Empresa">
+                  <g class="cd-cls">
+                    <rect x="10" y="55" width="98" height="42" rx="4"/>
+                    <text class="cn" x="59" y="81" text-anchor="middle">Pessoa</text>
+                  </g>
+                  <g class="cd-cls">
+                    <rect x="152" y="55" width="98" height="42" rx="4"/>
+                    <text class="cn" x="201" y="81" text-anchor="middle">Empresa</text>
+                  </g>
+                  <path class="cd-link" d="M108 76 L152 76"/>
+                  <text class="cd-mult" x="112" y="70">1..*</text>
+                  <text class="cd-mult" x="148" y="70" text-anchor="end">*</text>
+                  <text class="cd-assoc" x="130" y="118" text-anchor="middle">trabalha para</text>
+                </svg>
+              </div>
+              <div class="grau-card">
+                <div class="gc-n">n classes</div>
+                <h4>N-ária</h4>
+                <p>Associa <strong style="color:var(--ink)">mais de duas classes</strong> por um losango central. Em geral pode — e deve — ser <strong style="color:var(--ink)">substituída por associações binárias</strong>, que são muito mais legíveis.</p>
+                <svg viewBox="0 0 260 150" role="img" aria-label="Associação n-ária entre Aviao, Voo, Tripulante e Piloto">
+                  <g class="cd-cls">
+                    <rect x="8" y="30" width="72" height="34" rx="4"/>
+                    <text class="cn" x="44" y="52" text-anchor="middle" style="font-size:10.5px">Aviao</text>
+                  </g>
+                  <g class="cd-cls">
+                    <rect x="180" y="30" width="72" height="34" rx="4"/>
+                    <text class="cn" x="216" y="52" text-anchor="middle" style="font-size:10.5px">Tripulante</text>
+                  </g>
+                  <g class="cd-cls">
+                    <rect x="94" y="110" width="72" height="34" rx="4"/>
+                    <text class="cn" x="130" y="132" text-anchor="middle" style="font-size:10.5px">Piloto</text>
+                  </g>
+                  <path class="cd-dia" d="M130 60 L146 76 L130 92 L114 76 Z"/>
+                  <text class="cd-assoc" x="130" y="34" text-anchor="middle" style="font-size:9.5px">Voo</text>
+                  <path class="cd-link" d="M44 64 L114 76"/>
+                  <path class="cd-link" d="M216 64 L146 76"/>
+                  <path class="cd-link" d="M130 92 L130 110"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:32px;">
+              <div class="eyebrow">Regra prática</div>
+              <p>Achou que precisa de uma associação n-ária? Tente decompor em binárias antes. No exemplo do vôo, <strong>Avião 1—* Voo *—* Tripulante</strong> mais <strong>Voo *—1 Piloto</strong> diz a mesma coisa e cabe na cabeça de quem lê o diagrama.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CLASSE ASSOCIATIVA ============ -->
+        <section class="section alt" id="mc-associativa">
+          <div class="wrap">
+            <div class="eyebrow">Classe associativa</div>
+            <h2 class="reveal">Quando o dado pertence à ligação, não às pontas</h2>
+            <p class="intro reveal">Uma classe associativa (ou classe de associação) é uma classe ligada <strong style="color:var(--ink)">à associação</strong>, e não a outra classe. Ela mantém informação relacionada às duas classes associadas — informação que não pertence a nenhuma das duas isoladamente.</p>
+
+            <div class="cdw reveal">
+              <svg class="cd-svg" viewBox="0 0 880 300" role="img" aria-label="Classe associativa Trabalho entre Pessoa e Empresa">
+                <g class="cd-cls">
+                  <rect x="40" y="40" width="170" height="92" rx="4"/>
+                  <line x1="40" y1="70" x2="210" y2="70"/>
+                  <text class="cn" x="125" y="61" text-anchor="middle">Pessoa</text>
+                  <text class="cf" x="52" y="90">nome</text>
+                  <text class="cf" x="52" y="106">telefone</text>
+                  <text class="cf" x="52" y="122">endereco</text>
+                </g>
+                <g class="cd-cls">
+                  <rect x="670" y="40" width="170" height="92" rx="4"/>
+                  <line x1="670" y1="70" x2="840" y2="70"/>
+                  <text class="cn" x="755" y="61" text-anchor="middle">Empresa</text>
+                  <text class="cf" x="682" y="90">razao_social</text>
+                  <text class="cf" x="682" y="106">endereco</text>
+                </g>
+
+                <path class="cd-link" d="M210 86 L670 86"/>
+                <text class="cd-mult" x="222" y="80">1..*</text>
+                <text class="cd-mult" x="658" y="80" text-anchor="end">*</text>
+                <text class="cd-role" x="222" y="106">empregado</text>
+                <text class="cd-role" x="658" y="106" text-anchor="end">empregador</text>
+
+                <path class="cd-link dash" d="M440 86 L440 160"/>
+
+                <g class="cd-cls cyan">
+                  <rect x="350" y="160" width="180" height="108" rx="4"/>
+                  <line x1="350" y1="190" x2="530" y2="190"/>
+                  <text class="cn" x="440" y="181" text-anchor="middle">Trabalho</text>
+                  <text class="cf" x="362" y="210">cargo</text>
+                  <text class="cf" x="362" y="226">data_inicio</text>
+                  <text class="cf" x="362" y="242">salario</text>
+                </g>
+                <text class="cd-note" x="560" y="200">classe de associação:</text>
+                <text class="cd-note" x="560" y="216">cargo, data e salário não são</text>
+                <text class="cd-note" x="560" y="232">da Pessoa nem da Empresa —</text>
+                <text class="cd-note" x="560" y="248">são do vínculo entre as duas</text>
+              </svg>
+              <div class="cd-caption">Teste rápido: se a pessoa trabalha para duas empresas, com dois cargos e dois salários, onde esses dados ficam? Não cabem em <em>Pessoa</em> (viriam duplicados) nem em <em>Empresa</em>. Cabem na associação.</div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:48px;">Representação alternativa</h3>
+            <p class="intro reveal">A mesma informação pode ser expressa promovendo a classe associativa a uma classe comum, no meio de duas associações binárias. É o que a maioria das ferramentas e dos bancos de dados acaba fazendo.</p>
+
+            <div class="cdw reveal">
+              <svg class="cd-svg" viewBox="0 0 880 170" role="img" aria-label="Representação alternativa com Trabalho como classe intermediária">
+                <g class="cd-cls">
+                  <rect x="20" y="40" width="160" height="92" rx="4"/>
+                  <line x1="20" y1="70" x2="180" y2="70"/>
+                  <text class="cn" x="100" y="61" text-anchor="middle">Pessoa</text>
+                  <text class="cf" x="32" y="90">nome</text>
+                  <text class="cf" x="32" y="106">telefone</text>
+                  <text class="cf" x="32" y="122">endereco</text>
+                </g>
+                <g class="cd-cls cyan">
+                  <rect x="350" y="40" width="170" height="92" rx="4"/>
+                  <line x1="350" y1="70" x2="520" y2="70"/>
+                  <text class="cn" x="435" y="61" text-anchor="middle">Trabalho</text>
+                  <text class="cf" x="362" y="90">cargo</text>
+                  <text class="cf" x="362" y="106">data_inicio</text>
+                  <text class="cf" x="362" y="122">salario</text>
+                </g>
+                <g class="cd-cls">
+                  <rect x="690" y="40" width="170" height="92" rx="4"/>
+                  <line x1="690" y1="70" x2="860" y2="70"/>
+                  <text class="cn" x="775" y="61" text-anchor="middle">Empresa</text>
+                  <text class="cf" x="702" y="90">razao_social</text>
+                  <text class="cf" x="702" y="106">endereco</text>
+                </g>
+
+                <path class="cd-link" d="M180 86 L350 86"/>
+                <text class="cd-mult" x="192" y="80">1</text>
+                <text class="cd-mult" x="338" y="80" text-anchor="end">*</text>
+                <text class="cd-assoc" x="265" y="106" text-anchor="middle">tem</text>
+
+                <path class="cd-link" d="M520 86 L690 86"/>
+                <text class="cd-mult" x="532" y="80">*</text>
+                <text class="cd-mult" x="678" y="80" text-anchor="end">1</text>
+                <text class="cd-assoc" x="605" y="106" text-anchor="middle">tem</text>
+              </svg>
+              <div class="cd-caption">A associação muitos-para-muitos com dados virou duas associações um-para-muitos. O <em>muitos</em> migrou para o meio.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ AGREGAÇÃO E COMPOSIÇÃO ============ -->
+        <section class="section" id="mc-todoparte">
+          <div class="wrap">
+            <div class="eyebrow">Todo-parte</div>
+            <h2 class="reveal">Agregação e composição</h2>
+            <p class="intro reveal">As duas representam o relacionamento <strong style="color:var(--ink)">todo-parte</strong>: um dos objetos está contido no outro — ou, dito ao contrário, um objeto contém os outros. A diferença entre elas cabe em uma pergunta: <strong style="color:var(--ink)">se eu destruir o todo, as partes morrem?</strong></p>
+
+            <div class="whole-part reveal">
+              <div class="wp-card agg">
+                <h3>Agregação</h3>
+                <div class="wp-sym">losango vazio ◇ na ponta do todo</div>
+                <ul>
+                  <li>A destruição do objeto todo <strong style="color:var(--ink)">não implica necessariamente</strong> na destruição de suas partes.</li>
+                  <li>Um objeto <strong style="color:var(--ink)">pode existir sem pertencer</strong> a outro objeto.</li>
+                  <li>A parte pode até pertencer a vários todos ao mesmo tempo.</li>
+                </ul>
+                <div class="wp-test">Jogador sobrevive ao fim da Equipe</div>
+              </div>
+              <div class="wp-card comp">
+                <h3>Composição</h3>
+                <div class="wp-sym">losango cheio ◆ na ponta do todo</div>
+                <ul>
+                  <li>A destruição do objeto todo <strong style="color:var(--ink)">implica na destruição</strong> de suas partes.</li>
+                  <li>Um objeto <strong style="color:var(--ink)">sempre pertence</strong> a um outro objeto.</li>
+                  <li>A parte tem exatamente um dono, e não existe fora dele.</li>
+                </ul>
+                <div class="wp-test">ItemPedido morre com o Pedido</div>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Simulador de destruição do todo</h3>
+            <p class="intro reveal">Escolha um exemplo e destrua o objeto todo. O que acontece com as partes é exatamente o que diferencia os dois losangos.</p>
+
+            <div class="destr reveal">
+              <div class="destr-head" id="destrHead">
+                <button class="tab active" data-ex="pedido">Pedido · ItemPedido</button>
+                <button class="tab" data-ex="associacao">AssociacaoEsportiva · Equipe · Jogador</button>
+              </div>
+
+              <div class="destr-stage">
+                <div class="destr-col comp" id="destrColA">
+                  <div class="dc-title" id="destrTitleA">◆ Composição</div>
+                  <div id="destrObjsA"></div>
+                </div>
+                <div class="destr-col agg" id="destrColB">
+                  <div class="dc-title" id="destrTitleB">◇ Agregação</div>
+                  <div id="destrObjsB"></div>
+                </div>
+              </div>
+
+              <div class="destr-out" id="destrOut">Clique em "Destruir o todo" para ver a diferença.</div>
+              <div style="margin-top:16px;">
+                <button class="sim-btn" id="destrGo">Destruir o todo</button>
+                <button class="sim-btn ghost" id="destrReset">Reiniciar</button>
+              </div>
+            </div>
+
+            <div class="cdw reveal" style="margin-top:44px;">
+              <svg class="cd-svg" viewBox="0 0 880 300" role="img" aria-label="Diagrama de Pedido, ItemPedido e Produto com composição e associação">
+                <g class="cd-cls">
+                  <rect x="60" y="30" width="170" height="76" rx="4"/>
+                  <line x1="60" y1="60" x2="230" y2="60"/>
+                  <text class="cn" x="145" y="51" text-anchor="middle">Pedido</text>
+                  <text class="cf" x="72" y="80">data</text>
+                  <text class="cf" x="72" y="96">hora</text>
+                </g>
+
+                <path class="cd-link" d="M145 130 L145 190"/>
+                <path class="cd-dia filled" d="M145 106 L157 118 L145 130 L133 118 Z"/>
+                <text class="cd-mult" x="155" y="152">1</text>
+                <text class="cd-mult" x="155" y="184">*</text>
+
+                <g class="cd-cls rose">
+                  <rect x="60" y="190" width="170" height="76" rx="4"/>
+                  <line x1="60" y1="220" x2="230" y2="220"/>
+                  <text class="cn" x="145" y="211" text-anchor="middle">ItemPedido</text>
+                  <text class="cf" x="72" y="240">quantidade</text>
+                </g>
+
+                <path class="cd-link" d="M230 228 L470 228"/>
+                <text class="cd-mult" x="242" y="222">*</text>
+                <text class="cd-mult" x="458" y="222" text-anchor="end">1</text>
+                <text class="cd-assoc" x="350" y="250" text-anchor="middle">é um</text>
+
+                <g class="cd-cls cyan">
+                  <rect x="470" y="170" width="180" height="122" rx="4"/>
+                  <line x1="470" y1="200" x2="650" y2="200"/>
+                  <text class="cn" x="560" y="191" text-anchor="middle">Produto</text>
+                  <text class="cf" x="482" y="220">nome</text>
+                  <text class="cf" x="482" y="236">descricao</text>
+                  <text class="cf" x="482" y="252">precoUnitario</text>
+                  <text class="cf" x="482" y="268">desconto</text>
+                  <text class="cf" x="482" y="284">quantidade</text>
+                </g>
+
+                <text class="cd-note" x="290" y="60">◆ losango cheio: 1 Pedido é composto por</text>
+                <text class="cd-note" x="290" y="76">objetos de ItemPedido</text>
+                <text class="cd-note" x="290" y="100">excluir o Pedido exclui todos os objetos</text>
+                <text class="cd-note" x="290" y="116">ItemPedido associados a ele</text>
+                <text class="cd-note" x="290" y="140">o Produto, porém, continua existindo —</text>
+                <text class="cd-note" x="290" y="156">a ligação com ele é associação simples</text>
+              </svg>
+              <div class="cd-caption">Composição de <em>Pedido</em> para <em>ItemPedido</em>; associação simples de <em>ItemPedido</em> para <em>Produto</em>. Apagar um pedido não pode apagar produtos do catálogo — e o diagrama diz isso pela ausência do losango.</div>
+            </div>
+
+            <div class="cdw reveal" style="margin-top:28px;">
+              <svg class="cd-svg" viewBox="0 0 880 320" role="img" aria-label="Diagrama de AssociacaoEsportiva, Equipe e Jogador com agregações">
+                <g class="cd-cls">
+                  <rect x="80" y="20" width="210" height="46" rx="4"/>
+                  <text class="cn" x="185" y="49" text-anchor="middle">AssociacaoEsportiva</text>
+                </g>
+                <path class="cd-link" d="M185 90 L185 150"/>
+                <path class="cd-dia" d="M185 66 L197 78 L185 90 L173 78 Z"/>
+                <text class="cd-mult" x="195" y="112">1</text>
+                <text class="cd-mult" x="195" y="144">*</text>
+
+                <g class="cd-cls amber">
+                  <rect x="105" y="150" width="160" height="46" rx="4"/>
+                  <text class="cn" x="185" y="179" text-anchor="middle">Equipe</text>
+                </g>
+                <path class="cd-link" d="M185 220 L185 260"/>
+                <path class="cd-dia" d="M185 196 L197 208 L185 220 L173 208 Z"/>
+                <text class="cd-mult" x="195" y="240">*</text>
+                <text class="cd-mult" x="195" y="256">*</text>
+
+                <g class="cd-cls amber">
+                  <rect x="105" y="260" width="160" height="46" rx="4"/>
+                  <text class="cn" x="185" y="289" text-anchor="middle">Jogador</text>
+                </g>
+
+                <text class="cd-note" x="330" y="40">uma associação esportiva é formada</text>
+                <text class="cd-note" x="330" y="56">por diversas equipes</text>
+                <text class="cd-note" x="330" y="86">se a associação for dissolvida, pode não</text>
+                <text class="cd-note" x="330" y="102">ter sentido as equipes continuarem —</text>
+                <text class="cd-note" x="330" y="118">mas elas não são destruídas por isso</text>
+                <text class="cd-note" x="330" y="180">uma equipe é formada por diversos jogadores</text>
+                <text class="cd-note" x="330" y="210">um jogador pode fazer parte de diversas</text>
+                <text class="cd-note" x="330" y="226">equipes — por isso * de cada lado, e por</text>
+                <text class="cd-note" x="330" y="242">isso mesmo tem que ser agregação</text>
+              </svg>
+              <div class="cd-caption">Dois losangos vazios. O sinal mais forte de que é agregação e não composição está na multiplicidade do lado do todo: se a parte pode pertencer a mais de um todo (<strong style="color:var(--cyan)">*</strong>), composição está descartada.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ HERANÇA ============ -->
+        <section class="section alt" id="mc-heranca">
+          <div class="wrap">
+            <div class="eyebrow">Herança</div>
+            <h2 class="reveal">Compartilhar a parte comum</h2>
+            <p class="intro reveal">Herança é o mecanismo que permite compartilhar a parte comum das classes selecionadas. Essa parte comum é uma classe, chamada de <strong style="color:var(--ink)">superclasse</strong>; cada classe selecionada é uma <strong style="color:var(--ink)">subclasse</strong>. Representa o relacionamento do tipo <strong style="color:var(--ink)">é-um</strong>.</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <span class="tag">Notação</span>
+                <h3>Triângulo vazio apontando para o pai</h3>
+                <p>Pode ser desenhado com uma linha por subclasse ou com as linhas reunidas em um único triângulo. As duas formas significam a mesma coisa — escolha a que ficar mais legível.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Semântica</span>
+                <h3>Leia sempre como "é um"</h3>
+                <p>Se a frase "toda subclasse é uma superclasse" não soa verdadeira, não é herança. <em>Mensalista é um Funcionario</em> passa. <em>Pedido é um Cliente</em> não passa — ali é associação.</p>
+              </div>
+            </div>
+
+            <div class="cdw reveal" style="margin-top:32px;">
+              <svg class="cd-svg" viewBox="0 0 880 280" role="img" aria-label="Hierarquia de Funcionario com Mensalista, Autonomo e Estagiario">
+                <g class="cd-cls">
+                  <rect x="350" y="20" width="180" height="76" rx="4"/>
+                  <line x1="350" y1="50" x2="530" y2="50"/>
+                  <text class="cn" x="440" y="41" text-anchor="middle">Funcionario</text>
+                  <text class="cf" x="362" y="70">nome</text>
+                  <text class="cf" x="362" y="86">CPF</text>
+                </g>
+                <text class="cd-note" x="546" y="46">superclasse — a parte comum</text>
+
+                <path class="cd-tri" d="M440 120 L428 138 L452 138 Z"/>
+                <path class="cd-link" d="M440 96 L440 120"/>
+                <path class="cd-link" d="M440 138 L440 160"/>
+                <path class="cd-link" d="M150 160 L730 160"/>
+                <path class="cd-link" d="M150 160 L150 190"/>
+                <path class="cd-link" d="M440 160 L440 190"/>
+                <path class="cd-link" d="M730 160 L730 190"/>
+
+                <g class="cd-cls cyan">
+                  <rect x="60" y="190" width="180" height="72" rx="4"/>
+                  <line x1="60" y1="220" x2="240" y2="220"/>
+                  <text class="cn" x="150" y="211" text-anchor="middle">Mensalista</text>
+                  <text class="cf" x="72" y="240">salario</text>
+                </g>
+                <g class="cd-cls cyan">
+                  <rect x="350" y="190" width="180" height="72" rx="4"/>
+                  <line x1="350" y1="220" x2="530" y2="220"/>
+                  <text class="cn" x="440" y="211" text-anchor="middle">Autonomo</text>
+                  <text class="cf" x="362" y="240">taxaHoraria</text>
+                </g>
+                <g class="cd-cls cyan">
+                  <rect x="640" y="190" width="180" height="72" rx="4"/>
+                  <line x1="640" y1="220" x2="820" y2="220"/>
+                  <text class="cn" x="730" y="211" text-anchor="middle">Estagiario</text>
+                  <text class="cf" x="652" y="240">bolsa</text>
+                </g>
+              </svg>
+              <div class="cd-caption">Um funcionário pode ser mensalista, autônomo ou estagiário. Todos têm dados comuns (<em>nome</em>, <em>CPF</em>) — que sobem para a superclasse. Cada tipo tem sua forma de remuneração (<em>salario</em>, <em>taxaHoraria</em>, <em>bolsa</em>) — que fica em cada subclasse.</div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Polimorfismo em ação</h3>
+            <p class="intro reveal">Polimorfismo é o recurso que permite a uma função fornecer um comportamento diferente dependendo do objeto específico considerado no momento. No exemplo, <span style="font-family:var(--mono); color:var(--cyan)">calcularSalario</span> é polimórfica: a assinatura é a mesma nas três subclasses, o código é diferente em cada uma. Escolha um objeto e veja qual código roda.</p>
+
+            <div class="poly reveal">
+              <div class="poly-opts" id="polyOpts">
+                <button class="tab active" data-poly="mensalista">João Silva · Mensalista</button>
+                <button class="tab" data-poly="autonomo">José Souza · Autonomo</button>
+                <button class="tab" data-poly="estagiario">Paulo Costa · Estagiario</button>
+              </div>
+              <div class="poly-body">
+                <div class="poly-code" id="polyCode">—</div>
+                <div>
+                  <div class="poly-out">
+                    <div class="po-label">funcionario.calcularSalario()</div>
+                    <div class="po-val" id="polyVal">—</div>
+                    <p class="po-note" id="polyNote">—</p>
+                  </div>
+                  <div class="poly-out" style="margin-top:14px;">
+                    <div class="po-label">Objeto selecionado</div>
+                    <div class="umlbox" style="margin-top:10px; min-width:0;">
+                      <div class="ub-name" id="polyObjName">Mensalista</div>
+                      <div class="ub-compartment"><span class="ub-slot on" id="polyObjA">João Silva</span><span class="ub-slot" id="polyObjB">111.111.111-XX</span><span class="ub-slot" id="polyObjC">R$ 10K</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:36px;">
+              <div class="eyebrow">Por que isso importa no modelo</div>
+              <p>A herança permite <strong>estender um modelo existente</strong> pela adição de uma nova subclasse, aproveitando o investimento feito na superclasse. Mas decidir qual é a parte comum a ser alocada na superclasse é uma decisão importante para criar um sistema OO robusto — e <strong>não é uma tarefa trivial</strong>. Generalizar demais cedo custa tanto quanto generalizar de menos.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SUBSISTEMAS ============ -->
+        <section class="section" id="mc-subsistema">
+          <div class="wrap">
+            <div class="eyebrow">3 · Subsistemas</div>
+            <h2 class="reveal">Um nível acima das classes</h2>
+            <p class="intro reveal">Subsistema é um <strong style="color:var(--ink)">agrupamento lógico de classes e relacionamentos</strong>. Ele permite uma visão mais abstrata, de alto nível, do sistema — e um subsistema pode conter outros subsistemas.</p>
+
+            <div class="subsys reveal">
+              <svg class="subsys-svg" viewBox="0 0 880 300" role="img" aria-label="Sistema com subsistemas Venda de bilhete, Serviço de Crédito, Cálculo de preço e Seleção de poltrona">
+                <text class="cd-note" x="10" y="18">exemplo · sistema de venda de bilhetes</text>
+
+                <g class="ss-pkg">
+                  <path class="ss-tab" d="M60 40 L150 40 L150 60 L60 60 Z"/>
+                  <rect x="60" y="60" width="300" height="80" rx="2"/>
+                  <text x="210" y="106" text-anchor="middle">Venda de bilhete</text>
+                </g>
+
+                <g class="ss-pkg cyan">
+                  <path class="ss-tab" d="M540 40 L630 40 L630 60 L540 60 Z"/>
+                  <rect x="540" y="60" width="280" height="80" rx="2"/>
+                  <text x="680" y="106" text-anchor="middle">Serviço de Crédito</text>
+                </g>
+
+                <g class="ss-pkg amber">
+                  <path class="ss-tab" d="M60 200 L150 200 L150 220 L60 220 Z"/>
+                  <rect x="60" y="220" width="280" height="70" rx="2"/>
+                  <text x="200" y="261" text-anchor="middle">Cálculo de preço</text>
+                </g>
+
+                <g class="ss-pkg amber">
+                  <path class="ss-tab" d="M480 200 L570 200 L570 220 L480 220 Z"/>
+                  <rect x="480" y="220" width="280" height="70" rx="2"/>
+                  <text x="620" y="261" text-anchor="middle">Seleção de poltrona</text>
+                </g>
+
+                <path class="ss-dep" d="M360 100 L532 100"/>
+                <path d="M524 95 L533 100 L524 105" fill="none" stroke="var(--ink-faint)" stroke-width="1.4"/>
+                <path class="ss-dep" d="M180 140 L180 196"/>
+                <path d="M175 188 L180 197 L185 188" fill="none" stroke="var(--ink-faint)" stroke-width="1.4"/>
+                <path class="ss-dep" d="M300 140 L580 196"/>
+                <path d="M572 190 L582 197 L570 200" fill="none" stroke="var(--ink-faint)" stroke-width="1.4"/>
+
+                <text class="cd-note" x="378" y="90">dependência</text>
+              </svg>
+              <div class="cd-caption">A notação é o pacote UML: um retângulo com uma aba no canto superior esquerdo e o nome dentro.</div>
+            </div>
+
+            <div class="uml-grid reveal" style="margin-top:32px;">
+              <div class="uml-card">
+                <h4>Subsistemas se relacionam por dependência</h4>
+                <p>Um subsistema <strong style="color:var(--ink)">depende</strong> de outro quando suas classes fazem uso das classes do outro. A seta tracejada aponta do dependente para o dependido.</p>
+                <div class="uml-ex">Venda de bilhete ⇢ Serviço de Crédito</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>A dependência não é a soma das associações</h4>
+                <p>A dependência entre os subsistemas <strong style="color:var(--ink)">não representa os relacionamentos entre as suas classes</strong>. É uma afirmação de nível mais alto: "aqui existe acoplamento", sem detalhar qual classe fala com qual.</p>
+                <div class="uml-ex">abstração, não agregação de setas</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TREINO ============ -->
+        <section class="section alt" id="mc-treino">
+          <div class="wrap">
+            <div class="eyebrow">Treino</div>
+            <h2 class="reveal">Identificador de relacionamentos entre classes</h2>
+            <p class="intro reveal">Dez situações. Para cada uma, decida qual relacionamento do diagrama de classes a representa. Esse é o julgamento que mais aparece em prova — e o que mais erra em projeto.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="mcRelCounter">Situação 1 de 10</div>
+              <div class="cls-stmt" id="mcRelStmt">—</div>
+              <div class="cls-opts" id="mcRelOpts">
+                <button class="tab" data-mcrel="ASS">Associação</button>
+                <button class="tab" data-mcrel="AGR">Agregação</button>
+                <button class="tab" data-mcrel="COMP">Composição</button>
+                <button class="tab" data-mcrel="HER">Herança</button>
+                <button class="tab" data-mcrel="CLA">Classe associativa</button>
+              </div>
+              <div class="cls-feedback" id="mcRelFeedback">Escolha um relacionamento para ver a justificativa.</div>
+              <div class="cls-score" id="mcRelScore">Acertos: <strong>0</strong> / 0</div>
+              <button class="sim-btn ghost" id="mcRelReset" style="margin-left:0; margin-top:16px;">Reiniciar</button>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Leitor de multiplicidade</h3>
+            <p class="intro reveal">Oito diagramas descritos em texto. Diga qual conectividade cada um tem.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="mcConCounter">Situação 1 de 8</div>
+              <div class="cls-stmt" id="mcConStmt">—</div>
+              <div class="cls-opts" id="mcConOpts">
+                <button class="tab" data-mccon="1-1">Um para um</button>
+                <button class="tab" data-mccon="1-N">Um para muitos</button>
+                <button class="tab" data-mccon="N-N">Muitos para muitos</button>
+              </div>
+              <div class="cls-feedback" id="mcConFeedback">Escolha uma conectividade para ver a justificativa.</div>
+              <div class="cls-score" id="mcConScore">Acertos: <strong>0</strong> / 0</div>
+              <button class="sim-btn ghost" id="mcConReset" style="margin-left:0; margin-top:16px;">Reiniciar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section" id="mc-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Resumo</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">As três perguntas de resumo da aula, mais duas que costumam decidir nota. Tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">O que é um modelo de classes?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">É o modelo estrutural do sistema: descreve a estrutura, não as funções nem o comportamento</div>
+                <p>Ele modela a estrutura do sistema através de classes — definidas por atributos, operações e responsabilidade — e dos relacionamentos entre elas. É construído a partir da descrição dos casos de uso e é a base para os modelos dinâmicos (interação e estados).</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">Quais são os elementos do diagrama de classes?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Classes (atributos, operações, responsabilidade) e relacionamentos (associação, agregação e composição, generalização e especialização)</div>
+                <p>A classe traz nome, atributos, operações e responsabilidade — com nível de detalhe que evolui ao longo do desenvolvimento. Os relacionamentos trazem, além do tipo, as anotações da associação: multiplicidade, conectividade, grau, nome, direção de leitura e papéis.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">O que é um subsistema?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Um agrupamento lógico de classes e relacionamentos</div>
+                <p>Serve para dar uma visão mais abstrata, de alto nível, do sistema, e pode conter outros subsistemas. Subsistemas se relacionam por dependência: um depende do outro quando suas classes fazem uso das classes do outro — e essa dependência não é o mesmo que os relacionamentos entre as classes internas.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Como decidir entre agregação e composição?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Pergunte se a destruição do todo destrói as partes — e se a parte pode ter mais de um dono</div>
+                <p>Composição: a destruição do todo implica na destruição das partes e a parte sempre pertence a um outro objeto. Agregação: a destruição do todo não implica necessariamente na destruição das partes e a parte pode existir sem pertencer a outro objeto. Sinal prático: se a multiplicidade do lado do todo permite mais de um, composição está descartada.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Quando usar classe associativa em vez de colocar o atributo em uma das classes?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Quando a informação não pertence a nenhuma das duas classes, e sim à associação entre elas</div>
+                <p>O teste é a duplicação: se o objeto de uma ponta se associa a vários da outra e o dado teria um valor diferente para cada par, o dado é do vínculo. <em>Cargo</em>, <em>data_inicio</em> e <em>salario</em> não são da Pessoa nem da Empresa — são do Trabalho. Alternativamente, promova a classe associativa a classe comum entre duas associações binárias.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Modelo de Classes · EPUSP — PCS · 2026<br>
+              [1] MELNIKOFF, S. S. S.; RISCO BECERRA, J. L. Modelo de Classes — PCS, EPUSP, 2026<br>
+              [2] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 3ª ed., Elsevier, 2015<br>
+              [3] BOOCH, G.; RUMBAUGH, J.; JACOBSON, I. The Unified Modeling Language User Guide
+            </div>
+            <div class="credit">P1 · Módulo 06 · Profa. Selma S. S. Melnikoff e Prof. Jorge Luis Risco Becerra — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: MODELO DE CLASSES ================= -->
+
+      <!-- ================= MODULE 07: CLASSIFICAÇÃO DE CLASSES ================= -->
+      <div class="module-page" data-module="classificacao-classes" id="page-classificacao-classes">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Classificação de Classes</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="cl-objetivo">Objetivo</button>
+              <button class="navlink" data-target="cl-categorias">As três categorias</button>
+              <button class="navlink" data-target="cl-explorador">Explorador</button>
+              <button class="navlink" data-target="cl-hotel">Reserva de quarto</button>
+              <button class="navlink" data-target="cl-finalidade">Finalidade</button>
+              <button class="navlink" data-target="cl-impacto">Impacto</button>
+              <button class="navlink" data-target="cl-treino">Treino</button>
+              <button class="navlink" data-target="cl-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="cl-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 07 · Complemento do Modelo de Classes</div>
+              <h1>Classificação de <em>Classes</em></h1>
+              <p class="lede">O modelo de classes diz quais classes existem. Esta classificação diz <strong style="color:var(--ink)">qual papel cada uma cumpre</strong>: guardar o conceito do negócio, conversar com o mundo de fora ou coordenar a execução de um caso de uso. Três categorias, cada classe em exatamente uma — e é essa disciplina que faz as mudanças no sistema ficarem localizadas.</p>
+              <div class="hero-meta">
+                <span><strong>Profs.</strong> Selma S. S. Melnikoff · Jorge Luis Risco Becerra</span>
+                <span><strong>Material</strong> 7ª aula · 24/08/2026</span>
+                <span><strong>Ponte</strong> para o modelo dinâmico</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">classes.classificar()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="uc-badge">E</span> Entidade — conceito do domínio do negócio</div>
+                  <div class="src-item"><span class="uc-badge">F</span> Fronteira — comunicação com os atores</div>
+                  <div class="src-item"><span class="uc-badge">C</span> Controle — coordenação do caso de uso</div>
+                  <div class="src-item"><span class="uc-badge in">→</span> Cada classe em uma única categoria</div>
+                  <div class="src-item"><span class="uc-badge in">→</span> Mudanças localizadas</div>
+                  <div class="src-item"><span class="uc-badge in">→</span> Menos efeito colateral</div>
+                </div>
+                <div class="src-out">papéis explícitos = modelo dinâmico legível</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ OBJETIVO ============ -->
+        <section class="section" id="cl-objetivo">
+          <div class="wrap">
+            <div class="eyebrow">Objetivo do material</div>
+            <h2 class="reveal">Por que classificar classes</h2>
+            <p class="intro reveal">Este material <strong style="color:var(--ink)">complementa</strong> o modelo de classes. Ele não acrescenta notação nova nem relacionamento novo — acrescenta uma pergunta a fazer sobre cada classe já identificada: <em>qual é o papel dela no diagrama?</em></p>
+
+            <div class="np-grid reveal">
+              <div class="np-card">
+                <div class="n">01 · COMPLEMENTAR</div>
+                <p>Serve de complemento ao material de Modelo de Classes — mesmas classes, mesma notação, uma leitura a mais.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">02 · EXPLICITAR PAPÉIS</div>
+                <p>Apresenta os tipos de classe para <strong style="color:var(--ink)">explicitar os papéis</strong> das classes no diagrama de classes.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">03 · ABRIR O DINÂMICO</div>
+                <p>É importante para entender melhor o <strong style="color:var(--ink)">modelo dinâmico</strong> — diagramas de interação e de estados.</p>
+              </div>
+            </div>
+
+            <div class="flow reveal" style="margin-top:36px;">
+              <div class="flow-box">
+                <div class="fb-label">já tenho</div>
+                <div class="fb-title">Diagrama de classes</div>
+                <div class="fb-cluster">classes e relacionamentos</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">esta aula</div>
+                <div class="fb-title">Papel de cada classe</div>
+                <div class="fb-cluster">entidade · fronteira · controle</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">a seguir</div>
+                <div class="fb-title">Modelo dinâmico</div>
+                <div class="fb-cluster">quem manda mensagem para quem</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">Sem classificação, um diagrama de interação vira uma teia. Com ela, a leitura fica previsível: a mensagem entra pela <strong style="color:var(--ink)">fronteira</strong>, é orquestrada pelo <strong style="color:var(--ink)">controle</strong> e termina nas <strong style="color:var(--ink)">entidades</strong>.</div>
+          </div>
+        </section>
+
+        <!-- ============ AS TRÊS CATEGORIAS ============ -->
+        <section class="section alt" id="cl-categorias">
+          <div class="wrap">
+            <div class="eyebrow">Classificação</div>
+            <h2 class="reveal">Entidade, fronteira e controle</h2>
+            <p class="intro reveal">As classes de um sistema podem ser classificadas em três categorias. Elas auxiliam na complementação das classes do modelo — e os nomes em inglês (<em>entity</em>, <em>boundary</em>, <em>control</em>) aparecem como estereótipos nas ferramentas.</p>
+
+            <div class="efc-grid reveal">
+              <div class="efc-card ent">
+                <svg class="ec-glyph" viewBox="0 0 40 40" role="img" aria-label="Estereótipo de entidade">
+                  <g class="g-ent">
+                    <circle cx="20" cy="17" r="13"/>
+                    <line x1="7" y1="30" x2="33" y2="30"/>
+                  </g>
+                </svg>
+                <div class="ec-en">entity · «entidade»</div>
+                <h3>Classe de entidade</h3>
+                <p>Representa um <strong style="color:var(--ink)">conceito do domínio do negócio</strong>.</p>
+                <ul>
+                  <li>Normalmente armazena informações <strong style="color:var(--ink)">persistentes</strong>.</li>
+                  <li>Seus objetos participam de <strong style="color:var(--ink)">vários casos de uso</strong>.</li>
+                  <li>Têm <strong style="color:var(--ink)">ciclo de vida longo</strong>.</li>
+                </ul>
+                <div class="ec-ex">objeto pedido<br>existe por muito tempo e participa de "realizar pedido" e "atualizar estoque"</div>
+              </div>
+
+              <div class="efc-card fro">
+                <svg class="ec-glyph" viewBox="0 0 40 40" role="img" aria-label="Estereótipo de fronteira">
+                  <g class="g-fro">
+                    <line x1="6" y1="5" x2="6" y2="33"/>
+                    <line x1="6" y1="19" x2="14" y2="19"/>
+                    <circle cx="26" cy="19" r="12"/>
+                  </g>
+                </svg>
+                <div class="ec-en">boundary · «fronteira»</div>
+                <h3>Classe de fronteira</h3>
+                <p>Realiza a comunicação do sistema com os <strong style="color:var(--ink)">atores</strong> — o mundo exterior.</p>
+                <ul>
+                  <li>Traduz eventos gerados por atores em eventos <strong style="color:var(--ink)">relevantes ao sistema</strong>.</li>
+                  <li>É responsável por <strong style="color:var(--ink)">apresentar os resultados</strong> gerados pelo sistema ao ator.</li>
+                </ul>
+                <div class="ec-ex">com humanos: relatórios, páginas HTML, interfaces gráficas<br>com sistemas/dispositivos: objeto que implementa protocolos de comunicação</div>
+              </div>
+
+              <div class="efc-card ctr">
+                <svg class="ec-glyph" viewBox="0 0 40 40" role="img" aria-label="Estereótipo de controle">
+                  <g class="g-ctr">
+                    <circle cx="20" cy="21" r="12"/>
+                    <path d="M20 9 L14 3"/>
+                    <path d="M20 9 L26 3"/>
+                  </g>
+                </svg>
+                <div class="ec-en">control · «controle»</div>
+                <h3>Classe de controle</h3>
+                <p>Realiza a comunicação <strong style="color:var(--ink)">entre objetos de fronteira e objetos de entidade</strong>.</p>
+                <ul>
+                  <li>Traduz eventos de sistema em <strong style="color:var(--ink)">operações</strong> a serem realizadas pelos demais objetos.</li>
+                  <li><strong style="color:var(--ink)">Coordena</strong> as ações dos outros objetos.</li>
+                  <li>Controla a <strong style="color:var(--ink)">lógica de execução</strong> correspondente a um caso de uso.</li>
+                </ul>
+                <div class="ec-ex">objeto que controla a reserva de quarto no hotel<br>um controle ↔ um caso de uso, tipicamente</div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:36px;">
+              <div class="eyebrow">A regra que organiza tudo</div>
+              <p><strong>Cada classe pertence a apenas uma categoria.</strong> Se uma classe está desenhando tela, decidindo a ordem dos passos e guardando o saldo ao mesmo tempo, ela é três classes disfarçadas de uma. Separar não é purismo — é o que faz a mudança de uma delas não vazar para as outras.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ EXPLORADOR ============ -->
+        <section class="section" id="cl-explorador">
+          <div class="wrap">
+            <div class="eyebrow">Explorador</div>
+            <h2 class="reveal">Um sistema de hotel, classe por classe</h2>
+            <p class="intro reveal">Mesmo sistema, nove classes. Clique em cada uma para ver em que categoria ela cai e — mais importante — <strong style="color:var(--ink)">por que</strong>. Repare no padrão: entidades são substantivos do negócio, fronteiras têm nome de canal e controles têm nome de caso de uso.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="clExList"></div>
+              <div class="hotel-detail">
+                <div class="hd-tag" id="clExTag">—</div>
+                <h3 id="clExTitle">—</h3>
+                <ul id="clExPoints"></ul>
+                <div class="hd-note" id="clExNote">—</div>
+              </div>
+            </div>
+
+            <div class="onecat reveal" style="margin-top:32px;">
+              <div class="onecat-item ent">
+                <div class="oc-k">pista de entidade</div>
+                <p>O nome existiria numa conversa com o cliente do hotel, mesmo se o sistema não existisse. <em>Quarto</em>, <em>Reserva</em>, <em>Hóspede</em>.</p>
+              </div>
+              <div class="onecat-item fro">
+                <div class="oc-k">pista de fronteira</div>
+                <p>O nome descreve um canal ou um formato de apresentação. Trocar de tecnologia troca essa classe e nenhuma outra.</p>
+              </div>
+              <div class="onecat-item ctr">
+                <div class="oc-k">pista de controle</div>
+                <p>O nome é praticamente o nome de um caso de uso, e a classe não guarda dado persistente próprio — só a linha do tempo da execução.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SEQUÊNCIA DO HOTEL ============ -->
+        <section class="section alt" id="cl-hotel">
+          <div class="wrap">
+            <div class="eyebrow">Exemplo do material</div>
+            <h2 class="reveal">A reserva de quarto, mensagem por mensagem</h2>
+            <p class="intro reveal">Este é o exemplo de classe de controle do material: o objeto que controla a reserva de quarto no hotel. Ele <strong style="color:var(--ink)">recebe a solicitação da interface</strong>, <strong style="color:var(--ink)">pede a verificação do cadastro para Cliente</strong>, <strong style="color:var(--ink)">pede um quarto para Quarto</strong> e <strong style="color:var(--ink)">pede a criação do novo objeto para Reserva</strong>. Avance passo a passo e veja que o controle nunca guarda dado nem desenha tela — ele só coordena.</p>
+
+            <div class="seqsim reveal">
+              <svg class="seq-svg" viewBox="0 0 920 480" role="img" aria-label="Diagrama de sequência da reserva de quarto no hotel">
+                <!-- caixas -->
+                <g class="seq-box act">
+                  <rect x="8" y="20" width="104" height="44" rx="4"/>
+                  <text x="60" y="41" text-anchor="middle">Atendente</text>
+                  <text class="sb-st" x="60" y="55" text-anchor="middle">ator</text>
+                </g>
+                <g class="seq-box fro">
+                  <rect x="135" y="20" width="130" height="44" rx="4"/>
+                  <text x="200" y="41" text-anchor="middle">IUReserva</text>
+                  <text class="sb-st" x="200" y="55" text-anchor="middle">«fronteira»</text>
+                </g>
+                <g class="seq-box ctr">
+                  <rect x="300" y="20" width="140" height="44" rx="4"/>
+                  <text x="370" y="41" text-anchor="middle">CtrlReserva</text>
+                  <text class="sb-st" x="370" y="55" text-anchor="middle">«controle»</text>
+                </g>
+                <g class="seq-box ent">
+                  <rect x="505" y="20" width="90" height="44" rx="4"/>
+                  <text x="550" y="41" text-anchor="middle">Cliente</text>
+                  <text class="sb-st" x="550" y="55" text-anchor="middle">«entidade»</text>
+                </g>
+                <g class="seq-box ent">
+                  <rect x="635" y="20" width="90" height="44" rx="4"/>
+                  <text x="680" y="41" text-anchor="middle">Quarto</text>
+                  <text class="sb-st" x="680" y="55" text-anchor="middle">«entidade»</text>
+                </g>
+                <g class="seq-box ent">
+                  <rect x="775" y="20" width="90" height="44" rx="4"/>
+                  <text x="820" y="41" text-anchor="middle">Reserva</text>
+                  <text class="sb-st" x="820" y="55" text-anchor="middle">«entidade»</text>
+                </g>
+
+                <!-- linhas de vida -->
+                <line class="seq-life" x1="60"  y1="64" x2="60"  y2="465"/>
+                <line class="seq-life" x1="200" y1="64" x2="200" y2="465"/>
+                <line class="seq-life" x1="370" y1="64" x2="370" y2="465"/>
+                <line class="seq-life" x1="550" y1="64" x2="550" y2="465"/>
+                <line class="seq-life" x1="680" y1="64" x2="680" y2="465"/>
+                <line class="seq-life" x1="820" y1="64" x2="820" y2="465"/>
+
+                <!-- passos -->
+                <g class="seq-step" data-seq="1">
+                  <line class="seq-arrow" x1="60" y1="110" x2="196" y2="110"/>
+                  <path class="seq-arrow" d="M188 105 L197 110 L188 115"/>
+                  <text class="seq-msg" x="66" y="103">1 · solicitar reserva</text>
+                </g>
+                <g class="seq-step" data-seq="2">
+                  <line class="seq-arrow" x1="200" y1="150" x2="366" y2="150"/>
+                  <path class="seq-arrow" d="M358 145 L367 150 L358 155"/>
+                  <text class="seq-msg" x="206" y="143">2 · reservarQuarto(dados)</text>
+                </g>
+                <g class="seq-step" data-seq="3">
+                  <line class="seq-arrow" x1="370" y1="192" x2="546" y2="192"/>
+                  <path class="seq-arrow" d="M538 187 L547 192 L538 197"/>
+                  <text class="seq-msg" x="376" y="185">3 · verificarCadastro(cpf)</text>
+                </g>
+                <g class="seq-step" data-seq="4">
+                  <line class="seq-arrow ret" x1="550" y1="226" x2="374" y2="226"/>
+                  <path class="seq-arrow ret" d="M382 221 L373 226 L382 231"/>
+                  <text class="seq-msg ret" x="404" y="219">4 · cliente cadastrado</text>
+                </g>
+                <g class="seq-step" data-seq="5">
+                  <line class="seq-arrow" x1="370" y1="268" x2="676" y2="268"/>
+                  <path class="seq-arrow" d="M668 263 L677 268 L668 273"/>
+                  <text class="seq-msg" x="376" y="261">5 · buscarDisponivel(tipo, periodo)</text>
+                </g>
+                <g class="seq-step" data-seq="6">
+                  <line class="seq-arrow ret" x1="680" y1="302" x2="374" y2="302"/>
+                  <path class="seq-arrow ret" d="M382 297 L373 302 L382 307"/>
+                  <text class="seq-msg ret" x="440" y="295">6 · quarto 402</text>
+                </g>
+                <g class="seq-step" data-seq="7">
+                  <line class="seq-arrow" x1="370" y1="344" x2="816" y2="344"/>
+                  <path class="seq-arrow" d="M808 339 L817 344 L808 349"/>
+                  <text class="seq-msg" x="376" y="337">7 · criar(cliente, quarto, periodo)</text>
+                </g>
+                <g class="seq-step" data-seq="8">
+                  <line class="seq-arrow ret" x1="370" y1="392" x2="204" y2="392"/>
+                  <path class="seq-arrow ret" d="M212 387 L203 392 L212 397"/>
+                  <text class="seq-msg ret" x="212" y="385">8 · reserva confirmada</text>
+                </g>
+                <g class="seq-step" data-seq="9">
+                  <line class="seq-arrow ret" x1="200" y1="434" x2="64" y2="434"/>
+                  <path class="seq-arrow ret" d="M72 429 L63 434 L72 439"/>
+                  <text class="seq-msg ret" x="72" y="427">9 · exibir confirmação</text>
+                </g>
+              </svg>
+
+              <div class="seq-readout">
+                <div class="sr-n" id="clSeqN">passo 0 de 9</div>
+                <p class="sr-t" id="clSeqT">Clique em "Avançar" para percorrer a reserva. Repare em quem fala com quem — e em quem nunca fala com quem.</p>
+              </div>
+
+              <div class="seq-controls">
+                <button class="sim-btn" id="clSeqNext">Avançar</button>
+                <button class="sim-btn ghost" id="clSeqAuto">Rodar tudo</button>
+                <button class="sim-btn ghost" id="clSeqReset">Reiniciar</button>
+                <div class="seq-dots" id="clSeqDots"></div>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">O que o diagrama prova</div>
+              <p>O <strong>Atendente</strong> só fala com a <strong>fronteira</strong>. A <strong>fronteira</strong> só fala com o <strong>controle</strong>. As <strong>entidades</strong> nunca falam entre si nem com a fronteira — elas respondem ao controle. Essa é a razão prática da classificação: o caminho da mensagem fica previsível, e por isso o modelo dinâmico fica legível.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ FINALIDADE ============ -->
+        <section class="section" id="cl-finalidade">
+          <div class="wrap">
+            <div class="eyebrow">Finalidade da classificação</div>
+            <h2 class="reveal">Uma categoria por classe, e por que isso paga</h2>
+            <p class="intro reveal">Cada classe pertence a <strong style="color:var(--ink)">apenas uma</strong> categoria. A recompensa está na frase de fechamento do material: as mudanças do sistema ficam <strong style="color:var(--ink)">mais localizadas</strong>, com probabilidade menor de ocorrência de efeitos colaterais.</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <span class="tag">Entidade</span>
+                <h3>Elementos importantes</h3>
+                <p>O que o negócio reconhece como coisa: os conceitos que continuariam existindo se o software fosse jogado fora.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Fronteira</span>
+                <h3>Interfaces</h3>
+                <p>Tudo que encosta no mundo de fora — telas, relatórios, protocolos. É a parte que muda com mais frequência e por motivos que não são do negócio.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Controle</span>
+                <h3>Coordenação para realização do caso de uso</h3>
+                <p>A ordem dos passos. Onde a regra "primeiro verifica o cadastro, depois busca o quarto" mora — e onde ela deve ser alterada.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Consequência</span>
+                <h3>Mudanças localizadas</h3>
+                <p>Cada motivo de mudança tem um endereço só. Trocar a tela não mexe na regra; mudar a regra não mexe no dado; mudar o dado não redesenha a tela.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TESTE DE IMPACTO ============ -->
+        <section class="section alt" id="cl-impacto">
+          <div class="wrap">
+            <div class="eyebrow">Simulador</div>
+            <h2 class="reveal">Teste de impacto de mudança</h2>
+            <p class="intro reveal">A afirmação "as mudanças ficam mais localizadas" é verificável. Escolha uma mudança pedida pelo cliente do hotel e veja quais camadas precisam ser tocadas — e quais podem ser ignoradas com segurança.</p>
+
+            <div class="impact reveal">
+              <div class="imp-opts" id="clImpOpts">
+                <button class="tab active" data-imp="app">Atender também por app mobile</button>
+                <button class="tab" data-imp="regra">Exigir pré-pagamento antes de reservar</button>
+                <button class="tab" data-imp="dado">Guardar preferência de andar do hóspede</button>
+                <button class="tab" data-imp="tudo">Trocar de banco de dados</button>
+              </div>
+
+              <div class="imp-layers">
+                <div class="imp-layer" id="clImpF">
+                  <div class="il-name">Fronteira</div>
+                  <div class="il-cls">IUReserva<br>RelatorioOcupacao</div>
+                  <div class="il-verdict" id="clImpFV">—</div>
+                </div>
+                <div class="imp-layer" id="clImpC">
+                  <div class="il-name">Controle</div>
+                  <div class="il-cls">CtrlReserva<br>CtrlCheckIn</div>
+                  <div class="il-verdict" id="clImpCV">—</div>
+                </div>
+                <div class="imp-layer" id="clImpE">
+                  <div class="il-name">Entidade</div>
+                  <div class="il-cls">Cliente · Quarto<br>Reserva · Hospedagem</div>
+                  <div class="il-verdict" id="clImpEV">—</div>
+                </div>
+              </div>
+
+              <div class="imp-out" id="clImpOut">—</div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Leitura da simulação</div>
+              <p>Nenhuma mudança acende as três camadas ao mesmo tempo por acidente — e quando uma acende, é porque a mudança realmente é de três naturezas. O sintoma de classificação malfeita é o contrário: <strong style="color:var(--ink)">mudanças pequenas acendendo tudo</strong>. Se trocar a cor de um botão obriga a mexer na classe que calcula a tarifa, a fronteira e o controle estão na mesma classe.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TREINO ============ -->
+        <section class="section" id="cl-treino">
+          <div class="wrap">
+            <div class="eyebrow">Treino</div>
+            <h2 class="reveal">Classificador de classes</h2>
+            <p class="intro reveal">Doze classes de sistemas diferentes. Para cada uma, decida a categoria. Quatro de cada — e algumas são desenhadas para parecer o que não são.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="clTrCounter">Classe 1 de 12</div>
+              <div class="cls-stmt" id="clTrStmt">—</div>
+              <div class="cls-opts" id="clTrOpts">
+                <button class="tab" data-cltr="ENT">Entidade</button>
+                <button class="tab" data-cltr="FRO">Fronteira</button>
+                <button class="tab" data-cltr="CTR">Controle</button>
+              </div>
+              <div class="cls-feedback" id="clTrFeedback">Escolha uma categoria para ver a justificativa.</div>
+              <div class="cls-score" id="clTrScore">Acertos: <strong>0</strong> / 0</div>
+              <button class="sim-btn ghost" id="clTrReset" style="margin-left:0; margin-top:16px;">Reiniciar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="cl-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Resumo</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">As quatro perguntas de resumo do material, mais uma de aplicação. Tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Quais são os tipos de objetos em um sistema?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Objetos de entidade (entity), de fronteira (boundary) e de controle (control)</div>
+                <p>São as três categorias em que as classes de um sistema podem ser classificadas. Elas auxiliam na complementação das classes do modelo, e cada classe pertence a apenas uma delas.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">Para que serve um objeto de entidade?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para representar um conceito do domínio do negócio</div>
+                <p>Normalmente armazena informações persistentes. Seus objetos participam de vários casos de uso e têm ciclo de vida longo — um objeto <em>pedido</em> pode existir por um tempo longo e participar tanto de "realizar pedido" quanto de "atualizar estoque".</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Para que serve um objeto de fronteira?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para realizar a comunicação do sistema com os atores — o mundo exterior</div>
+                <p>Traduz eventos gerados por atores em eventos relevantes ao sistema e é responsável por apresentar ao ator os resultados gerados pelo sistema. Com atores humanos: relatórios, páginas HTML, interfaces gráficas. Com outros sistemas ou dispositivos: objetos que implementam protocolos de comunicação.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Para que serve um objeto de controle?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para realizar a comunicação entre objetos de fronteira e objetos de entidade</div>
+                <p>Seus objetos traduzem eventos de sistema em operações que devem ser realizadas pelos demais objetos, coordenam as ações dos outros objetos e controlam a lógica de execução correspondente a um caso de uso. No exemplo do hotel, o controle recebe a solicitação da interface, pede a verificação do cadastro para Cliente, pede um quarto para Quarto e pede a criação do novo objeto para Reserva.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Qual é o ganho concreto de manter cada classe em uma única categoria?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">As mudanças do sistema ficam mais localizadas, com probabilidade menor de efeitos colaterais</div>
+                <p>Cada categoria concentra um motivo de mudança diferente: fronteira muda quando muda a tecnologia ou o canal, controle muda quando muda o fluxo do caso de uso, entidade muda quando muda o conceito do negócio. Como os motivos são independentes, uma alteração tende a tocar uma camada só — e o que não foi tocado não precisa ser reavaliado.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Modelo de Classes · Classificação de Classes — EPUSP · PCS · 2026<br>
+              [1] MELNIKOFF, S. S. S.; RISCO BECERRA, J. L. Modelo de Classes: Classificação de Classes — 7º material, 24/08/2026<br>
+              [2] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 3ª ed., Elsevier, 2015
+            </div>
+            <div class="credit">P1 · Módulo 07 · Profa. Selma S. S. Melnikoff e Prof. Jorge Luis Risco Becerra — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: CLASSIFICAÇÃO DE CLASSES ================= -->
+
 
     </div>
   </div>
@@ -2740,7 +4430,9 @@
     {id:'requisitos', group:'P1', title:'Levantamento e Análise de Requisitos'},
     {id:'casos-uso', group:'P1', title:'Modelo de Casos de Uso'},
     {id:'construcao-casos-uso', group:'P1', title:'Construção do Modelo de Casos de Uso'},
-    {id:'exercicio-sgrb', group:'P1', title:'Exercício: Modelo de Casos de Uso do SGRB'}
+    {id:'exercicio-sgrb', group:'P1', title:'Exercício: Modelo de Casos de Uso do SGRB'},
+    {id:'modelo-classes', group:'P1', title:'Modelo de Classes'},
+    {id:'classificacao-classes', group:'P1', title:'Classificação de Classes'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -4076,6 +5768,695 @@
       });
     }
     cmcRender();
+  }
+
+  /* ============================================================
+     MODULE 06 — ANATOMIA DA CLASSE
+     ============================================================ */
+  var ANAT = {
+    nome: {
+      title:'Nome da classe',
+      text:'Classe é a descrição de um conjunto de objetos que compartilham mesmos atributos, operações, relacionamentos e semântica (significado). O nome vai no primeiro compartimento, centralizado e no singular — ele nomeia o <em>tipo</em>, não um objeto.',
+      hint:'ContaBancaria — um nome, milhares de objetos',
+      show:['name']
+    },
+    attr: {
+      title:'Lista de atributos',
+      text:'Atributo é informação <strong style="color:var(--ink)">armazenada e manipulada</strong> pela classe. Vai no segundo compartimento. No início da análise você lista só os que importam para entender o modelo; a lista completa aparece depois da implementação.',
+      hint:'numero · saldo · dataAbertura',
+      show:['name','attr']
+    },
+    oper: {
+      title:'Lista de operações',
+      text:'Operação é uma função realizada pelo objeto da classe. Vai no terceiro compartimento, com parênteses. Note que operações costumam sair dos <strong style="color:var(--ink)">verbos</strong> da descrição dos casos de uso, do mesmo jeito que atributos saem dos substantivos.',
+      hint:'criar () · bloquear () · creditar () · debitar ()',
+      show:['name','attr','oper']
+    },
+    resp: {
+      title:'Responsabilidade',
+      text:'Responsabilidade é a <strong style="color:var(--ink)">finalidade da classe</strong> no sistema considerado — a resposta para "para que existe esta classe?". É a primeira coisa a definir, junto com o nome, e a que mais protege o modelo de virar um depósito de dados sem intenção.',
+      hint:'Representar uma conta bancária de um cliente',
+      show:['name','resp']
+    }
+  };
+  var anatSide = document.getElementById('anatSide');
+  if(anatSide){
+    var anatEls = {
+      attr: document.getElementById('anatAttr'),
+      oper: document.getElementById('anatOper'),
+      resp: document.getElementById('anatResp')
+    };
+    var anatTitle = document.getElementById('anatTitle');
+    var anatText = document.getElementById('anatText');
+    var anatHint = document.getElementById('anatHint');
+
+    function anatShow(key){
+      var d = ANAT[key];
+      if(!d) return;
+      Object.keys(anatEls).forEach(function(k){
+        var el = anatEls[k];
+        if(!el) return;
+        var on = d.show.indexOf(k) !== -1;
+        el.style.display = on ? '' : 'none';
+      });
+      anatTitle.textContent = d.title;
+      anatText.innerHTML = d.text;
+      anatHint.textContent = d.hint;
+      anatSide.querySelectorAll('.tab').forEach(function(b){
+        b.classList.toggle('active', b.dataset.anat === key);
+      });
+    }
+    anatSide.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ anatShow(btn.dataset.anat); });
+    });
+    anatShow('nome');
+  }
+
+  /* ============================================================
+     MODULE 06 — CONSTRUTOR DE CONECTIVIDADE
+     ============================================================ */
+  var mbOptsL = document.getElementById('mbOptsL');
+  var mbOptsR = document.getElementById('mbOptsR');
+  if(mbOptsL && mbOptsR){
+    var mbLeftEl = document.getElementById('mbLeft');
+    var mbRightEl = document.getElementById('mbRight');
+    var mbConnEl = document.getElementById('mbConn');
+    var mbReadEl = document.getElementById('mbRead');
+    var mbState = { l:'1', r:'*' };
+
+    function mbIsMany(m){ return m === '*' || m === '1..*' || m === '0..*'; }
+    function mbPhrase(m, plural, singular){
+      if(m === '1') return 'exatamente <span>um</span> ' + singular;
+      if(m === '0..1') return '<span>zero ou um</span> ' + singular;
+      if(m === '1..*') return '<span>uma ou muitas</span> ' + plural;
+      return '<span>zero ou muitas</span> ' + plural;
+    }
+    function mbRender(){
+      mbLeftEl.textContent = mbState.l;
+      mbRightEl.textContent = mbState.r;
+
+      var manyL = mbIsMany(mbState.l), manyR = mbIsMany(mbState.r);
+      var conn = (manyL && manyR) ? 'muitos para muitos'
+               : (!manyL && !manyR) ? 'um para um'
+               : 'um para muitos';
+      mbConnEl.textContent = 'Conectividade: ' + conn;
+
+      // a multiplicidade em um extremo diz quantos objetos daquela ponta
+      // se associam a UM objeto da outra ponta
+      var s1 = 'Uma <strong>ContaCorrente</strong> pertence a ' + mbPhrase(mbState.l, 'Clientes', 'Cliente') + '.';
+      var s2 = 'Um <strong>Cliente</strong> tem ' + mbPhrase(mbState.r, 'ContasCorrentes', 'ContaCorrente') + '.';
+      var extra = '';
+      if(mbState.l === '1' && mbState.r === '*'){
+        extra = ' <span style="color:var(--ink-faint)">— é o caso clássico: cliente sem conta é permitido, conta sem cliente não.</span>';
+      } else if(manyL && manyR){
+        extra = ' <span style="color:var(--ink-faint)">— muitos para muitos: se houver dado do vínculo, ele pede uma classe associativa.</span>';
+      } else if(!manyL && !manyR){
+        extra = ' <span style="color:var(--ink-faint)">— um para um: vale perguntar se não deveriam ser uma única classe.</span>';
+      }
+      mbReadEl.innerHTML = s1 + '<br>' + s2 + extra;
+
+      mbOptsL.querySelectorAll('.tab').forEach(function(b){ b.classList.toggle('active', b.dataset.m === mbState.l); });
+      mbOptsR.querySelectorAll('.tab').forEach(function(b){ b.classList.toggle('active', b.dataset.m === mbState.r); });
+    }
+    mbOptsL.querySelectorAll('.tab').forEach(function(b){
+      b.addEventListener('click', function(){ mbState.l = b.dataset.m; mbRender(); });
+    });
+    mbOptsR.querySelectorAll('.tab').forEach(function(b){
+      b.addEventListener('click', function(){ mbState.r = b.dataset.m; mbRender(); });
+    });
+    mbRender();
+  }
+
+  /* ============================================================
+     MODULE 06 — SIMULADOR DE DESTRUIÇÃO (todo-parte)
+     ============================================================ */
+  var destrHead = document.getElementById('destrHead');
+  if(destrHead){
+    var DESTR = {
+      pedido: {
+        titleA:'◆ Composição · Pedido ◆— ItemPedido',
+        titleB:'Associação simples · ItemPedido —— Produto',
+        classB:'agg',
+        a:[
+          {n:'pedido #4471', t:'objeto todo', whole:true},
+          {n:'itemPedido #1 · 2 un.', t:'parte'},
+          {n:'itemPedido #2 · 1 un.', t:'parte'},
+          {n:'itemPedido #3 · 5 un.', t:'parte'}
+        ],
+        b:[
+          {n:'produto "Teclado"', t:'catálogo'},
+          {n:'produto "Monitor"', t:'catálogo'},
+          {n:'produto "Cabo HDMI"', t:'catálogo'}
+        ],
+        out:'<span class="ok">✓ composição</span><br>Excluir o <strong style="color:var(--ink)">Pedido</strong> excluiu todos os objetos <strong style="color:var(--ink)">ItemPedido</strong> — eles não têm existência fora dele. Os <strong style="color:var(--ink)">Produtos</strong> do catálogo continuam intactos: a ligação entre ItemPedido e Produto é associação simples, sem losango.'
+      },
+      associacao: {
+        titleA:'◇ Agregação · AssociacaoEsportiva ◇— Equipe',
+        titleB:'◇ Agregação · Equipe ◇— Jogador (* de cada lado)',
+        classB:'agg',
+        a:[
+          {n:'associacaoEsportiva "Liga Paulista"', t:'objeto todo', whole:true},
+          {n:'equipe "Time A"', t:'parte'},
+          {n:'equipe "Time B"', t:'parte'}
+        ],
+        b:[
+          {n:'jogador "Ana"', t:'joga no Time A e no Time B'},
+          {n:'jogador "Bruno"', t:'joga no Time A'},
+          {n:'jogador "Caio"', t:'joga no Time B'}
+        ],
+        out:'<span class="ok">✓ agregação</span><br>Dissolver a <strong style="color:var(--ink)">AssociacaoEsportiva</strong> pode fazer com que não tenha mais sentido as <strong style="color:var(--ink)">Equipes</strong> existirem — mas elas <strong style="color:var(--ink)">não são destruídas</strong> por isso. E os <strong style="color:var(--ink)">Jogadores</strong> sobrevivem de qualquer forma: um jogador pode fazer parte de diversas equipes, o que já descarta composição.'
+      }
+    };
+    var destrObjsA = document.getElementById('destrObjsA');
+    var destrObjsB = document.getElementById('destrObjsB');
+    var destrTitleA = document.getElementById('destrTitleA');
+    var destrTitleB = document.getElementById('destrTitleB');
+    var destrColA = document.getElementById('destrColA');
+    var destrOut = document.getElementById('destrOut');
+    var destrGo = document.getElementById('destrGo');
+    var destrResetBtn = document.getElementById('destrReset');
+    var destrKey = 'pedido';
+
+    function destrRow(o){
+      return '<div class="dobj' + (o.whole ? ' whole' : '') + '">' + o.n +
+             '<span class="do-tag">' + o.t + '</span></div>';
+    }
+    function destrRender(){
+      var d = DESTR[destrKey];
+      destrTitleA.textContent = d.titleA;
+      destrTitleB.textContent = d.titleB;
+      destrColA.classList.toggle('comp', destrKey === 'pedido');
+      destrColA.classList.toggle('agg', destrKey !== 'pedido');
+      destrObjsA.innerHTML = d.a.map(destrRow).join('');
+      destrObjsB.innerHTML = d.b.map(destrRow).join('');
+      destrOut.innerHTML = 'Clique em "Destruir o todo" para ver a diferença.';
+      destrGo.disabled = false;
+      destrHead.querySelectorAll('.tab').forEach(function(b){ b.classList.toggle('active', b.dataset.ex === destrKey); });
+    }
+    function destrRun(){
+      var d = DESTR[destrKey];
+      var rowsA = destrObjsA.querySelectorAll('.dobj');
+      var rowsB = destrObjsB.querySelectorAll('.dobj');
+      destrGo.disabled = true;
+      if(rowsA[0]) rowsA[0].classList.add('dead');
+      var i = 1;
+      var kills = (destrKey === 'pedido');
+      var tick = setInterval(function(){
+        if(i >= rowsA.length){
+          clearInterval(tick);
+          rowsB.forEach(function(r){ r.classList.add('survives'); });
+          destrOut.innerHTML = d.out;
+          return;
+        }
+        if(kills) rowsA[i].classList.add('dead');
+        else rowsA[i].classList.add('survives');
+        i++;
+      }, 420);
+    }
+    destrHead.querySelectorAll('.tab').forEach(function(b){
+      b.addEventListener('click', function(){ destrKey = b.dataset.ex; destrRender(); });
+    });
+    if(destrGo) destrGo.addEventListener('click', destrRun);
+    if(destrResetBtn) destrResetBtn.addEventListener('click', destrRender);
+    destrRender();
+  }
+
+  /* ============================================================
+     MODULE 06 — POLIMORFISMO
+     ============================================================ */
+  var polyOpts = document.getElementById('polyOpts');
+  if(polyOpts){
+    var POLY = {
+      mensalista: {
+        cls:'Mensalista',
+        code:'<span class="cm">// Mensalista extends Funcionario</span>\n<span class="kw">float</span> <span class="fn">calcularSalario</span>() {\n  <span class="kw">return</span> this.salario;\n}',
+        val:'R$ 10.000,00',
+        note:'O mensalista recebe salário fixo. A operação só devolve o atributo <em>salario</em>, que existe apenas nesta subclasse.',
+        obj:['João Silva','111.111.111-XX','salario = R$ 10K']
+      },
+      autonomo: {
+        cls:'Autonomo',
+        code:'<span class="cm">// Autonomo extends Funcionario</span>\n<span class="kw">float</span> <span class="fn">calcularSalario</span>() {\n  <span class="kw">return</span> this.taxaHoraria * horasNoMes;\n}',
+        val:'R$ 300,00 / h',
+        note:'O autônomo recebe por hora trabalhada. Mesma assinatura, cálculo completamente diferente — e dependente de um atributo que só ele tem.',
+        obj:['José Souza','222.222.222-XX','taxaHoraria = R$ 300']
+      },
+      estagiario: {
+        cls:'Estagiario',
+        code:'<span class="cm">// Estagiario extends Funcionario</span>\n<span class="kw">float</span> <span class="fn">calcularSalario</span>() {\n  <span class="kw">return</span> this.bolsa;\n}',
+        val:'R$ 2.000,00',
+        note:'O estagiário recebe bolsa. Para quem chama <em>calcularSalario()</em> nada muda: é o objeto que decide qual código roda.',
+        obj:['Paulo Costa','444.444.444-XX','bolsa = R$ 2K']
+      }
+    };
+    var polyCode = document.getElementById('polyCode');
+    var polyVal = document.getElementById('polyVal');
+    var polyNote = document.getElementById('polyNote');
+    var polyObjName = document.getElementById('polyObjName');
+    var polyObjA = document.getElementById('polyObjA');
+    var polyObjB = document.getElementById('polyObjB');
+    var polyObjC = document.getElementById('polyObjC');
+
+    function polyShow(key){
+      var d = POLY[key];
+      if(!d) return;
+      polyCode.innerHTML = d.code;
+      polyCode.style.whiteSpace = 'pre';
+      polyVal.textContent = d.val;
+      polyNote.innerHTML = d.note;
+      polyObjName.textContent = d.cls;
+      polyObjA.textContent = d.obj[0];
+      polyObjB.textContent = d.obj[1];
+      polyObjC.textContent = d.obj[2];
+      polyOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.toggle('active', b.dataset.poly === key); });
+    }
+    polyOpts.querySelectorAll('.tab').forEach(function(b){
+      b.addEventListener('click', function(){ polyShow(b.dataset.poly); });
+    });
+    polyShow('mensalista');
+  }
+
+  /* ============================================================
+     MODULE 06 — TREINO: RELACIONAMENTOS ENTRE CLASSES
+     ============================================================ */
+  var MCREL_ITEMS = [
+    {t:'Um Cliente tem um histórico de transações da sua ContaCorrente. Excluir o cliente não deveria apagar o extrato contábil.', a:'ASS', w:'As duas classes trocam mensagens, mas nenhuma está contida na outra e nenhuma é um tipo da outra. Associação simples.'},
+    {t:'Um Pedido é formado por vários ItemPedido. Excluir o pedido apaga todos os seus itens, que não fazem sentido sozinhos.', a:'COMP', w:'A destruição do todo implica na destruição das partes e a parte sempre pertence a um outro objeto: composição (losango cheio).'},
+    {t:'Uma AssociacaoEsportiva é formada por diversas Equipes. Se a associação for dissolvida, as equipes continuam existindo.', a:'AGR', w:'É todo-parte, mas a destruição do todo não implica na destruição das partes: agregação (losango vazio).'},
+    {t:'Um Funcionario pode ser Mensalista, Autonomo ou Estagiario. Todos têm nome e CPF; cada tipo tem sua forma de remuneração.', a:'HER', w:'A parte comum sobe para a superclasse e cada tipo é-um Funcionario. Herança, triângulo vazio apontando para o pai.'},
+    {t:'Pessoa e Empresa se associam muitos-para-muitos, e o cargo, a data de início e o salário mudam para cada vínculo.', a:'CLA', w:'A informação não pertence a nenhuma das duas classes, e sim à associação entre elas. Classe associativa (Trabalho).'},
+    {t:'Um Jogador pode fazer parte de diversas Equipes, e uma Equipe é formada por diversos Jogadores.', a:'AGR', w:'É todo-parte, mas a parte tem vários donos — isso descarta composição de saída. Agregação.'},
+    {t:'ContaPoupanca e ContaCorrente reaproveitam número, saldo e as operações de creditar e debitar de ContaBancaria.', a:'HER', w:'Relacionamento é-um com compartilhamento da parte comum: herança. E creditar/debitar podem ser polimórficas.'},
+    {t:'Um ItemPedido se refere a um Produto do catálogo. Apagar o item não pode apagar o produto.', a:'ASS', w:'Sem contenção e sem é-um. Colocar losango aqui afirmaria algo falso sobre o sistema: é associação simples.'},
+    {t:'Aluno e Disciplina se associam muitos-para-muitos, e a nota final e a frequência existem por matrícula.', a:'CLA', w:'Nota e frequência não são do Aluno nem da Disciplina — são da matrícula, que é o vínculo. Classe associativa.'},
+    {t:'Uma Fatura é composta de Lançamentos. Cancelar a fatura elimina os lançamentos, que sempre pertencem a exatamente uma fatura.', a:'COMP', w:'Um objeto sempre pertence a um outro objeto e morre com ele: composição.'}
+  ];
+  var MCREL_NAMES = {ASS:'Associação', AGR:'Agregação', COMP:'Composição', HER:'Herança', CLA:'Classe associativa'};
+  var mcRelStmt = document.getElementById('mcRelStmt');
+  var mcRelOpts = document.getElementById('mcRelOpts');
+  if(mcRelStmt && mcRelOpts){
+    var mcRelFeedback = document.getElementById('mcRelFeedback');
+    var mcRelCounter = document.getElementById('mcRelCounter');
+    var mcRelScore = document.getElementById('mcRelScore');
+    var mcRelResetBtn = document.getElementById('mcRelReset');
+    var mcRelState = { i:0, hits:0, answered:0, locked:false };
+
+    function mcRelRender(){
+      mcRelStmt.textContent = MCREL_ITEMS[mcRelState.i].t;
+      mcRelCounter.textContent = 'Situação ' + (mcRelState.i + 1) + ' de ' + MCREL_ITEMS.length;
+      mcRelOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      mcRelFeedback.textContent = 'Escolha um relacionamento para ver a justificativa.';
+      mcRelScore.innerHTML = 'Acertos: <strong>' + mcRelState.hits + '</strong> / ' + mcRelState.answered;
+      mcRelState.locked = false;
+    }
+    function mcRelAnswer(choice, btn){
+      if(mcRelState.locked) return;
+      mcRelState.locked = true;
+      mcRelState.answered++;
+      var item = MCREL_ITEMS[mcRelState.i];
+      var correct = choice === item.a;
+      if(correct) mcRelState.hits++;
+      mcRelOpts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.mcrel === item.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      mcRelFeedback.innerHTML =
+        (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + MCREL_NAMES[item.a] + '</span>') +
+        '<br>' + item.w;
+      mcRelScore.innerHTML = 'Acertos: <strong>' + mcRelState.hits + '</strong> / ' + mcRelState.answered;
+      setTimeout(function(){
+        if(mcRelState.i < MCREL_ITEMS.length - 1){
+          mcRelState.i++;
+          mcRelRender();
+        } else {
+          mcRelCounter.textContent = 'Fim · ' + MCREL_ITEMS.length + ' situações';
+          mcRelStmt.textContent = 'Você acertou ' + mcRelState.hits + ' de ' + MCREL_ITEMS.length + '.';
+          mcRelFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 2600);
+    }
+    mcRelOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ mcRelAnswer(btn.dataset.mcrel, btn); });
+    });
+    if(mcRelResetBtn){
+      mcRelResetBtn.addEventListener('click', function(){
+        mcRelState.i = 0; mcRelState.hits = 0; mcRelState.answered = 0;
+        mcRelRender();
+      });
+    }
+    mcRelRender();
+  }
+
+  /* ============================================================
+     MODULE 06 — TREINO: CONECTIVIDADE
+     ============================================================ */
+  var MCCON_ITEMS = [
+    {t:'Cliente 1 —— * ContaCorrente', a:'1-N', w:'Um extremo com 1 e o outro com *: um para muitos. Um cliente tem várias contas; cada conta é de um único cliente.'},
+    {t:'Pessoa 1..* —— * Empresa', a:'N-N', w:'1..* e * são ambos "muitos". Muitos para muitos: uma pessoa trabalha para várias empresas e uma empresa emprega várias pessoas.'},
+    {t:'Pessoa 0..1 —— 1 CarteiraDeTrabalho', a:'1-1', w:'0..1 e 1 são ambos "um". Um para um — vale perguntar se não deveriam ser uma classe só.'},
+    {t:'Pedido 1 —— 1..* ItemPedido', a:'1-N', w:'1 de um lado, 1..* do outro. Um para muitos, com a garantia de que o pedido tem pelo menos um item.'},
+    {t:'Aluno * —— * Disciplina', a:'N-N', w:'Muitos para muitos. Se houver nota ou frequência por matrícula, esse dado pede uma classe associativa.'},
+    {t:'Funcionario 1 (supervisor) —— * (supervisionado) Funcionario', a:'1-N', w:'Reflexiva, mas a conectividade é a mesma coisa: 1 de um lado e * do outro é um para muitos.'},
+    {t:'Voo 0..1 —— 1 Piloto', a:'1-1', w:'Ambos os extremos são "um" (0..1 e 1). Um para um.'},
+    {t:'Equipe 0..* —— 1..* Jogador', a:'N-N', w:'0..* e 1..* são ambos "muitos". Muitos para muitos — e é por isso que ali só pode ser agregação, nunca composição.'}
+  ];
+  var MCCON_NAMES = {'1-1':'Um para um', '1-N':'Um para muitos', 'N-N':'Muitos para muitos'};
+  var mcConStmt = document.getElementById('mcConStmt');
+  var mcConOpts = document.getElementById('mcConOpts');
+  if(mcConStmt && mcConOpts){
+    var mcConFeedback = document.getElementById('mcConFeedback');
+    var mcConCounter = document.getElementById('mcConCounter');
+    var mcConScore = document.getElementById('mcConScore');
+    var mcConResetBtn = document.getElementById('mcConReset');
+    var mcConState = { i:0, hits:0, answered:0, locked:false };
+
+    function mcConRender(){
+      mcConStmt.textContent = MCCON_ITEMS[mcConState.i].t;
+      mcConCounter.textContent = 'Situação ' + (mcConState.i + 1) + ' de ' + MCCON_ITEMS.length;
+      mcConOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      mcConFeedback.textContent = 'Escolha uma conectividade para ver a justificativa.';
+      mcConScore.innerHTML = 'Acertos: <strong>' + mcConState.hits + '</strong> / ' + mcConState.answered;
+      mcConState.locked = false;
+    }
+    function mcConAnswer(choice, btn){
+      if(mcConState.locked) return;
+      mcConState.locked = true;
+      mcConState.answered++;
+      var item = MCCON_ITEMS[mcConState.i];
+      var correct = choice === item.a;
+      if(correct) mcConState.hits++;
+      mcConOpts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.mccon === item.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      mcConFeedback.innerHTML =
+        (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + MCCON_NAMES[item.a] + '</span>') +
+        '<br>' + item.w;
+      mcConScore.innerHTML = 'Acertos: <strong>' + mcConState.hits + '</strong> / ' + mcConState.answered;
+      setTimeout(function(){
+        if(mcConState.i < MCCON_ITEMS.length - 1){
+          mcConState.i++;
+          mcConRender();
+        } else {
+          mcConCounter.textContent = 'Fim · ' + MCCON_ITEMS.length + ' situações';
+          mcConStmt.textContent = 'Você acertou ' + mcConState.hits + ' de ' + MCCON_ITEMS.length + '.';
+          mcConFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 2600);
+    }
+    mcConOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ mcConAnswer(btn.dataset.mccon, btn); });
+    });
+    if(mcConResetBtn){
+      mcConResetBtn.addEventListener('click', function(){
+        mcConState.i = 0; mcConState.hits = 0; mcConState.answered = 0;
+        mcConRender();
+      });
+    }
+    mcConRender();
+  }
+
+  /* ============================================================
+     MODULE 07 — EXPLORADOR DE CLASSES (sistema de hotel)
+     ============================================================ */
+  var CLEX = [
+    {n:'Quarto', cat:'ENT', tag:'«entidade» · entity',
+     pts:['Conceito do domínio do negócio: o hotel fala de "quarto" com ou sem software.',
+          'Armazena informação persistente — número, andar, tipo, tarifa base.',
+          'Participa de vários casos de uso: reservar, fazer check-in, gerar relatório de ocupação.'],
+     note:'ciclo de vida longo — o quarto 402 existe desde a inauguração do hotel'},
+    {n:'Cliente', cat:'ENT', tag:'«entidade» · entity',
+     pts:['Conceito do negócio, com informação persistente: nome, CPF, contato, histórico.',
+          'Seus objetos atravessam vários casos de uso e sobrevivem a todos eles.'],
+     note:'no exemplo do material, é a quem o controle pede a verificação do cadastro'},
+    {n:'Reserva', cat:'ENT', tag:'«entidade» · entity',
+     pts:['Guarda o vínculo entre cliente, quarto e período — dado que não é de nenhum dos três isoladamente.',
+          'É criada por solicitação do controle, mas quem a mantém é ela mesma.'],
+     note:'lembre do módulo anterior: isto tem cara de classe associativa promovida a classe'},
+    {n:'Hospedagem', cat:'ENT', tag:'«entidade» · entity',
+     pts:['Representa a estadia efetivamente ocorrida: check-in, check-out, consumo.',
+          'Persistente e de ciclo de vida longo — é a base do faturamento e dos relatórios.'],
+     note:'reserva é promessa, hospedagem é fato — dois conceitos, duas entidades'},
+    {n:'IUReserva', cat:'FRO', tag:'«fronteira» · boundary',
+     pts:['Realiza a comunicação do sistema com o ator humano (o atendente).',
+          'Traduz os eventos gerados pelo ator em eventos relevantes ao sistema.',
+          'Apresenta ao ator os resultados gerados pelo sistema.'],
+     note:'trocar a tela web por um app mobile troca esta classe e nenhuma outra'},
+    {n:'RelatorioOcupacao', cat:'FRO', tag:'«fronteira» · boundary',
+     pts:['Relatório é uma das formas de comunicação com atores humanos citadas no material.',
+          'Não calcula regra de negócio — pede o dado e o apresenta em um formato.'],
+     note:'se o relatório começar a decidir política de preço, virou controle disfarçado'},
+    {n:'GatewayCartao', cat:'FRO', tag:'«fronteira» · boundary',
+     pts:['Comunicação com outro sistema: objeto que implementa protocolos de comunicação.',
+          'Fronteira não é só interface gráfica — é toda a borda do sistema.'],
+     note:'o material cita explicitamente "outros sistemas ou dispositivos"'},
+    {n:'CtrlReserva', cat:'CTR', tag:'«controle» · control',
+     pts:['Realiza a comunicação entre os objetos de fronteira e os objetos de entidade.',
+          'Traduz o evento de sistema em operações a serem realizadas pelos demais objetos.',
+          'Controla a lógica de execução correspondente ao caso de uso "reservar quarto".'],
+     note:'é exatamente o objeto do exemplo do material: recebe da IU, pede a Cliente, pede a Quarto, manda Reserva se criar'},
+    {n:'CtrlCheckIn', cat:'CTR', tag:'«controle» · control',
+     pts:['Coordena as ações dos outros objetos na realização do check-in.',
+          'Um controle por caso de uso é o padrão — e o nome da classe entrega isso.'],
+     note:'não guarda dado próprio persistente: guarda só o andamento da execução'}
+  ];
+  var CLEX_CATNAME = {ENT:'Entidade', FRO:'Fronteira', CTR:'Controle'};
+  var clExList = document.getElementById('clExList');
+  if(clExList){
+    var clExTag = document.getElementById('clExTag');
+    var clExTitle = document.getElementById('clExTitle');
+    var clExPoints = document.getElementById('clExPoints');
+    var clExNote = document.getElementById('clExNote');
+
+    CLEX.forEach(function(c, i){
+      var b = document.createElement('button');
+      b.className = 'hotel-item';
+      b.dataset.i = String(i);
+      b.innerHTML = '<span class="hi-n">' + CLEX_CATNAME[c.cat].charAt(0) + '</span> ' + c.n;
+      clExList.appendChild(b);
+    });
+
+    function clExShow(i){
+      var c = CLEX[i];
+      if(!c) return;
+      clExTag.textContent = c.tag;
+      clExTitle.textContent = c.n + ' — classe de ' + CLEX_CATNAME[c.cat].toLowerCase();
+      clExPoints.innerHTML = c.pts.map(function(p){ return '<li>' + p + '</li>'; }).join('');
+      clExNote.textContent = c.note;
+      clExList.querySelectorAll('.hotel-item').forEach(function(b){
+        b.classList.toggle('active', b.dataset.i === String(i));
+      });
+    }
+    clExList.querySelectorAll('.hotel-item').forEach(function(b){
+      b.addEventListener('click', function(){ clExShow(Number(b.dataset.i)); });
+    });
+    clExShow(0);
+  }
+
+  /* ============================================================
+     MODULE 07 — SEQUÊNCIA DA RESERVA DE QUARTO
+     ============================================================ */
+  var clSeqNext = document.getElementById('clSeqNext');
+  if(clSeqNext){
+    var CLSEQ = [
+      {t:'O <em>Atendente</em> solicita a reserva pela interface. O ator nunca fala com o controle nem com as entidades — ele só encosta na <em>fronteira</em>.'},
+      {t:'<em>IUReserva</em> traduz o evento do ator em um evento relevante ao sistema e o repassa ao controle. A fronteira não decide nada: ela converte e entrega.'},
+      {t:'<em>CtrlReserva</em> solicita a verificação da existência do cadastro do cliente para <em>Cliente</em>. É a primeira operação da lógica do caso de uso.'},
+      {t:'<em>Cliente</em> responde. Note que a entidade só responde — ela não sabe que existe uma reserva em andamento nem que existe uma tela.'},
+      {t:'<em>CtrlReserva</em> solicita um quarto conforme o desejo do cliente para <em>Quarto</em>. A ordem "cadastro antes de quarto" é regra do controle, não da entidade.'},
+      {t:'<em>Quarto</em> devolve o quarto disponível. Duas entidades já participaram e nenhuma delas trocou mensagem com a outra.'},
+      {t:'<em>CtrlReserva</em> solicita a criação do novo objeto para <em>Reserva</em>. O controle coordena a criação; quem sabe ser uma reserva é a entidade.'},
+      {t:'O controle devolve a confirmação para a <em>fronteira</em>. Aqui termina a lógica do caso de uso.'},
+      {t:'<em>IUReserva</em> apresenta o resultado gerado pelo sistema ao ator. Fim: a mensagem entrou pela fronteira, foi orquestrada pelo controle e terminou nas entidades.'}
+    ];
+    var clSeqSteps = document.querySelectorAll('#page-classificacao-classes .seq-step');
+    var clSeqN = document.getElementById('clSeqN');
+    var clSeqT = document.getElementById('clSeqT');
+    var clSeqAuto = document.getElementById('clSeqAuto');
+    var clSeqResetBtn = document.getElementById('clSeqReset');
+    var clSeqDots = document.getElementById('clSeqDots');
+    var clSeqI = 0;
+    var clSeqTimer = null;
+
+    for(var cdi = 0; cdi < CLSEQ.length; cdi++){
+      var dot = document.createElement('span');
+      dot.className = 'sd';
+      clSeqDots.appendChild(dot);
+    }
+
+    function clSeqRender(){
+      clSeqSteps.forEach(function(g){
+        var n = Number(g.dataset.seq);
+        g.classList.toggle('on', n <= clSeqI);
+        g.classList.toggle('cur', n === clSeqI);
+      });
+      clSeqDots.querySelectorAll('.sd').forEach(function(d, i){
+        d.classList.toggle('on', i < clSeqI);
+      });
+      clSeqN.textContent = 'passo ' + clSeqI + ' de ' + CLSEQ.length;
+      if(clSeqI === 0){
+        clSeqT.innerHTML = 'Clique em "Avançar" para percorrer a reserva. Repare em quem fala com quem — e em quem nunca fala com quem.';
+      } else {
+        clSeqT.innerHTML = CLSEQ[clSeqI - 1].t;
+      }
+      clSeqNext.disabled = clSeqI >= CLSEQ.length;
+    }
+    function clSeqStop(){
+      if(clSeqTimer){ clearInterval(clSeqTimer); clSeqTimer = null; }
+      clSeqAuto.textContent = 'Rodar tudo';
+    }
+    clSeqNext.addEventListener('click', function(){
+      clSeqStop();
+      if(clSeqI < CLSEQ.length){ clSeqI++; clSeqRender(); }
+    });
+    clSeqAuto.addEventListener('click', function(){
+      if(clSeqTimer){ clSeqStop(); return; }
+      if(clSeqI >= CLSEQ.length){ clSeqI = 0; clSeqRender(); }
+      clSeqAuto.textContent = 'Pausar';
+      clSeqTimer = setInterval(function(){
+        if(clSeqI >= CLSEQ.length){ clSeqStop(); return; }
+        clSeqI++;
+        clSeqRender();
+      }, 2100);
+    });
+    clSeqResetBtn.addEventListener('click', function(){
+      clSeqStop();
+      clSeqI = 0;
+      clSeqRender();
+    });
+    clSeqRender();
+  }
+
+  /* ============================================================
+     MODULE 07 — TESTE DE IMPACTO DE MUDANÇA
+     ============================================================ */
+  var clImpOpts = document.getElementById('clImpOpts');
+  if(clImpOpts){
+    var CLIMP = {
+      app: {
+        f:'hit', c:'safe', e:'safe',
+        fv:'nova classe de fronteira', cv:'intacto', ev:'intacto',
+        out:'<strong>Só a fronteira.</strong> Atender por app mobile é acrescentar um novo canal de comunicação com o ator. O fluxo do caso de uso não muda e nenhum conceito do negócio muda — <em>CtrlReserva</em> recebe o mesmo evento de sistema, venha ele da web ou do app. Essa é a situação em que a classificação mais visivelmente paga.'
+      },
+      regra: {
+        f:'safe', c:'hit', e:'safe',
+        fv:'intacto', cv:'novo passo no fluxo', ev:'intacto',
+        out:'<strong>Só o controle.</strong> Exigir pré-pagamento é inserir um passo na lógica de execução do caso de uso: entre "buscar quarto" e "criar reserva" entra "cobrar". Quem controla a ordem dos passos é o controle. <em>Cliente</em>, <em>Quarto</em> e <em>Reserva</em> continuam sabendo exatamente o que sabiam.'
+      },
+      dado: {
+        f:'hit', c:'safe', e:'hit',
+        fv:'campo novo na tela', cv:'intacto', ev:'atributo novo em Cliente',
+        out:'<strong>Entidade e fronteira, mas não o controle.</strong> Preferência de andar é um conceito novo do domínio — entra como atributo de <em>Cliente</em> — e precisa de um campo para ser informado. A sequência de passos da reserva não se altera, então o controle fica de fora: nenhum efeito colateral sobre a lógica do caso de uso.'
+      },
+      tudo: {
+        f:'safe', c:'safe', e:'hit',
+        fv:'intacto', cv:'intacto', ev:'camada de persistência',
+        out:'<strong>Só as entidades.</strong> São elas que normalmente armazenam informação persistente, então é ali que a troca de banco chega. A tela não sabe onde o dado mora e o controle não sabe qual banco é — por isso a mudança para em uma camada. Note que <em>GatewayCartao</em>, apesar de ser fronteira, é irrelevante aqui.'
+      }
+    };
+    var clImpF = document.getElementById('clImpF');
+    var clImpC = document.getElementById('clImpC');
+    var clImpE = document.getElementById('clImpE');
+    var clImpFV = document.getElementById('clImpFV');
+    var clImpCV = document.getElementById('clImpCV');
+    var clImpEV = document.getElementById('clImpEV');
+    var clImpOut = document.getElementById('clImpOut');
+
+    function clImpApply(el, state){
+      el.classList.remove('hit', 'safe');
+      el.classList.add(state);
+    }
+    function clImpShow(key){
+      var d = CLIMP[key];
+      if(!d) return;
+      clImpApply(clImpF, d.f);
+      clImpApply(clImpC, d.c);
+      clImpApply(clImpE, d.e);
+      clImpFV.textContent = (d.f === 'hit' ? '✱ muda — ' : '✓ não muda — ') + d.fv;
+      clImpCV.textContent = (d.c === 'hit' ? '✱ muda — ' : '✓ não muda — ') + d.cv;
+      clImpEV.textContent = (d.e === 'hit' ? '✱ muda — ' : '✓ não muda — ') + d.ev;
+      clImpOut.innerHTML = d.out;
+      clImpOpts.querySelectorAll('.tab').forEach(function(b){
+        b.classList.toggle('active', b.dataset.imp === key);
+      });
+    }
+    clImpOpts.querySelectorAll('.tab').forEach(function(b){
+      b.addEventListener('click', function(){ clImpShow(b.dataset.imp); });
+    });
+    clImpShow('app');
+  }
+
+  /* ============================================================
+     MODULE 07 — TREINO: CLASSIFICADOR DE CLASSES
+     ============================================================ */
+  var CLTR_ITEMS = [
+    {t:'<strong>Pedido</strong> — guarda data, hora e os itens comprados; participa de "realizar pedido" e de "atualizar estoque".', a:'ENT', w:'É o exemplo do próprio material: conceito do domínio, informação persistente, ciclo de vida longo e participação em vários casos de uso.'},
+    {t:'<strong>PaginaHTMLCatalogo</strong> — monta a listagem de produtos que o cliente vê no navegador.', a:'FRO', w:'Páginas HTML são citadas como forma de comunicação com atores humanos. Apresenta o resultado gerado pelo sistema; não calcula regra.'},
+    {t:'<strong>CtrlEfetuarSaque</strong> — recebe o pedido da interface do caixa eletrônico, valida a senha com Cliente, debita em ContaCorrente e registra em Transacao.', a:'CTR', w:'Coordena as ações dos outros objetos e controla a lógica de execução correspondente a um caso de uso. O nome é praticamente o nome do caso de uso.'},
+    {t:'<strong>Disciplina</strong> — código, nome, carga horária e ementa, usada na matrícula e no histórico.', a:'ENT', w:'Conceito do domínio do negócio, persistente, presente em vários casos de uso.'},
+    {t:'<strong>LeitoraCartaoMagnetico</strong> — implementa o protocolo de conversa com o dispositivo físico de leitura.', a:'FRO', w:'Fronteira também cobre comunicação com dispositivos: objeto que implementa protocolos de comunicação. Não é só interface gráfica.'},
+    {t:'<strong>CtrlEmitirBoletim</strong> — dispara a busca das notas, aplica a regra de aprovação e manda o relatório ser montado.', a:'CTR', w:'Traduz o evento de sistema em operações dos demais objetos e ordena os passos. Quem monta o relatório é a fronteira; quem manda montar é o controle.'},
+    {t:'<strong>RelatorioMensalVendas</strong> — recebe os totais já calculados e os apresenta em PDF para o gerente.', a:'FRO', w:'Relatório é forma de comunicação com ator humano. O sinal de que é fronteira: ela apresenta, não calcula.'},
+    {t:'<strong>ContaCorrente</strong> — agência, número e saldo, com creditar e debitar.', a:'ENT', w:'Conceito do negócio com informação persistente. As operações são dela porque mexem no dado dela — isso não a torna controle.'},
+    {t:'<strong>CtrlReservarQuarto</strong> — pede a verificação do cadastro para Cliente, pede um quarto para Quarto e pede a criação do objeto para Reserva.', a:'CTR', w:'É literalmente o exemplo de classe de controle do material: comunicação entre fronteira e entidades, coordenando a realização do caso de uso.'},
+    {t:'<strong>TelaConsultaSaldo</strong> — desenha os campos, recebe o clique do correntista e mostra o número devolvido pelo sistema.', a:'FRO', w:'Interface gráfica: traduz eventos do ator em eventos do sistema e apresenta o resultado ao ator.'},
+    {t:'<strong>ItemPedido</strong> — quantidade de um produto dentro de um pedido, criado e destruído junto com ele.', a:'ENT', w:'Conceito do domínio e informação persistente. Ser parte de uma composição é assunto de relacionamento, não de categoria.'},
+    {t:'<strong>CtrlAtualizarEstoque</strong> — ao receber a confirmação de um pedido, percorre os itens e manda cada Produto abater a quantidade.', a:'CTR', w:'Coordena as ações dos outros objetos para realizar um caso de uso. Não guarda o estoque — quem guarda é Produto.'}
+  ];
+  var CLTR_NAMES = {ENT:'Entidade', FRO:'Fronteira', CTR:'Controle'};
+  var clTrStmt = document.getElementById('clTrStmt');
+  var clTrOpts = document.getElementById('clTrOpts');
+  if(clTrStmt && clTrOpts){
+    var clTrFeedback = document.getElementById('clTrFeedback');
+    var clTrCounter = document.getElementById('clTrCounter');
+    var clTrScore = document.getElementById('clTrScore');
+    var clTrResetBtn = document.getElementById('clTrReset');
+    var clTrState = { i:0, hits:0, answered:0, locked:false };
+
+    function clTrRender(){
+      clTrStmt.innerHTML = CLTR_ITEMS[clTrState.i].t;
+      clTrCounter.textContent = 'Classe ' + (clTrState.i + 1) + ' de ' + CLTR_ITEMS.length;
+      clTrOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      clTrFeedback.textContent = 'Escolha uma categoria para ver a justificativa.';
+      clTrScore.innerHTML = 'Acertos: <strong>' + clTrState.hits + '</strong> / ' + clTrState.answered;
+      clTrState.locked = false;
+    }
+    function clTrAnswer(choice, btn){
+      if(clTrState.locked) return;
+      clTrState.locked = true;
+      clTrState.answered++;
+      var item = CLTR_ITEMS[clTrState.i];
+      var correct = choice === item.a;
+      if(correct) clTrState.hits++;
+      clTrOpts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.cltr === item.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      clTrFeedback.innerHTML =
+        (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + CLTR_NAMES[item.a] + '</span>') +
+        '<br>' + item.w;
+      clTrScore.innerHTML = 'Acertos: <strong>' + clTrState.hits + '</strong> / ' + clTrState.answered;
+      setTimeout(function(){
+        if(clTrState.i < CLTR_ITEMS.length - 1){
+          clTrState.i++;
+          clTrRender();
+        } else {
+          clTrCounter.textContent = 'Fim · ' + CLTR_ITEMS.length + ' classes';
+          clTrStmt.innerHTML = 'Você acertou ' + clTrState.hits + ' de ' + CLTR_ITEMS.length + '.';
+          clTrFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 2600);
+    }
+    clTrOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ clTrAnswer(btn.dataset.cltr, btn); });
+    });
+    if(clTrResetBtn){
+      clTrResetBtn.addEventListener('click', function(){
+        clTrState.i = 0; clTrState.hits = 0; clTrState.answered = 0;
+        clTrRender();
+      });
+    }
+    clTrRender();
   }
 
 

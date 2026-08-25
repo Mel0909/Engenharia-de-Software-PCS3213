@@ -2138,6 +2138,592 @@
       </div>
       <!-- ================= END MODULE: CONSTRUÇÃO DO MODELO DE CASOS DE USO ================= -->
 
+      <!-- ================= MODULE: EXERCÍCIO SGRB ================= -->
+      <div class="module-page" data-module="exercicio-sgrb" id="page-exercicio-sgrb">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Exercício SGRB</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="ex-enunciado">Enunciado</button>
+              <button class="navlink" data-target="ex-roteiro">Roteiro</button>
+              <button class="navlink" data-target="ex-atores">Atores</button>
+              <button class="navlink" data-target="ex-funcoes">Funções</button>
+              <button class="navlink" data-target="ex-casos">Casos de uso</button>
+              <button class="navlink" data-target="ex-dados">Dados</button>
+              <button class="navlink" data-target="ex-diagrama">Diagrama</button>
+              <button class="navlink" data-target="ex-fichas">Fichas</button>
+              <button class="navlink" data-target="ex-comentarios">Comentários</button>
+              <button class="navlink" data-target="ex-armadilhas">Armadilhas</button>
+              <button class="navlink" data-target="ex-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="ex-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 05</div>
+              <h1>Exercício: <em>Sistema de Gerência de Reparo de Buracos</em></h1>
+              <p class="lede">O módulo anterior deu o roteiro. Aqui ele é aplicado do começo ao fim em um enunciado real: da descrição do sistema até as fichas de caso de uso, passando pelas três tabelas do relatório e pelos comentários dos professores na aula de 24/08.</p>
+              <div class="hero-meta">
+                <span><strong>Enunciado</strong> SGRB · 18/08/2026</span>
+                <span><strong>Comentários</strong> 24/08/2026</span>
+                <span><strong>Entrega</strong> 1 relatório por grupo</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">sgrb.modelar()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="uc-badge">01</span> Ler a descrição do sistema</div>
+                  <div class="src-item"><span class="uc-badge">02</span> Identificar os atores</div>
+                  <div class="src-item"><span class="uc-badge">03</span> Levantar as funções</div>
+                  <div class="src-item"><span class="uc-badge">04</span> Derivar os casos de uso</div>
+                  <div class="src-item"><span class="uc-badge">05</span> Associar atores</div>
+                  <div class="src-item"><span class="uc-badge">06</span> Listar os dados relevantes</div>
+                  <div class="src-item"><span class="uc-badge in">07</span> Desenhar o diagrama</div>
+                  <div class="src-item"><span class="uc-badge in">08</span> Descrever cada caso de uso</div>
+                </div>
+                <div class="src-out">3 tabelas + 1 diagrama + fichas = relatório</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ ENUNCIADO ============ -->
+        <section class="section" id="ex-enunciado">
+          <div class="wrap">
+            <div class="eyebrow">Passo 1 · Análise da descrição</div>
+            <h2 class="reveal">A descrição do sistema, parágrafo por parágrafo</h2>
+            <p class="intro reveal">Modelar bem depende de ler bem. Cada parágrafo do enunciado carrega, em geral, uma dessas três coisas: <strong style="color:var(--ink)">quem age</strong> (um ator), <strong style="color:var(--ink)">o que o sistema faz</strong> (uma função) ou <strong style="color:var(--ink)">o que o sistema guarda</strong> (um dado). Abaixo, o enunciado do SGRB com a leitura ao lado.</p>
+
+            <div class="docstruct reveal" style="grid-template-columns:1fr; gap:14px;">
+
+              <div class="doc-item">
+                <div class="di-n">§ 1 · CONTEXTO</div>
+                <h4>A Prefeitura decidiu informatizar a gerência de reparo de buracos das suas vias, realizada no Departamento de Obras Públicas. O serviço de reparo já existente continua funcionando em paralelo até ser substituído.</h4>
+                <ul>
+                  <li>Define o <strong style="color:var(--ink)">contorno do sistema</strong>: o SGRB é da Prefeitura, não do cidadão.</li>
+                  <li>"Continua existindo em paralelo" não vira caso de uso — é restrição de implantação.</li>
+                </ul>
+              </div>
+
+              <div class="doc-item">
+                <div class="di-n">§ 2 e 3 · CIDADÃO</div>
+                <h4>Os cidadãos registram os buracos encontrados nas vias por um aplicativo. Para solicitar o cadastro, o cidadão fornece nome, CPF, RG, endereço e número do celular.</h4>
+                <ul>
+                  <li>Ator: <strong style="color:var(--ink)">Cidadão</strong>.</li>
+                  <li>Função: cadastrar cidadão. Dado relevante: <strong style="color:var(--ink)">Cidadão</strong>, com os cinco campos citados.</li>
+                </ul>
+              </div>
+
+              <div class="doc-item">
+                <div class="di-n">§ 4 · REGISTRO DO BURACO</div>
+                <h4>Para solicitar o reparo, o cidadão cadastrado precisa se autenticar e fornecer: endereço do buraco, dimensão aproximada, localização na via (meio da via, meio-fio), nível de obstrução de trânsito (alto, médio, baixo) e uma foto opcional.</h4>
+                <ul>
+                  <li>Função: registrar buraco. Dado relevante: <strong style="color:var(--ink)">Buraco</strong>.</li>
+                  <li>"Precisa se autenticar" é o que justifica a <strong style="color:var(--ink)">inclusão</strong> de <em style="font-style:normal;color:var(--ink)">autenticar cidadão</em>.</li>
+                </ul>
+              </div>
+
+              <div class="doc-item">
+                <div class="di-n">§ 5 · VISTORIA</div>
+                <h4>Para filtrar os trotes, a existência dos buracos é verificada pelo Setor de Vistoria. Todas as manhãs os funcionários solicitam a lista de buracos da sua região, organizada em itinerário adequado, percorrem a região, confirmam as características e atribuem a prioridade inicial (alta, média, baixa). Os resultados são registrados por equipamentos móveis.</h4>
+                <ul>
+                  <li>Ator: <strong style="color:var(--ink)">Setor de Vistoria</strong>.</li>
+                  <li>Duas funções distintas: obter a lista (com itinerário) e registrar o resultado da vistoria.</li>
+                  <li>"Itinerário adequado" é comportamento reaproveitado — candidato natural a caso de uso <strong style="color:var(--ink)">incluído</strong>.</li>
+                </ul>
+              </div>
+
+              <div class="doc-item">
+                <div class="di-n">§ 6 · ORDEM DE SERVIÇO</div>
+                <h4>Para cada buraco confirmado o sistema gera uma OS vazia. Os funcionários do Setor de Manutenção preenchem a OS consultando os recursos necessários com auxílio do Sistema de Alocação de Recursos. Durante o preenchimento, a prioridade registrada na vistoria pode ser alterada.</h4>
+                <ul>
+                  <li>Ator: <strong style="color:var(--ink)">Setor de Manutenção</strong>. Ator externo: <strong style="color:var(--ink)">Sistema de Alocação de Recursos</strong>.</li>
+                  <li>"Gera uma OS vazia" é ação do próprio sistema, disparada pela confirmação — inclusão, não caso de uso com ator.</li>
+                  <li>"Pode ser alterada" é condicional: é o caso clássico de <strong style="color:var(--ink)">extensão</strong>.</li>
+                </ul>
+              </div>
+
+              <div class="doc-item">
+                <div class="di-n">§ 7 e 8 · PROGRAMAÇÃO E EXECUÇÃO</div>
+                <h4>O sistema gera a programação de reparos no dia anterior à saída, por regiões e com itinerário. Informa as equipes e os encarregados. Após concluir cada reparo, o encarregado informa por equipamento móvel a conclusão, a data, a duração e os recursos utilizados. Se algo impedir o reparo, registra os motivos, e a Seção de Manutenção altera a OS com novas condições e prioridade.</h4>
+                <ul>
+                  <li>Ator: <strong style="color:var(--ink)">Responsável (encarregado) pelo reparo</strong>.</li>
+                  <li>"No dia anterior à saída" e "ao final do dia" são gatilhos de calendário, não de gente — daí a discussão sobre um ator <strong style="color:var(--ink)">Tempo</strong>.</li>
+                </ul>
+              </div>
+
+              <div class="doc-item">
+                <div class="di-n">§ 9 e 10 · RECURSOS E RELATÓRIOS</div>
+                <h4>Ao final do dia os recursos dos reparos concluídos são liberados. O sistema gera relatórios para o chefe do departamento, quando solicitado; o conteúdo deve ser definido consultando as necessidades do Departamento.</h4>
+                <ul>
+                  <li>Ator: <strong style="color:var(--ink)">Chefe do Departamento</strong>.</li>
+                  <li>"Conteúdo a definir" é requisito em aberto — vale registrar como pendência, não inventar relatórios.</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:28px;">
+              <div class="eyebrow">Cuidado na leitura</div>
+              <p>Nem todo substantivo do enunciado vira caso de uso, e nem toda pessoa citada vira ator. A equipe de reparo aparece no texto, mas quem interage com o sistema é o <strong style="color:var(--ink)">encarregado</strong> — a equipe não digita nada. Ator é quem troca informação com o sistema.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ROTEIRO ============ -->
+        <section class="section alt" id="ex-roteiro">
+          <div class="wrap">
+            <div class="eyebrow">Comentários de 24/08</div>
+            <h2 class="reveal">O roteiro de construção, em oito passos</h2>
+            <p class="intro reveal">Esta é a ordem apresentada pelos professores. Ela importa: pular do enunciado direto para o diagrama é o erro mais comum, porque o diagrama passa a refletir o que se lembrou, e não o que o enunciado pede.</p>
+
+            <div class="tl reveal">
+              <div class="tl-item"><span class="yr">1 · Análise da descrição do sistema</span><p>Ler o enunciado inteiro e mapear o caminho do buraco: cadastro do cidadão → registro → validação da prioridade → preenchimento da OS → programação → reparo → relatórios.</p></div>
+              <div class="tl-item"><span class="yr">2 · Identificação dos atores</span><p>Quem troca informação com o sistema. No SGRB os professores listaram cinco: cidadão, setor de vistoria, setor de manutenção, responsável pelo reparo e chefe do departamento.</p></div>
+              <div class="tl-item"><span class="yr">3 · Identificação das funções para atores</span><p>O que o sistema precisa fazer para cada ator. São as funções do sistema, ainda em nível grosso.</p></div>
+              <div class="tl-item"><span class="yr">4 · Definição dos casos de uso para funções</span><p>Cada função se desdobra em vários casos de uso. É aqui que uma função como "registrar buraco" vira registrar, alterar, consultar, excluir e listar.</p></div>
+              <div class="tl-item"><span class="yr">5 · Associação de atores para casos de uso</span><p>Caso de uso por caso de uso, quem participa. Um mesmo caso de uso pode ter vários atores.</p></div>
+              <div class="tl-item"><span class="yr">6 · Identificação dos dados relevantes</span><p>O que o sistema guarda: cidadão, buraco, ordem de serviço, itinerário de validação, itinerário de reparo.</p></div>
+              <div class="tl-item"><span class="yr">7 · Elaboração do diagrama de casos de uso</span><p>Só agora. O diagrama desenha o que as tabelas já decidiram.</p></div>
+              <div class="tl-item"><span class="yr">8 · Descrição detalhada dos casos de uso</span><p>Cada caso de uso preenchido campo a campo, no padrão da disciplina.</p></div>
+            </div>
+
+            <div class="flow-note reveal">Os passos 1 a 6 são tabelas e listas. Os passos 7 e 8 são o relatório propriamente dito — e é o que será avaliado.</div>
+          </div>
+        </section>
+
+        <!-- ============ ATORES ============ -->
+        <section class="section" id="ex-atores">
+          <div class="wrap">
+            <div class="eyebrow">Passo 2 · Tabela 1</div>
+            <h2 class="reveal">Identificação dos atores</h2>
+            <p class="intro reveal">Ator é agente externo que interage com o sistema, e são os atores que definem o contorno dele. A pergunta prática para cada candidato: <em style="font-style:normal;color:var(--ink)">essa pessoa (ou sistema) manda ou recebe informação do SGRB?</em> Se a resposta for não, não é ator.</p>
+
+            <table class="datatab reveal" style="margin-top:8px;">
+              <caption>Tabela 1 — Atores do SGRB</caption>
+              <thead>
+                <tr><th style="width:70px;">Id</th><th style="width:240px;">Nome do ator</th><th>Descrição sucinta</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A01</td><td>Cidadão</td><td>Usa o aplicativo para avisar de buracos nas vias. Precisa se cadastrar antes, informando nome, CPF, RG, endereço e celular.</td></tr>
+                <tr><td>A02</td><td>Funcionário do Setor de Vistoria</td><td>Recebe a lista diária de buracos da sua região e vai a campo conferir se eles existem. Confirma as características e atribui a prioridade inicial do reparo.</td></tr>
+                <tr><td>A03</td><td>Funcionário do Setor de Manutenção</td><td>Preenche a ordem de serviço de cada buraco confirmado: define serviços, recursos e prioridade. Também trata os reparos que foram impedidos.</td></tr>
+                <tr><td>A04</td><td>Encarregado da Equipe de Reparo</td><td>Responsável pela equipe em campo. Recebe a programação do dia e informa a conclusão do reparo ou os motivos que o impediram.</td></tr>
+                <tr><td>A05</td><td>Chefe do Departamento de Obras Públicas</td><td>Solicita a geração dos relatórios gerenciais.</td></tr>
+                <tr><td>A06</td><td>Sistema de Alocação de Recursos</td><td>Sistema externo que mantém os dados de veículos, equipes, equipamentos e material, e informa quais estão disponíveis.</td></tr>
+                <tr><td>A07</td><td>Tempo</td><td>Ator temporal: representa os momentos em que o sistema age sozinho — a programação de reparos na véspera da saída e a liberação dos recursos ao final do dia.</td></tr>
+              </tbody>
+            </table>
+
+            <div class="def-grid reveal" style="margin-top:28px;">
+              <div class="def-card">
+                <span class="tag">Decisão de modelagem</span>
+                <h3>Equipe de reparo é ator?</h3>
+                <p>Não neste modelo. A equipe executa o reparo na rua, mas quem opera o equipamento móvel é o encarregado. Colocar os dois gera um ator que nunca aparece em nenhum caso de uso.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Decisão de modelagem</span>
+                <h3>Tempo é ator?</h3>
+                <p>É uma escolha. Duas funções do SGRB não são pedidas por ninguém: a programação da véspera e a liberação de recursos no fim do dia. Um ator temporal deixa isso explícito. A alternativa é tratá-las como funções automáticas do sistema — os professores não incluíram o Tempo na lista deles.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ FUNÇÕES ============ -->
+        <section class="section alt" id="ex-funcoes">
+          <div class="wrap">
+            <div class="eyebrow">Passos 3 e 4 · Tabela 2</div>
+            <h2 class="reveal">Das funções para os casos de uso</h2>
+            <p class="intro reveal">Primeiro as funções — o que o sistema faz, em blocos grandes. Depois cada função se abre em casos de uso. A tabela do relatório junta as duas coisas em três colunas: a função, o que ela faz e os casos de uso com seus atores.</p>
+
+            <div class="callout cyan reveal">
+              <div class="eyebrow">As nove funções apontadas em aula</div>
+              <p>1. Cadastrar cidadão · 2. Registrar buraco · 3. Gerar itinerário para validar buracos · 4. Confirmar buraco · 5. Preencher ordem de serviço · 6. Gerar itinerário para reparar buraco · 7. Registrar resultado do reparo · 8. Registrar reprogramação de reparo · 9. Gerar relatório</p>
+              <p>Repare que <strong style="color:var(--ink)">o itinerário aparece duas vezes</strong>, com finalidades diferentes: um para a vistoria, outro para o reparo. Vale decidir se são um caso de uso reaproveitado ou dois.</p>
+            </div>
+
+            <table class="datatab reveal" style="margin-top:28px;">
+              <caption>Tabela 2 — Funções e casos de uso</caption>
+              <thead>
+                <tr><th style="width:60px;">Id</th><th style="width:180px;">A · Função</th><th style="width:230px;">B · Descrição da função</th><th>C · Casos de uso e atores</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>F1</td><td>Cadastrar cidadão</td><td>Cadastrar quem usa o aplicativo e controlar o acesso.</td>
+                  <td>1 · Solicitar cadastro de cidadão — Cidadão<br>2 · Autenticar cidadão — Cidadão</td>
+                </tr>
+                <tr>
+                  <td>F2</td><td>Registrar buracos</td><td>Receber dos cidadãos os avisos de buracos nas vias.</td>
+                  <td>3 · Registrar buraco — Cidadão</td>
+                </tr>
+                <tr>
+                  <td>F3</td><td>Vistoriar buracos</td><td>Conferir em campo se o buraco existe, filtrar os trotes e dar a prioridade inicial.</td>
+                  <td>4 · Obter lista de buracos para vistoria — Setor de Vistoria<br>5 · Registrar resultado da vistoria — Setor de Vistoria<br>6 · Gerar itinerário — (incluído)<br>7 · Gerar ordem de serviço — (incluído)</td>
+                </tr>
+                <tr>
+                  <td>F4</td><td>Gerenciar ordens de serviço</td><td>Definir o que fazer em cada buraco confirmado e com quais recursos, mantendo a prioridade atualizada.</td>
+                  <td>8 · Preencher ordem de serviço — Setor de Manutenção e Sistema de Alocação de Recursos<br>9 · Alterar prioridade de reparo — Setor de Manutenção<br>10 · Atualizar ordem de serviço de reparo impedido — Setor de Manutenção e Sistema de Alocação de Recursos<br>11 · Consultar recursos necessários — Sistema de Alocação de Recursos (incluído)</td>
+                </tr>
+                <tr>
+                  <td>F5</td><td>Programar reparos</td><td>Montar a lista de reparos do dia seguinte, por região e em itinerário, e avisar os encarregados.</td>
+                  <td>12 · Gerar programação de reparos — Tempo e Encarregado da Equipe de Reparo<br>6 · Gerar itinerário — (incluído)</td>
+                </tr>
+                <tr>
+                  <td>F6</td><td>Acompanhar os reparos</td><td>Registrar o que aconteceu em campo: o reparo saiu ou algo impediu.</td>
+                  <td>13 · Registrar conclusão de reparo — Encarregado da Equipe de Reparo<br>14 · Registrar impedimento de reparo — Encarregado da Equipe de Reparo</td>
+                </tr>
+                <tr>
+                  <td>F7</td><td>Liberar recursos</td><td>Devolver, no fim do dia, os recursos usados nos reparos concluídos.</td>
+                  <td>15 · Liberar recursos alocados — Tempo e Sistema de Alocação de Recursos</td>
+                </tr>
+                <tr>
+                  <td>F8</td><td>Gerar relatórios</td><td>Gerar os relatórios gerenciais que o chefe do Departamento pedir.</td>
+                  <td>16 · Gerar relatório gerencial — Chefe do Departamento de Obras Públicas</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">Erro que custa nota</div>
+              <p>Os nomes que aparecem nesta coluna C precisam ser <strong style="color:var(--ink)">exatamente</strong> os mesmos do diagrama e das fichas. "Registrar buraco", "Cadastrar um buraco" e "Registrar Buracos" parecem a mesma coisa para quem escreveu, mas são três casos de uso diferentes para quem corrige.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CASOS DE USO / CRUD ============ -->
+        <section class="section" id="ex-casos">
+          <div class="wrap">
+            <div class="eyebrow">Passos 4 e 5 · Comentários de 24/08</div>
+            <h2 class="reveal">Uma função vira vários casos de uso</h2>
+            <p class="intro reveal">Este foi o ponto mais enfatizado na aula de comentários. Uma função raramente é um único caso de uso: ela costuma se desdobrar no conjunto de operações que os atores realmente precisam sobre aquela informação.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Função: registrar buraco</h3>
+                <ul>
+                  <li>Registrar buraco</li>
+                  <li>Alterar buraco</li>
+                  <li>Consultar buraco</li>
+                  <li>Excluir buraco</li>
+                  <li>Listar buracos</li>
+                </ul>
+                <div class="verdict">Uma função → cinco casos de uso</div>
+              </div>
+              <div class="compare-card b">
+                <h3>E os atores de cada um</h3>
+                <ul>
+                  <li><strong style="color:var(--ink)">Registrar buraco</strong>: Cidadão</li>
+                  <li><strong style="color:var(--ink)">Alterar buraco</strong>: Cidadão, Setor de Vistoria, Setor de Manutenção, Responsável pelo reparo</li>
+                  <li><strong style="color:var(--ink)">Consultar buraco</strong>: todos os atores</li>
+                  <li><strong style="color:var(--ink)">Excluir buraco</strong>: Setor de Vistoria</li>
+                  <li><strong style="color:var(--ink)">Listar buracos</strong>: todos os atores</li>
+                </ul>
+                <div class="verdict">O mesmo caso de uso pode ter vários atores</div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Ator que os professores acrescentaram</div>
+              <p><strong style="color:var(--ink)">Administrador</strong>: acessa todos os casos de uso. É um ator que o enunciado não cita, mas que a prática de sistemas exige — e que costuma ser esquecido no primeiro relatório.</p>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:20px;">
+              <div class="eyebrow">Nomeação</div>
+              <p>Nome de caso de uso é <strong style="color:var(--ink)">verbo + objeto</strong>: "registrar buraco", "preencher ordem de serviço". "Gerenciamento de ordens de serviço" e "Acompanhamento da execução" são nomes de função, não de caso de uso — e o padrão de descrição exige que o nome da ficha seja igual ao do diagrama.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ DADOS ============ -->
+        <section class="section alt" id="ex-dados">
+          <div class="wrap">
+            <div class="eyebrow">Passo 6 · Tabela 3</div>
+            <h2 class="reveal">Os dados relevantes</h2>
+            <p class="intro reveal">São as informações que o sistema precisa guardar para os casos de uso funcionarem. Não é o modelo de classes ainda — é a lista do que aparece no enunciado e precisa persistir. Em aula foram citados: cidadão, buraco, ordem de serviço, itinerário para validação e itinerário para reparo.</p>
+
+            <table class="datatab reveal" style="margin-top:8px;">
+              <caption>Tabela 3 — Elementos de dados do SGRB</caption>
+              <thead>
+                <tr><th style="width:60px;">Id</th><th style="width:240px;">Elemento de dado</th><th>Descrição</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>Dados do cidadão</td><td>Nome, CPF, RG, endereço, celular e senha.</td></tr>
+                <tr><td>2</td><td>Dados do buraco</td><td>Endereço, região, dimensão aproximada, localização na via, nível de obstrução do trânsito, foto (opcional), quem avisou e situação.</td></tr>
+                <tr><td>3</td><td>Dados da vistoria</td><td>Data, quem vistoriou, confirmação da existência e prioridade inicial.</td></tr>
+                <tr><td>4</td><td>Dados da ordem de serviço</td><td>Buraco, serviços, recursos, prioridade, data prevista e situação.</td></tr>
+                <tr><td>5</td><td>Dados dos recursos</td><td>Veículos, equipes, encarregados, equipamentos, material e disponibilidade.</td></tr>
+                <tr><td>6</td><td>Dados do itinerário</td><td>Região, ordem de visita aos buracos e finalidade (validação ou reparo).</td></tr>
+                <tr><td>7</td><td>Dados da programação</td><td>Data da saída, região, itinerário, equipe e encarregado, e as ordens do dia.</td></tr>
+                <tr><td>8</td><td>Dados da execução</td><td>Data, duração, recursos usados e, quando o reparo não sai, o motivo.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ============ DIAGRAMA ============ -->
+        <section class="section" id="ex-diagrama">
+          <div class="wrap">
+            <div class="eyebrow">Passo 7</div>
+            <h2 class="reveal">O diagrama de casos de uso</h2>
+            <p class="intro reveal">O diagrama desenha o que as tabelas já decidiram: atores fora da caixa, casos de uso dentro, e as conexões. Nada de novo deve aparecer aqui — se um caso de uso surge só no diagrama, a Tabela 2 está incompleta.</p>
+
+            <div class="np-grid reveal">
+              <div class="np-card"><div class="n">COMUNICAÇÃO</div><p>Linha simples entre ator e caso de uso. Sem seta: a linha diz que o ator participa, não a direção do dado.</p></div>
+              <div class="np-card"><div class="n">&lt;&lt;INCLUDE&gt;&gt;</div><p>Seta tracejada do caso base para o incluído. Sempre executa. No SGRB: autenticar cidadão, gerar itinerário, gerar ordem de serviço, consultar recursos.</p></div>
+              <div class="np-card"><div class="n">&lt;&lt;EXTEND&gt;&gt;</div><p>Seta tracejada da extensão para o caso base. Só executa sob condição. No SGRB: alterar prioridade de reparo.</p></div>
+            </div>
+
+            <div class="reveal" style="margin-top:28px; background:#fff; border-radius:var(--radius); padding:18px; border:1px solid var(--line);">
+              <img src="diagrama-casos-uso-sgrb.png" alt="Diagrama de casos de uso do SGRB" style="width:100%; height:auto; display:block;">
+            </div>
+            <div class="flow-note reveal">Versão de referência com os 16 casos de uso da Tabela 2. Os quatro casos de uso incluídos ficam à direita; a extensão aparece em vermelho.</div>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">Confira antes de entregar</div>
+              <p>Todo ator da Tabela 1 aparece no diagrama? Todo caso de uso da Tabela 2 aparece? Todo nome está idêntico? Toda inclusão declarada nas fichas está desenhada? São quatro perguntas rápidas que pegam a maioria das inconsistências.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ FICHAS ============ -->
+        <section class="section alt" id="ex-fichas">
+          <div class="wrap">
+            <div class="eyebrow">Passo 8</div>
+            <h2 class="reveal">A descrição detalhada, campo a campo</h2>
+            <p class="intro reveal">O padrão da disciplina tem dez campos. Dois detalhes cobrados: os passos devem ser numerados e <strong style="color:var(--ink)">cada passo deve explicitar o sujeito da ação</strong> — se é o ator ou o sistema. "Os dados são informados" não serve; "Cidadão informa os dados" serve.</p>
+
+            <div class="ficha reveal">
+              <div class="ficha-id">Caso de uso 3</div>
+              <div class="ficha-title">Registrar buraco</div>
+              <div class="ficha-rows">
+                <div class="ficha-row"><div class="fr-k">Descrição</div><div class="fr-v">Cidadão avisa pelo aplicativo que achou um buraco na rua.</div></div>
+                <div class="ficha-row"><div class="fr-k">Evento iniciador</div><div class="fr-v">Cidadão pede para registrar um buraco.</div></div>
+                <div class="ficha-row"><div class="fr-k">Atores</div><div class="fr-v">Cidadão.</div></div>
+                <div class="ficha-row"><div class="fr-k">Pré-condições</div><div class="fr-v">Cidadão cadastrado e autenticado.</div></div>
+                <div class="ficha-row"><div class="fr-k">Sequência de eventos</div><div class="fr-v"><ol><li>Cidadão pede para registrar um buraco.</li><li>Sistema pede os dados.</li><li>Cidadão informa endereço, dimensão, localização na via, nível de obstrução do trânsito e, se quiser, uma foto.</li><li>Sistema confere os dados.</li><li>Sistema salva o buraco como "aguardando vistoria" e mostra o protocolo.</li></ol></div></div>
+                <div class="ficha-row"><div class="fr-k">Pós-condições</div><div class="fr-v">Buraco na lista da região, esperando a vistoria.</div></div>
+                <div class="ficha-row"><div class="fr-k">Extensões</div><div class="fr-v"><ol><li>Dados faltando <span class="mark">(passo 4)</span>: sistema avisa e volta para o passo 2.</li><li>Buraco já registrado nesse endereço <span class="mark">(passo 4)</span>: sistema avisa e junta ao registro existente.</li></ol></div></div>
+                <div class="ficha-row"><div class="fr-k">Inclusões</div><div class="fr-v">Autenticar cidadão <span class="mark">(passo 1)</span>.</div></div>
+              </div>
+            </div>
+
+            <div class="ficha reveal" style="margin-top:24px;">
+              <div class="ficha-id">Caso de uso 8</div>
+              <div class="ficha-title">Preencher ordem de serviço</div>
+              <div class="ficha-rows">
+                <div class="ficha-row"><div class="fr-k">Descrição</div><div class="fr-v">Manutenção define o que fazer para tapar o buraco e com quais recursos.</div></div>
+                <div class="ficha-row"><div class="fr-k">Evento iniciador</div><div class="fr-v">Funcionário da Manutenção pede a lista de ordens em aberto.</div></div>
+                <div class="ficha-row"><div class="fr-k">Atores</div><div class="fr-v">Funcionário do Setor de Manutenção; Sistema de Alocação de Recursos.</div></div>
+                <div class="ficha-row"><div class="fr-k">Pré-condições</div><div class="fr-v">Ter ordem de serviço em aberto, criada depois da vistoria.</div></div>
+                <div class="ficha-row"><div class="fr-k">Sequência de eventos</div><div class="fr-v"><ol><li>Funcionário pede a lista de ordens em aberto.</li><li>Sistema mostra as ordens por prioridade.</li><li>Funcionário escolhe uma ordem.</li><li>Sistema mostra os dados do buraco e da ordem.</li><li>Sistema consulta os recursos necessários.</li><li>Funcionário define os serviços, escolhe os recursos e marca a data prevista.</li><li>Sistema confere os dados e se os recursos estão livres.</li><li>Sistema salva, reserva os recursos e marca a ordem como pronta para programar.</li></ol></div></div>
+                <div class="ficha-row"><div class="fr-k">Pós-condições</div><div class="fr-v">Ordem preenchida, recursos reservados, pronta para entrar na programação.</div></div>
+                <div class="ficha-row"><div class="fr-k">Extensões</div><div class="fr-v"><ol><li>Alterar prioridade de reparo <span class="mark">(passo 6)</span>: funcionário muda a prioridade dada na vistoria.</li><li>Recurso ocupado <span class="mark">(passo 7)</span>: sistema avisa e volta para o passo 6.</li></ol></div></div>
+                <div class="ficha-row"><div class="fr-k">Inclusões</div><div class="fr-v">Consultar recursos necessários <span class="mark">(passo 5)</span>.</div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ COMENTÁRIOS ============ -->
+        <section class="section" id="ex-comentarios">
+          <div class="wrap">
+            <div class="eyebrow">Aula de 24/08</div>
+            <h2 class="reveal">O que os professores comentaram</h2>
+            <p class="intro reveal">Os comentários sobre a construção do modelo trazem o roteiro dos oito passos e um exemplo trabalhado. Vale ler como checklist de correção do próprio relatório.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Ponto 1</span>
+              <p class="q">A análise da descrição vem antes de tudo</p>
+              <button class="qa-toggle">Revelar</button>
+              <div class="qa-answer">
+                <div class="verdict">Mapear o fluxo do buraco</div>
+                <p>O diagrama apresentado em aula liga as etapas em sequência: cadastro do cidadão → registro do buraco → validação da prioridade → preenchimento da OS → programação do reparo → reparo → geração de relatórios. Debaixo de cada etapa, o ator responsável. Esse desenho informal é o rascunho que orienta as tabelas.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Ponto 2</span>
+              <p class="q">Cinco atores foram listados — sem Tempo e sem Sistema de Alocação</p>
+              <button class="qa-toggle">Revelar</button>
+              <div class="qa-answer">
+                <div class="verdict">Cidadão, vistoria, manutenção, responsável pelo reparo, chefe</div>
+                <p>A lista dos professores é essa. Se o grupo incluir o ator temporal ou o Sistema de Alocação de Recursos, vale justificar a escolha no relatório: são decisões defensáveis, mas que fogem da lista de referência e podem ser questionadas.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Ponto 3</span>
+              <p class="q">Uma função gera um conjunto de casos de uso</p>
+              <button class="qa-toggle">Revelar</button>
+              <div class="qa-answer">
+                <div class="verdict">Registrar, alterar, consultar, excluir, listar</div>
+                <p>O exemplo foi a função "registrar buraco". Se o relatório tem uma função por caso de uso, provavelmente o passo 4 foi pulado — as operações de alteração, consulta e listagem sumiram do modelo.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Ponto 4</span>
+              <p class="q">Existe um Administrador</p>
+              <button class="qa-toggle">Revelar</button>
+              <div class="qa-answer">
+                <div class="verdict">Acessa todos os casos de uso</div>
+                <p>Ator que não está no enunciado, mas que os professores acrescentaram na associação de atores. No diagrama, é o candidato natural a uma generalização com os demais atores, em vez de dezenas de linhas de comunicação.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Ponto 5</span>
+              <p class="q">Itinerário aparece duas vezes na lista de dados</p>
+              <button class="qa-toggle">Revelar</button>
+              <div class="qa-answer">
+                <div class="verdict">Itinerário para validação e itinerário para reparo</div>
+                <p>São dois dados relevantes distintos, com finalidades diferentes. A mesma distinção aparece nas funções 3 e 6 da lista de aula.</p>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Fechamento da aula</div>
+              <blockquote>"Os relatórios serão avaliados."</blockquote>
+              <p>O relatório do modelo de casos de uso não é rascunho: ele entra na nota.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ARMADILHAS ============ -->
+        <section class="section alt" id="ex-armadilhas">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">As armadilhas deste exercício</h2>
+            <p class="intro reveal">Erros que aparecem com frequência na primeira versão do relatório — todos detectáveis com uma releitura cruzada entre as tabelas, o diagrama e as fichas.</p>
+
+            <div class="docstruct reveal">
+              <div class="doc-item">
+                <div class="di-n">01</div>
+                <h4>Nomes diferentes para o mesmo caso de uso</h4>
+                <ul><li>"Registrar buraco" na ficha, "Cadastrar um buraco" na tabela, "Registrar Buracos" no diagrama.</li><li>O padrão exige nome idêntico ao do diagrama.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">02</div>
+                <h4>Ator no diagrama que não está na tabela</h4>
+                <ul><li>Ou o contrário: ator na Tabela 1 que não aparece ligado a nada.</li><li>Todo ator precisa de pelo menos uma linha de comunicação.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">03</div>
+                <h4>Inclusão declarada que não existe</h4>
+                <ul><li>A ficha cita "inclui autenticar cidadão", mas esse caso de uso não está na Tabela 2 nem no diagrama.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">04</div>
+                <h4>Caso de uso com nome de função</h4>
+                <ul><li>"Gerenciamento de ordens de serviço" não é verbo + objeto.</li><li>É sinal de que o passo 4 não foi feito.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">05</div>
+                <h4>Ator errado no gatilho automático</h4>
+                <ul><li>A programação é gerada na véspera, sem ninguém pedir. Atribuí-la ao encarregado inverte quem inicia o caso de uso.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">06</div>
+                <h4>Numeração com buracos</h4>
+                <ul><li>A01, A02, A03, A04, A06 — sobra de uma versão anterior em que existia mais um ator.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">07</div>
+                <h4>Seta na comunicação</h4>
+                <ul><li>Ator–caso de uso é linha simples. Seta tracejada é só para inclusão e extensão.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">08</div>
+                <h4>Passo sem sujeito</h4>
+                <ul><li>"É feita a validação dos dados" não diz quem faz. O padrão exige ator ou sistema explícito em cada passo.</li></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section" id="ex-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Fixação</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">Cinco perguntas sobre o exercício. Responda antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Por que a equipe de reparo não é ator do SGRB, mas o encarregado é?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Ator é quem troca informação com o sistema</div>
+                <p>A equipe executa o reparo na via, mas não interage com o SGRB. Quem opera o equipamento móvel — recebe a programação e informa conclusão ou impedimento — é o encarregado.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">"Gerar itinerário" é inclusão ou extensão? Por quê?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Inclusão</div>
+                <p>Sempre executa, e é comportamento comum a dois casos de uso: a lista de vistoria e a programação de reparos. Extensão seria se o itinerário fosse gerado apenas sob alguma condição.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Qual é o único relacionamento de extensão do modelo, e o que o torna condicional?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Alterar prioridade de reparo</div>
+                <p>O enunciado diz que a prioridade registrada na vistoria <em style="font-style:normal;color:var(--ink)">pode</em> ser alterada durante o preenchimento da OS, em função da reavaliação dos dados e da existência de recursos. "Pode" é a condição.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Segundo os comentários de 24/08, em quantos casos de uso a função "registrar buraco" se desdobra?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Cinco</div>
+                <p>Registrar, alterar, consultar, excluir e listar buracos — cada um com seu conjunto de atores. Consultar e listar são acessíveis a todos os atores; excluir, só ao Setor de Vistoria.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Por que a ordem de serviço vazia não tem ator próprio?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">É disparada pela confirmação do buraco</div>
+                <p>O sistema gera a OS automaticamente quando a vistoria confirma o buraco. Ninguém pede — por isso é um caso de uso incluído por "registrar resultado da vistoria", e não um caso de uso iniciado por um ator.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Exercício SGRB · EPUSP — Dep. de Engenharia de Computação e Sistemas Digitais<br>
+              [1] Descrição do Sistema de Gerência de Reparo de Buracos — PCS3213, 18/08/2026<br>
+              [2] Modelo de Casos de Uso: Comentários sobre Construção — Jorge Risco Becerra e Selma S. S. Melnikoff, 24/08/2026<br>
+              [3] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 3ª ed., Elsevier, 2015
+            </div>
+            <div class="credit">P1 · Módulo 05 · Exercício SGRB — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: EXERCÍCIO SGRB ================= -->
+
+
     </div>
   </div>
 </div>
@@ -2153,7 +2739,8 @@
     {id:'modelos-processo', group:'P1', title:'Modelos de Processos de Software'},
     {id:'requisitos', group:'P1', title:'Levantamento e Análise de Requisitos'},
     {id:'casos-uso', group:'P1', title:'Modelo de Casos de Uso'},
-    {id:'construcao-casos-uso', group:'P1', title:'Construção do Modelo de Casos de Uso'}
+    {id:'construcao-casos-uso', group:'P1', title:'Construção do Modelo de Casos de Uso'},
+    {id:'exercicio-sgrb', group:'P1', title:'Exercício: Modelo de Casos de Uso do SGRB'}
   ];
 
   const nav = document.getElementById('moduleNav');

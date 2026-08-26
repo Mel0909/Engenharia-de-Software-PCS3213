@@ -765,6 +765,99 @@
   .onecat-item.ctr .oc-k{ color:var(--amber); }
   .onecat-item p{ margin:7px 0 0; color:var(--ink-soft); font-size:14px; line-height:1.55; }
 
+  /* ============================================================
+     MODULE 08 — CONSTRUÇÃO DO MODELO DE CLASSES
+     ============================================================ */
+
+  /* passos numerados do procedimento */
+  .proc{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  @media (max-width:900px){ .proc{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .proc{ grid-template-columns:1fr; } }
+  .proc-step{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 20px 18px; border-top:3px solid var(--indigo); position:relative; }
+  .proc-step .ps-n{ font-family:var(--mono); font-size:26px; font-weight:700; color:var(--indigo); opacity:.32; line-height:1; }
+  .proc-step h4{ font-family:var(--display); font-size:15.5px; margin:8px 0 8px; color:var(--ink); }
+  .proc-step p{ margin:0; color:var(--ink-soft); font-size:13.8px; line-height:1.58; }
+  .proc-step .ps-out{ margin-top:12px; padding-top:11px; border-top:1px dashed var(--line); font-family:var(--mono); font-size:11px; color:var(--cyan); line-height:1.55; }
+  .proc-step.s2{ border-top-color:var(--cyan); }
+  .proc-step.s2 .ps-n{ color:var(--cyan); }
+  .proc-step.s3{ border-top-color:var(--amber); }
+  .proc-step.s3 .ps-n{ color:var(--amber); }
+  .proc-step.s4{ border-top-color:var(--rose); }
+  .proc-step.s4 .ps-n{ color:var(--rose); }
+
+  /* variantes usadas no módulo 08 */
+  .def-card .dc-k{ font-family:var(--mono); font-size:11px; color:var(--indigo); text-transform:uppercase; letter-spacing:.07em; margin-bottom:9px; }
+  .def-card .dc-ex{ margin-top:12px; padding-top:11px; border-top:1px dashed var(--line); font-family:var(--mono); font-size:11.5px; color:var(--cyan); line-height:1.6; }
+  .def-grid.three{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:900px){ .def-grid.three{ grid-template-columns:1fr; } }
+  .compare-card.bad{ border-top:4px solid var(--amber); }
+  .compare-card .cc-tag{ font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--amber); }
+  .compare-card h4{ font-family:var(--display); font-size:17px; margin:8px 0 10px; color:var(--ink); }
+  .compare-card > p{ margin:0; color:var(--ink-soft); font-size:14.8px; line-height:1.6; }
+  .compare-card .cc-note{ margin-top:14px; font-family:var(--mono); font-size:12px; color:var(--ink-soft); background:var(--bg-1); border-radius:8px; padding:11px 13px; line-height:1.6; }
+  .callout.rose{ background:var(--rose-soft); border-color:rgba(241,89,111,0.35); }
+
+  /* triagem de substantivos → classes */
+  .triage{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 26px; box-shadow:var(--shadow); }
+  .triage-head{ display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:16px; }
+  .triage-head h4{ font-family:var(--display); font-size:16px; margin:0; color:var(--ink); }
+  .triage-score{ font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); }
+  .triage-score strong{ color:var(--cyan); }
+  .noun-cloud{ display:flex; flex-wrap:wrap; gap:8px; }
+  .noun{ font-family:var(--mono); font-size:12.5px; background:var(--bg-1); border:1px solid var(--line); color:var(--ink-soft);
+    padding:7px 13px; border-radius:999px; cursor:pointer; transition:all .15s; }
+  .noun:hover{ border-color:var(--indigo); color:var(--ink); }
+  .noun.keep{ background:var(--cyan-soft); border-color:rgba(57,214,190,0.5); color:var(--cyan); }
+  .noun.drop{ background:var(--rose-soft); border-color:rgba(241,89,111,0.42); color:var(--ink-faint); text-decoration:line-through; }
+  .noun.sel{ box-shadow:0 0 0 2px var(--indigo); }
+  .noun-detail{ margin-top:20px; background:var(--bg-1); border:1px solid var(--line); border-radius:11px; padding:18px 20px; min-height:104px; }
+  .nd-verdict{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; }
+  .nd-verdict.keep{ color:var(--cyan); }
+  .nd-verdict.drop{ color:var(--rose); }
+  .nd-name{ font-family:var(--display); font-weight:600; font-size:18px; color:var(--ink); margin:5px 0 8px; }
+  .nd-why{ margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.62; }
+  .triage-legend{ margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); line-height:1.8; }
+
+  /* tabela caso de uso × classes */
+  .uctab{ width:100%; border-collapse:collapse; font-size:13.8px; }
+  .uctab th{ text-align:left; font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; padding:10px 14px; border-bottom:1px solid var(--line); }
+  .uctab td{ padding:11px 14px; border-bottom:1px solid var(--line-soft); color:var(--ink-soft); vertical-align:top; }
+  .uctab td.uc{ font-family:var(--mono); color:var(--ink); font-size:12.5px; white-space:nowrap; }
+  .uctab td.cand{ font-size:12.5px; color:var(--ink-faint); }
+  .uctab td.fin{ font-family:var(--mono); font-size:12px; color:var(--cyan); }
+  .uctab tr:last-child td{ border-bottom:none; }
+  .uctab-wrap{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow-x:auto; }
+
+  /* rastreamento passo do caso de uso → operação da classe */
+  .trace{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; box-shadow:var(--shadow); }
+  .trace-steps{ display:flex; flex-direction:column; gap:6px; }
+  .trace-step{ display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left; cursor:pointer; font-family:var(--body); font-size:14.3px; line-height:1.5;
+    background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:11px 14px; color:var(--ink-soft); transition:all .15s; }
+  .trace-step:hover{ border-color:var(--indigo); color:var(--ink); }
+  .trace-step.on{ background:var(--indigo-soft); border-color:rgba(124,140,255,0.5); color:var(--ink); }
+  .trace-step .tsn{ font-family:var(--mono); font-size:11px; color:var(--indigo); flex:0 0 20px; padding-top:2px; }
+  .trace-step.actor .tsn{ color:var(--amber); }
+  .trace-ops{ margin-top:8px; display:flex; flex-direction:column; gap:6px; }
+  .trace-op{ display:none; font-family:var(--mono); font-size:12.5px; color:var(--cyan); background:var(--surface-2);
+    border-left:3px solid var(--cyan); border-radius:0 8px 8px 0; padding:9px 13px; margin-left:32px; }
+  .trace-step.on + .trace-ops .trace-op{ display:block; }
+  .trace-op .tocls{ color:var(--ink-faint); }
+  .trace-none{ display:none; font-family:var(--mono); font-size:12px; color:var(--ink-faint); margin-left:32px; padding:6px 0; }
+  .trace-step.on + .trace-ops .trace-none{ display:block; }
+
+  /* cartões de descrição de classe */
+  .cdesc{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  @media (max-width:820px){ .cdesc{ grid-template-columns:1fr; } }
+  .cdesc-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; border-left:3px solid var(--indigo); }
+  .cdesc-card.iface{ border-left-color:var(--amber); }
+  .cdesc-card.ctrl{ border-left-color:var(--rose); }
+  .cdesc-card h4{ font-family:var(--mono); font-size:14.5px; margin:0 0 6px; color:var(--ink); }
+  .cdesc-card .cd-resp{ margin:0 0 12px; color:var(--ink-soft); font-size:13.8px; line-height:1.55; }
+  .cdesc-card .cd-lab{ font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px; }
+  .cdesc-card ul{ margin:0 0 12px; padding-left:17px; color:var(--ink-soft); font-size:13px; line-height:1.6; }
+  .cdesc-card ul.attrs li{ color:var(--cyan); font-family:var(--mono); font-size:11.8px; }
+  .cdesc-card ul:last-child{ margin-bottom:0; }
+
   /* ---------- PLACEHOLDER (future modules) ---------- */
   .placeholder-wrap{ padding:110px 0 80px; }
   .placeholder-dots{ margin-top:40px; display:grid; grid-template-columns:repeat(16,1fr); gap:8px; max-width:520px; }
@@ -4413,6 +4506,921 @@
       </div>
       <!-- ================= END MODULE: CLASSIFICAÇÃO DE CLASSES ================= -->
 
+      <!-- ================= MODULE 08: CONSTRUÇÃO DO MODELO DE CLASSES ================= -->
+      <div class="module-page" data-module="construcao-modelo-classes" id="page-construcao-modelo-classes">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Construção do Modelo de Classes</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="cnc-visao">Visão geral</button>
+              <button class="navlink" data-target="cnc-passo1">1 · Rever casos de uso</button>
+              <button class="navlink" data-target="cnc-passo2">2 · Identificar classes</button>
+              <button class="navlink" data-target="cnc-triagem">Triagem SVIE</button>
+              <button class="navlink" data-target="cnc-tabela">Tabela de classes</button>
+              <button class="navlink" data-target="cnc-descricao">Descrição</button>
+              <button class="navlink" data-target="cnc-passo3">3 · Diagrama</button>
+              <button class="navlink" data-target="cnc-passo4">4 · Revisão</button>
+              <button class="navlink" data-target="cnc-subsistemas">Subsistemas</button>
+              <button class="navlink" data-target="cnc-treino">Treino</button>
+              <button class="navlink" data-target="cnc-documento">Documento</button>
+              <button class="navlink" data-target="cnc-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="cnc-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 08 · Apostila + 8ª aula</div>
+              <h1>Construção do <em>Modelo de Classes</em></h1>
+              <p class="lede">O módulo 06 mostrou <strong style="color:var(--ink)">o que é</strong> uma classe e um relacionamento. Este mostra <strong style="color:var(--ink)">como chegar neles</strong> partindo do que você já tem: a descrição detalhada dos casos de uso. Quatro passos, uma tabela de triagem e uma regra desconfortável — a maioria dos substantivos que você grifar não vai virar classe.</p>
+              <div class="hero-meta">
+                <span><strong>Profs.</strong> Selma S. S. Melnikoff · Jorge Luis Risco Becerra</span>
+                <span><strong>Material</strong> apostila 26/08 · 8ª aula 25/08/2026</span>
+                <span><strong>Exemplo</strong> SVIE</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">modeloClasses.construir()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="uc-badge">1</span> Rever os casos de uso</div>
+                  <div class="src-item"><span class="uc-badge">2</span> Identificar as classes</div>
+                  <div class="src-item"><span class="uc-badge">3</span> Construir o diagrama de classes</div>
+                  <div class="src-item"><span class="uc-badge">4</span> Rever o diagrama contra os casos de uso</div>
+                  <div class="src-item"><span class="uc-badge in">→</span> entrada: descrição detalhada dos casos de uso</div>
+                  <div class="src-item"><span class="uc-badge in">→</span> saída: diagrama + descrição das classes</div>
+                </div>
+                <div class="src-out">a sequência não é rígida — a necessidade de cada passo é que é</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ VISÃO GERAL ============ -->
+        <section class="section" id="cnc-visao">
+          <div class="wrap">
+            <div class="eyebrow">Visão geral</div>
+            <h2 class="reveal">Duas partes, quatro passos</h2>
+            <p class="intro reveal">O Modelo de Classes é constituído por <strong style="color:var(--ink)">diagramas de classes</strong> e pela <strong style="color:var(--ink)">descrição das classes e dos relacionamentos</strong>. O diagrama dá a representação gráfica da estrutura do sistema; a descrição dá o significado. Um sem o outro não é modelo — é desenho ou é lista.</p>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Diagramas de Classes</h4>
+                <p>Representação gráfica da estrutura do sistema, através das classes e dos relacionamentos entre elas. Para que os diagramas não fiquem densos, a apresentação de atributos e operações no diagrama é <strong style="color:var(--ink)">opcional</strong> — quando não aparecem, devem ser listados à parte.</p>
+                <div class="uml-ex">classes · associação · agregação/composição · generalização/especialização</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Descrição das classes e dos relacionamentos</h4>
+                <p>Para cada classe: <strong style="color:var(--ink)">responsabilidade</strong>, atributos e operações. A responsabilidade é o que impede o modelo de virar uma lista de nomes — dá para entender bem menos do que se imagina só pelo nome da classe.</p>
+                <div class="uml-ex">responsabilidade · atributos principais · operações principais</div>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">O procedimento</h3>
+            <p class="intro reveal">Quatro passos. Repare que o primeiro não fala de classe nenhuma: fala de arrumar a casa antes de entrar nela.</p>
+
+            <div class="proc reveal">
+              <div class="proc-step s1">
+                <div class="ps-n">01</div>
+                <h4>Rever os casos de uso</h4>
+                <p>Para que o modelo esteja consistente e o mais completo possível antes de qualquer classe ser identificada.</p>
+                <div class="ps-out">→ modelo de casos de uso limpo</div>
+              </div>
+              <div class="proc-step s2">
+                <div class="ps-n">02</div>
+                <h4>Identificar as classes</h4>
+                <p>Por caso de uso, a partir da descrição detalhada. Unificar as semelhantes. Definir responsabilidade, atributos e operações.</p>
+                <div class="ps-out">→ classes com responsabilidade</div>
+              </div>
+              <div class="proc-step s3">
+                <div class="ps-n">03</div>
+                <h4>Construir o Diagrama de Classes</h4>
+                <p>Esboço com as classes e associações, nomes nas associações, multiplicidades e, se necessário, herança e todo-parte.</p>
+                <div class="ps-out">→ diagrama de classes</div>
+              </div>
+              <div class="proc-step s4">
+                <div class="ps-n">04</div>
+                <h4>Rever o diagrama</h4>
+                <p>Contra o Modelo de Casos de Uso: as classes, os atributos e as operações permitem realizar todos os casos de uso?</p>
+                <div class="ps-out">→ modelo aderente e revisado</div>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">A ressalva que a apostila faz de propósito</div>
+              <p>Os passos <strong>nem sempre devem seguir rigorosamente a sequência proposta</strong>. A ordem pode ser alterada e alguns passos podem ser realizados simultaneamente. O que não pode é pular a avaliação: <em style="color:var(--ink); font-style:normal">a necessidade de cada passo tem que ser avaliada</em>, mesmo que a decisão seja não executá-lo agora.</p>
+            </div>
+
+            <div class="flow reveal" style="margin-top:36px;">
+              <div class="flow-box">
+                <div class="fb-label">entrada</div>
+                <div class="fb-title">Modelo de Casos de Uso</div>
+                <div class="fb-cluster">descrição detalhada de cada caso de uso</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">este módulo</div>
+                <div class="fb-title">Modelo de Classes</div>
+                <div class="fb-cluster">diagrama + descrição das classes</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">a seguir</div>
+                <div class="fb-title">Modelo de Interação</div>
+                <div class="fb-cluster">as operações saem de verdade daqui</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">O conjunto de classes identificado e revisto para cada caso de uso é exatamente o que será usado na elaboração do <strong style="color:var(--ink)">Modelo de Interação</strong>. E vale o aviso da apostila: os modelos feitos até aqui <strong style="color:var(--ink)">podem ser alterados</strong> depois. Quanto melhor a qualidade do modelo agora, menor a chance de retrabalho depois.</div>
+          </div>
+        </section>
+
+        <!-- ============ PASSO 1 ============ -->
+        <section class="section alt" id="cnc-passo1">
+          <div class="wrap">
+            <div class="eyebrow">Passo 1</div>
+            <h2 class="reveal">Rever os casos de uso antes de olhar para classes</h2>
+            <p class="intro reveal">O Modelo de Casos de Uso deve estar claro, consistente e o mais completo possível. A razão é direta: <strong style="color:var(--ink)">um modelo de casos de uso com problemas produz classes com problemas</strong> — classes, atributos e operações inadequados, ou faltando.</p>
+
+            <div class="np-grid reveal">
+              <div class="np-card">
+                <div class="n">01 · AMBIGUIDADE</div>
+                <p>Se forem detectadas ambiguidades, elas devem ser <strong style="color:var(--ink)">esclarecidas</strong> — não interpretadas por conta própria na hora de nomear a classe.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">02 · INCONSISTÊNCIA</div>
+                <p>Se existirem dados inconsistentes, as inconsistências devem ser esclarecidas e <strong style="color:var(--ink)">corrigidas</strong> no modelo de casos de uso.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">03 · FALTA</div>
+                <p>Se faltar ator ou caso de uso em relação aos documentos de origem ou às solicitações do cliente, <strong style="color:var(--ink)">o modelo deve ser corrigido</strong>.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">O que a revisão encontrou no SVIE</h3>
+            <p class="intro reveal">O Sistema de Venda de Ingressos de Espetáculos foi modelado no módulo 04. Ao revisá-lo antes de identificar classes, dois problemas aparecem — e nenhum dos dois é erro grave: são lacunas normais que a revisão existe para pegar.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card bad">
+                <div class="cc-tag">achado 1</div>
+                <h4>Casos de uso 3 e 4 não foram descritos</h4>
+                <p>"Cadastrar sessão" e "Cadastrar teatro" ficaram sem descrição detalhada. Sem texto, não há substantivo para grifar — e as classes desses casos de uso simplesmente não apareceriam.</p>
+                <div class="cc-note">Providência: analisar as operações de inserir, alterar, remover e consultar desses casos de uso para identificar as classes envolvidas.</div>
+              </div>
+              <div class="compare-card bad">
+                <div class="cc-tag">achado 2</div>
+                <h4>Casos de uso 1 e 2 não definem entradas e saídas</h4>
+                <p>A descrição de "Vender ingresso" e "Cadastrar espetáculo" não explicita os dados de entrada e de saída do sistema. E os atributos das classes saem justamente daí.</p>
+                <div class="cc-note">Providência: definir os dados de entrada e de saída dos casos de uso, complementando o modelo.</div>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Sobre os casos de uso de cadastro</div>
+              <p>Em geral, <strong style="color:var(--ink)">nem todos os casos de uso de cadastro são descritos</strong> em detalhe — e o módulo 04 já dizia isso. Mas isso não os isenta: na hora de identificar classes é preciso analisá-los mesmo assim e <strong style="color:var(--ink)">explicitar as consistências</strong> que devem ser feitas em cada operação. Foi exatamente essa análise que revelou, no SVIE, que remover um espetáculo envolve também <em>Teatro</em> e <em>Sessao</em> — porque um espetáculo só pode ser removido se não tiver nenhum lugar reservado ou vendido, e essa condição é verificada analisando os lugares de todas as sessões. Nada disso o nome "Cadastrar espetáculo" sugeria.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PASSO 2 ============ -->
+        <section class="section" id="cnc-passo2">
+          <div class="wrap">
+            <div class="eyebrow">Passo 2</div>
+            <h2 class="reveal">Identificação de classes</h2>
+            <p class="intro reveal">As classes são identificadas <strong style="color:var(--ink)">com base na descrição detalhada dos casos de uso</strong>. Como classes representam conceitos, elas aparecem como substantivos no texto. Daí uma consequência incômoda: se a descrição detalhada for muito resumida, <strong style="color:var(--ink)">as classes podem simplesmente não estar lá</strong>.</p>
+
+            <h3 class="reveal" style="margin-top:44px;">2a · Identificar as classes candidatas</h3>
+            <div class="qbank reveal" id="cncQbCand"></div>
+
+            <h3 class="reveal" style="margin-top:52px;">2b · Analisar e manter as classes adequadas</h3>
+            <p class="intro reveal">Nem toda candidata é adequada. Cinco filtros, aplicados em ordem:</p>
+            <div class="qbank reveal" id="cncQbFiltro"></div>
+
+            <h3 class="reveal" style="margin-top:52px;">Interface e controle: as duas que não vêm dos substantivos</h3>
+            <p class="intro reveal">Além das classes que saem do texto, existem duas categorias que precisam ser <strong style="color:var(--ink)">incluídas deliberadamente</strong> para uma boa representação do sistema.</p>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Classes de interface</h4>
+                <p>Representam a comunicação do sistema a ser modelado com <strong style="color:var(--ink)">outros sistemas, dispositivos e equipamentos</strong>. Atenção ao limite: <strong style="color:var(--ink)">não é necessário representar terminais de operação e impressoras</strong>, pois eles servem de meio para a operação dos atores.</p>
+                <div class="uml-ex">no SVIE: InterfaceSOAD — envia e recebe os dados do sistema de autorização de débito</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Classes de controle</h4>
+                <p>Não armazenam dados; sua finalidade é <strong style="color:var(--ink)">coordenar as ações das demais classes</strong>. Nem sempre são representadas no diagrama, para não poluir o visual. A classe que coordena as operações de um caso de uso geralmente <strong style="color:var(--ink)">não</strong> é representada; já a que gera relatórios pode ser — ela coleta dados de várias classes.</p>
+                <div class="uml-ex">no SVIE: Ingresso — formata e gera o arquivo PDF a partir dos dados recebidos</div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Ponte com o módulo 07</div>
+              <p>São as mesmas categorias da <strong>Classificação de Classes</strong>, com o vocabulário da apostila: <em style="color:var(--ink); font-style:normal">interface</em> aqui é <em style="color:var(--ink); font-style:normal">fronteira/boundary</em> lá, e <em style="color:var(--ink); font-style:normal">controle</em> é o mesmo <em style="color:var(--ink); font-style:normal">control</em>. O que muda é o momento: no módulo 07 você classifica classes que já existem; aqui você <strong>cria</strong> as que faltam porque nenhum substantivo do texto ia produzi-las.</p>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">2c · Responsabilidade, atributos e operações</h3>
+            <p class="intro reveal">Depois de consolidar as classes, cada uma precisa ganhar conteúdo. A ordem de importância aqui é explícita na apostila: <strong style="color:var(--ink)">responsabilidade primeiro</strong>, e ela é a parte importante do resultado deste passo.</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <div class="dc-k">responsabilidade</div>
+                <p>Descreve <strong style="color:var(--ink)">para que a classe existe</strong> e melhora o entendimento do papel dela no sistema. É a obrigação que a classe tem de oferecer um certo comportamento — e pode ser realizada pela cooperação de um conjunto de operações.</p>
+                <div class="dc-ex">"Cliente do sistema de cobrança: representa o ator cliente."</div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">atributos</div>
+                <p>Identificados através dos <strong style="color:var(--ink)">dados de entrada e de saída dos casos de uso</strong> e das <strong style="color:var(--ink)">variáveis necessárias</strong> para a realização das operações.</p>
+                <div class="dc-ex">era por isso que a revisão do passo 1 cobrava entradas e saídas definidas</div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">operações</div>
+                <p>Identificadas através da descrição dos casos de uso — muitas vezes a <strong style="color:var(--ink)">sequência de eventos</strong> permite identificar as operações realizadas pelas classes.</p>
+                <div class="dc-ex">a rigor, só saem de verdade na análise das interações (modelo dinâmico)</div>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Uma classe, vários casos de uso</div>
+              <p>A mesma classe pode aparecer em vários casos de uso, com atributos e operações <strong style="color:var(--ink)">iguais ou diferentes</strong>, dependendo do papel que exerce em cada um. Identificar esses casos e <strong style="color:var(--ink)">unificar as versões em uma classe só</strong> — ajustando atributos e operações — é o que evita terminar com três <em>Espetaculo</em> ligeiramente diferentes. Depois de unificar, ainda é preciso fazer as adequações finais para que o conjunto de classes seja consistente.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TRIAGEM ============ -->
+        <section class="section alt" id="cnc-triagem">
+          <div class="wrap">
+            <div class="eyebrow">Interativo</div>
+            <h2 class="reveal">Triagem: 23 substantivos, 8 classes</h2>
+            <p class="intro reveal">Estas são as classes candidatas extraídas da descrição detalhada de <strong style="color:var(--ink)">"Vender ingresso"</strong> — todas são substantivos legítimos do texto. Clique em cada uma para ver o veredicto e a justificativa. Antes de clicar, tente adivinhar: <em>esta vira classe ou não?</em></p>
+
+            <div class="triage reveal">
+              <div class="triage-head">
+                <h4>Classes candidatas · caso de uso "Vender ingresso"</h4>
+                <span class="triage-score">analisadas <strong id="cncTriCount">0</strong> / 23</span>
+              </div>
+              <div class="noun-cloud" id="cncNouns"></div>
+              <div class="noun-detail">
+                <div class="nd-verdict" id="cncNdVerdict">—</div>
+                <div class="nd-name" id="cncNdName">Escolha uma candidata</div>
+                <p class="nd-why" id="cncNdWhy">Cada substantivo abaixo apareceu na descrição detalhada do caso de uso. A tarefa da identificação de classes é decidir quais deles representam conceitos relevantes ao sistema — e a maioria não representa.</p>
+              </div>
+              <div class="triage-legend">
+                <span style="color:var(--cyan)">■</span> vira classe &nbsp;·&nbsp; <span style="color:var(--rose)">■</span> descartada<br>
+                Resultado: <strong style="color:var(--cyan)">Ingresso, Espetaculo, Cliente, InterfaceSOAD, Sessao, LugarSessao, Mapa e Teatro</strong> — oito classes de vinte e três candidatas.<br>
+                <span style="color:var(--ink-faint)">Nota: <em>Data</em> aparece na análise numerada da apostila mas não na Tabela 1; <em>débito</em> e <em>valor</em> são analisados em um item só.</span>
+              </div>
+            </div>
+
+            <div class="callout rose reveal" style="margin-top:32px;">
+              <div class="eyebrow">Os três descartes que ensinam mais</div>
+              <p><strong>Venda</strong> é a operação que o caso de uso descreve, não um conceito — nome de caso de uso raramente é nome de classe. <strong>Aplicativo</strong> é o software inteiro: ele <em>contém</em> todas as classes, então não pode ser uma delas. E <strong>Cliente</strong> é a armadilha reversa: como ator, é externo ao sistema e não seria classe — mas o sistema precisa guardar os dados do cliente, então existe sim a classe <em>Cliente</em>. <strong style="color:var(--ink)">Ator Cliente e classe Cliente são coisas diferentes com o mesmo nome.</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TABELA CASOS DE USO × CLASSES ============ -->
+        <section class="section" id="cnc-tabela">
+          <div class="wrap">
+            <div class="eyebrow">Ferramenta</div>
+            <h2 class="reveal">A tabela de casos de uso e classes</h2>
+            <p class="intro reveal">A identificação é organizada em uma tabela de três colunas: <strong style="color:var(--ink)">caso de uso</strong>, <strong style="color:var(--ink)">classes candidatas</strong> e <strong style="color:var(--ink)">classes</strong>. Ela é preenchida em duas passadas — primeiro só as candidatas, depois, após a análise, a coluna final. O que importa é a diferença entre as duas últimas colunas.</p>
+
+            <div class="uctab-wrap reveal">
+              <table class="uctab">
+                <thead>
+                  <tr>
+                    <th style="width:20%">Caso de uso</th>
+                    <th style="width:44%">Classes candidatas</th>
+                    <th style="width:36%">Classes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="uc">1 · Vender ingresso</td>
+                    <td class="cand">venda, ingresso, espetáculo, aplicativo, banco, cliente, SOAD, sessão, lugar, mapa, teatro, senha, débito, valor, conta corrente, mensagem, solicitação, transação, autorização, reserva, confirmação, temporização, comunicação</td>
+                    <td class="fin">Ingresso, Espetaculo, Cliente, InterfaceSOAD, Sessao, LugarSessao, Mapa, Teatro</td>
+                  </tr>
+                  <tr>
+                    <td class="uc">2 · Cadastrar espetáculo<br><span style="color:var(--ink-faint); font-size:11px">inserir</span></td>
+                    <td class="cand">Espetáculo, teatro</td>
+                    <td class="fin">Espetaculo, Teatro</td>
+                  </tr>
+                  <tr>
+                    <td class="uc"><span style="color:var(--ink-faint); font-size:11px">alterar</span></td>
+                    <td class="cand">Espetáculo</td>
+                    <td class="fin">Espetaculo</td>
+                  </tr>
+                  <tr>
+                    <td class="uc"><span style="color:var(--ink-faint); font-size:11px">remover</span></td>
+                    <td class="cand">Espetáculo, teatro, sessão</td>
+                    <td class="fin">Espetaculo, Teatro, Sessao</td>
+                  </tr>
+                  <tr>
+                    <td class="uc"><span style="color:var(--ink-faint); font-size:11px">consultar</span></td>
+                    <td class="cand">Espetáculo</td>
+                    <td class="fin">Espetaculo</td>
+                  </tr>
+                  <tr>
+                    <td class="uc">3 · Cadastrar sessão<br><span style="color:var(--ink-faint); font-size:11px">inserir</span></td>
+                    <td class="cand">Espetáculo, sessão</td>
+                    <td class="fin">Espetaculo, Sessao</td>
+                  </tr>
+                  <tr>
+                    <td class="uc"><span style="color:var(--ink-faint); font-size:11px">alterar / consultar</span></td>
+                    <td class="cand">Sessão</td>
+                    <td class="fin">Sessao</td>
+                  </tr>
+                  <tr>
+                    <td class="uc"><span style="color:var(--ink-faint); font-size:11px">remover</span></td>
+                    <td class="cand">Sessão, lugar</td>
+                    <td class="fin">Sessao, LugarSessao</td>
+                  </tr>
+                  <tr>
+                    <td class="uc">4 · Cadastrar teatro<br><span style="color:var(--ink-faint); font-size:11px">inserir / alterar / consultar</span></td>
+                    <td class="cand">Teatro</td>
+                    <td class="fin">Teatro</td>
+                  </tr>
+                  <tr>
+                    <td class="uc"><span style="color:var(--ink-faint); font-size:11px">remover</span></td>
+                    <td class="cand">Teatro, espetáculo</td>
+                    <td class="fin">Teatro, Espetaculo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">Por que quebrar o cadastro em quatro linhas</div>
+              <p>Porque cada operação do CRUD envolve classes diferentes. <strong>Cadastrar</strong> espetáculo precisa de <em>Espetaculo</em> para guardar os dados e de <em>Teatro</em> porque o novo espetáculo será alocado em um. <strong>Remover</strong> precisa checar que não há nenhum lugar reservado ou vendido — condição que só pode ser verificada analisando os lugares de todas as sessões, o que traz <em>Sessao</em> para dentro. Já <strong>consultar</strong> e <strong>alterar</strong> dependem apenas de <em>Espetaculo</em>. Se você tratasse "Cadastrar espetáculo" como uma linha só, perderia essa informação.</p>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">O ajuste final</div>
+              <p>Analisando a coluna Classes das quatro linhas principais, a solução consolidada para o SVIE fica com sete classes: <strong style="color:var(--ink)">Espetaculo, Sessao, Teatro, MapaTeatro, LugarSessao, Ingresso e InterfaceSOAD</strong>. Repare que <em>Mapa</em> virou <em>MapaTeatro</em> (nome mais preciso) e que <em>Cliente</em>, presente na triagem, não entra no diagrama final desta solução — a apostila é explícita em dizer que apresenta <strong style="color:var(--ink)">uma solução possível</strong>, não a única nem uma completa.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ DESCRIÇÃO DAS CLASSES ============ -->
+        <section class="section alt" id="cnc-descricao">
+          <div class="wrap">
+            <div class="eyebrow">Resultado do passo 2</div>
+            <h2 class="reveal">Descrição das classes do SVIE</h2>
+            <p class="intro reveal">Nome de classe não basta. Esta é a tabela de descrição preliminar, com responsabilidade e atributos vindos da descrição detalhada dos casos de uso — e as operações que a revisão do passo 4 acrescentou depois. Repare em como a responsabilidade muda o que você entende de cada nome.</p>
+
+            <div class="cdesc reveal">
+              <div class="cdesc-card">
+                <h4>Espetaculo</h4>
+                <p class="cd-resp">Representa os espetáculos cujos ingressos são vendidos pelo SVIE.</p>
+                <div class="cd-lab">Atributos principais</div>
+                <ul class="attrs">
+                  <li>identificacao · titulo · diretor</li>
+                  <li>ator · banda</li>
+                  <li>dataInicial · dataFinal</li>
+                </ul>
+                <div class="cd-lab">Operações principais</div>
+                <ul>
+                  <li>Criar / Armazenar / Recuperar / Excluir espetáculo</li>
+                  <li>Listar espetáculos com sessões com lugares disponíveis</li>
+                </ul>
+              </div>
+
+              <div class="cdesc-card">
+                <h4>Sessao</h4>
+                <p class="cd-resp">Representa uma sessão específica de um espetáculo — o período em que ele vai ocorrer.</p>
+                <div class="cd-lab">Atributos principais</div>
+                <ul class="attrs">
+                  <li>data · diaSemana · horario</li>
+                  <li>numeroVagas</li>
+                </ul>
+                <div class="cd-lab">Operações principais</div>
+                <ul>
+                  <li>Criar / Armazenar / Recuperar / Excluir sessão</li>
+                  <li>Listar sessões com lugares disponíveis</li>
+                  <li>Buscar lugares disponíveis da sessão</li>
+                </ul>
+              </div>
+
+              <div class="cdesc-card">
+                <h4>Teatro</h4>
+                <p class="cd-resp">Representa o local onde um espetáculo vai ser realizado.</p>
+                <div class="cd-lab">Atributos principais</div>
+                <ul class="attrs">
+                  <li>identificacao · nome</li>
+                  <li>endereco</li>
+                </ul>
+                <div class="cd-lab">Operações principais</div>
+                <ul>
+                  <li>Criar / Armazenar / Recuperar / Excluir teatro</li>
+                  <li>Listar teatros</li>
+                </ul>
+              </div>
+
+              <div class="cdesc-card">
+                <h4>MapaTeatro</h4>
+                <p class="cd-resp">Representa a imagem da área do teatro, contendo o palco e os lugares que podem ser vendidos.</p>
+                <div class="cd-lab">Atributos principais</div>
+                <ul class="attrs">
+                  <li>dados para representação esquemática do mapa do teatro</li>
+                </ul>
+                <div class="cd-lab">Operações principais</div>
+                <ul>
+                  <li>Criar / Armazenar / Recuperar / Excluir mapa do teatro</li>
+                  <li>Apresentar a representação esquemática</li>
+                  <li>Apresentar lugares disponíveis / reservados / vendidos da sessão</li>
+                </ul>
+              </div>
+
+              <div class="cdesc-card">
+                <h4>LugarSessao</h4>
+                <p class="cd-resp">Representa um lugar no mapa do teatro em uma sessão e o seu estado.</p>
+                <div class="cd-lab">Atributos principais</div>
+                <ul class="attrs">
+                  <li>identificacao · localizacaoMapa</li>
+                  <li>tipoLugar · estado</li>
+                </ul>
+                <div class="cd-lab">Operações principais</div>
+                <ul>
+                  <li>Armazenar / Recuperar lugar</li>
+                  <li>Marcar lugar como reservado / vendido / disponível</li>
+                </ul>
+              </div>
+
+              <div class="cdesc-card ctrl">
+                <h4>Ingresso <span style="font-family:var(--body); font-size:11px; color:var(--rose)">· controle</span></h4>
+                <p class="cd-resp">Formata o ingresso a partir dos dados e gera um arquivo PDF para ser enviado ao cliente.</p>
+                <div class="cd-lab">Atributos principais</div>
+                <ul class="attrs">
+                  <li>dados do espetáculo</li>
+                  <li>dados da sessão</li>
+                  <li>identificação do lugar</li>
+                </ul>
+                <div class="cd-lab">Operações principais</div>
+                <ul>
+                  <li>Emitir ingresso</li>
+                </ul>
+              </div>
+
+              <div class="cdesc-card iface">
+                <h4>InterfaceSOAD <span style="font-family:var(--body); font-size:11px; color:var(--amber)">· interface</span></h4>
+                <p class="cd-resp">Realiza a interação do SVIE com o SOAD — o sistema de autorização de débito do banco, externo ao sistema modelado.</p>
+                <div class="cd-lab">Atributos principais</div>
+                <ul>
+                  <li style="color:var(--ink-faint)">não identificados nesse estágio</li>
+                </ul>
+                <div class="cd-lab">Operações principais</div>
+                <ul>
+                  <li>Enviar mensagem para SOAD</li>
+                  <li>Receber mensagem do SOAD</li>
+                </ul>
+              </div>
+
+              <div class="cdesc-card" style="border-left-color:var(--line); background:var(--bg-1);">
+                <h4 style="color:var(--ink-soft)">O que ainda está aberto</h4>
+                <p class="cd-resp">Os atributos de <em>MapaTeatro</em> não foram detalhados nessa versão — e tudo bem. A apostila deixa explícito que a identificação das operações <strong style="color:var(--ink)">não é imediata</strong>: a rigor, elas são identificadas na análise das interações entre objetos, através das trocas de mensagens, na construção dos modelos dinâmicos.</p>
+                <div class="cd-lab">O que dá para fazer agora</div>
+                <ul>
+                  <li>A sequência de eventos dos casos de uso permite identificar quais classes participam e quais operações são acionadas.</li>
+                  <li>Os atributos podem sair da descrição detalhada, complementando-se os dados faltantes.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PASSO 3: DIAGRAMA ============ -->
+        <section class="section" id="cnc-passo3">
+          <div class="wrap">
+            <div class="eyebrow">Passo 3</div>
+            <h2 class="reveal">Construção do Diagrama de Classes</h2>
+            <p class="intro reveal">Cinco movimentos, nesta ordem. O detalhe que costuma ser ignorado é o segundo — e a apostila justifica: nomear as associações é importante <strong style="color:var(--ink)">nesta fase de aprendizado</strong>, para melhor interpretação do diagrama.</p>
+
+            <div class="tl reveal">
+              <div class="tl-item">
+                <div class="yr">3.1 · Esboço inicial</div>
+                <p>Esboçar o diagrama com as classes identificadas no passo 2 e as associações identificadas através da descrição dos casos de uso.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">3.2 · Nomear as associações</div>
+                <p>É importante que as associações tenham nome nessa fase de aprendizado, para melhor interpretação do Diagrama de Classes.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">3.3 · Multiplicidade</div>
+                <p>Definir a multiplicidade das associações — ela também ajuda a entender melhor o significado dos relacionamentos.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">3.4 · Generalização/especialização</div>
+                <p>Introduzir os relacionamentos de herança, <strong style="color:var(--ink)">se necessário</strong>. No SVIE, não foi.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">3.5 · Agregação e composição</div>
+                <p>Introduzir os relacionamentos todo-parte, <strong style="color:var(--ink)">se necessário</strong>.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">O diagrama de classes do SVIE</h3>
+            <p class="intro reveal">O resultado, construído a partir da tabela de descrição de classes. Uma solução — podem existir outras alternativas.</p>
+
+            <div class="cdw reveal">
+              <svg class="cd-svg" viewBox="0 0 880 470" role="img" aria-label="Diagrama de classes do SVIE com Espetaculo, Teatro, Sessao, MapaTeatro, LugarSessao, Ingresso e InterfaceSOAD">
+                <!-- Ingresso (controle, isolada) -->
+                <g class="cd-cls rose">
+                  <rect x="60" y="30" width="150" height="40" rx="4"/>
+                  <text class="cn" x="135" y="55" text-anchor="middle">Ingresso</text>
+                </g>
+                <text class="cd-note" x="135" y="88" text-anchor="middle">classe de controle · sem associação</text>
+
+                <!-- InterfaceSOAD (interface, isolada) -->
+                <g class="cd-cls amber">
+                  <rect x="640" y="30" width="170" height="40" rx="4"/>
+                  <text class="cn" x="725" y="55" text-anchor="middle">InterfaceSOAD</text>
+                </g>
+                <text class="cd-note" x="725" y="88" text-anchor="middle">classe de interface · sem associação</text>
+
+                <!-- Espetaculo -->
+                <g class="cd-cls">
+                  <rect x="130" y="150" width="170" height="46" rx="4"/>
+                  <text class="cn" x="215" y="178" text-anchor="middle">Espetaculo</text>
+                </g>
+                <!-- Teatro -->
+                <g class="cd-cls">
+                  <rect x="570" y="150" width="170" height="46" rx="4"/>
+                  <text class="cn" x="655" y="178" text-anchor="middle">Teatro</text>
+                </g>
+                <!-- Sessao -->
+                <g class="cd-cls">
+                  <rect x="130" y="330" width="170" height="46" rx="4"/>
+                  <text class="cn" x="215" y="358" text-anchor="middle">Sessao</text>
+                </g>
+                <!-- MapaTeatro -->
+                <g class="cd-cls">
+                  <rect x="570" y="330" width="170" height="46" rx="4"/>
+                  <text class="cn" x="655" y="358" text-anchor="middle">MapaTeatro</text>
+                </g>
+                <!-- LugarSessao (classe associativa) -->
+                <g class="cd-cls cyan">
+                  <rect x="360" y="405" width="160" height="42" rx="4"/>
+                  <text class="cn" x="440" y="431" text-anchor="middle">LugarSessao</text>
+                </g>
+
+                <!-- Espetaculo — Teatro -->
+                <path class="cd-link" d="M300 173 L570 173"/>
+                <text class="cd-assoc" x="435" y="164" text-anchor="middle">é alocado em</text>
+                <path d="M492 160 L502 164 L492 168 Z" fill="var(--ink)" stroke="none"/>
+                <text class="cd-mult" x="310" y="190">1..n</text>
+                <text class="cd-mult" x="560" y="190" text-anchor="end">1</text>
+
+                <!-- Espetaculo — Sessao -->
+                <path class="cd-link" d="M215 196 L215 330"/>
+                <text class="cd-assoc" x="228" y="258">tem</text>
+                <text class="cd-mult" x="228" y="216">1</text>
+                <text class="cd-mult" x="228" y="322">1..n</text>
+
+                <!-- Teatro — MapaTeatro -->
+                <path class="cd-link" d="M655 196 L655 330"/>
+                <text class="cd-assoc" x="668" y="258">tem</text>
+                <text class="cd-mult" x="668" y="216">1</text>
+                <text class="cd-mult" x="668" y="322">1</text>
+
+                <!-- Sessao — MapaTeatro (associação que sustenta LugarSessao) -->
+                <path class="cd-link" d="M300 353 L570 353"/>
+                <!-- linha tracejada da classe associativa -->
+                <path class="cd-link dash" d="M440 405 L440 353"/>
+                <text class="cd-note" x="452" y="398">classe de associação</text>
+
+                <text class="cd-note" x="60" y="240">solução do SVIE — sem herança</text>
+                <text class="cd-note" x="60" y="256">e sem agregação/composição</text>
+              </svg>
+              <div class="cd-caption">Um <strong style="color:var(--ink)">Espetaculo</strong> é alocado em <strong style="color:var(--cyan)">1</strong> <strong style="color:var(--ink)">Teatro</strong>; um teatro pode receber <strong style="color:var(--cyan)">1..n</strong> espetáculos, se considerados períodos distintos. Um espetáculo tem <strong style="color:var(--cyan)">1..n</strong> <strong style="color:var(--ink)">Sessoes</strong>; em uma sessão acontece apenas um espetáculo. Um teatro possui <strong style="color:var(--cyan)">1</strong> <strong style="color:var(--ink)">MapaTeatro</strong> e um mapa descreve apenas um teatro. Para cada sessão existe uma ocupação diferente dos lugares — representada pela classe de associação <strong style="color:var(--ink)">LugarSessao</strong>, cujas multiplicidades a apostila não explicita.</div>
+            </div>
+
+            <div class="def-grid reveal three" style="margin-top:32px;">
+              <div class="def-card">
+                <div class="dc-k">por que 1..n espetáculos por teatro</div>
+                <p>Apenas um espetáculo pode estar em cartaz por vez, mas <strong style="color:var(--ink)">podem existir outros programados</strong> — e os dados deles precisam ser armazenados. A multiplicidade responde a "quantos objetos o sistema guarda", não a "quantos acontecem ao mesmo tempo".</p>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">por que LugarSessao é associativa</div>
+                <p>O mapa descreve o teatro, que é fixo. Mas <strong style="color:var(--ink)">para cada sessão existe uma ocupação diferente dos lugares</strong>, que depende das vendas daquela sessão. Esse dado não é do mapa nem da sessão isoladamente — é da ligação entre os dois.</p>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">por que duas classes ficam soltas</div>
+                <p><em>Ingresso</em> é classe de controle: recebe os dados, formata e gera o PDF. <em>InterfaceSOAD</em> comunica com um sistema externo. Nenhuma das duas guarda conceito do domínio, então <strong style="color:var(--ink)">não têm associação</strong> — o acionamento delas aparece na modelagem dinâmica.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PASSO 4: REVISÃO ============ -->
+        <section class="section alt" id="cnc-passo4">
+          <div class="wrap">
+            <div class="eyebrow">Passo 4</div>
+            <h2 class="reveal">Revisão do Modelo de Classes</h2>
+            <p class="intro reveal">Antes de revisar o modelo, é preciso saber o que se está procurando. Em um sistema orientado a objetos, a unidade principal de decomposição é a classe — e uma classe bem definida tem quatro características.</p>
+
+            <div class="np-grid reveal" style="grid-template-columns:repeat(2,1fr);">
+              <div class="np-card">
+                <div class="n">01 · ABSTRAÇÃO PRECISA</div>
+                <p>Resultante do vocabulário do <strong style="color:var(--ink)">domínio de negócio</strong> (Cliente, Serviço, Produto) ou do <strong style="color:var(--ink)">domínio da solução</strong> (Transação, Lista, Tabela). Deve representar um conceito relevante do domínio.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">02 · UMA RESPONSABILIDADE</div>
+                <p>Deve existir um texto sucinto descrevendo a responsabilidade da classe no contexto do sistema — e <strong style="color:var(--ink)">responsabilidade não é lista de operações</strong>. Se a classe tiver mais de uma, verifique se não deveria ser subdividida.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">03 · ABSTRAÇÃO ≠ IMPLEMENTAÇÃO</div>
+                <p>Fornece uma clara distinção entre a abstração do <strong style="color:var(--ink)">comportamento</strong> da classe e a sua <strong style="color:var(--ink)">implementação</strong>.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">04 · SIMPLES E ADAPTÁVEL</div>
+                <p>É compreensível e simples, extensível e adaptável.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">As três perguntas da revisão</h3>
+            <p class="intro reveal">Partindo do princípio de que o Modelo de Casos de Uso foi revisto e está consistente, todas as funções necessárias aos usuários estarão presentes nos casos de uso. A revisão do modelo de classes é feita então por perguntas:</p>
+            <div class="qbank reveal" id="cncQbRevisao"></div>
+
+            <h3 class="reveal" style="margin-top:52px;">Rastreando passo a passo: "Vender ingresso"</h3>
+            <p class="intro reveal">Esta é a técnica: percorrer a sequência de eventos e, para cada passo, identificar as operações das classes envolvidas. Clique em cada passo para ver quais classes participam. <strong style="color:var(--ink)">Os passos do ator não geram operação nenhuma</strong> — e isso é informação, não vazio.</p>
+
+            <div class="trace reveal" id="cncTrace"></div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">Honestidade da apostila</div>
+              <p>"Esse procedimento <strong>não é utilizado na prática</strong>, mas recomenda-se acompanhar o raciocínio no início dos estudos" — porque ele mostra concretamente o sentido da participação de cada classe em um caso de uso e como os modelos UML se ligam entre si. É um andaime de aprendizado: você faz uma vez com cuidado para depois enxergar o padrão sem a tabela.</p>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">O passo 6, destrinchado</div>
+              <p>"Sistema apresenta um mapa do teatro, com os lugares vagos em destaque" parece um passo só, mas envolve três operações de duas classes. <strong style="color:var(--ink)">MapaTeatro</strong> desenha a representação esquemática dos lugares. O estado dos lugares (livre, vendido, reservado) está em <strong style="color:var(--ink)">LugarSessao</strong>, e é <strong style="color:var(--ink)">Sessao</strong> que solicita os lugares disponíveis. Por fim, MapaTeatro recebe a identificação desses lugares e os representa sobre o esquema. Um passo de texto, três operações — é assim que a revisão descobre operações que ninguém tinha listado.</p>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">E os casos de uso de cadastro</h3>
+            <p class="intro reveal">Para espetáculo, sessão e teatro vale a mesma análise, e o resultado é um conjunto uniforme de quatro operações por classe:</p>
+
+            <div class="uctab-wrap reveal">
+              <table class="uctab">
+                <thead>
+                  <tr><th style="width:26%">Operação</th><th>O que faz</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="fin">Criar &lt;elemento&gt;</td><td>criar um objeto da classe</td></tr>
+                  <tr><td class="fin">Armazenar &lt;elemento&gt;</td><td>receber os dados do objeto e armazenar no sistema</td></tr>
+                  <tr><td class="fin">Recuperar &lt;elemento&gt;</td><td>recuperar os dados de um dado elemento armazenado no sistema</td></tr>
+                  <tr><td class="fin">Excluir &lt;elemento&gt;</td><td>excluir um dado elemento armazenado no sistema</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flow-note reveal">Foi essa revisão que permitiu identificar as operações incluídas na tabela de descrição de classes — a Tabela 3 preliminar virou a Tabela 4 final. O passo 4 não só valida o modelo: <strong style="color:var(--ink)">ele o completa</strong>.</div>
+          </div>
+        </section>
+
+        <!-- ============ SUBSISTEMAS ============ -->
+        <section class="section" id="cnc-subsistemas">
+          <div class="wrap">
+            <div class="eyebrow">Seção 7</div>
+            <h2 class="reveal">Subsistemas</h2>
+            <p class="intro reveal">O recurso de subsistema é usado para representar um sistema com <strong style="color:var(--ink)">nível de abstração mais alto</strong>. Em vez de representar o sistema através das suas classes, alguns conjuntos de classes e relacionamentos podem ser representados através de subsistemas. Um subsistema pode conter subsistemas e classes.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <div class="cc-tag" style="color:var(--indigo)">caminho 1 · de baixo para cima</div>
+                <h4>A partir do Diagrama de Classes</h4>
+                <p>Uma das formas de definir os subsistemas é olhar o diagrama já construído e <strong style="color:var(--ink)">agrupar as classes pela afinidade lógica</strong>. O subsistema emerge do modelo.</p>
+                <div class="cc-note">útil quando o sistema já foi modelado e o diagrama ficou grande demais para ler</div>
+              </div>
+              <div class="compare-card b">
+                <div class="cc-tag" style="color:var(--cyan)">caminho 2 · de cima para baixo</div>
+                <h4>Antes de modelar, quando o sistema tem porte</h4>
+                <p>Os subsistemas são definidos <strong style="color:var(--ink)">inicialmente</strong> e descritos de forma a permitir sua compreensão. Depois modela-se cada um, definindo seus casos de uso e suas classes.</p>
+                <div class="cc-note">cuidado obrigatório: as classes resultantes de cada subsistema devem ser analisadas para identificar se são comuns aos subsistemas — e, se forem, suas descrições devem ser uniformizadas</div>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Os subsistemas do SVIE</h3>
+            <p class="intro reveal">Exemplo meramente ilustrativo — a apostila deixa isso explícito. O Sistema de Venda de Ingressos é representado através de três subsistemas descritos, e Venda de Bilhete depende também do subsistema Serviço de Crédito, que ele apenas consulta.</p>
+
+            <div class="subsys reveal">
+              <svg class="subsys-svg" viewBox="0 0 880 330" role="img" aria-label="Subsistemas do SVIE: Venda de Bilhete depende de Seleção de Poltronas, Cálculo de Preço e Serviço de Crédito">
+                <g class="ss-pkg">
+                  <path class="ss-tab" d="M330 40 h96 v20 h-96 z"/>
+                  <rect x="330" y="60" width="230" height="62" rx="2"/>
+                  <text x="445" y="97" text-anchor="middle">Venda de Bilhete</text>
+                </g>
+
+                <g class="ss-pkg cyan">
+                  <path class="ss-tab" d="M60 220 h96 v20 h-96 z"/>
+                  <rect x="60" y="240" width="220" height="58" rx="2"/>
+                  <text x="170" y="275" text-anchor="middle">Seleção de Poltronas</text>
+                </g>
+
+                <g class="ss-pkg cyan">
+                  <path class="ss-tab" d="M330 220 h96 v20 h-96 z"/>
+                  <rect x="330" y="240" width="220" height="58" rx="2"/>
+                  <text x="440" y="275" text-anchor="middle">Cálculo de Preço</text>
+                </g>
+
+                <g class="ss-pkg amber">
+                  <path class="ss-tab" d="M600 220 h96 v20 h-96 z"/>
+                  <rect x="600" y="240" width="220" height="58" rx="2"/>
+                  <text x="710" y="275" text-anchor="middle">Serviço de Crédito</text>
+                </g>
+
+                <path class="ss-dep" d="M390 122 L200 220"/>
+                <path d="M196 222 L208 216 L206 226 Z" fill="var(--ink-faint)" stroke="none"/>
+                <path class="ss-dep" d="M445 122 L442 220"/>
+                <path d="M442 224 L437 213 L447 213 Z" fill="var(--ink-faint)" stroke="none"/>
+                <path class="ss-dep" d="M505 122 L690 220"/>
+                <path d="M694 222 L682 226 L684 216 Z" fill="var(--ink-faint)" stroke="none"/>
+
+                <text x="60" y="150" style="fill:var(--ink-faint)">«dependência»</text>
+                <text x="60" y="168" style="fill:var(--ink-faint)">setas apontam para quem se depende</text>
+                <text x="710" y="180" text-anchor="middle" style="fill:var(--amber)">apenas consultado</text>
+              </svg>
+              <div class="cd-caption" style="margin-top:16px;"><strong style="color:var(--ink)">Venda de Bilhete</strong> permite a seleção do espetáculo e da seção desejada, solicita a seleção de poltronas, solicita o cálculo de preço, consulta o serviço de crédito e finaliza a venda. <strong style="color:var(--ink)">Seleção de Poltrona</strong> permite a seleção de poltronas. <strong style="color:var(--ink)">Cálculo de Preço</strong> realiza o cálculo do preço total da venda.</div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">Dependência tem direção — e a direção é a informação toda</div>
+              <p>Diz-se que <strong>Venda de Bilhete depende dos outros três</strong>. Consequência prática: alterações em Cálculo de Preço, Seleção de Poltronas e Serviço de Crédito <strong style="color:var(--ink)">causam impacto</strong> em Venda de Bilhete. Por outro lado, alterações em Venda de Bilhete <strong style="color:var(--ink)">não impactam</strong> os três. Ler a seta na direção errada inverte completamente a análise de risco de uma mudança.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TREINO ============ -->
+        <section class="section alt" id="cnc-treino">
+          <div class="wrap">
+            <div class="eyebrow">Treino</div>
+            <h2 class="reveal">Vira classe ou não vira?</h2>
+            <p class="intro reveal">Doze substantivos tirados de descrições de casos de uso de sistemas diferentes. Para cada um, decida: <strong style="color:var(--ink)">classe do domínio</strong>, <strong style="color:var(--ink)">classe de interface ou controle</strong> (aquelas que você acrescenta deliberadamente) ou <strong style="color:var(--ink)">descarte</strong>.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="cncTrCounter">Candidata 1 de 12</div>
+              <div class="cls-stmt" id="cncTrStmt">—</div>
+              <div class="cls-opts" id="cncTrOpts">
+                <button class="tab" data-cnctr="DOM">Classe do domínio</button>
+                <button class="tab" data-cnctr="AUX">Interface ou controle</button>
+                <button class="tab" data-cnctr="NAO">Não é classe</button>
+              </div>
+              <div class="cls-feedback" id="cncTrFeedback">Escolha uma opção para ver a justificativa.</div>
+              <div class="cls-score" id="cncTrScore">Acertos: <strong>0</strong> / 0</div>
+              <button class="sim-btn ghost" id="cncTrReset" style="margin-left:0; margin-top:16px;">Reiniciar</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ DOCUMENTO ============ -->
+        <section class="section" id="cnc-documento">
+          <div class="wrap">
+            <div class="eyebrow">Apêndice A</div>
+            <h2 class="reveal">Índice do Documento de Modelo de Classes</h2>
+            <p class="intro reveal">O modelo pronto vira documento. Quatro seções mais referências — bem menor que o Documento de Casos de Uso, porque boa parte do contexto já está lá e é apenas referenciada.</p>
+
+            <div class="docstruct reveal">
+              <div class="doc-item">
+                <div class="di-n">01</div>
+                <h4>Objetivo do Documento</h4>
+                <ul>
+                  <li>"Este documento descreve o Modelo de Classes do Sistema…"</li>
+                  <li>Apresentar o que cada seção contém.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">02</div>
+                <h4>Descrição do Sistema</h4>
+                <ul>
+                  <li>Apresentar a descrição sucinta do sistema a ser desenvolvido.</li>
+                  <li>Pode ser extraída de documentos elaborados anteriormente.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">03</div>
+                <h4>Diagrama de Classes</h4>
+                <ul>
+                  <li>Apresentar o Diagrama de Classes do sistema a ser desenvolvido.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">04</div>
+                <h4>Descrição dos elementos</h4>
+                <ul>
+                  <li>Relacionar as classes e descrever suas <strong style="color:var(--ink)">responsabilidades</strong>, seus atributos e seus métodos.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">05</div>
+                <h4>Referências</h4>
+                <ul>
+                  <li>Relacionar os documentos e o material bibliográfico referenciado no texto.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Para a aula prática</div>
+              <p>A recomendação da 8ª aula é curta e específica: <strong style="color:var(--ink)">estudar a apostila de Construção de Modelo de Classes</strong> e <strong style="color:var(--ink)">rever o documento de Descrição do Sistema</strong>. O segundo item é o que mais gente pula — e é dele que sai tudo, já que o passo 1 do procedimento depende de os casos de uso estarem consistentes com a descrição original.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="cnc-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">Sete perguntas sobre o procedimento. Tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Por quais partes é constituído o Modelo de Classes?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Diagramas de Classes + descrição das classes e dos relacionamentos</div>
+                <p>Os diagramas fornecem a representação gráfica da estrutura do sistema através das classes e dos relacionamentos entre elas. A descrição traz responsabilidade, atributos e operações das classes, e os tipos de relacionamento. Para que os diagramas não fiquem densos, a apresentação de atributos e operações no diagrama é opcional — mas nesse caso eles devem ser listados à parte.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">Quais são os quatro passos do procedimento de construção?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Rever casos de uso · identificar classes · construir o diagrama · rever o diagrama</div>
+                <p>1) Rever os casos de uso, para que o modelo esteja consistente e o mais completo possível; 2) identificar as classes; 3) construir o Diagrama de Classes; 4) rever o Diagrama de Classes em relação ao Modelo de Casos de Uso. Os passos nem sempre devem seguir rigorosamente essa sequência: a ordem pode mudar e alguns podem ser simultâneos — o que importa é que a necessidade de cada um seja avaliada.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Como as classes candidatas são identificadas — e por que isso é frágil?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Pelos substantivos da descrição detalhada de cada caso de uso</div>
+                <p>Como as classes representam conceitos, elas são identificadas através dos substantivos contidos no texto. A fragilidade é direta: <strong>se a descrição detalhada do caso de uso for muito resumida, as eventuais classes podem não estar presentes no texto</strong>. É por isso que o passo 1 — rever os casos de uso — vem antes. Inicialmente não é necessário se preocupar com generalização/especialização, agregação e composição.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Quais candidatas devem ser eliminadas?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Redundantes, não relevantes, vagas e as ligadas à implementação</div>
+                <p>Eliminar as redundantes; eliminar as não relevantes (substantivos que aparecem no texto mas não representam o negócio, como <em>sistema</em>); procurar entender melhor as candidatas cuja finalidade esteja vaga e manter só as relevantes após a análise; e eliminar as não relacionadas com os elementos do domínio de negócio — as ligadas à implementação, como classes de estruturas de dados, <strong>devem ser incluídas na fase de projeto</strong>, não agora.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">O que é a responsabilidade de uma classe e como ela se difere de uma lista de operações?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Descreve para que a classe existe — é a obrigação que ela tem de oferecer um certo comportamento</div>
+                <p>Ela melhora o entendimento do papel da classe no sistema e pode ser realizada através da cooperação de um conjunto de operações. <strong>Uma responsabilidade não é uma lista das operações da classe.</strong> E há um teste embutido: se a classe tiver mais de uma responsabilidade, deve-se verificar se ela não deveria ser subdividida em mais classes.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 6</span>
+              <p class="q">Quais perguntas guiam a revisão do Modelo de Classes?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Classes adequadas? Atributos suficientes? Operações suficientes?</div>
+                <p>1) As classes definidas estão adequadas para cada caso de uso — todos os objetos necessários para o funcionamento do caso de uso foram identificados? 2) Os atributos das classes identificadas permitem realizar todos os casos de uso? 3) As operações das classes identificadas permitem realizar todos os casos de uso? Parte-se do princípio de que o Modelo de Casos de Uso já foi revisto, então todas as funções necessárias aos usuários estarão presentes através dos seus casos de uso.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 7</span>
+              <p class="q">O que é um subsistema e o que significa a dependência entre subsistemas?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Representação do sistema em nível de abstração mais alto; a dependência diz quem sofre impacto de quem</div>
+                <p>Em vez de representar o sistema pelas suas classes, conjuntos de classes e relacionamentos podem ser representados por subsistemas — e um subsistema pode conter subsistemas e classes. Uma forma de defini-los é agrupar as classes do diagrama por afinidade lógica; em sistemas de porte, podem ser definidos antes da modelagem. Os relacionamentos entre subsistemas são de <strong>dependência</strong>: no SVIE, Venda de Bilhete depende dos outros três, então alterações neles impactam Venda de Bilhete — mas alterações em Venda de Bilhete não os impactam.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Modelo de Classes · Construção — EPUSP · PCS · 2026<br>
+              [1] MELNIKOFF, S. S. S. Construção do Modelo de Classes — apostila, 26/08/2025<br>
+              [2] MELNIKOFF, S. S. S.; RISCO BECERRA, J. L. Construção do Modelo de Classes — 8ª aula, 25/08/2026<br>
+              [3] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 2ª ed., Elsevier, 2007 · 3ª ed., Elsevier, 2015<br>
+              [4] BOOCH, G. Object Solutions: Managing the Object-Oriented Project, Addison Wesley, 1996
+            </div>
+            <div class="credit">P1 · Módulo 08 · Profa. Selma S. S. Melnikoff e Prof. Jorge Luis Risco Becerra — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: CONSTRUÇÃO DO MODELO DE CLASSES ================= -->
 
     </div>
   </div>
@@ -4432,7 +5440,8 @@
     {id:'construcao-casos-uso', group:'P1', title:'Construção do Modelo de Casos de Uso'},
     {id:'exercicio-sgrb', group:'P1', title:'Exercício: Modelo de Casos de Uso do SGRB'},
     {id:'modelo-classes', group:'P1', title:'Modelo de Classes'},
-    {id:'classificacao-classes', group:'P1', title:'Classificação de Classes'}
+    {id:'classificacao-classes', group:'P1', title:'Classificação de Classes'},
+    {id:'construcao-modelo-classes', group:'P1', title:'Construção do Modelo de Classes'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -6457,6 +7466,240 @@
       });
     }
     clTrRender();
+  }
+
+  /* ============================================================
+     MÓDULO 08 — CHECKLISTS DO PROCEDIMENTO
+     ============================================================ */
+  buildQbank(document.getElementById('cncQbCand'), {
+    titulo: 'Como extrair as classes candidatas de um caso de uso',
+    itens: [
+      'Identificar os substantivos na descrição detalhada do caso de uso — eles são, geralmente, candidatos a classes.',
+      'Identificar as classes de interface e de controle, se elas forem necessárias.',
+      'Não se preocupar inicialmente com as estruturas de generalização/especialização, agregação e composição.'
+    ],
+    hint: 'Consequência direta: se a descrição detalhada do caso de uso for muito resumida, as eventuais classes podem simplesmente não estar presentes no texto. Descrição pobre gera modelo pobre.'
+  });
+
+  buildQbank(document.getElementById('cncQbFiltro'), {
+    titulo: 'Filtros para manter apenas as classes adequadas',
+    itens: [
+      'Eliminar as classes candidatas <strong style="color:var(--ink)">redundantes</strong>.',
+      'Identificar as classes relevantes para a linguagem dos especialistas do domínio — em um sistema de cobrança: clientes, fornecedores, cobranças, produtos; em um sistema de saúde: pacientes, fornecedores, serviços.',
+      'Eliminar as candidatas <strong style="color:var(--ink)">não relevantes</strong>: substantivos que aparecem no texto mas não representam o negócio, como <em>sistema</em>.',
+      'Procurar entender melhor as candidatas cuja finalidade esteja <strong style="color:var(--ink)">vaga</strong> no sistema e manter apenas as consideradas relevantes após essa análise.',
+      'Eliminar as candidatas não relacionadas com os elementos do domínio de negócio — as ligadas à <strong style="color:var(--ink)">implementação</strong> (classes de estruturas de dados, por exemplo) devem ser incluídas na fase de projeto.'
+    ],
+    hint: 'Depois dos filtros: unificar as versões de uma mesma classe que aparecem em casos de uso diferentes, ajustando atributos e operações, e fazer as adequações finais para que o conjunto seja consistente.'
+  });
+
+  buildQbank(document.getElementById('cncQbRevisao'), {
+    titulo: 'As perguntas da revisão do Modelo de Classes',
+    itens: [
+      'As classes definidas estão adequadas para cada caso de uso? Todos os objetos necessários para o funcionamento do caso de uso foram identificados?',
+      'Os atributos das classes identificadas permitem realizar todos os casos de uso?',
+      'As operações das classes identificadas permitem realizar todos os casos de uso?'
+    ],
+    hint: 'Lembretes: o conjunto de classes revisto para cada caso de uso será usado na elaboração do Modelo de Interação; e os modelos elaborados até aqui ainda podem ser alterados após a construção de outros modelos — quanto melhor a qualidade agora, menor a chance de retrabalho depois.'
+  });
+
+  /* ============================================================
+     MÓDULO 08 — TRIAGEM DE CLASSES CANDIDATAS (SVIE)
+     ============================================================ */
+  var CNC_NOUNS = [
+    {n:'Venda', keep:false, w:'É a <strong style="color:var(--ink)">operação</strong> descrita pelo caso de uso, não um conceito do domínio. Nome de caso de uso quase nunca vira nome de classe.'},
+    {n:'Ingresso', keep:true, w:'Deve ser gerado pelo sistema ao receber os dados de um ingresso, para ser enviado ao cliente. Na solução final, aparece como classe de controle: formata o ingresso e gera o arquivo PDF.'},
+    {n:'Espetáculo', keep:true, w:'Representa os espetáculos cujos ingressos são vendidos. Conceito central do domínio — o SVIE existe por causa dele.'},
+    {n:'Aplicativo', keep:false, w:'É o <strong style="color:var(--ink)">software</strong> que contém a função de venda do ingresso. Não é classe porque contém todas as classes necessárias para o seu funcionamento — o todo não pode ser uma das partes.'},
+    {n:'Banco', keep:false, w:'Entidade <strong style="color:var(--ink)">fora do sistema</strong>. O SVIE é um aplicativo dentro do sistema do banco, mas o banco em si não é um conceito que o SVIE precise representar.'},
+    {n:'Cliente', keep:true, w:'A armadilha mais interessante da lista. Na primeira análise é um <strong style="color:var(--ink)">ator</strong> e, como tal, externo ao sistema. Mas deve existir a classe Cliente para armazenar os dados do cliente necessários ao sistema. <strong style="color:var(--ink)">Cliente ator e Cliente classe são coisas diferentes.</strong>'},
+    {n:'SOAD', keep:true, w:'Também é ator na primeira análise — analisa o saldo do cliente — e não seria classe. Mas deve existir uma classe de <strong style="color:var(--ink)">interface</strong> (InterfaceSOAD) para enviar e receber os dados do SOAD.'},
+    {n:'Data', keep:false, w:'Representa as datas em que os espetáculos são programados. Optou-se por representar como <strong style="color:var(--ink)">atributo</strong> da sessão. Decisão de modelagem, não verdade absoluta.'},
+    {n:'Sessão', keep:true, w:'Representa as sessões de um determinado dia; cada sessão tem a configuração de ocupação do teatro. É o que amarra espetáculo, horário e lugares.'},
+    {n:'Lugar', keep:true, w:'Vira <strong style="color:var(--ink)">LugarSessao</strong>: representa um lugar no teatro em uma determinada sessão de um espetáculo. O nome ganha precisão porque o mesmo lugar físico tem estados diferentes em sessões diferentes.'},
+    {n:'Mapa', keep:true, w:'Mapa dos lugares do teatro, para representar os lugares reservados, livres e vendidos de uma determinada sessão. Vira <strong style="color:var(--ink)">MapaTeatro</strong> na solução final.'},
+    {n:'Teatro', keep:true, w:'Representa os locais onde vão ocorrer os espetáculos. Conceito claro do domínio, com identidade e dados próprios.'},
+    {n:'Senha', keep:false, w:'Atributo do cliente na conta bancária. Não é classe — e além disso pertence ao domínio do banco, não ao do SVIE.'},
+    {n:'Débito, valor', keep:false, w:'Relacionados com a operação no banco. Não são classes — são dados que trafegam, não conceitos que o SVIE representa. A apostila os analisa em um item só.'},
+    {n:'Conta corrente', keep:false, w:'Será atualizada no SOAD. <strong style="color:var(--ink)">Não é classe do SVIE</strong> — é conceito do sistema vizinho.'},
+    {n:'Mensagem', keep:false, w:'Informação fornecida pelo sistema ao cliente. Pode não ser necessário nesse estágio. Note a formulação da apostila: não é um "não" definitivo, é um "ainda não".'},
+    {n:'Solicitação', keep:false, w:'É um <strong style="color:var(--ink)">tipo de mensagem</strong>. Não é classe.'},
+    {n:'Transação', keep:false, w:'Corresponde à execução da venda do ingresso. Não é necessário nesse estágio.'},
+    {n:'Autorização', keep:false, w:'Resposta do SOAD; é um <strong style="color:var(--ink)">tipo de mensagem</strong>. Não é classe.'},
+    {n:'Reserva', keep:false, w:'Informação a ser armazenada no <strong style="color:var(--ink)">estado</strong> de um lugar do mapa do teatro. Vira valor de atributo em LugarSessao, não classe própria.'},
+    {n:'Confirmação', keep:false, w:'Tipo de mensagem. Não é classe. Repare no padrão: solicitação, autorização e confirmação caem todas pelo mesmo motivo.'},
+    {n:'Temporização', keep:false, w:'Atividade de contagem de tempo. Não é classe — é comportamento, e comportamento de infraestrutura.'},
+    {n:'Comunicação', keep:false, w:'Troca de mensagem do aplicativo com o SOAD. Não é classe — quem materializa isso é InterfaceSOAD.'}
+  ];
+  var cncNouns = document.getElementById('cncNouns');
+  if(cncNouns){
+    var cncNdVerdict = document.getElementById('cncNdVerdict');
+    var cncNdName = document.getElementById('cncNdName');
+    var cncNdWhy = document.getElementById('cncNdWhy');
+    var cncTriCount = document.getElementById('cncTriCount');
+    var cncSeen = {};
+
+    CNC_NOUNS.forEach(function(c, i){
+      var b = document.createElement('button');
+      b.className = 'noun';
+      b.dataset.i = String(i);
+      b.textContent = c.n;
+      cncNouns.appendChild(b);
+    });
+
+    function cncNounShow(i){
+      var c = CNC_NOUNS[i];
+      if(!c) return;
+      cncSeen[i] = true;
+      cncTriCount.textContent = Object.keys(cncSeen).length;
+      cncNdVerdict.className = 'nd-verdict ' + (c.keep ? 'keep' : 'drop');
+      cncNdVerdict.textContent = c.keep ? '✓ vira classe' : '✗ descartada';
+      cncNdName.textContent = c.n;
+      cncNdWhy.innerHTML = c.w;
+      cncNouns.querySelectorAll('.noun').forEach(function(b){
+        var bi = Number(b.dataset.i);
+        b.classList.toggle('sel', bi === i);
+        if(cncSeen[bi]){ b.classList.add(CNC_NOUNS[bi].keep ? 'keep' : 'drop'); }
+      });
+    }
+    cncNouns.querySelectorAll('.noun').forEach(function(b){
+      b.addEventListener('click', function(){ cncNounShow(Number(b.dataset.i)); });
+    });
+  }
+
+  /* ============================================================
+     MÓDULO 08 — RASTREAMENTO PASSO → OPERAÇÃO ("Vender ingresso")
+     ============================================================ */
+  var CNC_TRACE = [
+    {n:1, actor:true, t:'Cliente aciona venda de ingresso.', ops:[]},
+    {n:2, t:'Sistema apresenta a lista de espetáculos em cartaz.', ops:[
+      {c:'Espetaculo', o:'Listar espetáculos com sessões com lugares disponíveis'}]},
+    {n:3, actor:true, t:'Cliente seleciona o espetáculo desejado.', ops:[]},
+    {n:4, t:'Sistema exibe as sessões (data e horário) dos espetáculos em cartaz, com lugares disponíveis.', ops:[
+      {c:'Sessao', o:'Listar sessões com lugares disponíveis'}]},
+    {n:5, actor:true, t:'Cliente seleciona uma sessão com lugares disponíveis.', ops:[]},
+    {n:6, t:'Sistema apresenta um mapa do teatro, com os lugares disponíveis em destaque.', ops:[
+      {c:'MapaTeatro', o:'Apresentar representação esquemática do teatro'},
+      {c:'Sessao', o:'Buscar lugares disponíveis da sessão'},
+      {c:'MapaTeatro', o:'Apresentar lugares disponíveis da sessão'}]},
+    {n:7, actor:true, t:'Cliente informa os lugares desejados e finaliza.', ops:[]},
+    {n:8, t:'Sistema exibe estes lugares como reservados (temporariamente indisponíveis) e solicita confirmação ao cliente.', ops:[
+      {c:'LugarSessao', o:'Marcar lugar como reservado'},
+      {c:'MapaTeatro', o:'Apresentar lugares reservados da sessão'}]},
+    {n:9, actor:true, t:'Cliente confirma a reserva.', ops:[]},
+    {n:10, t:'Sistema envia mensagem de solicitação de venda de ingressos ao SOAD do banco BXX (caso de uso enviar dados de transação).', ops:[
+      {c:'InterfaceSOAD', o:'Enviar mensagem para SOAD'}]},
+    {n:11, t:'Sistema recebe mensagem do SOAD com a autorização (caso de uso receber dados de transação).', ops:[
+      {c:'InterfaceSOAD', o:'Receber mensagem do SOAD'}]},
+    {n:12, t:'Sistema efetiva a reserva, marcando os lugares como vendidos (indisponíveis).', ops:[
+      {c:'LugarSessao', o:'Marcar lugar como vendido'},
+      {c:'MapaTeatro', o:'Apresentar os lugares vendidos da sessão'}]},
+    {n:13, t:'Sistema envia os ingressos e a mensagem de confirmação da venda ao Cliente e encerra o caso de uso.', ops:[
+      {c:'Ingresso', o:'Emitir ingresso'}]},
+    {n:'E1', ext:true, t:'Extensão · Cliente cancela a reserva (passo 9): sistema cancela a reserva dos lugares selecionados e encerra o caso de uso.', ops:[
+      {c:'LugarSessao', o:'Marcar lugar como disponível'}]},
+    {n:'E2', ext:true, actor:true, t:'Extensão · Cliente solicita alteração dos lugares (passo 9): sistema permite alteração dos lugares selecionados e vai para o passo 7.', ops:[]},
+    {n:'E3', ext:true, t:'Extensão · SOAD não autoriza o débito (passo 11): sistema cancela a reserva, apresenta a mensagem de erro e encerra o caso de uso.', ops:[
+      {c:'LugarSessao', o:'Marcar lugar como disponível'}]},
+    {n:'E4', ext:true, t:'Extensão · Erro de temporização na comunicação com o SOAD (passo 11): sistema cancela a reserva, apresenta a mensagem de erro e encerra o caso de uso.', ops:[
+      {c:'LugarSessao', o:'Marcar lugar como disponível'}]}
+  ];
+  var cncTrace = document.getElementById('cncTrace');
+  if(cncTrace){
+    var cncTraceHtml = '<div class="trace-steps">';
+    CNC_TRACE.forEach(function(s, i){
+      cncTraceHtml +=
+        '<button class="trace-step' + (s.actor ? ' actor' : '') + '" data-i="' + i + '">' +
+          '<span class="tsn">' + s.n + '</span><span>' + s.t + '</span>' +
+        '</button>' +
+        '<div class="trace-ops">' +
+          (s.ops.length
+            ? s.ops.map(function(o){
+                return '<div class="trace-op">' + o.o + ' <span class="tocls">· classe ' + o.c + '</span></div>';
+              }).join('')
+            : '<div class="trace-none">passo do ator — nenhuma operação de classe do sistema é acionada aqui</div>') +
+        '</div>';
+    });
+    cncTraceHtml += '</div>';
+    cncTrace.innerHTML = cncTraceHtml;
+    cncTrace.querySelectorAll('.trace-step').forEach(function(b){
+      b.addEventListener('click', function(){ b.classList.toggle('on'); });
+    });
+    var cncFirstSys = cncTrace.querySelector('.trace-step:not(.actor)');
+    if(cncFirstSys) cncFirstSys.classList.add('on');
+  }
+
+  /* ============================================================
+     MÓDULO 08 — TREINO: VIRA CLASSE OU NÃO?
+     ============================================================ */
+  var CNCTR_ITEMS = [
+    {t:'<strong>Empréstimo</strong> — em um sistema de biblioteca, guarda quem levou qual exemplar, quando e até quando.', a:'DOM', w:'Conceito do domínio do negócio, com dados próprios e persistentes. O bibliotecário fala de "empréstimo" com ou sem sistema.'},
+    {t:'<strong>Sistema</strong> — aparece dezenas de vezes na descrição detalhada: "sistema apresenta", "sistema verifica", "sistema envia".', a:'NAO', w:'É o exemplo que a própria apostila dá de substantivo que aparece no texto mas não representa o negócio. É o sujeito das frases, não um conceito a modelar.'},
+    {t:'<strong>InterfaceBalanca</strong> — envia e recebe dados da balança eletrônica do caixa do supermercado.', a:'AUX', w:'Classe de interface: representa a comunicação do sistema com outros sistemas, dispositivos e equipamentos. Não sai de substantivo do texto — é acrescentada deliberadamente.'},
+    {t:'<strong>Confirmação</strong> — o sistema envia uma confirmação ao usuário ao final da operação.', a:'NAO', w:'É um tipo de mensagem. Assim como solicitação e autorização, cai pelo mesmo motivo: não é conceito, é forma de comunicação.'},
+    {t:'<strong>Impressora</strong> — o comprovante é impresso na impressora do guichê.', a:'NAO', w:'A apostila é explícita: não é necessário representar terminais de operação e impressoras, pois eles servem de meio para a operação dos atores.'},
+    {t:'<strong>GeradorRelatorioMensal</strong> — coleta dados de várias classes e monta o relatório do gerente.', a:'AUX', w:'Classe de controle. A apostila diz que a classe que gera relatórios <em>pode</em> ser representada no Modelo de Classes, justamente porque coleta dados de várias classes.'},
+    {t:'<strong>Aluno</strong> — em um sistema acadêmico, tem número USP, nome, curso e histórico.', a:'DOM', w:'Conceito relevante do domínio do negócio, com informação persistente e participação em vários casos de uso.'},
+    {t:'<strong>Cadastro</strong> — o administrador realiza o cadastro do novo fornecedor.', a:'NAO', w:'É a operação descrita pelo caso de uso, como "venda" no SVIE. O que vira classe é o <em>fornecedor</em>, não o ato de cadastrá-lo.'},
+    {t:'<strong>ListaEncadeada</strong> — estrutura usada para manter os produtos em memória durante o processamento.', a:'NAO', w:'Candidata relacionada com a <strong>implementação</strong>. A apostila manda incluir esse tipo de classe na fase de projeto, não na identificação de classes.'},
+    {t:'<strong>Apolice</strong> — em um sistema de seguros, guarda cobertura, vigência, prêmio e segurado.', a:'DOM', w:'Conceito da linguagem dos especialistas do domínio — exatamente o que o filtro manda manter.'},
+    {t:'<strong>CtrlEfetivarMatricula</strong> — recebe o pedido, verifica pré-requisitos com Disciplina, checa vaga com Turma e manda Matricula ser criada.', a:'AUX', w:'Classe de controle: não armazena dados, coordena as ações das demais classes. Em geral não é representada no diagrama para não poluir o visual — mas existe.'},
+    {t:'<strong>Prazo</strong> — o prazo de devolução é de 14 dias a partir do empréstimo.', a:'NAO', w:'Vira atributo (ou cálculo sobre atributos) de Empréstimo — como "data" virou atributo de Sessao no SVIE. Nem todo substantivo com peso conceitual precisa de identidade própria.'}
+  ];
+  var CNCTR_NAMES = {DOM:'Classe do domínio', AUX:'Interface ou controle', NAO:'Não é classe'};
+  var cncTrStmt = document.getElementById('cncTrStmt');
+  var cncTrOpts = document.getElementById('cncTrOpts');
+  if(cncTrStmt && cncTrOpts){
+    var cncTrFeedback = document.getElementById('cncTrFeedback');
+    var cncTrCounter = document.getElementById('cncTrCounter');
+    var cncTrScore = document.getElementById('cncTrScore');
+    var cncTrResetBtn = document.getElementById('cncTrReset');
+    var cncTrState = { i:0, hits:0, answered:0, locked:false };
+
+    function cncTrRender(){
+      cncTrStmt.innerHTML = CNCTR_ITEMS[cncTrState.i].t;
+      cncTrCounter.textContent = 'Candidata ' + (cncTrState.i + 1) + ' de ' + CNCTR_ITEMS.length;
+      cncTrOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      cncTrFeedback.textContent = 'Escolha uma opção para ver a justificativa.';
+      cncTrScore.innerHTML = 'Acertos: <strong>' + cncTrState.hits + '</strong> / ' + cncTrState.answered;
+      cncTrState.locked = false;
+    }
+    function cncTrAnswer(choice, btn){
+      if(cncTrState.locked) return;
+      cncTrState.locked = true;
+      cncTrState.answered++;
+      var item = CNCTR_ITEMS[cncTrState.i];
+      var correct = choice === item.a;
+      if(correct) cncTrState.hits++;
+      cncTrOpts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.cnctr === item.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      cncTrFeedback.innerHTML =
+        (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + CNCTR_NAMES[item.a] + '</span>') +
+        '<br>' + item.w;
+      cncTrScore.innerHTML = 'Acertos: <strong>' + cncTrState.hits + '</strong> / ' + cncTrState.answered;
+      setTimeout(function(){
+        if(cncTrState.i < CNCTR_ITEMS.length - 1){
+          cncTrState.i++;
+          cncTrRender();
+        } else {
+          cncTrCounter.textContent = 'Fim · ' + CNCTR_ITEMS.length + ' candidatas';
+          cncTrStmt.innerHTML = 'Você acertou ' + cncTrState.hits + ' de ' + CNCTR_ITEMS.length + '.';
+          cncTrFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 2800);
+    }
+    cncTrOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ cncTrAnswer(btn.dataset.cnctr, btn); });
+    });
+    if(cncTrResetBtn){
+      cncTrResetBtn.addEventListener('click', function(){
+        cncTrState.i = 0; cncTrState.hits = 0; cncTrState.answered = 0;
+        cncTrRender();
+      });
+    }
+    cncTrRender();
   }
 
 

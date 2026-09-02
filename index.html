@@ -858,6 +858,91 @@
   .cdesc-card ul.attrs li{ color:var(--cyan); font-family:var(--mono); font-size:11.8px; }
   .cdesc-card ul:last-child{ margin-bottom:0; }
 
+  /* ============================================================
+     MODULE 09 — MODELO DE INTERAÇÃO (DIAGRAMA DE SEQUÊNCIA)
+     ============================================================ */
+
+  /* extensões do diagrama de sequência (base vem do módulo 07) */
+  .seq-box.obj rect{ stroke:var(--indigo); }
+  .seq-box.cls rect{ stroke:var(--amber); }
+  .seq-box.obj text, .seq-box.cls text{ fill:var(--ink); }
+  .seq-exec rect{ fill:var(--surface-2); stroke:var(--indigo); stroke-width:1.3; }
+  .seq-exec.nested rect{ fill:var(--surface); stroke:var(--cyan); }
+  .seq-life.gone{ stroke:transparent; }
+  .seq-x line{ stroke:var(--rose); stroke-width:2; }
+  .seq-arrow.async{ stroke:var(--indigo); }
+  .seq-arrow.mk{ stroke:var(--amber); }
+  .seq-msg.mk{ fill:var(--amber); }
+  .seq-stereo{ font-family:var(--mono); font-size:9px; fill:var(--ink-faint); }
+
+  /* quadro de interação dentro do diagrama */
+  .seq-frame rect{ fill:none; stroke:var(--ink-faint); stroke-width:1.25; }
+  .seq-frame .fr-tab{ fill:var(--surface-2); stroke:var(--ink-faint); stroke-width:1.25; }
+  .seq-frame .fr-op{ font-family:var(--mono); font-size:9.5px; font-weight:600; fill:var(--indigo); }
+  .seq-frame .fr-cond{ font-family:var(--mono); font-size:9.5px; fill:var(--ink-faint); }
+  .seq-frame .fr-sep{ stroke:var(--ink-faint); stroke-width:1.1; stroke-dasharray:7 5; }
+  .seq-frame.hi rect{ stroke:var(--cyan); }
+  .seq-frame.hi .fr-tab{ stroke:var(--cyan); }
+  .seq-frame.hi .fr-op{ fill:var(--cyan); }
+
+  /* anatomia: rótulos apontando para o desenho */
+  .anat-lab{ font-family:var(--mono); font-size:9.5px; fill:var(--cyan); }
+  .anat-lead{ stroke:var(--cyan); stroke-width:1; stroke-dasharray:3 3; fill:none; }
+
+  /* galeria de tipos de mensagem */
+  .mtype-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:900px){ .mtype-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .mtype-grid{ grid-template-columns:1fr; } }
+  .mtype{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px 16px; display:flex; flex-direction:column; }
+  .mtype .mt-glyph{ height:46px; margin-bottom:10px; }
+  .mtype .mt-glyph svg{ height:46px; width:100%; }
+  .mtype .mt-glyph line, .mtype .mt-glyph path{ fill:none; }
+  .mtype .mt-k{ font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); }
+  .mtype h4{ font-family:var(--display); font-size:15.5px; margin:5px 0 8px; color:var(--ink); }
+  .mtype p{ margin:0; color:var(--ink-soft); font-size:14px; line-height:1.58; }
+  .mtype .mt-note{ margin-top:auto; padding-top:12px; font-family:var(--mono); font-size:11px; color:var(--cyan); line-height:1.55; }
+  .mtype.sync{ border-top:3px solid var(--cyan); }
+  .mtype.async{ border-top:3px solid var(--indigo); }
+  .mtype.ret{ border-top:3px solid var(--ink-faint); }
+  .mtype.crt{ border-top:3px solid var(--amber); }
+  .mtype.dst{ border-top:3px solid var(--rose); }
+  .mtype.refl{ border-top:3px solid var(--indigo-deep); }
+
+  /* notação de objetos e classes */
+  .objnot{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  @media (max-width:900px){ .objnot{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .objnot{ grid-template-columns:1fr; } }
+  .objnot-item{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 18px 16px; text-align:center; }
+  .objnot-item .on-box{ font-family:var(--mono); font-size:12px; color:var(--ink); background:var(--surface-2); border:1.5px solid var(--indigo);
+    border-radius:4px; padding:9px 10px; display:inline-block; min-width:78%; }
+  .objnot-item.cls .on-box{ border-color:var(--amber); }
+  .objnot-item .on-box u{ text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+  .objnot-item .on-k{ font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--cyan); margin-top:12px; }
+  .objnot-item.cls .on-k{ color:var(--amber); }
+  .objnot-item p{ margin:6px 0 0; color:var(--ink-soft); font-size:13.5px; line-height:1.55; }
+
+  /* exemplo do pedido (classes + mensagens para classe) */
+  .ped-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:24px; align-items:start; }
+  @media (max-width:860px){ .ped-grid{ grid-template-columns:1fr; } }
+  .clsbox{ background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; font-family:var(--mono); font-size:12px; }
+  .clsbox .cb-name{ background:var(--surface-2); color:var(--ink); font-family:var(--display); font-weight:600; font-size:14px; padding:9px 13px; border-bottom:1px solid var(--line); }
+  .clsbox .cb-attrs{ padding:9px 13px; color:var(--cyan); line-height:1.75; }
+  .clsbox .cb-ops{ padding:9px 13px; color:var(--ink-soft); line-height:1.75; border-top:1px solid var(--line); }
+  .ped-stack{ display:flex; flex-direction:column; gap:0; align-items:stretch; }
+  .ped-rel{ font-family:var(--mono); font-size:11px; color:var(--ink-faint); text-align:center; padding:7px 0; }
+
+  /* explorador de fluxos de controle */
+  .flowctl{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:26px; align-items:start; }
+  @media (max-width:900px){ .flowctl{ grid-template-columns:1fr; } }
+  .flowctl-stage{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
+  .flowctl-stage svg{ display:block; width:100%; height:auto; }
+  .flowctl-stage svg[hidden]{ display:none; }
+  .flowctl-info h3{ font-size:19px; margin:8px 0 12px; }
+  .flowctl-info p{ color:var(--ink-soft); margin:0 0 14px; font-size:15.5px; }
+  .flowctl-info .fc-op{ font-family:var(--mono); font-size:12px; color:var(--cyan); background:var(--bg-1); border:1px solid var(--line);
+    border-radius:9px; padding:12px 14px; line-height:1.7; }
+  .flowctl-info .fc-op strong{ color:var(--ink); }
+
   /* ---------- PLACEHOLDER (future modules) ---------- */
   .placeholder-wrap{ padding:110px 0 80px; }
   .placeholder-dots{ margin-top:40px; display:grid; grid-template-columns:repeat(16,1fr); gap:8px; max-width:520px; }
@@ -5422,6 +5507,1031 @@
       </div>
       <!-- ================= END MODULE: CONSTRUÇÃO DO MODELO DE CLASSES ================= -->
 
+      <!-- ================= MODULE 09: MODELO DE INTERAÇÃO ================= -->
+      <div class="module-page" data-module="modelo-interacao" id="page-modelo-interacao">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Modelo de Interação</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="mi-visao">Visão geral</button>
+              <button class="navlink" data-target="mi-realizacao">Realização</button>
+              <button class="navlink" data-target="mi-tipos">Sequência × Comunicação</button>
+              <button class="navlink" data-target="mi-elementos">Elementos</button>
+              <button class="navlink" data-target="mi-classe">Mensagem para classe</button>
+              <button class="navlink" data-target="mi-anatomia">Anatomia do DS</button>
+              <button class="navlink" data-target="mi-mensagens">Tipos de mensagem</button>
+              <button class="navlink" data-target="mi-svie">Exemplo SVIE</button>
+              <button class="navlink" data-target="mi-modular">Modularização</button>
+              <button class="navlink" data-target="mi-iterativo">Uso iterativo</button>
+              <button class="navlink" data-target="mi-treino">Treino</button>
+              <button class="navlink" data-target="mi-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="mi-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 09 · 9ª aula</div>
+              <h1>Modelo de Interação · <em>Diagrama de Sequência</em></h1>
+              <p class="lede">Os casos de uso disseram <strong style="color:var(--ink)">o que</strong> o sistema faz. O modelo de classes disse <strong style="color:var(--ink)">com quais peças</strong>. Falta a parte dinâmica: um caso de uso é executado através da <strong style="color:var(--ink)">troca de mensagens entre os objetos participantes</strong> — e é isso que o Diagrama de Sequência desenha, no tempo, mensagem por mensagem.</p>
+              <div class="hero-meta">
+                <span><strong>Profs.</strong> Selma S. S. Melnikoff · Jorge Luiz Risco Becerra</span>
+                <span><strong>Material</strong> 9ª aula · 02/09/2026</span>
+                <span><strong>Foco</strong> Modelagem Dinâmica</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">casoDeUso.realizar()</span>
+                </div>
+                <div class="src-list" id="miHeroList">
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">Cliente → :IUVenda</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">:IUVenda → :CtrlVenda</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">:CtrlVenda → Sessao</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">:CtrlVenda → :Lugar</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">:CtrlVenda → :Ingresso</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">:IUVenda → Cliente</span></div>
+                </div>
+                <div class="src-out" id="miHeroOut">o caso de uso não é executado por um objeto — é <strong>realizado</strong> por vários</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ VISÃO GERAL ============ -->
+        <section class="section" id="mi-visao">
+          <div class="wrap">
+            <div class="eyebrow">Visão geral</div>
+            <h2 class="reveal">O terceiro modelo: comportamento</h2>
+            <p class="intro reveal">Três modelos principais, três perguntas diferentes. Os dois primeiros você já construiu; este módulo abre o terceiro — e é o primeiro em que <strong style="color:var(--ink)">o tempo aparece no desenho</strong>.</p>
+
+            <div class="flow reveal">
+              <div class="flow-box">
+                <div class="fb-label">funções</div>
+                <div class="fb-title">Modelo de Casos de Uso</div>
+                <div class="fb-cluster">Diagrama de Casos de Uso</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">estrutura</div>
+                <div class="fb-title">Modelo Estrutural</div>
+                <div class="fb-cluster">Diagrama de Classes</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box" style="border-color:var(--cyan)">
+                <div class="fb-label">comportamento</div>
+                <div class="fb-title">Modelo Dinâmico</div>
+                <div class="fb-cluster">Diagrama de Interação · Diagrama de Estados</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">O Modelo Dinâmico descreve o comportamento do sistema <strong style="color:var(--ink)">através da interação dos objetos</strong>. Ele se divide em Diagrama de Interação — o assunto desta aula — e Diagrama de Estados. Esta aula cobre o primeiro, e dentro dele o <strong style="color:var(--ink)">Diagrama de Sequência</strong>.</div>
+
+            <h3 class="reveal" style="margin-top:52px;">As duas entradas do Modelo de Interação</h3>
+            <p class="intro reveal">O diagrama de sequência não nasce do nada: ele é a costura de dois artefatos que já existem. Da descrição dos casos de uso vem a <strong style="color:var(--ink)">lógica</strong>; do modelo de classes vêm os <strong style="color:var(--ink)">objetos que podem receber mensagens</strong>.</p>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Descrição de casos de uso</h4>
+                <p>Fornece a sequência de passos — quem faz o quê, em que ordem, com quais alternativas. É a lógica que o diagrama vai detalhar.</p>
+                <div class="uml-ex">módulo 04 · descrição detalhada</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Classes e relacionamentos</h4>
+                <p>Fornece os objetos participantes e o que cada um sabe fazer. Sem classe, não há receptor legítimo para a mensagem.</p>
+                <div class="uml-ex">módulos 06 · 07 · 08</div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">A dupla mão que dá o valor ao modelo</div>
+              <p>Os dois artefatos alimentam o diagrama de sequência — e o diagrama de sequência <strong>devolve correções para os dois</strong>. É desenhando a interação que se descobre que uma classe não tem a operação necessária, que um atributo está faltando ou que um passo do caso de uso estava vago. O modelo de interação é, na prática, o teste de integração do papel.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ REALIZAÇÃO ============ -->
+        <section class="section alt" id="mi-realizacao">
+          <div class="wrap">
+            <div class="eyebrow">Conceito central</div>
+            <h2 class="reveal">Realização de caso de uso</h2>
+            <p class="intro reveal">A frase da aula, quase literal: <strong style="color:var(--ink)">um caso de uso é executado através da troca de mensagens entre os objetos participantes</strong>. É equivalente dizer que ele é <strong style="color:var(--ink)">realizado</strong> por essa troca. O Modelo de Interação descreve essa lógica de forma mais detalhada do que o texto do caso de uso conseguia.</p>
+
+            <div class="concept-chain reveal">
+              <span class="cc-node">caso de uso</span>
+              <span class="cc-arrow">→</span>
+              <span class="cc-node hi">objetos participantes</span>
+              <span class="cc-arrow">→</span>
+              <span class="cc-node hi">troca de mensagens</span>
+              <span class="cc-arrow">→</span>
+              <span class="cc-node">caso de uso realizado</span>
+            </div>
+
+            <h3 class="reveal">As duas finalidades</h3>
+            <p class="intro reveal">A aula lista duas — e a segunda é a que costuma ser subestimada, porque é ela que muda o modelo de classes.</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <div class="dc-k">finalidade 1</div>
+                <h3>Visão detalhada da execução</h3>
+                <p>Fornece uma visão detalhada dos <strong style="color:var(--ink)">objetos</strong> e das <strong style="color:var(--ink)">mensagens</strong> necessárias para a execução de um caso de uso <em>ou de parte dele</em>. Não é obrigatório desenhar o caso de uso inteiro em um diagrama só.</p>
+                <div class="dc-ex">saída: a lógica do caso de uso, no tempo</div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">finalidade 2</div>
+                <h3>Revisão das classes participantes</h3>
+                <p>Permite <strong style="color:var(--ink)">rever as classes</strong> que participam de um caso de uso: definir ou completar os <strong style="color:var(--ink)">atributos e as operações</strong>, e definir ou completar a <strong style="color:var(--ink)">assinatura das operações</strong>.</p>
+                <div class="dc-ex">saída: modelo de classes mais completo</div>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Por que a assinatura só fecha aqui</div>
+              <p>No módulo 08 você definiu operações a partir dos passos do caso de uso — mas com pouca informação sobre <em>parâmetros</em>. É no diagrama de sequência que a mensagem precisa carregar <strong style="color:var(--ink)">informação suficiente para que a operação possa ser executada pelo objeto receptor</strong>. Ao escrever <code>buscarDisponivel(tipo, periodo)</code> em vez de <code>buscar()</code>, você acabou de decidir a assinatura. É por isso que a apostila diz que os modelos anteriores podem ser alterados: aqui eles são.</p>
+              <blockquote>Uma mensagem deve conter informação suficiente para que a operação possa ser executada pelo objeto receptor.</blockquote>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TIPOS DE DIAGRAMA ============ -->
+        <section class="section" id="mi-tipos">
+          <div class="wrap">
+            <div class="eyebrow">Dois formatos, um conteúdo</div>
+            <h2 class="reveal">Sequência × Comunicação</h2>
+            <p class="intro reveal">Os Diagramas de Interação podem ser de dois tipos. O ponto que a aula faz questão de deixar claro: <strong style="color:var(--ink)">os dois mostram o mesmo conteúdo em formatos diferentes</strong>. Um diagrama de comunicação pode ser convertido no diagrama de sequência correspondente e vice-versa — mesma lógica, ênfase diferente.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Diagrama de Sequência</h3>
+                <p style="color:var(--ink-soft); margin:0">Mostra as mensagens que são enviadas <strong style="color:var(--ink)">ao longo do tempo</strong>. O eixo vertical é o tempo; cada objeto tem uma linha de vida.</p>
+                <ul>
+                  <li>Ênfase: <strong style="color:var(--ink)">ordem</strong> das mensagens</li>
+                  <li>Fácil ver quem começa e quem termina</li>
+                  <li>Fácil ver aninhamento e bloqueio</li>
+                  <li>Fica largo quando há muitos objetos</li>
+                </ul>
+                <div class="verdict">é o mais utilizado na prática — e é o que será estudado</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Diagrama de Comunicação</h3>
+                <p style="color:var(--ink-soft); margin:0">Mostra as mensagens que são enviadas <strong style="color:var(--ink)">através dos relacionamentos entre objetos</strong>. Sem eixo de tempo: a ordem vem da numeração das mensagens.</p>
+                <ul>
+                  <li>Ênfase: <strong style="color:var(--ink)">quem se liga a quem</strong></li>
+                  <li>Deixa visível a topologia das ligações</li>
+                  <li>Compacto com muitos objetos</li>
+                  <li>Ordem só se lê pelos números</li>
+                </ul>
+                <div class="verdict">mesmo conteúdo, formato de grafo em vez de linha do tempo</div>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">Consequência prática</div>
+              <p>Se os dois carregam a mesma informação, escolher entre eles é escolher <strong>o que você quer que o leitor perceba primeiro</strong>. Quando a dúvida do projeto é "em que ordem isso acontece?", sequência. Quando é "esse objeto precisa mesmo conhecer aquele?", comunicação. A prova e a prática desta disciplina usam o Diagrama de Sequência.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ELEMENTOS ============ -->
+        <section class="section alt" id="mi-elementos">
+          <div class="wrap">
+            <div class="eyebrow">Elementos principais</div>
+            <h2 class="reveal">Mensagens, atores, objetos e classes</h2>
+            <p class="intro reveal">Três elementos principais no Diagrama de Interação. Dois deles você já conhece de outros modelos; o terceiro é onde a notação exige atenção, porque um diagrama de interação mostra <strong style="color:var(--ink)">objetos</strong> — e, em alguns casos, classes.</p>
+
+            <div class="uc-elems reveal">
+              <div class="uc-elem">
+                <div class="ue-glyph">
+                  <svg viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line class="seq-arrow" x1="14" y1="30" x2="130" y2="30"/>
+                    <path class="seq-arrow" d="M120 24 L132 30 L120 36 Z" fill="currentColor" style="fill:var(--ink-soft)"/>
+                    <text class="seq-msg" x="24" y="22">operacao(dados)</text>
+                  </svg>
+                </div>
+                <h4>1 · Mensagens</h4>
+                <p>Representa a requisição feita por um objeto <strong style="color:var(--ink)">remetente</strong> a um objeto <strong style="color:var(--ink)">receptor</strong>; o receptor executa a operação solicitada. Pode ser vista como a chamada de uma rotina em linguagem de programação.</p>
+              </div>
+              <div class="uc-elem">
+                <div class="ue-glyph">
+                  <svg viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="ucd-svg">
+                    <g class="ucd-actor">
+                      <circle cx="75" cy="14" r="7"/>
+                      <line x1="75" y1="21" x2="75" y2="38"/>
+                      <line x1="62" y1="28" x2="88" y2="28"/>
+                      <line x1="75" y1="38" x2="65" y2="52"/>
+                      <line x1="75" y1="38" x2="85" y2="52"/>
+                    </g>
+                  </svg>
+                </div>
+                <h4>2 · Ator</h4>
+                <p>Elemento externo ao sistema, com o <strong style="color:var(--ink)">mesmo significado</strong> do ator do modelo de casos de uso e a mesma notação. Sua representação <strong style="color:var(--ink)">não é obrigatória</strong> nos diagramas de interação.</p>
+              </div>
+              <div class="uc-elem">
+                <div class="ue-glyph">
+                  <svg viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g class="seq-box obj">
+                      <rect x="20" y="8" width="110" height="30" rx="3"/>
+                      <text x="75" y="27" text-anchor="middle">umPedido: Pedido</text>
+                    </g>
+                    <line class="seq-life" x1="75" y1="38" x2="75" y2="55"/>
+                  </svg>
+                </div>
+                <h4>3 · Objetos e Classes</h4>
+                <p>O diagrama mostra objetos — nomeados, anônimos ou dentro de uma coleção. E, quando a mensagem não tem objeto a quem ser enviada, mostra a <strong style="color:var(--ink)">classe</strong>.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">A notação, caso por caso</h3>
+            <p class="intro reveal">Quatro formas, e a diferença entre elas é só o que aparece antes dos dois pontos. O detalhe que decide questão de prova: <strong style="color:var(--ink)">objeto tem dois pontos, classe não tem</strong>.</p>
+
+            <div class="objnot reveal">
+              <div class="objnot-item">
+                <div class="on-box"><u>umaDisciplina: Disciplina</u></div>
+                <div class="on-k">objeto nomeado</div>
+                <p>O objeto tem um nome próprio no diagrama. Use quando é preciso distinguir dois objetos da mesma classe.</p>
+              </div>
+              <div class="objnot-item">
+                <div class="on-box"><u>: Disciplina</u></div>
+                <div class="on-k">objeto anônimo</div>
+                <p>Um objeto da classe <em>Disciplina</em>, sem importar qual. É a forma mais comum no dia a dia.</p>
+              </div>
+              <div class="objnot-item">
+                <div class="on-box"><u>preRequisitos [i]: Disciplina</u></div>
+                <div class="on-k">objeto em uma coleção</div>
+                <p>O objeto de índice <em>i</em> dentro de uma coleção. Aparece quando a interação percorre uma lista.</p>
+              </div>
+              <div class="objnot-item cls">
+                <div class="on-box">Disciplina</div>
+                <div class="on-k">classe</div>
+                <p>Sem dois pontos e sem sublinhado: não é um objeto, é a própria classe recebendo a mensagem.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ MENSAGEM PARA CLASSE ============ -->
+        <section class="section" id="mi-classe">
+          <div class="wrap">
+            <div class="eyebrow">O caso especial</div>
+            <h2 class="reveal">Quando a mensagem vai para a classe</h2>
+            <p class="intro reveal">Existem casos em que a mensagem <strong style="color:var(--ink)">não é enviada para um objeto</strong> — porque o objeto ainda não existe, ou porque ainda não se sabe qual é. Buscar um objeto específico, criar um objeto novo, excluir um objeto específico: em todos, a mensagem é enviada para a <strong style="color:var(--ink)">classe que contém os objetos</strong>.</p>
+
+            <div class="np-grid reveal">
+              <div class="np-card">
+                <div class="n">01 · ENCONTRAR</div>
+                <p>Encontrar um objeto com um <strong style="color:var(--ink)">identificador único</strong>. Não há como pedir isso ao objeto: se você já o tivesse, não precisaria procurá-lo.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">02 · ADICIONAR</div>
+                <p>Adicionar um objeto na <strong style="color:var(--ink)">coleção</strong>. Quem mantém a coleção é a classe, não o objeto que está entrando nela.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">03 · REMOVER</div>
+                <p>Remover um objeto da coleção. Mesma razão: a decisão de tirar da coleção não pertence ao objeto removido.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">04 · CONTAR</div>
+                <p>Obter a <strong style="color:var(--ink)">quantidade de objetos</strong> da coleção. É informação sobre o conjunto, e o conjunto é da classe.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">05 · VERIFICAR</div>
+                <p>Informar se a coleção está <strong style="color:var(--ink)">vazia</strong>. A pergunta clássica que antecede qualquer iteração.</p>
+              </div>
+              <div class="np-card">
+                <div class="n">06 · CRIAR / EXCLUIR</div>
+                <p>Criar um objeto novo ou excluir um objeto específico. No primeiro caso, o receptor não podia ser o objeto — ele ainda não existia.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">O exemplo do pedido</h3>
+            <p class="intro reveal">O exemplo da aula, montado por partes. Um objeto de <em>Pedido</em> é composto por objetos de <em>ItemPedido</em>; a descrição de um item é fornecida por <em>Produto</em>. E o objeto <em>Pedido</em> faz solicitações <strong style="color:var(--ink)">para a classe ItemPedido</strong> — não para um item específico.</p>
+
+            <div class="ped-grid reveal">
+              <div class="ped-stack">
+                <div class="clsbox">
+                  <div class="cb-name">Pedido</div>
+                  <div class="cb-attrs">data<br>hora</div>
+                  <div class="cb-ops">adicionarItem(item)<br>buscarItem(item)</div>
+                </div>
+                <div class="ped-rel">◆ composição · 1 → 1..*</div>
+                <div class="clsbox">
+                  <div class="cb-name">ItemPedido</div>
+                  <div class="cb-attrs">quantidade</div>
+                  <div class="cb-ops">adicionar(item)<br>buscar(item)</div>
+                </div>
+                <div class="ped-rel">— é um → associação com Produto</div>
+                <div class="clsbox">
+                  <div class="cb-name">Produto</div>
+                  <div class="cb-attrs">nome<br>descrição<br>preço unitário<br>quantidade</div>
+                </div>
+              </div>
+              <div>
+                <div class="seqsim">
+                  <svg class="seq-svg" viewBox="0 0 460 250" role="img" aria-label="Objeto Pedido enviando mensagens para a classe ItemPedido">
+                    <g class="seq-box obj">
+                      <rect x="10" y="16" width="130" height="42" rx="4"/>
+                      <text x="75" y="36" text-anchor="middle">p: Pedido</text>
+                      <text class="sb-st" x="75" y="50" text-anchor="middle">objeto</text>
+                    </g>
+                    <g class="seq-box cls">
+                      <rect x="290" y="16" width="130" height="42" rx="4"/>
+                      <text x="355" y="36" text-anchor="middle">ItemPedido</text>
+                      <text class="sb-st" x="355" y="50" text-anchor="middle">classe</text>
+                    </g>
+                    <line class="seq-life" x1="75" y1="58" x2="75" y2="235"/>
+                    <line class="seq-life" x1="355" y1="58" x2="355" y2="235"/>
+                    <line class="seq-arrow mk" x1="75" y1="100" x2="349" y2="100"/>
+                    <path class="seq-arrow mk" d="M340 94 L352 100 L340 106 Z" style="fill:var(--amber)"/>
+                    <text class="seq-msg mk" x="83" y="93">adicionar(item)</text>
+                    <line class="seq-arrow mk" x1="75" y1="150" x2="349" y2="150"/>
+                    <path class="seq-arrow mk" d="M340 144 L352 150 L340 156 Z" style="fill:var(--amber)"/>
+                    <text class="seq-msg mk" x="83" y="143">buscar(item)</text>
+                    <line class="seq-arrow ret" x1="355" y1="184" x2="81" y2="184"/>
+                    <path class="seq-arrow ret" d="M89 179 L80 184 L89 189"/>
+                    <text class="seq-msg ret" x="150" y="177">i: ItemPedido</text>
+                    <text class="seq-stereo" x="10" y="225">o retorno já é um objeto — daí em diante a mensagem vai para ele</text>
+                  </svg>
+                  <div class="seq-readout" style="min-height:auto">
+                    <div class="sr-n">leia na ordem</div>
+                    <p class="sr-t">Enquanto não se tem o item, fala-se com a <em>classe</em>. Depois que <code>buscar</code> devolve <code>i: ItemPedido</code>, existe objeto — e as mensagens seguintes vão para ele.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ANATOMIA ============ -->
+        <section class="section alt" id="mi-anatomia">
+          <div class="wrap">
+            <div class="eyebrow">Anatomia</div>
+            <h2 class="reveal">Os elementos do Diagrama de Sequência</h2>
+            <p class="intro reveal">Ator e mensagens já têm significado conhecido. Duas construções são novas — e a segunda é a que a aula marca com "atenção para essa construção".</p>
+
+            <div class="def-grid three reveal" style="margin-bottom:36px;">
+              <div class="def-card">
+                <div class="dc-k">novo · 1</div>
+                <h3>Linha de vida</h3>
+                <p>Representa um <strong style="color:var(--ink)">objeto instanciado</strong>. É composta por <strong style="color:var(--ink)">cabeça</strong> (a caixa com o nome do objeto) e <strong style="color:var(--ink)">cauda</strong> (a linha tracejada que desce).</p>
+                <div class="dc-ex">cabeça + cauda = linha de vida</div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">novo · 2</div>
+                <h3>Ocorrência de execução</h3>
+                <p>O <strong style="color:var(--ink)">tempo em que o objeto está ativo</strong>: o intervalo em que ele realiza alguma operação. Começa no recebimento da mensagem e termina no fim da execução.</p>
+                <div class="dc-ex">retângulo estreito sobre a cauda</div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">herdado</div>
+                <h3>Ator e mensagens</h3>
+                <p>Mesmos significados vistos até agora. O ator é opcional; a mensagem continua sendo requisição de remetente para receptor.</p>
+                <div class="dc-ex">o tempo cresce de cima para baixo</div>
+              </div>
+            </div>
+
+            <div class="seqsim reveal">
+              <svg class="seq-svg" viewBox="0 0 920 440" role="img" aria-label="Diagrama de sequência anotado com cabeça e cauda da linha de vida e ocorrências de execução">
+                <!-- eixo do tempo -->
+                <line class="anat-lead" x1="12" y1="100" x2="12" y2="400"/>
+                <path class="anat-lead" d="M7 392 L12 402 L17 392" style="stroke:var(--cyan)"/>
+                <text class="anat-lab" transform="rotate(-90 24 250)" x="24" y="250">tempo</text>
+
+                <!-- linhas de vida -->
+                <g class="seq-box obj">
+                  <rect x="30" y="20" width="120" height="44" rx="4"/>
+                  <text x="90" y="41" text-anchor="middle">C: Cliente</text>
+                  <text class="sb-st" x="90" y="55" text-anchor="middle">objeto nomeado</text>
+                </g>
+                <g class="seq-box obj">
+                  <rect x="375" y="96" width="130" height="44" rx="4"/>
+                  <text x="440" y="117" text-anchor="middle">: Transacao</text>
+                  <text class="sb-st" x="440" y="131" text-anchor="middle">criado na interação</text>
+                </g>
+                <g class="seq-box obj">
+                  <rect x="740" y="20" width="120" height="44" rx="4"/>
+                  <text x="800" y="41" text-anchor="middle">p: Pedido</text>
+                  <text class="sb-st" x="800" y="55" text-anchor="middle">objeto nomeado</text>
+                </g>
+
+                <line class="seq-life" x1="90"  y1="64"  x2="90"  y2="400"/>
+                <line class="seq-life" x1="440" y1="140" x2="440" y2="352"/>
+                <line class="seq-life" x1="800" y1="64"  x2="800" y2="400"/>
+
+                <!-- ocorrências de execução -->
+                <g class="seq-exec"><rect x="433" y="176" width="14" height="176" rx="1.5"/></g>
+                <g class="seq-exec"><rect x="793" y="216" width="14" height="32" rx="1.5"/></g>
+                <g class="seq-exec"><rect x="793" y="284" width="14" height="32" rx="1.5"/></g>
+
+                <!-- mensagens -->
+                <line class="seq-arrow mk" x1="90" y1="118" x2="365" y2="118" stroke-dasharray="7 5"/>
+                <path class="seq-arrow mk" d="M357 112 L369 118 L357 124"/>
+                <text class="seq-msg mk" x="98" y="111">«create» create()</text>
+
+                <line class="seq-arrow" x1="90" y1="182" x2="427" y2="182"/>
+                <path class="seq-arrow" d="M418 176 L430 182 L418 188 Z" style="fill:var(--ink-soft)"/>
+                <text class="seq-msg" x="98" y="175">setAcoes(a, d, o)</text>
+
+                <line class="seq-arrow" x1="447" y1="222" x2="788" y2="222"/>
+                <path class="seq-arrow" d="M779 216 L791 222 L779 228 Z" style="fill:var(--ink-soft)"/>
+                <text class="seq-msg" x="455" y="215">setValores(d, 3.4)</text>
+
+                <line class="seq-arrow" x1="447" y1="290" x2="788" y2="290"/>
+                <path class="seq-arrow" d="M779 284 L791 290 L779 296 Z" style="fill:var(--ink-soft)"/>
+                <text class="seq-msg" x="455" y="283">setValores(a, b)</text>
+
+                <line class="seq-arrow" x1="90" y1="352" x2="427" y2="352" stroke-dasharray="7 5"/>
+                <path class="seq-arrow" d="M418 346 L430 352 L418 358 Z" style="fill:var(--ink-soft)"/>
+                <text class="seq-msg" x="98" y="345">«destroy» destroy()</text>
+                <g class="seq-x">
+                  <line x1="430" y1="342" x2="450" y2="362"/>
+                  <line x1="450" y1="342" x2="430" y2="362"/>
+                </g>
+
+                <!-- anotações -->
+                <line class="anat-lead" x1="505" y1="118" x2="530" y2="118"/>
+                <text class="anat-lab" x="535" y="115">cabeça da linha de vida</text>
+                <text class="anat-lab" x="535" y="130">(nome do objeto)</text>
+
+                <line class="anat-lead" x1="300" y1="248" x2="430" y2="248"/>
+                <text class="anat-lab" x="160" y="245">ocorrência de execução</text>
+                <text class="anat-lab" x="160" y="260">objeto ativo</text>
+
+                <line class="anat-lead" x1="700" y1="384" x2="796" y2="384"/>
+                <text class="anat-lab" x="560" y="381">cauda da linha de vida</text>
+
+                <text class="anat-lab" x="110" y="374">objeto destruído: a linha de vida acaba no X</text>
+              </svg>
+              <div class="seq-readout">
+                <div class="sr-n">atenção para essa construção</div>
+                <p class="sr-t">A ocorrência de execução tem três marcos que a aula destaca: o <em>recebimento da mensagem</em> (topo do retângulo), a <em>execução da operação solicitada</em> (o retângulo em si) e o <em>término da execução</em> (a base). Nas mensagens <code>setValores</code>, <em>p: Pedido</em> fica ativo duas vezes — e entre elas ele não está fazendo nada, mesmo que a linha de vida continue.</p>
+              </div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:32px;">
+              <div class="eyebrow">Erro comum</div>
+              <p>Linha de vida contínua não significa objeto ativo. O objeto existe do começo ao fim da linha, mas só está <strong>ativo</strong> onde há retângulo de execução. Confundir os dois faz o diagrama sugerir processamento paralelo que não existe — e, pior, esconde onde o remetente está bloqueado esperando resposta.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TIPOS DE MENSAGEM ============ -->
+        <section class="section" id="mi-mensagens">
+          <div class="wrap">
+            <div class="eyebrow">Notação</div>
+            <h2 class="reveal">Os tipos de mensagem</h2>
+            <p class="intro reveal">Cinco tipos na aula, mais a mensagem reflexiva. A diferença entre as duas primeiras não é gráfica por capricho: <strong style="color:var(--ink)">ela diz se o remetente fica parado esperando ou não</strong> — e isso muda o comportamento do sistema.</p>
+
+            <div class="mtype-grid reveal">
+              <div class="mtype sync">
+                <div class="mt-glyph">
+                  <svg viewBox="0 0 160 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line class="seq-arrow" x1="12" y1="28" x2="140" y2="28"/>
+                    <path class="seq-arrow" d="M130 22 L143 28 L130 34 Z" style="fill:var(--ink-soft)"/>
+                    <text class="seq-msg" x="20" y="20">operacao()</text>
+                  </svg>
+                </div>
+                <div class="mt-k">ponta cheia</div>
+                <h4>Mensagem síncrona</h4>
+                <p>O remetente fica <strong style="color:var(--ink)">bloqueado</strong>, esperando que o receptor termine de atender a requisição.</p>
+                <div class="mt-note">é o caso da esmagadora maioria das chamadas do modelo de análise</div>
+              </div>
+
+              <div class="mtype async">
+                <div class="mt-glyph">
+                  <svg viewBox="0 0 160 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line class="seq-arrow async" x1="12" y1="28" x2="142" y2="28"/>
+                    <path class="seq-arrow async" d="M131 21 L143 28 L131 35"/>
+                    <text class="seq-msg" x="20" y="20">notificar()</text>
+                  </svg>
+                </div>
+                <div class="mt-k">ponta aberta</div>
+                <h4>Mensagem assíncrona</h4>
+                <p>O remetente <strong style="color:var(--ink)">não espera a resposta</strong> para prosseguir o processamento. Dispara e segue.</p>
+                <div class="mt-note">use quando o resultado não é necessário para o próximo passo</div>
+              </div>
+
+              <div class="mtype ret">
+                <div class="mt-glyph">
+                  <svg viewBox="0 0 160 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line class="seq-arrow ret" x1="142" y1="28" x2="14" y2="28"/>
+                    <path class="seq-arrow ret" d="M25 21 L13 28 L25 35"/>
+                    <text class="seq-msg ret" x="40" y="20">resultado</text>
+                  </svg>
+                </div>
+                <div class="mt-k">tracejada, ponta aberta</div>
+                <h4>Mensagem de retorno</h4>
+                <p>O receptor informa o <strong style="color:var(--ink)">término do atendimento</strong> de uma mensagem. A representação <strong style="color:var(--ink)">não é obrigatória</strong>.</p>
+                <div class="mt-note">desenhe quando o valor devolvido importa para entender a lógica</div>
+              </div>
+
+              <div class="mtype crt">
+                <div class="mt-glyph">
+                  <svg viewBox="0 0 160 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line class="seq-arrow mk" x1="12" y1="28" x2="100" y2="28" stroke-dasharray="6 4"/>
+                    <path class="seq-arrow mk" d="M91 22 L103 28 L91 34"/>
+                    <g class="seq-box obj"><rect x="106" y="14" width="48" height="28" rx="3" style="stroke:var(--amber)"/></g>
+                    <text class="seq-msg mk" x="14" y="20">«create»</text>
+                  </svg>
+                </div>
+                <div class="mt-k">estereótipo</div>
+                <h4>Mensagem para criação</h4>
+                <p>Cria o objeto. A seta aponta para a <strong style="color:var(--ink)">cabeça</strong> da nova linha de vida, que por isso aparece mais abaixo no diagrama.</p>
+                <div class="mt-note">receptor típico: a classe — o objeto ainda não existia</div>
+              </div>
+
+              <div class="mtype dst">
+                <div class="mt-glyph">
+                  <svg viewBox="0 0 160 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line class="seq-life" x1="128" y1="4" x2="128" y2="28"/>
+                    <line class="seq-arrow" x1="12" y1="28" x2="116" y2="28" stroke-dasharray="6 4"/>
+                    <path class="seq-arrow" d="M107 22 L119 28 L107 34 Z" style="fill:var(--ink-soft)"/>
+                    <g class="seq-x"><line x1="120" y1="20" x2="136" y2="36"/><line x1="136" y1="20" x2="120" y2="36"/></g>
+                    <text class="seq-msg" x="14" y="20">«destroy»</text>
+                  </svg>
+                </div>
+                <div class="mt-k">estereótipo + X</div>
+                <h4>Mensagem para destruição</h4>
+                <p>Destrói o objeto. O X marca o fim da linha de vida: <strong style="color:var(--ink)">nada pode ser enviado a ele depois</strong>.</p>
+                <div class="mt-note">se há mensagem depois do X, o diagrama está errado</div>
+              </div>
+
+              <div class="mtype refl">
+                <div class="mt-glyph">
+                  <svg viewBox="0 0 160 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <line class="seq-life" x1="60" y1="2" x2="60" y2="44"/>
+                    <g class="seq-exec"><rect x="53" y="10" width="14" height="30" rx="1.5"/></g>
+                    <g class="seq-exec nested"><rect x="60" y="20" width="12" height="20" rx="1.5"/></g>
+                    <path class="seq-arrow" d="M67 16 L104 16 L104 26 L74 26"/>
+                    <path class="seq-arrow" d="M83 21 L72 26 L83 31 Z" style="fill:var(--ink-soft)"/>
+                    <text class="seq-msg" x="110" y="20">m()</text>
+                  </svg>
+                </div>
+                <div class="mt-k">volta para si</div>
+                <h4>Mensagem reflexiva</h4>
+                <p>Indica a execução de uma operação <strong style="color:var(--ink)">na classe do objeto remetente</strong>. A ocorrência de execução <strong style="color:var(--ink)">sobreposta</strong> representa a chamada interna.</p>
+                <div class="mt-note">essa notação é usada só se a mensagem for relevante</div>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">Duas coisas opcionais — e uma consequência</div>
+              <p>O <strong>ator</strong> é opcional no diagrama de interação e a <strong>mensagem de retorno</strong> também. Isso significa que dois diagramas visualmente muito diferentes podem descrever a mesma interação. Ao ler um diagrama alheio, a pergunta certa não é "faltou o retorno?", e sim <strong>"a lógica está completa sem ele?"</strong>. Ao desenhar o seu, o critério é o mesmo: mostre o que ajuda a entender, esconda o que só polui.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ EXEMPLO SVIE ============ -->
+        <section class="section alt" id="mi-svie">
+          <div class="wrap">
+            <div class="eyebrow">Aplicação</div>
+            <h2 class="reveal">"Vender ingresso", mensagem por mensagem</h2>
+            <p class="intro reveal">O mesmo caso de uso do SVIE que atravessou os módulos 04 e 08, agora realizado. As classes vêm do modelo de classes; a ordem vem da descrição detalhada; a classificação entidade/fronteira/controle vem do módulo 07. Avance passo a passo e repare em <strong style="color:var(--ink)">três coisas novas</strong>: uma mensagem que vai para a classe, um quadro <code>loop</code> e um objeto criado no meio da interação.</p>
+
+            <div class="seqsim reveal">
+              <svg class="seq-svg" viewBox="0 0 920 470" role="img" aria-label="Diagrama de sequência do caso de uso Vender ingresso do SVIE">
+                <!-- cabeças -->
+                <g class="seq-box act">
+                  <rect x="8" y="20" width="94" height="44" rx="4"/>
+                  <text x="55" y="41" text-anchor="middle">Cliente</text>
+                  <text class="sb-st" x="55" y="55" text-anchor="middle">ator</text>
+                </g>
+                <g class="seq-box fro">
+                  <rect x="130" y="20" width="120" height="44" rx="4"/>
+                  <text x="190" y="41" text-anchor="middle">: IUVenda</text>
+                  <text class="sb-st" x="190" y="55" text-anchor="middle">«fronteira»</text>
+                </g>
+                <g class="seq-box ctr">
+                  <rect x="310" y="20" width="140" height="44" rx="4"/>
+                  <text x="380" y="41" text-anchor="middle">: CtrlVenda</text>
+                  <text class="sb-st" x="380" y="55" text-anchor="middle">«controle»</text>
+                </g>
+                <g class="seq-box cls">
+                  <rect x="505" y="20" width="100" height="44" rx="4"/>
+                  <text x="555" y="41" text-anchor="middle">Sessao</text>
+                  <text class="sb-st" x="555" y="55" text-anchor="middle">classe</text>
+                </g>
+                <g class="seq-box ent">
+                  <rect x="655" y="20" width="90" height="44" rx="4"/>
+                  <text x="700" y="41" text-anchor="middle">: Lugar</text>
+                  <text class="sb-st" x="700" y="55" text-anchor="middle">«entidade»</text>
+                </g>
+
+                <!-- linhas de vida -->
+                <line class="seq-life" x1="55"  y1="64" x2="55"  y2="450"/>
+                <line class="seq-life" x1="190" y1="64" x2="190" y2="450"/>
+                <line class="seq-life" x1="380" y1="64" x2="380" y2="450"/>
+                <line class="seq-life" x1="555" y1="64" x2="555" y2="450"/>
+                <line class="seq-life" x1="700" y1="64" x2="700" y2="450"/>
+
+                <!-- passos -->
+                <g class="seq-step" data-seq="1">
+                  <line class="seq-arrow" x1="55" y1="112" x2="186" y2="112"/>
+                  <path class="seq-arrow" d="M177 106 L189 112 L177 118 Z" style="fill:var(--ink-soft)"/>
+                  <text class="seq-msg" x="61" y="105">1 · escolher sessão e lugares</text>
+                </g>
+
+                <g class="seq-step" data-seq="2">
+                  <g class="seq-exec"><rect x="373" y="150" width="14" height="258" rx="1.5"/></g>
+                  <line class="seq-arrow" x1="190" y1="150" x2="369" y2="150"/>
+                  <path class="seq-arrow" d="M360 144 L372 150 L360 156 Z" style="fill:var(--ink-soft)"/>
+                  <text class="seq-msg" x="196" y="143">2 · venderIngresso(sessao, lugares)</text>
+                </g>
+
+                <g class="seq-step" data-seq="3">
+                  <line class="seq-arrow mk" x1="387" y1="190" x2="551" y2="190"/>
+                  <path class="seq-arrow mk" d="M542 184 L554 190 L542 196 Z" style="fill:var(--amber)"/>
+                  <text class="seq-msg mk" x="393" y="183">3 · buscar(idSessao)</text>
+                </g>
+
+                <g class="seq-step" data-seq="4">
+                  <line class="seq-arrow ret" x1="555" y1="224" x2="391" y2="224"/>
+                  <path class="seq-arrow ret" d="M400 219 L390 224 L400 229"/>
+                  <text class="seq-msg ret" x="430" y="217">4 · s: Sessao</text>
+                </g>
+
+                <g class="seq-step" data-seq="5">
+                  <g class="seq-frame">
+                    <rect x="340" y="246" width="400" height="88" rx="3"/>
+                    <path class="fr-tab" d="M340 246 L398 246 L398 258 L388 268 L340 268 Z"/>
+                    <text class="fr-op" x="348" y="261">loop</text>
+                    <text class="fr-cond" x="406" y="261">[para cada lugar escolhido]</text>
+                  </g>
+                  <line class="seq-arrow" x1="387" y1="292" x2="696" y2="292"/>
+                  <path class="seq-arrow" d="M687 286 L699 292 L687 298 Z" style="fill:var(--ink-soft)"/>
+                  <text class="seq-msg" x="393" y="285">5 · reservar(cliente)</text>
+                </g>
+
+                <g class="seq-step" data-seq="6">
+                  <line class="seq-arrow ret" x1="700" y1="320" x2="391" y2="320"/>
+                  <path class="seq-arrow ret" d="M400 315 L390 320 L400 325"/>
+                  <text class="seq-msg ret" x="470" y="313">6 · lugar reservado</text>
+                </g>
+
+                <g class="seq-step" data-seq="7">
+                  <g class="seq-box ent">
+                    <rect x="795" y="340" width="100" height="44" rx="4"/>
+                    <text x="845" y="361" text-anchor="middle">: Ingresso</text>
+                    <text class="sb-st" x="845" y="375" text-anchor="middle">«entidade»</text>
+                  </g>
+                  <line class="seq-life" x1="845" y1="384" x2="845" y2="450"/>
+                  <line class="seq-arrow mk" x1="387" y1="362" x2="789" y2="362" stroke-dasharray="7 5"/>
+                  <path class="seq-arrow mk" d="M781 356 L793 362 L781 368"/>
+                  <text class="seq-msg mk" x="393" y="355">7 · «create» create(s, lugares)</text>
+                </g>
+
+                <g class="seq-step" data-seq="8">
+                  <line class="seq-arrow ret" x1="373" y1="406" x2="194" y2="406"/>
+                  <path class="seq-arrow ret" d="M203 401 L193 406 L203 411"/>
+                  <text class="seq-msg ret" x="230" y="399">8 · venda confirmada</text>
+                </g>
+
+                <g class="seq-step" data-seq="9">
+                  <line class="seq-arrow ret" x1="190" y1="436" x2="59" y2="436"/>
+                  <path class="seq-arrow ret" d="M68 431 L58 436 L68 441"/>
+                  <text class="seq-msg ret" x="65" y="429">9 · apresentar ingresso</text>
+                </g>
+              </svg>
+
+              <div class="seq-readout">
+                <div class="sr-n" id="miSeqN">passo 0 de 9</div>
+                <p class="sr-t" id="miSeqT">Clique em "Avançar" para percorrer a venda.</p>
+              </div>
+
+              <div class="seq-controls">
+                <button class="sim-btn" id="miSeqNext">Avançar</button>
+                <button class="sim-btn ghost" id="miSeqAuto">Rodar tudo</button>
+                <button class="sim-btn ghost" id="miSeqReset">Reiniciar</button>
+                <div class="seq-dots" id="miSeqDots"></div>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">O que esse diagrama devolveu para o modelo de classes</div>
+              <p>Três coisas que o modelo de classes do módulo 08 não tinha, e que só apareceram ao desenhar a interação: a classe <em>Sessao</em> precisa da operação de classe <code>buscar(idSessao)</code>; <em>Lugar</em> precisa de <code>reservar(cliente)</code> — com parâmetro, porque a reserva tem dono; e <em>Ingresso</em> precisa de um construtor que receba a sessão e os lugares. <strong style="color:var(--ink)">Isso é a finalidade 2 acontecendo</strong>: definir e completar operações e assinaturas.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ MODULARIZAÇÃO ============ -->
+        <section class="section" id="mi-modular">
+          <div class="wrap">
+            <div class="eyebrow">Modularização de interações</div>
+            <h2 class="reveal">Quando um diagrama só não dá conta</h2>
+            <p class="intro reveal">Modularizar a interação é inserir construções que <strong style="color:var(--ink)">complementem o entendimento da lógica</strong> dos diagramas de sequência. Dois recursos: referência a diagramas e construções de fluxo de controle (opção, alternativas e iteração).</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <div class="dc-k">recurso básico</div>
+                <h3>Quadro de interação</h3>
+                <p>É um <strong style="color:var(--ink)">trecho de diagrama de sequência</strong> que pode ser referenciado por outro diagrama, através de um nome. Tem papel <strong style="color:var(--ink)">semelhante à função na programação</strong>: escreve-se uma vez, chama-se de vários lugares.</p>
+                <div class="dc-ex">representação: retângulo com uma aba no canto superior esquerdo, com tipo e nome</div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">consequência</div>
+                <h3>Diagrama nomeado e referenciado</h3>
+                <p>Um diagrama com nome (<code>sd nomeDoDiagrama</code>) pode ser <strong style="color:var(--ink)">chamado</strong> de dentro de outro por um quadro <code>ref</code>. O diagrama que chama fica curto; o detalhe mora no diagrama chamado.</p>
+                <div class="dc-ex">o mesmo motivo de existir função: repetição e tamanho</div>
+              </div>
+            </div>
+
+            <div class="seqsim reveal" style="margin-top:32px;">
+              <svg class="seq-svg" viewBox="0 0 920 250" role="img" aria-label="Quadro de interação nomeado e quadro de referência">
+                <g class="seq-frame">
+                  <rect x="20" y="24" width="400" height="200" rx="3"/>
+                  <path class="fr-tab" d="M20 24 L200 24 L200 42 L188 56 L20 56 Z"/>
+                  <text class="fr-op" x="30" y="46">sd</text>
+                  <text class="fr-cond" x="56" y="46" style="fill:var(--ink)">validarCliente</text>
+                </g>
+                <g class="seq-box ctr"><rect x="70" y="72" width="120" height="38" rx="4"/><text x="130" y="95" text-anchor="middle">: CtrlVenda</text></g>
+                <g class="seq-box ent"><rect x="260" y="72" width="110" height="38" rx="4"/><text x="315" y="95" text-anchor="middle">: Cliente</text></g>
+                <line class="seq-life" x1="130" y1="110" x2="130" y2="210"/>
+                <line class="seq-life" x1="315" y1="110" x2="315" y2="210"/>
+                <line class="seq-arrow" x1="130" y1="148" x2="311" y2="148"/>
+                <path class="seq-arrow" d="M302 142 L314 148 L302 154 Z" style="fill:var(--ink-soft)"/>
+                <text class="seq-msg" x="136" y="141">verificarCadastro(cpf)</text>
+                <line class="seq-arrow ret" x1="315" y1="182" x2="134" y2="182"/>
+                <path class="seq-arrow ret" d="M143 177 L133 182 L143 187"/>
+                <text class="seq-msg ret" x="180" y="175">cadastro ok</text>
+                <text class="anat-lab" x="20" y="242">o quadro nomeado: escrito uma vez</text>
+
+                <path class="anat-lead" d="M430 124 L490 124"/>
+                <path class="anat-lead" d="M480 118 L492 124 L480 130" style="stroke:var(--cyan)"/>
+
+                <g class="seq-frame hi">
+                  <rect x="505" y="24" width="395" height="200" rx="3"/>
+                  <path class="fr-tab" d="M505 24 L640 24 L640 42 L628 56 L505 56 Z"/>
+                  <text class="fr-op" x="515" y="46">sd</text>
+                  <text class="fr-cond" x="541" y="46" style="fill:var(--ink)">venderIngresso</text>
+                </g>
+                <g class="seq-box fro"><rect x="545" y="72" width="110" height="38" rx="4"/><text x="600" y="95" text-anchor="middle">: IUVenda</text></g>
+                <g class="seq-box ctr"><rect x="740" y="72" width="120" height="38" rx="4"/><text x="800" y="95" text-anchor="middle">: CtrlVenda</text></g>
+                <line class="seq-life" x1="600" y1="110" x2="600" y2="210"/>
+                <line class="seq-life" x1="800" y1="110" x2="800" y2="210"/>
+                <line class="seq-arrow" x1="600" y1="140" x2="796" y2="140"/>
+                <path class="seq-arrow" d="M787 134 L799 140 L787 146 Z" style="fill:var(--ink-soft)"/>
+                <text class="seq-msg" x="606" y="133">vender(dados)</text>
+                <g class="seq-frame">
+                  <rect x="560" y="160" width="300" height="46" rx="3"/>
+                  <path class="fr-tab" d="M560 160 L604 160 L604 172 L595 181 L560 181 Z"/>
+                  <text class="fr-op" x="567" y="174">ref</text>
+                  <text class="seq-msg" x="640" y="190">validarCliente</text>
+                </g>
+                <text class="anat-lab" x="505" y="242">o quadro referenciado: chamado de onde precisar</text>
+              </svg>
+              <div class="seq-readout" style="min-height:auto">
+                <div class="sr-n">o paralelo com programação</div>
+                <p class="sr-t">O quadro <code>ref</code> é a <em>chamada</em>; o diagrama nomeado é a <em>definição</em>. Se três casos de uso validam o cliente do mesmo jeito, a validação vira um diagrama nomeado e os três passam a referenciá-lo — exatamente o que você faria com uma função.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:56px;">Fluxos de controle: opt, alt e loop</h3>
+            <p class="intro reveal">Os quadros também servem para definir o fluxo de controle da interação. O <strong style="color:var(--ink)">operador</strong> na aba diz qual: <code>opt</code>, <code>alt</code> ou <code>loop</code>. Escolha um para ver a construção e a regra de leitura.</p>
+
+            <div class="act-tabs reveal" id="miFcTabs">
+              <button class="tab active" data-fc="opt">opt · Opção</button>
+              <button class="tab" data-fc="alt">alt · Alternativa</button>
+              <button class="tab" data-fc="loop">loop · Iteração</button>
+            </div>
+
+            <div class="flowctl reveal">
+              <div class="flowctl-stage">
+                <svg class="fc-svg" data-fc="opt" viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quadro opt">
+                  <g class="seq-box ctr"><rect x="30" y="16" width="120" height="36" rx="4"/><text x="90" y="38" text-anchor="middle">: CtrlVenda</text></g>
+                  <g class="seq-box ent"><rect x="280" y="16" width="120" height="36" rx="4"/><text x="340" y="38" text-anchor="middle">: Desconto</text></g>
+                  <line class="seq-life" x1="90" y1="52" x2="90" y2="235"/>
+                  <line class="seq-life" x1="340" y1="52" x2="340" y2="235"/>
+                  <g class="seq-frame hi">
+                    <rect x="40" y="84" width="360" height="90" rx="3"/>
+                    <path class="fr-tab" d="M40 84 L86 84 L86 96 L77 106 L40 106 Z"/>
+                    <text class="fr-op" x="47" y="99">opt</text>
+                    <text class="fr-cond" x="94" y="99">[cliente é assinante]</text>
+                  </g>
+                  <line class="seq-arrow" x1="90" y1="136" x2="336" y2="136"/>
+                  <path class="seq-arrow" d="M327 130 L339 136 L327 142 Z" style="fill:var(--ink-soft)"/>
+                  <text class="seq-msg" x="96" y="129">aplicar(valor)</text>
+                  <text class="anat-lab" x="40" y="200">se a condição for falsa, nada dentro do quadro acontece</text>
+                </svg>
+
+                <svg class="fc-svg" data-fc="alt" viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quadro alt" hidden>
+                  <g class="seq-box ctr"><rect x="30" y="16" width="120" height="36" rx="4"/><text x="90" y="38" text-anchor="middle">: CtrlVenda</text></g>
+                  <g class="seq-box ent"><rect x="280" y="16" width="120" height="36" rx="4"/><text x="340" y="38" text-anchor="middle">: Pagamento</text></g>
+                  <line class="seq-life" x1="90" y1="52" x2="90" y2="240"/>
+                  <line class="seq-life" x1="340" y1="52" x2="340" y2="240"/>
+                  <g class="seq-frame hi">
+                    <rect x="40" y="76" width="360" height="140" rx="3"/>
+                    <path class="fr-tab" d="M40 76 L82 76 L82 88 L73 98 L40 98 Z"/>
+                    <text class="fr-op" x="47" y="91">alt</text>
+                    <text class="fr-cond" x="90" y="91">[cartão autorizado]</text>
+                    <line class="fr-sep" x1="40" y1="150" x2="400" y2="150"/>
+                    <text class="fr-cond" x="48" y="166">[else]</text>
+                  </g>
+                  <line class="seq-arrow" x1="90" y1="126" x2="336" y2="126"/>
+                  <path class="seq-arrow" d="M327 120 L339 126 L327 132 Z" style="fill:var(--ink-soft)"/>
+                  <text class="seq-msg" x="96" y="119">confirmar(valor)</text>
+                  <line class="seq-arrow" x1="90" y1="196" x2="336" y2="196"/>
+                  <path class="seq-arrow" d="M327 190 L339 196 L327 202 Z" style="fill:var(--ink-soft)"/>
+                  <text class="seq-msg" x="96" y="189">cancelar(motivo)</text>
+                  <text class="anat-lab" x="40" y="238">o separador tracejado divide as opções: apenas uma é executada</text>
+                </svg>
+
+                <svg class="fc-svg" data-fc="loop" viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quadro loop" hidden>
+                  <g class="seq-box ctr"><rect x="30" y="16" width="120" height="36" rx="4"/><text x="90" y="38" text-anchor="middle">: CtrlVenda</text></g>
+                  <g class="seq-box ent"><rect x="280" y="16" width="120" height="36" rx="4"/><text x="340" y="38" text-anchor="middle">: Lugar</text></g>
+                  <line class="seq-life" x1="90" y1="52" x2="90" y2="240"/>
+                  <line class="seq-life" x1="340" y1="52" x2="340" y2="240"/>
+                  <g class="seq-frame hi">
+                    <rect x="40" y="80" width="360" height="112" rx="3"/>
+                    <path class="fr-tab" d="M40 80 L94 80 L94 92 L85 102 L40 102 Z"/>
+                    <text class="fr-op" x="47" y="95">loop</text>
+                    <text class="fr-cond" x="102" y="95">[para cada lugar]</text>
+                  </g>
+                  <line class="seq-arrow" x1="90" y1="130" x2="336" y2="130"/>
+                  <path class="seq-arrow" d="M327 124 L339 130 L327 136 Z" style="fill:var(--ink-soft)"/>
+                  <text class="seq-msg" x="96" y="123">reservar(cliente)</text>
+                  <line class="seq-arrow ret" x1="340" y1="168" x2="94" y2="168"/>
+                  <path class="seq-arrow ret" d="M103 163 L93 168 L103 173"/>
+                  <text class="seq-msg ret" x="150" y="161">reservado</text>
+                  <text class="anat-lab" x="40" y="218">tudo que está dentro do quadro se repete enquanto a condição valer</text>
+                </svg>
+              </div>
+
+              <div class="flowctl-info">
+                <div class="eyebrow" id="miFcTag">operador opt</div>
+                <h3 id="miFcTitle">Opção</h3>
+                <p id="miFcDesc">—</p>
+                <div class="fc-op" id="miFcRule">—</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ USO ITERATIVO ============ -->
+        <section class="section alt" id="mi-iterativo">
+          <div class="wrap">
+            <div class="eyebrow">Modelos dinâmicos no desenvolvimento iterativo</div>
+            <h2 class="reveal">Nem tudo de uma vez</h2>
+            <p class="intro reveal">O modelo de interação não é construído para o sistema inteiro de um golpe. Ele é feito <strong style="color:var(--ink)">por caso de uso — ou por parte de um caso de uso</strong> — e acompanha as iterações: em cada uma, um subconjunto de casos de uso é detalhado, e é para eles que os diagramas de sequência são desenhados.</p>
+
+            <div class="tl reveal">
+              <div class="tl-item">
+                <div class="yr">iteração n · entrada</div>
+                <p>Um subconjunto de casos de uso, com a descrição detalhada revisada, e as classes já identificadas para eles no modelo de classes.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">iteração n · modelo de interação</div>
+                <p>Um diagrama de sequência por caso de uso (ou por trecho relevante). Aqui aparecem as mensagens que faltavam e as assinaturas que estavam pela metade.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">iteração n · retorno</div>
+                <p>O modelo de classes é <strong style="color:var(--ink)">atualizado</strong>: novos atributos, novas operações, assinaturas completas. Eventualmente o próprio caso de uso é corrigido.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">iteração n+1</div>
+                <p>Novo subconjunto de casos de uso, mesmo ciclo — sobre um modelo de classes que já está mais maduro que na iteração anterior.</p>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">Por que isso importa na prática da disciplina</div>
+              <p>Você não precisa (nem deve) desenhar diagrama de sequência para todos os casos de uso do sistema. Desenhe para os casos de uso <strong>relevantes ou arriscados</strong> — aqueles cuja lógica você não consegue defender só com o texto. É neles que o diagrama paga o custo de ser desenhado.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TREINO ============ -->
+        <section class="section" id="mi-treino">
+          <div class="wrap">
+            <div class="eyebrow">Treino</div>
+            <h2 class="reveal">Que mensagem é essa?</h2>
+            <p class="intro reveal">Dez situações. Decida se a mensagem é <strong style="color:var(--ink)">síncrona</strong>, <strong style="color:var(--ink)">assíncrona</strong>, de <strong style="color:var(--ink)">retorno</strong> ou se ela vai <strong style="color:var(--ink)">para a classe</strong>. A justificativa aparece depois de cada escolha.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="miTrCounter">Situação 1 de 10</div>
+              <div class="cls-stmt" id="miTrStmt">—</div>
+              <div class="cls-opts" id="miTrOpts">
+                <button class="tab" data-mitr="SINC">Síncrona</button>
+                <button class="tab" data-mitr="ASSINC">Assíncrona</button>
+                <button class="tab" data-mitr="RET">De retorno</button>
+                <button class="tab" data-mitr="CLS">Para a classe</button>
+              </div>
+              <div class="cls-feedback" id="miTrFeedback">Escolha uma opção para ver a justificativa.</div>
+              <div class="cls-score" id="miTrScore">Acertos: <strong>0</strong> / 0</div>
+              <div style="margin-top:16px;">
+                <button class="sim-btn ghost" id="miTrReset" style="margin-left:0">Reiniciar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="mi-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">As cinco perguntas de resumo da aula, mais três que costumam decidir nota. Tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Qual é o significado da parte dinâmica dos modelos?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Descreve o comportamento do sistema, através da interação dos objetos</div>
+                <p>Enquanto o Modelo de Casos de Uso descreve as <strong>funções</strong> do sistema e o Modelo Estrutural descreve a sua <strong>estrutura</strong>, o Modelo Dinâmico descreve o <strong>comportamento</strong> — e não de forma abstrata: através da interação dos objetos. Ele é composto pelo Diagrama de Interação e pelo Diagrama de Estados.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">O que é o Diagrama de Interação?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">O diagrama que mostra os objetos e as mensagens que realizam um caso de uso</div>
+                <p>Ele fornece uma visão detalhada dos objetos e das mensagens necessárias para a execução de um caso de uso <strong>ou de parte dele</strong>. A ideia por trás: um caso de uso é executado — <em>realizado</em> — através da troca de mensagens entre os objetos participantes. O Modelo de Interação descreve a lógica dos casos de uso de forma mais detalhada do que o texto conseguia.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Quais são os tipos de Diagrama de Interação?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Diagrama de Sequência e Diagrama de Comunicação</div>
+                <p>Os dois mostram <strong>o mesmo conteúdo em formatos diferentes</strong>. O de sequência mostra as mensagens enviadas ao longo do tempo; o de comunicação mostra as mensagens enviadas através dos relacionamentos entre objetos. Um pode ser convertido no outro. O estudado na disciplina é o Diagrama de Sequência, por ser o mais utilizado na prática.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Quais são os elementos do Diagrama de Sequência?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Ator, mensagens, linha de vida e ocorrência de execução</div>
+                <p>Ator e mensagens mantêm os significados já vistos — e o ator é opcional. A <strong>linha de vida</strong> representa um objeto instanciado e é formada por cabeça (a caixa com o nome) e cauda (a linha que desce). A <strong>ocorrência de execução</strong> representa o tempo em que o objeto está ativo, isto é, o intervalo em que ele realiza alguma operação. Some-se a isso a notação de objetos e classes nas cabeças das linhas de vida.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Qual é o papel do Modelo de Interação no desenvolvimento de software?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Detalhar a lógica dos casos de uso e, com isso, revisar e completar o Modelo de Classes</div>
+                <p>São as duas finalidades da aula. A primeira: fornecer uma visão detalhada dos objetos e das mensagens necessárias para executar um caso de uso ou parte dele. A segunda: permitir <strong>rever as classes participantes</strong> — definir ou completar atributos e operações, e definir ou completar a <strong>assinatura das operações</strong>. Ou seja, o modelo de interação é onde o modelo de classes é testado antes de virar código.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 6</span>
+              <p class="q">Qual a diferença entre linha de vida e ocorrência de execução?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">A linha de vida diz que o objeto existe; a ocorrência de execução diz que ele está ativo</div>
+                <p>A linha de vida (cabeça + cauda) representa um objeto instanciado e atravessa o diagrama. A ocorrência de execução é o retângulo estreito sobre a cauda, e marca o intervalo em que o objeto realiza alguma operação: começa no <strong>recebimento da mensagem</strong>, dura a <strong>execução da operação solicitada</strong> e acaba no <strong>término da execução</strong>. Um objeto pode ter várias ocorrências de execução ao longo de uma linha de vida — e, entre elas, ele existe sem estar fazendo nada.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 7</span>
+              <p class="q">Quando uma mensagem é enviada para a classe em vez de para um objeto?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Quando não existe objeto a quem enviá-la — ou ainda não se sabe qual é</div>
+                <p>Casos típicos: buscar um objeto específico, criar um objeto novo, excluir um objeto específico. As mensagens típicas para classe são: encontrar um objeto com identificador único, adicionar um objeto na coleção, remover um objeto da coleção, obter a quantidade de objetos da coleção e informar se a coleção está vazia. No exemplo da aula, o objeto <em>Pedido</em> faz solicitações para a <strong>classe</strong> <em>ItemPedido</em> — <code>adicionar(item)</code>, <code>buscar(item)</code>. Na notação, a cabeça sem os dois pontos é o sinal: <em>ItemPedido</em>, e não <em>: ItemPedido</em>.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 8</span>
+              <p class="q">O que é modularização de interações, e o que diferencia opt, alt e loop?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Inserir construções que complementam o entendimento da lógica — por referência a diagramas ou por fluxo de controle</div>
+                <p>O recurso básico é o <strong>quadro de interação</strong>: um trecho de diagrama de sequência que pode ser referenciado por outro diagrama através de um nome, com papel semelhante à função na programação. Nos fluxos de controle, o operador na aba define a semântica: <code>opt</code> — o quadro é executado <strong>quando a condição for verdadeira</strong>; <code>alt</code> — <strong>apenas uma</strong> das opções é executada, separadas pelo separador tracejado; <code>loop</code> — a execução do conteúdo é <strong>repetida</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Modelagem Dinâmica · Diagrama de Sequência — EPUSP · PCS · 2026<br>
+              [1] MELNIKOFF, S. S. S.; RISCO BECERRA, J. L. Modelagem Dinâmica — Diagrama de Sequência, 9ª aula, 02/09/2026<br>
+              [2] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 3ª ed., Elsevier, 2015 — figuras dos diagramas de sequência e de comunicação<br>
+              [3] Análise e Projeto Orientado a Objetos, 2ª e 3ª ed. — figuras dos quadros de interação e dos fluxos de controle, conforme creditado nos slides<br>
+              [4] Exemplo SVIE construído a partir dos módulos 04 e 08 deste guia
+            </div>
+            <div class="credit">P1 · Módulo 09 · Profa. Selma S. S. Melnikoff e Prof. Jorge Luiz Risco Becerra — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: MODELO DE INTERAÇÃO ================= -->
+
+
     </div>
   </div>
 </div>
@@ -5441,7 +6551,8 @@
     {id:'exercicio-sgrb', group:'P1', title:'Exercício: Modelo de Casos de Uso do SGRB'},
     {id:'modelo-classes', group:'P1', title:'Modelo de Classes'},
     {id:'classificacao-classes', group:'P1', title:'Classificação de Classes'},
-    {id:'construcao-modelo-classes', group:'P1', title:'Construção do Modelo de Classes'}
+    {id:'construcao-modelo-classes', group:'P1', title:'Construção do Modelo de Classes'},
+    {id:'modelo-interacao', group:'P1', title:'Modelo de Interação · Diagrama de Sequência'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -7700,6 +8811,215 @@
       });
     }
     cncTrRender();
+  }
+
+
+  /* ============================================================
+     MÓDULO 09 — HERO: MENSAGENS PERCORRENDO A REALIZAÇÃO
+     ============================================================ */
+  var miHeroList = document.getElementById('miHeroList');
+  if(miHeroList){
+    var miHeroItems = miHeroList.querySelectorAll('.src-item');
+    var miHeroI = 0;
+    setInterval(function(){
+      miHeroItems.forEach(function(el, i){ el.classList.toggle('on', i === miHeroI); });
+      miHeroI = (miHeroI + 1) % miHeroItems.length;
+    }, 1200);
+  }
+
+  /* ============================================================
+     MÓDULO 09 — DIAGRAMA DE SEQUÊNCIA DO SVIE ("Vender ingresso")
+     ============================================================ */
+  var miSeqNext = document.getElementById('miSeqNext');
+  if(miSeqNext){
+    var MISEQ = [
+      {t:'O <em>Cliente</em> escolhe sessão e lugares. O ator toca apenas a <em>fronteira</em> — nunca o controle, nunca as entidades. Note que o ator é opcional no diagrama: aqui ele está porque ajuda a ver de onde a interação parte.'},
+      {t:'<em>: IUVenda</em> traduz a escolha em uma mensagem <em>síncrona</em> para o controle: <code>venderIngresso(sessao, lugares)</code>. A ocorrência de execução do controle abre agora e só fecha no passo 8 — a fronteira fica bloqueada esperando.'},
+      {t:'<em>: CtrlVenda</em> precisa do objeto da sessão, mas ainda não o tem. A mensagem <code>buscar(idSessao)</code> vai então <em>para a classe</em> <strong>Sessao</strong> — repare na cabeça sem os dois pontos.'},
+      {t:'A classe devolve <code>s: Sessao</code>. É uma mensagem de <em>retorno</em>: tracejada, ponta aberta, e a partir daqui existe objeto para conversar.'},
+      {t:'O quadro <code>loop</code> entra em cena: <em>[para cada lugar escolhido]</em>. Tudo dentro dele se repete. Sem o quadro, o diagrama sugeriria uma única reserva — e a lógica ficaria errada.'},
+      {t:'Cada <em>: Lugar</em> confirma a reserva. Dentro do loop, esse par de mensagens acontece uma vez por lugar. Nenhuma entidade fala com outra entidade: quem coordena é o controle.'},
+      {t:'Agora o ingresso é <em>criado</em>: mensagem tracejada com estereótipo <code>«create»</code>. A seta aponta para a <em>cabeça</em> da nova linha de vida — por isso <em>: Ingresso</em> aparece só neste ponto do diagrama, e não no topo.'},
+      {t:'O controle devolve a confirmação para a fronteira. Aqui termina a lógica do caso de uso e fecha a ocorrência de execução de <em>: CtrlVenda</em>.'},
+      {t:'<em>: IUVenda</em> apresenta o ingresso ao ator. Fim da realização: entrou pela fronteira, foi orquestrado pelo controle, executado pelas entidades e por uma mensagem para classe.'}
+    ];
+    var miSeqSteps = document.querySelectorAll('#page-modelo-interacao .seq-step');
+    var miSeqN = document.getElementById('miSeqN');
+    var miSeqT = document.getElementById('miSeqT');
+    var miSeqAuto = document.getElementById('miSeqAuto');
+    var miSeqResetBtn = document.getElementById('miSeqReset');
+    var miSeqDots = document.getElementById('miSeqDots');
+    var miSeqI = 0;
+    var miSeqTimer = null;
+
+    for(var mdi = 0; mdi < MISEQ.length; mdi++){
+      var midot = document.createElement('span');
+      midot.className = 'sd';
+      miSeqDots.appendChild(midot);
+    }
+
+    function miSeqRender(){
+      miSeqSteps.forEach(function(g){
+        var n = Number(g.dataset.seq);
+        g.classList.toggle('on', n <= miSeqI);
+        g.classList.toggle('cur', n === miSeqI);
+      });
+      miSeqDots.querySelectorAll('.sd').forEach(function(d, i){
+        d.classList.toggle('on', i < miSeqI);
+      });
+      miSeqN.textContent = 'passo ' + miSeqI + ' de ' + MISEQ.length;
+      if(miSeqI === 0){
+        miSeqT.innerHTML = 'Clique em "Avançar" para percorrer a venda. Repare em três construções novas: a mensagem para a classe, o quadro <code>loop</code> e a criação do objeto no meio da interação.';
+      } else {
+        miSeqT.innerHTML = MISEQ[miSeqI - 1].t;
+      }
+      miSeqNext.disabled = miSeqI >= MISEQ.length;
+    }
+    function miSeqStop(){
+      if(miSeqTimer){ clearInterval(miSeqTimer); miSeqTimer = null; }
+      miSeqAuto.textContent = 'Rodar tudo';
+    }
+    miSeqNext.addEventListener('click', function(){
+      miSeqStop();
+      if(miSeqI < MISEQ.length){ miSeqI++; miSeqRender(); }
+    });
+    miSeqAuto.addEventListener('click', function(){
+      if(miSeqTimer){ miSeqStop(); return; }
+      if(miSeqI >= MISEQ.length){ miSeqI = 0; miSeqRender(); }
+      miSeqAuto.textContent = 'Pausar';
+      miSeqTimer = setInterval(function(){
+        if(miSeqI >= MISEQ.length){ miSeqStop(); return; }
+        miSeqI++;
+        miSeqRender();
+      }, 2400);
+    });
+    miSeqResetBtn.addEventListener('click', function(){
+      miSeqStop();
+      miSeqI = 0;
+      miSeqRender();
+    });
+    miSeqRender();
+  }
+
+  /* ============================================================
+     MÓDULO 09 — FLUXOS DE CONTROLE (opt · alt · loop)
+     ============================================================ */
+  var miFcTabs = document.getElementById('miFcTabs');
+  if(miFcTabs){
+    var MIFC = {
+      opt: {
+        tag:'operador opt',
+        title:'Opção',
+        desc:'Um trecho da interação que <strong style="color:var(--ink)">pode ou não acontecer</strong>. É o <code>if</code> sem <code>else</code> do diagrama de sequência.',
+        rule:'<strong>Regra de leitura:</strong> o quadro é executado quando a opção for <strong>verdadeira</strong>. Se for falsa, nada do que está dentro acontece e a interação segue depois do quadro.'
+      },
+      alt: {
+        tag:'operador alt',
+        title:'Alternativa',
+        desc:'Dois ou mais caminhos mutuamente exclusivos, separados por um <strong style="color:var(--ink)">separador tracejado</strong>. Cada região tem sua condição de guarda.',
+        rule:'<strong>Regra de leitura:</strong> apenas <strong>uma</strong> opção é executada. A condição <code>[else]</code> na última região cobre o caso em que nenhuma das anteriores valeu.'
+      },
+      loop: {
+        tag:'operador loop',
+        title:'Iteração',
+        desc:'Um trecho que se <strong style="color:var(--ink)">repete</strong>. A condição de guarda diz sobre o que se itera ou até quando.',
+        rule:'<strong>Regra de leitura:</strong> a execução do conteúdo do quadro é <strong>repetida</strong> enquanto a condição valer. É o que evita desenhar a mesma mensagem cinco vezes para cinco lugares.'
+      }
+    };
+    var miFcSvgs = document.querySelectorAll('#page-modelo-interacao .fc-svg');
+    var miFcTag = document.getElementById('miFcTag');
+    var miFcTitle = document.getElementById('miFcTitle');
+    var miFcDesc = document.getElementById('miFcDesc');
+    var miFcRule = document.getElementById('miFcRule');
+
+    function miFcShow(key){
+      var d = MIFC[key];
+      if(!d) return;
+      miFcSvgs.forEach(function(s){
+        var show = s.getAttribute('data-fc') === key;
+        s.style.display = show ? 'block' : 'none';
+      });
+      miFcTabs.querySelectorAll('.tab').forEach(function(b){ b.classList.toggle('active', b.dataset.fc === key); });
+      miFcTag.textContent = d.tag;
+      miFcTitle.textContent = d.title;
+      miFcDesc.innerHTML = d.desc;
+      miFcRule.innerHTML = d.rule;
+    }
+    miFcTabs.querySelectorAll('.tab').forEach(function(b){
+      b.addEventListener('click', function(){ miFcShow(b.getAttribute('data-fc')); });
+    });
+    miFcShow('opt');
+  }
+
+  /* ============================================================
+     MÓDULO 09 — TREINO: QUE MENSAGEM É ESSA?
+     ============================================================ */
+  var MITR_ITEMS = [
+    {t:'<em>: CtrlVenda</em> pede a <em>: Lugar</em> que reserve o assento e não pode dar o passo seguinte sem saber se a reserva deu certo.', a:'SINC', w:'O remetente fica bloqueado esperando que o receptor termine de atender a requisição. Ponta cheia. É o caso da grande maioria das mensagens de um modelo de análise.'},
+    {t:'<em>: CtrlPedido</em> avisa <em>: Auditoria</em> que a venda ocorreu e continua o processamento imediatamente, sem esperar confirmação.', a:'ASSINC', w:'O remetente não espera a resposta para prosseguir. Ponta aberta. O sinal de que é assíncrona está no enunciado: "continua o processamento".'},
+    {t:'A classe <strong>Sessao</strong> devolve o objeto <code>s: Sessao</code> ao controle que havia pedido a busca.', a:'RET', w:'O receptor informa o término do atendimento de uma mensagem. Tracejada, ponta aberta — e a representação não é obrigatória.'},
+    {t:'O controle precisa localizar o cadastro do cliente a partir do CPF; ele ainda não tem nenhum objeto <em>Cliente</em> em mãos.', a:'CLS', w:'Encontrar um objeto com identificador único é a primeira das mensagens típicas para classe. Não há como pedir isso ao objeto: se você já o tivesse, não precisaria procurá-lo.'},
+    {t:'O objeto <em>p: Pedido</em> pede que um novo item seja acrescentado à coleção de <em>ItemPedido</em>.', a:'CLS', w:'Adicionar um objeto na coleção é mensagem para classe — é exatamente o exemplo da aula: <code>adicionar(item)</code> vai para a classe <strong>ItemPedido</strong>, não para um item específico.'},
+    {t:'<em>: IUReserva</em> envia <code>reservarQuarto(dados)</code> ao controle e fica bloqueada até receber a resposta.', a:'SINC', w:'"Fica bloqueada até receber a resposta" é a definição de mensagem síncrona. A ocorrência de execução do remetente continua aberta durante toda a espera.'},
+    {t:'Ao terminar de calcular o total, o objeto informa quem pediu que o atendimento acabou. O diagrama poderia omitir essa seta sem prejuízo da lógica.', a:'RET', w:'Mensagem de retorno: o receptor informa o término do atendimento. A pista definitiva é a ressalva — a representação do retorno não é obrigatória.'},
+    {t:'O controle quer saber quantos ingressos já foram vendidos para a sessão. A informação é sobre o conjunto, não sobre um ingresso.', a:'CLS', w:'Obter a quantidade de objetos da coleção é mensagem típica para classe. Perguntar isso a um objeto qualquer da coleção não faria sentido.'},
+    {t:'Concluída a compra, o sistema dispara o envio do e-mail de confirmação e vai direto para a próxima tela.', a:'ASSINC', w:'Assíncrona: o remetente não espera a resposta. Se o envio do e-mail travasse a tela, a compra dependeria do servidor de e-mail — e é justamente isso que a assincronia evita.'},
+    {t:'O controle solicita que um novo objeto <em>Ingresso</em> passe a existir, com a sessão e os lugares vendidos.', a:'CLS', w:'Criar um objeto novo é um dos casos em que a mensagem não pode ser enviada a um objeto — ele ainda não existe. Ela vai para a classe, com o estereótipo <code>«create»</code>, e a seta aponta para a cabeça da nova linha de vida.'}
+  ];
+  var MITR_NAMES = {SINC:'Síncrona', ASSINC:'Assíncrona', RET:'De retorno', CLS:'Para a classe'};
+  var miTrStmt = document.getElementById('miTrStmt');
+  var miTrOpts = document.getElementById('miTrOpts');
+  if(miTrStmt && miTrOpts){
+    var miTrFeedback = document.getElementById('miTrFeedback');
+    var miTrCounter = document.getElementById('miTrCounter');
+    var miTrScore = document.getElementById('miTrScore');
+    var miTrResetBtn = document.getElementById('miTrReset');
+    var miTrState = { i:0, hits:0, answered:0, locked:false };
+
+    function miTrRender(){
+      miTrStmt.innerHTML = MITR_ITEMS[miTrState.i].t;
+      miTrCounter.textContent = 'Situação ' + (miTrState.i + 1) + ' de ' + MITR_ITEMS.length;
+      miTrOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      miTrFeedback.textContent = 'Escolha uma opção para ver a justificativa.';
+      miTrScore.innerHTML = 'Acertos: <strong>' + miTrState.hits + '</strong> / ' + miTrState.answered;
+      miTrState.locked = false;
+    }
+    function miTrAnswer(choice, btn){
+      if(miTrState.locked) return;
+      miTrState.locked = true;
+      miTrState.answered++;
+      var item = MITR_ITEMS[miTrState.i];
+      var correct = choice === item.a;
+      if(correct) miTrState.hits++;
+      miTrOpts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.mitr === item.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      miTrFeedback.innerHTML =
+        (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + MITR_NAMES[item.a] + '</span>') +
+        '<br>' + item.w;
+      miTrScore.innerHTML = 'Acertos: <strong>' + miTrState.hits + '</strong> / ' + miTrState.answered;
+      setTimeout(function(){
+        if(miTrState.i < MITR_ITEMS.length - 1){
+          miTrState.i++;
+          miTrRender();
+        } else {
+          miTrCounter.textContent = 'Fim · ' + MITR_ITEMS.length + ' situações';
+          miTrStmt.innerHTML = 'Você acertou ' + miTrState.hits + ' de ' + MITR_ITEMS.length + '.';
+          miTrFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 3000);
+    }
+    miTrOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ miTrAnswer(btn.dataset.mitr, btn); });
+    });
+    if(miTrResetBtn){
+      miTrResetBtn.addEventListener('click', function(){
+        miTrState.i = 0; miTrState.hits = 0; miTrState.answered = 0;
+        miTrRender();
+      });
+    }
+    miTrRender();
   }
 
 

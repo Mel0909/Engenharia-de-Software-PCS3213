@@ -943,6 +943,112 @@
     border-radius:9px; padding:12px 14px; line-height:1.7; }
   .flowctl-info .fc-op strong{ color:var(--ink); }
 
+
+  /* ---------- PROVA P1 2019 · HOTEL ABC ---------- */
+  .p19-exambar{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px;
+    box-shadow:var(--shadow); display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:center; }
+  @media (max-width:760px){ .p19-exambar{ grid-template-columns:1fr; text-align:left; } }
+  .p19-clock{ font-family:var(--mono); font-size:34px; font-weight:700; color:var(--cyan); letter-spacing:.02em; line-height:1; }
+  .p19-clock.warn{ color:var(--amber); }
+  .p19-clock.over{ color:var(--rose); }
+  .p19-clock-sub{ font-family:var(--mono); font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.07em; margin-top:6px; }
+  .p19-clockbtns{ display:flex; gap:8px; flex-wrap:wrap; }
+  .p19-progress{ height:8px; border-radius:99px; background:var(--surface-2); overflow:hidden; border:1px solid var(--line); }
+  .p19-progress > i{ display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--indigo),var(--cyan)); transition:width .4s ease; }
+  .p19-progress-lab{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); margin-bottom:7px; }
+  .p19-progress-lab strong{ color:var(--ink); }
+
+  .p19-qhead{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
+  .p19-qnum{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--bg);
+    background:var(--indigo); border-radius:99px; padding:5px 11px; font-weight:700; }
+  .p19-pts{ font-family:var(--mono); font-size:11.5px; color:var(--amber); border:1px solid rgba(240,169,60,.4);
+    background:var(--amber-soft); border-radius:99px; padding:4px 10px; }
+
+  /* enunciado interativo */
+  .p19-txt{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 26px; box-shadow:var(--shadow); }
+  .p19-p{ display:block; width:100%; text-align:left; cursor:pointer; font-family:var(--body); font-size:15.2px; line-height:1.72;
+    color:var(--ink-soft); background:transparent; border:1px solid transparent; border-left:3px solid var(--line);
+    border-radius:0 10px 10px 0; padding:11px 14px; margin-bottom:6px; transition:all .18s; }
+  .p19-p:hover{ background:var(--bg-1); color:var(--ink); }
+  .p19-p.on{ background:var(--indigo-soft); border-color:rgba(124,140,255,.4); border-left-color:var(--indigo); color:var(--ink); }
+  .p19-p .p19-pn{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); display:block; margin-bottom:3px; letter-spacing:.06em; }
+  .p19-read{ margin-top:16px; background:var(--bg-1); border:1px solid var(--line); border-radius:11px; padding:18px 20px; min-height:120px; }
+  .p19-read h4{ font-family:var(--display); font-size:15.5px; margin:0 0 10px; color:var(--ink); }
+  .p19-read ul{ margin:0; padding-left:18px; color:var(--ink-soft); font-size:14.6px; line-height:1.6; }
+  .p19-read li{ margin-bottom:6px; }
+  .p19-chips{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+  .p19-chip{ font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; padding:4px 9px; border-radius:99px; border:1px solid var(--line); }
+  .p19-chip.ator{ color:var(--indigo); border-color:rgba(124,140,255,.45); background:var(--indigo-soft); }
+  .p19-chip.func{ color:var(--cyan); border-color:rgba(57,214,190,.45); background:var(--cyan-soft); }
+  .p19-chip.dado{ color:var(--amber); border-color:rgba(240,169,60,.45); background:var(--amber-soft); }
+  .p19-chip.reg{ color:var(--rose); border-color:rgba(241,89,111,.42); background:var(--rose-soft); }
+
+  /* caixa de tentativa própria */
+  .p19-try{ background:var(--bg-1); border:1px dashed var(--line); border-radius:12px; padding:18px 20px; margin:18px 0; }
+  .p19-try .p19-try-lab{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--amber); }
+  .p19-try p.p19-ask{ margin:8px 0 12px; color:var(--ink); font-size:15.4px; }
+  .p19-try textarea{ width:100%; min-height:110px; resize:vertical; background:var(--surface); color:var(--ink);
+    border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:var(--body); font-size:14.6px; line-height:1.6; }
+  .p19-try textarea:focus{ outline:2px solid var(--indigo); outline-offset:1px; }
+  .p19-try .p19-try-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:10px;
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); }
+
+  /* rubrica de autocorreção */
+  .p19-rub{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; box-shadow:var(--shadow); }
+  .p19-rub-head{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:14px; }
+  .p19-rub-head h4{ font-family:var(--display); font-size:16px; margin:0; color:var(--ink); }
+  .p19-rub-sc{ font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); }
+  .p19-rub-sc strong{ color:var(--cyan); font-size:15px; }
+  .p19-crit{ display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
+    background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:11px 14px; margin-bottom:7px;
+    color:var(--ink-soft); font-family:var(--body); font-size:14.4px; line-height:1.55; transition:all .15s; }
+  .p19-crit:hover{ border-color:var(--indigo); color:var(--ink); }
+  .p19-crit .p19-box{ font-family:var(--mono); font-size:12px; width:22px; height:22px; flex:0 0 22px; border:1px solid var(--line);
+    border-radius:6px; display:flex; align-items:center; justify-content:center; color:transparent; margin-top:1px; }
+  .p19-crit.on{ background:var(--cyan-soft); border-color:rgba(57,214,190,.45); color:var(--ink); }
+  .p19-crit.on .p19-box{ color:var(--cyan); border-color:var(--cyan); }
+  .p19-crit .p19-w{ margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--ink-faint); white-space:nowrap; padding-top:2px; }
+  .p19-crit.on .p19-w{ color:var(--cyan); }
+
+  /* ordenação da sequência de eventos */
+  .p19-seq{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+  @media (max-width:820px){ .p19-seq{ grid-template-columns:1fr; } }
+  .p19-pane{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; box-shadow:var(--shadow); }
+  .p19-pane h4{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-faint); margin:0 0 12px; }
+  .p19-card{ display:flex; gap:10px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
+    background:var(--bg-1); border:1px solid var(--line); border-radius:9px; padding:10px 12px; margin-bottom:7px;
+    color:var(--ink-soft); font-family:var(--body); font-size:14px; line-height:1.5; transition:all .15s; }
+  .p19-card:hover{ border-color:var(--indigo); color:var(--ink); }
+  .p19-card .p19-cn{ font-family:var(--mono); font-size:11px; color:var(--indigo); flex:0 0 18px; padding-top:2px; }
+  .p19-card.right{ background:var(--cyan-soft); border-color:rgba(57,214,190,.5); color:var(--ink); }
+  .p19-card.right .p19-cn{ color:var(--cyan); }
+  .p19-card.wrong{ background:var(--rose-soft); border-color:var(--rose); color:var(--ink); animation:p19shake .3s; }
+  @keyframes p19shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-5px);} 75%{transform:translateX(5px);} }
+  .p19-empty{ font-family:var(--mono); font-size:12px; color:var(--ink-faint); padding:10px 0; }
+
+  /* controles de passo do diagrama */
+  .p19-stepctl{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
+  .p19-stepout{ font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); background:var(--bg-1); border:1px solid var(--line);
+    border-radius:9px; padding:11px 14px; margin-top:14px; line-height:1.6; min-height:42px; }
+  .p19-stepout strong{ color:var(--cyan); }
+  .ucd-step{ opacity:0; transition:opacity .45s ease; }
+  .ucd-step.on{ opacity:1; }
+
+  /* placar final */
+  .p19-final{ background:linear-gradient(180deg,var(--surface),var(--bg-1)); border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px 30px; box-shadow:var(--shadow); text-align:center; }
+  .p19-final .p19-bignum{ font-family:var(--mono); font-size:56px; font-weight:700; color:var(--cyan); line-height:1; }
+  .p19-final .p19-bignum small{ font-size:20px; color:var(--ink-faint); font-weight:400; }
+  .p19-final p{ color:var(--ink-soft); margin:12px auto 0; max-width:54ch; font-size:15px; }
+  .p19-breakdown{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:22px; }
+  @media (max-width:700px){ .p19-breakdown{ grid-template-columns:repeat(2,1fr); } }
+  .p19-bd{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px 10px; }
+  .p19-bd .bdq{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; }
+  .p19-bd .bdv{ font-family:var(--mono); font-size:18px; color:var(--ink); margin-top:4px; }
+  .p19-bd.full{ border-color:rgba(57,214,190,.5); }
+  .p19-bd.full .bdv{ color:var(--cyan); }
+  .p19-bd.zero .bdv{ color:var(--ink-faint); }
+
   /* ---------- PLACEHOLDER (future modules) ---------- */
   .placeholder-wrap{ padding:110px 0 80px; }
   .placeholder-dots{ margin-top:40px; display:grid; grid-template-columns:repeat(16,1fr); gap:8px; max-width:520px; }
@@ -6531,6 +6637,660 @@
       </div>
       <!-- ================= END MODULE: MODELO DE INTERAÇÃO ================= -->
 
+      <!-- ================= MODULE 10: PROVA P1 2019 · HOTEL ABC ================= -->
+      <div class="module-page" data-module="prova-2019" id="page-prova-2019">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Prova 2019 · Hotel ABC</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="p19-prova">Modo prova</button>
+              <button class="navlink" data-target="p19-enunciado">Enunciado</button>
+              <button class="navlink" data-target="p19-q1">Q1 Atores</button>
+              <button class="navlink" data-target="p19-q2">Q2 Tabela 1</button>
+              <button class="navlink" data-target="p19-q3">Q3 Diagrama</button>
+              <button class="navlink" data-target="p19-q4">Q4 Ficha</button>
+              <button class="navlink" data-target="p19-q5">Q5 Classes</button>
+              <button class="navlink" data-target="p19-erros">Armadilhas</button>
+              <button class="navlink" data-target="p19-nota">Nota</button>
+              <button class="navlink" data-target="p19-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="p19-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 10 · Prova resolvida</div>
+              <h1>1ª Prova de 2019: <em>Sistema de Gerência de Hotel</em></h1>
+              <p class="lede">A prova de 28/03/2019 da Profa. Selma Melnikoff, inteira, com os comentários oficiais de 10/04. Este módulo é feito para você <strong style="color:var(--ink)">tentar antes de ver</strong>: cada questão tem caixa de resposta, jogo de treino e uma rubrica de autocorreção que soma a sua nota no fim.</p>
+              <div class="hero-meta">
+                <span><strong>Data</strong> 28/03/2019</span>
+                <span><strong>Duração</strong> 1h40</span>
+                <span><strong>Consulta</strong> individual permitida</span>
+                <span><strong>Total</strong> 11 pontos</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">prova2019.abrir()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="uc-badge">Q1</span> Identificar atores e responsabilidades <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">1 pt</span></div>
+                  <div class="src-item"><span class="uc-badge">Q2</span> Tabela 1 · funções → casos de uso → atores <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">3 pt</span></div>
+                  <div class="src-item"><span class="uc-badge">Q3</span> Diagrama de casos de uso <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">2 pt</span></div>
+                  <div class="src-item"><span class="uc-badge in">Q4</span> Ficha detalhada de Reservar quarto <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">3 pt</span></div>
+                  <div class="src-item"><span class="uc-badge in">Q5</span> Classes candidatas e finais <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">2 pt</span></div>
+                </div>
+                <div class="src-out">a soma passa de 10: a prova tinha folga de 1 ponto</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ MODO PROVA ============ -->
+        <section class="section" id="p19-prova">
+          <div class="wrap">
+            <div class="eyebrow">Antes de começar</div>
+            <h2 class="reveal">Modo prova: 1h40 no relógio</h2>
+            <p class="intro reveal">A recomendação é fazer a prova inteira antes de descer para os gabaritos. Ligue o cronômetro, escreva suas respostas nas caixas de cada questão e só depois abra as resoluções. Cada questão traz uma rubrica de correção — marque o que você acertou e a nota aparece no fim do módulo.</p>
+
+            <div class="p19-exambar reveal">
+              <div>
+                <div class="p19-clock" id="p19Clock">1:40:00</div>
+                <div class="p19-clock-sub" id="p19ClockSub">cronômetro parado</div>
+              </div>
+              <div>
+                <div class="p19-progress-lab"><span>Autocorreção preenchida</span><span><strong id="p19ProgTxt">0</strong> / <span id="p19ProgTot">22</span> critérios</span></div>
+                <div class="p19-progress"><i id="p19ProgBar"></i></div>
+                <div class="p19-progress-lab" style="margin:8px 0 0;"><span>Nota parcial</span><span><strong id="p19ProgNota">0,0</strong> / 11,0</span></div>
+              </div>
+              <div class="p19-clockbtns">
+                <button class="tab active" id="p19Start">Iniciar</button>
+                <button class="tab" id="p19Pause">Pausar</button>
+                <button class="tab" id="p19Reset">Zerar</button>
+              </div>
+            </div>
+
+            <div class="def-grid reveal" style="margin-top:28px;">
+              <div class="def-card">
+                <span class="tag">Instruções originais</span>
+                <h3>O que estava escrito na capa</h3>
+                <p>Duração de 1h40. Consulta individual a material próprio permitida, sem troca de mensagens. Clareza e organização contam nota. <strong style="color:var(--ink)">Toda consideração sobre o enunciado e toda hipótese assumida devem ser anotadas na prova</strong> — é o item que mais salva resposta divergente do gabarito.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Como o gabarito foi escrito</span>
+                <h3>"Não é gabarito, é uma alternativa"</h3>
+                <p>A própria professora abre os comentários dizendo que a solução apresentada é uma alternativa possível, propositalmente mais completa do que se esperava na prova, para servir de material de estudo. Divergência justificada não é erro; divergência sem justificativa é.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ENUNCIADO ============ -->
+        <section class="section alt" id="p19-enunciado">
+          <div class="wrap">
+            <div class="eyebrow">Passo 1 · Análise do enunciado</div>
+            <h2 class="reveal">O enunciado, parágrafo por parágrafo</h2>
+            <p class="intro reveal">Nos comentários oficiais, o enunciado aparece com trechos marcados por cores: cada cor é o dado de um caso de uso. Aqui a marcação é interativa — clique em um parágrafo e veja o que ele entrega para o modelo: <span class="p19-chip ator">ator</span> <span class="p19-chip func">função</span> <span class="p19-chip dado">dado/classe</span> <span class="p19-chip reg">regra de negócio</span>.</p>
+
+            <div class="hotel-grid reveal" style="grid-template-columns:1.25fr 0.75fr;">
+              <div class="p19-txt" id="p19ParaList"></div>
+              <div class="p19-read" id="p19Read"></div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:28px;">
+              <div class="eyebrow">Leitura que derruba gente</div>
+              <p>Duas frases do enunciado parecem detalhe e são questão inteira: <strong style="color:var(--ink)">"o total de diárias é atualizado automaticamente pelo sistema diariamente às 12h"</strong> — ninguém pede, logo existe um ator <em style="font-style:normal;color:var(--ink)">Relógio</em>; e <strong style="color:var(--ink)">"esse cartão deve ser apresentado para que os funcionários registrem as despesas"</strong> — o cartão fornece dado, mas quem interage com o sistema é o funcionário, então cartão <em style="font-style:normal;color:var(--ink)">não</em> é ator.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 1 ============ -->
+        <section class="section" id="p19-q1">
+          <div class="wrap">
+            <div class="p19-qhead reveal"><span class="p19-qnum">Questão 1</span><span class="p19-pts">1 ponto</span></div>
+            <h2 class="reveal">Identificar os atores e suas responsabilidades</h2>
+            <p class="intro reveal">"Analisar o funcionamento do hotel, através do enunciado. Identificar os atores do Sistema de Gerência de Hotel, <strong style="color:var(--ink)">discriminando os tipos de funcionário</strong>, e descrever a sua responsabilidade. <strong style="color:var(--ink)">Não descrever a responsabilidade dos atores através dos seus casos de uso.</strong>"</p>
+
+            <div class="p19-try reveal">
+              <span class="p19-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="p19-ask">Liste os atores do sistema e descreva, em uma linha cada, a responsabilidade de cada um <em>em relação ao sistema</em>.</p>
+              <textarea placeholder="Ex.: Recepcionista — tipo de funcionário do hotel que..."></textarea>
+              <div class="p19-try-foot"><span>o texto fica só nesta aba, some ao recarregar</span><span>~10 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Treino · é ator do sistema?</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Clique em cada candidato do enunciado e decida. O critério é sempre o mesmo: <em style="font-style:normal;color:var(--ink)">esse elemento troca informação com o sistema?</em></p>
+
+            <div class="triage reveal">
+              <div class="triage-head">
+                <h4>Candidatos a ator extraídos do enunciado</h4>
+                <div class="triage-score" id="p19AtorScore">classificados: <strong>0</strong> / 12</div>
+              </div>
+              <div class="noun-cloud" id="p19AtorCloud"></div>
+              <div class="noun-detail" id="p19AtorDetail"></div>
+              <div class="triage-legend">
+                verde = é ator · vermelho riscado = não é ator<br>
+                clique em um candidato para ver a justificativa; clique de novo para desmarcar
+              </div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Os atores do Sistema de Gerência de Hotel, com a responsabilidade escrita em relação ao sistema</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">No mínimo: Cliente, Recepcionista, Funcionário, Gerente e Relógio — e opcionalmente Administrador de Sistema</div>
+                <table class="datatab" style="margin-top:14px;">
+                  <caption>Atores e responsabilidades — solução da professora</caption>
+                  <thead><tr><th style="width:210px;">Ator</th><th>Responsabilidade em relação ao sistema</th></tr></thead>
+                  <tbody>
+                    <tr><td>Cliente</td><td>Realiza seu cadastro no sistema.</td></tr>
+                    <tr><td>Recepcionista</td><td>Tipo de funcionário do hotel que atende o cliente na reserva do quarto, na chegada ao hotel e na saída do hotel.</td></tr>
+                    <tr><td>Funcionário</td><td>Tipo de funcionário que lança as despesas do quarto (restaurante, lavanderia, academia, camareira).</td></tr>
+                    <tr><td>Gerente</td><td>Tipo de funcionário do hotel que analisa os relatórios do movimento do hotel para avaliar o desempenho do negócio.</td></tr>
+                    <tr><td>Relógio</td><td>Dispositivo externo que informa o instante para a cobrança da diária do quarto.</td></tr>
+                    <tr><td class="less">Administrador de sistema <em style="font-style:normal;">(opcional)</em></td><td class="less">Tipo de funcionário que cadastra os funcionários do hotel e gerencia o sistema; tem acesso a todos os comandos.</td></tr>
+                  </tbody>
+                </table>
+                <p style="margin-top:14px;">Discriminar o tipo de funcionário não é preciosismo: <strong style="color:var(--ink)">cada tipo registra um tipo de despesa</strong>, e é isso que define permissões e casos de uso diferentes. No caso real, a lista de tipos vem do dono do sistema.</p>
+              </div>
+            </div>
+
+            <div class="def-grid reveal" style="margin-top:24px;">
+              <div class="def-card">
+                <span class="tag">Erro que custa ponto</span>
+                <h3>Descrever o ator pelos casos de uso dele</h3>
+                <p>"O recepcionista faz reserva, confirma reserva, registra chegada…" é lista de casos de uso, não responsabilidade — e a descrição fica incompleta por construção. Busque o <strong style="color:var(--ink)">perfil</strong> do ator: quem ele é em relação ao sistema.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Erro que custa ponto</span>
+                <h3>Descrever a responsabilidade no hotel</h3>
+                <p>A responsabilidade deve ser descrita <strong style="color:var(--ink)">em relação ao sistema</strong>, não em relação ao hotel. "A camareira limpa os quartos" é verdade no hotel e irrelevante para o modelo; "lança a despesa do frigobar" é o que interessa.</p>
+              </div>
+            </div>
+
+            <div class="p19-rub reveal" data-q="1" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 2 ============ -->
+        <section class="section alt" id="p19-q2">
+          <div class="wrap">
+            <div class="p19-qhead reveal"><span class="p19-qnum">Questão 2</span><span class="p19-pts">3 pontos</span></div>
+            <h2 class="reveal">Tabela 1 · de função para casos de uso e atores</h2>
+            <p class="intro reveal">Oito funções foram dadas de graça no enunciado: <em style="font-style:normal;color:var(--ink)">cadastrar cliente, reservar quarto, confirmar reserva, registrar chegada do cliente, registrar despesa, atualizar despesas de diária, registrar saída do cliente e registrar pagamento</em>. Para cada uma, o pedido é definir o caso de uso principal, os relacionados, marcar qual é o principal e dizer os atores. O exemplo dado na prova: reservar quarto (principal); relacionados: cancelar, alterar e consultar reserva.</p>
+
+            <div class="p19-try reveal">
+              <span class="p19-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="p19-ask">Escreva a sua Tabela 1: para cada uma das 8 funções, os casos de uso e os atores de cada um.</p>
+              <textarea placeholder="Cadastrar cliente → cadastrar cliente (P, Cliente) | alterar cliente (Cliente) | ..." style="min-height:150px;"></textarea>
+              <div class="p19-try-foot"><span>é a questão mais cara da prova</span><span>~30 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Treino · o pacote de cada função</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Escolha uma função e tente listar mentalmente os casos de uso relacionados antes de olhar o painel. A regra prática: todo registro que se cria também se altera, se exclui, se busca e se lista — e os relacionados manipulam <strong style="color:var(--ink)">o mesmo objeto</strong>.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="p19FuncList"></div>
+              <div class="hotel-detail" id="p19FuncDetail"></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:40px 0 10px;">Treino · quem é o ator deste caso de uso?</h3>
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="p19AtQCount">Caso de uso 1 de 10</div>
+              <div class="cls-stmt" id="p19AtQStmt">—</div>
+              <div class="cls-opts" id="p19AtQOpts">
+                <button class="tab" data-atq="CLI">Cliente</button>
+                <button class="tab" data-atq="REC">Recepcionista</button>
+                <button class="tab" data-atq="FUN">Funcionário</button>
+                <button class="tab" data-atq="REL">Relógio</button>
+                <button class="tab" data-atq="ADM">Administrador</button>
+                <button class="tab" data-atq="GER">Gerente</button>
+              </div>
+              <div class="cls-feedback" id="p19AtQFeed">Escolha uma opção para ver a justificativa.</div>
+              <div class="cls-score" id="p19AtQScore">Acertos: <strong>0</strong> / 0</div>
+              <div style="margin-top:14px;"><button class="tab" id="p19AtQReset">Reiniciar</button></div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Tabela 1 completa — 8 funções, 25 casos de uso</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">A solução da professora, função por função</div>
+                <div class="uctab-wrap" style="margin-top:14px;">
+                  <table class="uctab">
+                    <thead><tr><th style="width:210px;">Função</th><th style="width:240px;">Caso de uso</th><th style="width:60px;">Princ.</th><th>Atores</th></tr></thead>
+                    <tbody id="p19Tab1Body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl reveal" style="margin-top:32px;">
+              <div class="tl-item"><span class="yr">Relacionados são alternativas do mesmo objeto</span><p>Cadastrar cliente é o principal; alterar, excluir, buscar e listar cliente são os relacionados. Todos manipulam <em>Cliente</em>.</p></div>
+              <div class="tl-item"><span class="yr">Ação de ator não é caso de uso</span><p><em>Gerar relatório de quartos</em> é caso de uso — o sistema coleta os dados e monta o relatório. <em>Solicitar relatório</em> é ação do ator, e não entra na tabela.</p></div>
+              <div class="tl-item"><span class="yr">Nome começa com verbo (ou substantivo de ação)</span><p>Cadastrar ou cadastro — tanto faz, desde que a tabela inteira seja uniforme: ou tudo verbo, ou tudo substantivo.</p></div>
+              <div class="tl-item"><span class="yr">Gerenciar/manipular é atalho, não obrigação</span><p>Quando usado, representa pelo menos cadastrar, alterar, excluir e buscar. Se aparecer no diagrama, os casos de uso que o compõem precisam estar explicitados em algum lugar — tipicamente nesta tabela.</p></div>
+              <div class="tl-item"><span class="yr">Cadastrar, alterar, buscar, excluir e listar dispensam descrição resumida</span><p>São autoexplicativos. Gastar linha descrevendo isso não rende ponto.</p></div>
+              <div class="tl-item"><span class="yr">Atualizar despesas de diária tem ator Relógio</span><p>É o único caso de uso acionado automaticamente — às 12h, todo dia. Sem ator temporal, a função fica órfã no diagrama.</p></div>
+            </div>
+
+            <div class="p19-rub reveal" data-q="2" style="margin-top:32px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 3 ============ -->
+        <section class="section" id="p19-q3">
+          <div class="wrap">
+            <div class="p19-qhead reveal"><span class="p19-qnum">Questão 3</span><span class="p19-pts">2 pontos</span></div>
+            <h2 class="reveal">Diagrama de casos de uso com os casos principais</h2>
+            <p class="intro reveal">Só os <strong style="color:var(--ink)">principais</strong> — os oito marcados com X na Tabela 1. Inclusões e extensões não entram no diagrama; elas ficam na descrição detalhada. Os pacotes (cadastrar/alterar/excluir/buscar/listar) aparecem pelo nome do caso de uso mais relevante.</p>
+
+            <div class="p19-try reveal">
+              <span class="p19-try-lab">Sua resposta · desenhe no papel antes</span>
+              <p class="p19-ask">Desenhe o diagrama: retângulo do sistema, 8 casos de uso principais, 5 atores e as linhas de comunicação. Depois monte o diagrama abaixo passo a passo e compare.</p>
+              <div class="p19-try-foot"><span>vale 2 pontos — convenções de notação contam</span><span>~15 min na prova</span></div>
+            </div>
+
+            <div class="p19-stepctl reveal">
+              <button class="tab" id="p19DiagPrev">← Voltar</button>
+              <button class="tab active" id="p19DiagNext">Avançar →</button>
+              <button class="tab" id="p19DiagAll">Mostrar tudo</button>
+              <button class="tab" id="p19DiagClear">Limpar</button>
+            </div>
+
+            <div class="ucd-wrap reveal">
+              <div id="p19Diag"></div>
+              <div class="ucd-caption">Diagrama de Casos de Uso · Sistema de Gerência de Hotel — construído a partir dos casos de uso principais da Tabela 1. Inclusões e extensões ficam fora, por decisão de legibilidade.</div>
+            </div>
+            <div class="p19-stepout reveal" id="p19DiagOut">Clique em <strong>Avançar</strong> para montar o diagrama elemento por elemento.</div>
+
+            <div class="def-grid reveal" style="margin-top:28px;">
+              <div class="def-card">
+                <span class="tag">Convenção</span>
+                <h3>O que entra no diagrama</h3>
+                <p>Atores (boneco), casos de uso (elipse), comunicação (linha simples) e, opcionalmente, o retângulo do sistema. Nada mais. As convenções precisam ser respeitadas — é o item mais objetivo da correção.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Convenção</span>
+                <h3>O que fica de fora</h3>
+                <p>Inclusões e extensões não são apresentadas: esses dados ficam na descrição detalhada. E não se colocam todos os casos de uso identificados — usa-se o nome do mais relevante do pacote, ou <em style="font-style:normal;color:var(--ink)">manter/gerenciar elemento</em>, com o conteúdo do pacote explicitado em tabela.</p>
+              </div>
+            </div>
+
+            <div class="p19-rub reveal" data-q="3" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 4 ============ -->
+        <section class="section alt" id="p19-q4">
+          <div class="wrap">
+            <div class="p19-qhead reveal"><span class="p19-qnum">Questão 4</span><span class="p19-pts">3 pontos</span></div>
+            <h2 class="reveal">Detalhar o caso de uso Reservar quarto</h2>
+            <p class="intro reveal">Seguindo o padrão dos dois exemplos dados na prova (Cadastrar cliente e Registrar saída do cliente): nome, descrição, evento iniciador, ator, pré-condição, sequência de eventos numerada, pós-condição, extensões e inclusões — <strong style="color:var(--ink)">cada extensão e cada inclusão referenciando o passo em que ocorre</strong>.</p>
+
+            <div class="p19-try reveal">
+              <span class="p19-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="p19-ask">Escreva a ficha completa de <em>Reservar quarto</em>, campo a campo.</p>
+              <textarea placeholder="Nome: Reservar quarto&#10;Descrição: ...&#10;Evento iniciador: ...&#10;Ator: ...&#10;Pré-condição: ...&#10;Sequência de eventos:&#10;1. ..." style="min-height:190px;"></textarea>
+              <div class="p19-try-foot"><span>a segunda questão mais cara</span><span>~25 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Treino · monte a sequência de eventos</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Clique nos passos na ordem correta. Errou, o passo pisca e você tenta de novo — a ordem certa é a que vai do acionamento do ator até a pós-condição, sem pular a resposta do sistema.</p>
+
+            <div class="p19-seq reveal">
+              <div class="p19-pane">
+                <h4>Passos embaralhados</h4>
+                <div id="p19SeqPool"></div>
+              </div>
+              <div class="p19-pane">
+                <h4>Sua sequência</h4>
+                <div id="p19SeqTarget"><div class="p19-empty">nenhum passo escolhido ainda</div></div>
+                <div class="cls-feedback" id="p19SeqFeed" style="margin-top:14px;">Comece pelo passo que aciona o sistema.</div>
+                <div style="margin-top:12px;"><button class="tab" id="p19SeqReset">Embaralhar de novo</button></div>
+              </div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Ficha completa de <em>Reservar quarto</em> — uma solução possível</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="ficha" style="margin-top:14px;">
+                  <span class="ficha-id">Caso de uso principal</span>
+                  <h3 class="ficha-title">Reservar quarto</h3>
+                  <div class="ficha-rows">
+                    <div class="ficha-row"><div class="fr-k">Descrição</div><div class="fr-v">Descreve a reserva de um quarto.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Evento iniciador</div><div class="fr-v">Solicitação da reserva do quarto.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Ator</div><div class="fr-v">Recepcionista (faz a reserva), Cliente (recebe o boleto).</div></div>
+                    <div class="ficha-row"><div class="fr-k">Pré-condição</div><div class="fr-v">Recepcionista autenticado no sistema.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Sequência de eventos</div><div class="fr-v"><ol>
+                      <li>Recepcionista solicita reserva de quarto.</li>
+                      <li>Sistema apresenta o formulário para reserva (CPF do solicitante, tipo de quarto, período de estadia).</li>
+                      <li>Recepcionista preenche o formulário.</li>
+                      <li>Sistema verifica consistência dos dados.</li>
+                      <li>Sistema procura cliente com o CPF dado.</li>
+                      <li>Sistema procura quartos disponíveis com tipo e período solicitados e apresenta na tela.</li>
+                      <li>Recepcionista seleciona uma das opções.</li>
+                      <li>Sistema marca o quarto com reserva preliminar, monta o boleto e envia para o cliente.</li>
+                    </ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Pós-condição</div><div class="fr-v">Quarto com reserva preliminar e boleto enviado para o cliente.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Extensões</div><div class="fr-v"><ol>
+                      <li><span class="mark">passo 4</span> Dados do formulário com erros: sistema apresenta mensagens de erro e desvia a execução para o passo 3.</li>
+                      <li><span class="mark">passo 5</span> Cliente não cadastrado: sistema desvia para <em>Cadastrar cliente</em> e depois desvia a execução para o passo 6.</li>
+                      <li><span class="mark">passo 6</span> Não existem quartos disponíveis: sistema apresenta mensagem de erro e encerra o caso de uso.</li>
+                    </ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Inclusões</div><div class="fr-v"><ol>
+                      <li><span class="mark">passo 5</span> Buscar cliente</li>
+                      <li><span class="mark">passo 6</span> Procurar quartos disponíveis</li>
+                      <li><span class="mark">extensão 2a</span> Cadastrar cliente</li>
+                    </ol></div></div>
+                  </div>
+                </div>
+                <p style="margin-top:16px;">Repare onde o caso de uso <strong style="color:var(--ink)">termina</strong>: no envio do boleto. O pagamento chega por e-mail ou fax, fora do sistema, e vira o caso de uso <em>Confirmar reserva</em>, acionado pela recepcionista. Emendar os dois em uma ficha só é o erro mais comum desta questão.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:40px 0 10px;">Campo a campo · o que a professora cobra em cada um</h3>
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="p19FichaList"></div>
+              <div class="hotel-detail" id="p19FichaDetail"></div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">A armadilha da pré-condição</div>
+              <p><em style="font-style:normal;color:var(--ink)">Cliente cadastrado</em> <strong style="color:var(--ink)">não</strong> é pré-condição de Reservar quarto — o próprio caso de uso verifica se o cliente tem cadastro. Do mesmo jeito, <em style="font-style:normal;color:var(--ink)">cliente não cadastrado</em> não é pré-condição de Cadastrar cliente. Nunca coloque como pré-condição aquilo que o caso de uso vai verificar.</p>
+            </div>
+
+            <div class="p19-rub reveal" data-q="4" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 5 ============ -->
+        <section class="section" id="p19-q5">
+          <div class="wrap">
+            <div class="p19-qhead reveal"><span class="p19-qnum">Questão 5</span><span class="p19-pts">2 pontos</span></div>
+            <h2 class="reveal">Classes candidatas e classes finais</h2>
+            <p class="intro reveal">A partir de três casos de uso — <em>Reservar quarto</em> (o que você escreveu na Q4), <em>Registrar saída do cliente</em> e <em>Cadastrar cliente</em> — levantar as classes candidatas (Tabela 2), eliminar repetições, adequar o conjunto e descrever responsabilidades e atributos (Tabela 3). O enunciado ainda dá o formato do relatório de despesas e avisa: os dados do cliente vêm de <em>Cliente</em>, o total vem de <em>Despesa</em> e a descrição de um item vem de <em>TipoDespesa</em>.</p>
+
+            <div class="p19-try reveal">
+              <span class="p19-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="p19-ask">Liste as classes candidatas por caso de uso e depois o conjunto final, com responsabilidade e atributos principais.</p>
+              <textarea placeholder="Reservar quarto → ...&#10;Registrar saída → ...&#10;Cadastrar cliente → ...&#10;&#10;Finais: Reserva (responsabilidade..., atributos...)" style="min-height:150px;"></textarea>
+              <div class="p19-try-foot"><span>a responsabilidade é o que mais pesa aqui</span><span>~20 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Treino · esse substantivo vira classe?</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">As classes candidatas saem dos substantivos que aparecem nos casos de uso. Depois vem a poda: fora o que é atributo de outra classe, fora verbo disfarçado de substantivo, fora o próprio sistema.</p>
+
+            <div class="triage reveal">
+              <div class="triage-head">
+                <h4>Substantivos colhidos nos três casos de uso</h4>
+                <div class="triage-score" id="p19ClsScore">classificados: <strong>0</strong> / 14</div>
+              </div>
+              <div class="noun-cloud" id="p19ClsCloud"></div>
+              <div class="noun-detail" id="p19ClsDetail"></div>
+              <div class="triage-legend">
+                verde = vira classe · vermelho riscado = não vira<br>
+                as classes finais da solução aparecem em negrito na Tabela 3, logo abaixo
+              </div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado · Tabela 2</span>
+              <p class="q">Classes candidatas por caso de uso</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <table class="datatab" style="margin-top:14px;">
+                  <caption>Tabela 2 — casos de uso e classes candidatas</caption>
+                  <thead><tr><th style="width:250px;">Caso de uso</th><th>Classes candidatas</th></tr></thead>
+                  <tbody>
+                    <tr><td>Reservar quarto</td><td>Reserva, Quarto, Cliente, Boleto</td></tr>
+                    <tr><td>Registrar saída do cliente</td><td>Cliente, Despesa, Nota Fiscal</td></tr>
+                    <tr><td>Cadastrar cliente</td><td>Cliente</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Gabarito comentado · Tabela 3</span>
+              <p class="q">Classes finais, responsabilidades e atributos</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Em negrito, as classes consideradas essenciais para o Diagrama de Classes neste estágio</div>
+                <div class="uctab-wrap" style="margin-top:14px;">
+                  <table class="uctab">
+                    <thead><tr><th style="width:180px;">Classe</th><th style="width:270px;">Responsabilidade</th><th>Atributos</th></tr></thead>
+                    <tbody>
+                      <tr><td class="uc"><strong style="color:var(--ink)">Reserva</strong></td><td>Representa o conjunto de dados da ocupação do quarto</td><td class="fin">idReserva, (idQuarto), (idCliente), períodoReserva, estado (reserva preliminar, reserva definitiva)</td></tr>
+                      <tr><td class="uc"><strong style="color:var(--ink)">Quarto</strong></td><td>Representa os quartos do hotel</td><td class="fin">idQuarto, idTipoQuarto, estado (livre, não livre)</td></tr>
+                      <tr><td class="uc"><strong style="color:var(--ink)">Cliente</strong></td><td>Representa os clientes do hotel</td><td class="fin">idCliente, CPF, RG, telefone, endereço, dataNascimento</td></tr>
+                      <tr><td class="uc">Boleto</td><td>Classe de controle — gera boleto</td><td class="fin">—</td></tr>
+                      <tr><td class="uc"><strong style="color:var(--ink)">Despesa</strong></td><td>Representa as despesas totais de quartos</td><td class="fin">idDespesa, dataInicio, dataFim, valorTotal</td></tr>
+                      <tr><td class="uc">NotaFiscal</td><td>Classe de controle — gera nota fiscal</td><td class="fin">—</td></tr>
+                      <tr><td class="uc"><strong style="color:var(--ink)">ItemDespesa</strong></td><td>Representa cada item da despesa</td><td class="fin">(idDespesa), data, hora, idTipoDespesa, valorDespesa</td></tr>
+                      <tr><td class="uc"><strong style="color:var(--ink)">TipoDespesa</strong></td><td>Representa os tipos de despesa disponíveis no hotel</td><td class="fin">idTipoDespesa, descrição, valor</td></tr>
+                      <tr><td class="uc"><strong style="color:var(--ink)">TipoQuarto</strong></td><td>Representa os tipos do quarto</td><td class="fin">idTipoQuarto, descrição, valorDiaria</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p style="margin-top:14px;"><em style="font-style:normal;color:var(--ink)">ItemDespesa</em> aparece porque o relatório de despesas mostra linha a linha: cada consumo é um item, e <em>Despesa</em> guarda só o total. <em style="font-style:normal;color:var(--ink)">TipoDespesa</em> e <em style="font-style:normal;color:var(--ink)">TipoQuarto</em> concentram descrição e valor unitário — uma simplificação assumida na solução.</p>
+              </div>
+            </div>
+
+            <div class="compare reveal" style="margin-top:28px;">
+              <div class="compare-card a">
+                <h3>Cliente como ator</h3>
+                <p>Elemento externo que aciona o sistema — por exemplo, para fazer o próprio cadastro pelo site do hotel.</p>
+                <div class="verdict">aparece no diagrama de casos de uso</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Cliente como classe</h3>
+                <p>Elemento interno ao sistema que armazena os dados do cliente nos seus atributos: CPF, RG, telefone, endereço.</p>
+                <div class="verdict">aparece no diagrama de classes</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">São elementos distintos, com o mesmo nome. Usar um para justificar o outro é erro conceitual, não de escrita.</div>
+
+            <div class="p19-rub reveal" data-q="5" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ ARMADILHAS ============ -->
+        <section class="section alt" id="p19-erros">
+          <div class="wrap">
+            <div class="eyebrow">Comentários oficiais de 10/04/2019</div>
+            <h2 class="reveal">As armadilhas, reunidas</h2>
+            <p class="intro reveal">Tudo que a professora comentou depois da prova, agrupado por tema. Vale ler antes da próxima prova: a maior parte dos descontos vem daqui, não de desconhecer a matéria.</p>
+
+            <div class="docstruct reveal" style="grid-template-columns:1fr 1fr;">
+              <div class="doc-item">
+                <div class="di-n">ATOR</div>
+                <h4>Elemento externo que interage com o sistema</h4>
+                <ul>
+                  <li>Sistema não é ator.</li>
+                  <li>Quem não interage com o sistema não é ator — o cliente que pede a reserva pela recepcionista não é ator de <em>Reservar quarto</em>.</li>
+                  <li>Cartão do cliente não é ator: é forma alternativa ao teclado de fornecer a identificação.</li>
+                  <li>Responsabilidade descrita em relação ao sistema, nunca por lista de casos de uso.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">CASO DE USO</div>
+                <h4>Função do sistema, do ponto de vista de um ator</h4>
+                <ul>
+                  <li>Deve atingir o objetivo do ator e ter início, meio e fim.</li>
+                  <li>Deve fazer o que o nome promete: <em>reservar quarto</em> não cadastra cliente — cadastro vira inclusão.</li>
+                  <li>Nome com um verbo e um substantivo, curto e padronizado; o mesmo nome no diagrama e na ficha.</li>
+                  <li>Nome de função do sistema, não de ação do usuário: <em>gerar relatório</em>, não <em>solicitar relatório</em>.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">EVENTO INICIADOR</div>
+                <h4>O que aciona o sistema</h4>
+                <ul>
+                  <li>Sem acionamento, o sistema fica em repouso.</li>
+                  <li>Enviar comprovante por fax ou e-mail <em>não</em> aciona o sistema.</li>
+                  <li>Solicitação do cliente à recepcionista <em>não</em> aciona o sistema.</li>
+                  <li>Deve ser coerente com a pré-condição e com o primeiro passo da sequência.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">PRÉ E PÓS-CONDIÇÃO</div>
+                <h4>Estados, não frases</h4>
+                <ul>
+                  <li>Pré-condição: estado do sistema antes da execução. É uma condição com valor verdadeiro ou falso, não uma frase com sujeito e verbo.</li>
+                  <li>Não é pré-condição aquilo que o próprio caso de uso verifica.</li>
+                  <li>Pós-condição: estado depois da execução — <em>reserva preliminar efetuada e boleto emitido</em>.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">SEQUÊNCIA DE EVENTOS</div>
+                <h4>O caminho que dá certo</h4>
+                <ul>
+                  <li>Colocar a solicitação do ator como 1º passo evita erro de início.</li>
+                  <li>Descreve uma alternativa que dá certo; o resto vai para extensões.</li>
+                  <li>Não é só a interação do ator: precisa dizer o que o sistema faz em resposta.</li>
+                  <li>Passos numerados, porque extensões e inclusões referenciam esses números.</li>
+                  <li>Evento sem previsão de ocorrer no meio da sequência? Separe em outro caso de uso.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">CLASSES</div>
+                <h4>Substantivos, depois a poda</h4>
+                <ul>
+                  <li>Candidatas saem dos substantivos que aparecem nos casos de uso.</li>
+                  <li>Fora os repetidos; fora <em>Sistema</em>, que contém todas as classes.</li>
+                  <li>Substantivo que pode ser atributo de uma classe não é classe.</li>
+                  <li>Verbos — ações e atividades — não são classes.</li>
+                  <li>Descrever a responsabilidade de cada classe é o que mais vale nesta questão.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ NOTA ============ -->
+        <section class="section" id="p19-nota">
+          <div class="wrap">
+            <div class="eyebrow">Fechamento</div>
+            <h2 class="reveal">Sua nota estimada</h2>
+            <p class="intro reveal">Soma das rubricas que você marcou em cada questão. Serve para achar onde está o buraco, não para prever a nota real — clareza e organização também contavam pontos nesta prova.</p>
+
+            <div class="p19-final reveal">
+              <div class="p19-bignum" id="p19FinalNum">0,0<small> / 11,0</small></div>
+              <p id="p19FinalMsg">Marque os critérios nas rubricas de cada questão para montar o diagnóstico.</p>
+              <div class="p19-breakdown" id="p19Breakdown"></div>
+              <div style="margin-top:22px;"><button class="tab" id="p19RubReset">Limpar todas as rubricas</button></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="p19-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Fixação</div>
+            <h2 class="reveal">Certo ou errado</h2>
+            <p class="intro reveal">Doze afirmações tiradas dos comentários da prova. Responda antes de ler a justificativa.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="p19QzCount">Afirmação 1 de 12</div>
+              <div class="cls-stmt" id="p19QzStmt">—</div>
+              <div class="cls-opts" id="p19QzOpts">
+                <button class="tab" data-qz="C">Certo</button>
+                <button class="tab" data-qz="E">Errado</button>
+              </div>
+              <div class="cls-feedback" id="p19QzFeed">Escolha uma opção para ver a justificativa.</div>
+              <div class="cls-score" id="p19QzScore">Acertos: <strong>0</strong> / 0</div>
+              <div style="margin-top:14px;"><button class="tab" id="p19QzReset">Reiniciar</button></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:40px 0 16px;">Perguntas abertas</h3>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Por que o ator Relógio precisa existir neste modelo?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Porque há uma função que ninguém pede</div>
+                <p>O enunciado diz que o total de diárias é atualizado automaticamente pelo sistema todo dia às 12h. Nenhuma pessoa aciona essa função. Sem um ator temporal, <em>Atualizar despesas de diária</em> ficaria sem ator no diagrama — o Relógio é o dispositivo externo que informa o instante da cobrança da diária.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">Por que <em>Reservar quarto</em> termina no envio do boleto, e não na confirmação do pagamento?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">O pagamento não tem previsão de ocorrer dentro da sequência</div>
+                <p>O comprovante chega por e-mail ou fax, em outro momento, e não aciona o sistema. Quando a sequência de eventos inclui um evento sem previsão de ocorrer, a regra é separar em mais de um caso de uso — daí <em>Confirmar reserva</em>, acionado pela recepcionista.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Em <em>Reservar quarto</em>, "cliente não cadastrado" é extensão ou inclusão?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">É extensão — que por sua vez chama uma inclusão</div>
+                <p>A situação é condicional (só ocorre se o CPF não for encontrado no passo 5), então é extensão. Dentro dela, o sistema desvia para <em>Cadastrar cliente</em>, que é listado nas inclusões referenciando o passo a da extensão 2. Extensão é alternativa ou exceção; inclusão é caso de uso chamado num passo.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Por que <em>ItemDespesa</em> aparece na Tabela 3 se ela não estava entre as candidatas da Tabela 2?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Veio da análise do relatório de despesas</div>
+                <p>O enunciado mostra o relatório com uma linha por consumo: data/hora, descrição e valor de cada item. <em>Despesa</em> guarda o total; alguém precisa guardar cada linha. A Tabela 3 não é cópia da Tabela 2 — é o resultado de <strong style="color:var(--ink)">analisar</strong> o conjunto candidato, eliminando repetidas e adequando o que faltava.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">O que são <em>Boleto</em> e <em>NotaFiscal</em> na solução, e por que não têm atributos?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">São classes de controle</div>
+                <p>Existem para gerar, respectivamente, o boleto e a nota fiscal. Classe de controle coordena a execução de um caso de uso e não guarda dado persistente — por isso a coluna de atributos fica vazia. Os dados que elas usam vêm de <em>Cliente</em>, <em>Reserva</em> e <em>Despesa</em>.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 6</span>
+              <p class="q">A prova valia 11 pontos. O que isso muda na estratégia?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Dá para perder 1 ponto inteiro e ainda tirar 10</div>
+                <p>Q2 (3 pt) e Q4 (3 pt) concentram 6 dos 11 pontos e são as mais demoradas. Com 1h40 no relógio, faz sentido garantir as duas antes de caprichar no diagrama. E como clareza e organização contam, uma tabela legível vale mais do que uma lista exaustiva ilegível.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              PCS 3213 — Engenharia de Software I · EPUSP — Dep. de Engenharia de Computação e Sistemas Digitais<br>
+              [1] 1ª Prova — Sistema de Gerência de Hotel, Profa. Selma S. S. Melnikoff, 28/03/2019<br>
+              [2] Comentários da 1ª Prova — versão de 10/04/2019, Profa. Selma S. S. Melnikoff<br>
+              [3] Módulos 03, 04 e 06 deste guia — casos de uso, construção do modelo e modelo de classes
+            </div>
+            <div class="credit">P1 · Módulo 10 · Prova 2019 · Hotel ABC — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: PROVA P1 2019 ================= -->
+
+
 
     </div>
   </div>
@@ -6552,7 +7312,8 @@
     {id:'modelo-classes', group:'P1', title:'Modelo de Classes'},
     {id:'classificacao-classes', group:'P1', title:'Classificação de Classes'},
     {id:'construcao-modelo-classes', group:'P1', title:'Construção do Modelo de Classes'},
-    {id:'modelo-interacao', group:'P1', title:'Modelo de Interação · Diagrama de Sequência'}
+    {id:'modelo-interacao', group:'P1', title:'Modelo de Interação · Diagrama de Sequência'},
+    {id:'prova-2019', group:'P1', title:'Prova P1 2019 · Sistema de Gerência de Hotel'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -9022,6 +9783,595 @@
     miTrRender();
   }
 
+
+  /* ============================================================
+     MÓDULO 10 — PROVA P1 2019 · SISTEMA DE GERÊNCIA DE HOTEL
+     ============================================================ */
+
+  /* ---------- 10.1 cronômetro do modo prova ---------- */
+  var p19Clock = document.getElementById('p19Clock');
+  if(p19Clock){
+    var p19ClockSub = document.getElementById('p19ClockSub');
+    var P19_TOTAL = 100 * 60;
+    var p19Left = P19_TOTAL, p19Timer = null;
+    var p19Fmt = function(s){
+      var neg = s < 0; if(neg) s = -s;
+      var h = Math.floor(s/3600), m = Math.floor((s%3600)/60), x = s%60;
+      return (neg?'-':'') + h + ':' + String(m).padStart(2,'0') + ':' + String(x).padStart(2,'0');
+    };
+    var p19Paint = function(){
+      p19Clock.textContent = p19Fmt(p19Left);
+      p19Clock.classList.toggle('warn', p19Left <= 15*60 && p19Left > 0);
+      p19Clock.classList.toggle('over', p19Left <= 0);
+    };
+    var p19Tick = function(){
+      p19Left--;
+      p19Paint();
+      if(p19Left === 0){ p19ClockSub.textContent = 'tempo esgotado — na prova real, acabou'; }
+    };
+    document.getElementById('p19Start').addEventListener('click', function(){
+      if(p19Timer) return;
+      p19Timer = setInterval(p19Tick, 1000);
+      p19ClockSub.textContent = 'correndo · 1h40 como na prova';
+    });
+    document.getElementById('p19Pause').addEventListener('click', function(){
+      if(!p19Timer) return;
+      clearInterval(p19Timer); p19Timer = null;
+      p19ClockSub.textContent = 'pausado em ' + p19Fmt(p19Left);
+    });
+    document.getElementById('p19Reset').addEventListener('click', function(){
+      if(p19Timer){ clearInterval(p19Timer); p19Timer = null; }
+      p19Left = P19_TOTAL; p19Paint();
+      p19ClockSub.textContent = 'cronômetro parado';
+    });
+    p19Paint();
+  }
+
+  /* ---------- 10.2 enunciado interativo ---------- */
+  var P19_PARAS = [
+    { n:'§ 1 · RESERVA',
+      t:'Para se hospedar no hotel ABC, o cliente deve solicitar uma reserva, fornecendo um tipo de quarto (simples, duplo, especial, etc.) e o período desejado. Com esses dados, o recepcionista faz a reserva preliminar, quando existe quarto disponível, e dispara a cobrança de taxa de reserva para o cliente, em forma de boleto (simplificação).',
+      chips:[['ator','Recepcionista'],['func','Reservar quarto'],['dado','Reserva, Quarto, TipoQuarto, Boleto']],
+      r:['Quem opera o sistema é o <strong>recepcionista</strong> — o cliente pede a reserva a ele, fora do sistema.',
+         'A reserva nasce <strong>preliminar</strong>: o estado da reserva é atributo, não classe nova.',
+         '"Tipo de quarto (simples, duplo, especial)" é o que justifica a classe <strong>TipoQuarto</strong>, com descrição e valor da diária.'] },
+    { n:'§ 2 · CONFIRMAÇÃO',
+      t:'Quando o recepcionista recebe a confirmação do pagamento da taxa (por email ou fax), confirma a reserva. Quando não existe quarto disponível, o recepcionista avisa o cliente de que não é possível fazer a reserva (simplificação).',
+      chips:[['func','Confirmar reserva'],['reg','e-mail/fax não acionam o sistema']],
+      r:['O comprovante chega <strong>por fora</strong> do sistema. Isso não é evento iniciador.',
+         'Como o pagamento não tem previsão de ocorrer dentro da sequência de <em>Reservar quarto</em>, vira <strong>caso de uso separado</strong>.',
+         '"Avisar que não é possível" é extensão de <em>Reservar quarto</em>: não existem quartos disponíveis.'] },
+    { n:'§ 3 · CADASTRO',
+      t:'Para reservar um quarto, o cliente deve ter cadastro no hotel; o cadastro pode ser feito a qualquer hora, independentemente da reserva de quarto, no site do hotel. O cliente pode alterar, ou consultar seu cadastro.',
+      chips:[['ator','Cliente'],['func','Cadastrar / alterar / consultar cliente'],['dado','Cliente']],
+      r:['Aqui, sim, o <strong>cliente</strong> interage com o sistema — pelo site. É o que o torna ator.',
+         '"A qualquer hora, independentemente da reserva" é a dica de que <em>Cadastrar cliente</em> é caso de uso <strong>independente</strong>.',
+         'Alterar e consultar são os casos de uso <strong>relacionados</strong> do pacote de cadastro.'] },
+    { n:'§ 4 · DIÁRIA',
+      t:'A diária do hotel é cobrada pelo período de 24 horas, contado a partir das 12h de um determinado dia. Se um cliente reservou o quarto em um dado dia, ele pode ocupar o quarto a partir de 12h desse dia e sair até 12h do último dia da reserva. A atualização da despesa com as diárias é feita após cada período de 24 horas.',
+      chips:[['reg','regra de negócio'],['dado','Despesa, TipoQuarto']],
+      r:['Regra de negócio pura: nenhuma função nova, mas define <strong>quando</strong> a despesa de diária é atualizada.',
+         'O valor da diária fica em <strong>TipoQuarto</strong>, junto com a descrição do tipo.'] },
+    { n:'§ 5 · CHEGADA E CARTÃO',
+      t:'Quando o cliente chega ao hotel, o recepcionista registra a sua chegada e entrega o cartão de identificação, que funciona como chave do quarto; esse cartão deve ser apresentado para que os funcionários do hotel possam registrar as suas despesas. Ao deixar o hotel, o cliente deve devolver o cartão na recepção.',
+      chips:[['ator','Recepcionista'],['func','Registrar chegada'],['reg','cartão não é ator']],
+      r:['<strong>Cartão não é ator.</strong> Ele fornece dados ao sistema quando usado pelo recepcionista ou pelo funcionário.',
+         'É uma forma alternativa ao teclado de identificar o cliente — como um leitor de código de barras.',
+         'Devolver o cartão na recepção é procedimento do hotel, não função do sistema.'] },
+    { n:'§ 6 · DESPESAS',
+      t:'Durante a estadia, as despesas são registradas na conta do quarto ocupado, por funcionários responsáveis pelos respectivos setores (restaurante, lavanderia, academia, serviço do frigobar, etc.). A despesa do frigobar é lançada pela camareira que confere o consumo dos produtos diariamente. O total de diárias de cada cliente é atualizado automaticamente pelo sistema diariamente às 12h.',
+      chips:[['ator','Funcionário, Relógio'],['func','Registrar despesa, Atualizar despesas de diária'],['dado','Despesa, ItemDespesa, TipoDespesa']],
+      r:['É o parágrafo que obriga a <strong>discriminar os tipos de funcionário</strong>: cada setor lança um tipo de despesa.',
+         '"Automaticamente às 12h" = função sem gente pedindo → ator <strong>Relógio</strong>.',
+         'Cada lançamento é um <strong>ItemDespesa</strong>; o acumulado é <strong>Despesa</strong>.'] },
+    { n:'§ 7 · SAÍDA',
+      t:'Quando o cliente comunica a saída do hotel, o recepcionista consulta as despesas do quarto, através do cartão do cliente, e apresenta para o cliente. Uma vez pagas as despesas, o recepcionista registra o pagamento e emite a nota fiscal.',
+      chips:[['ator','Recepcionista'],['func','Registrar saída, Registrar pagamento'],['dado','NotaFiscal']],
+      r:['Dois casos de uso, não um: <em>Registrar saída do cliente</em> e <em>Registrar pagamento</em> estão listados separadamente na questão 2.',
+         '<strong>NotaFiscal</strong> vira classe de controle — gera a nota, não guarda dado próprio.'] },
+    { n:'§ 8 · GERÊNCIA',
+      t:'Deseja-se desenvolver o Sistema de Gerência de Hotel que forneça suporte ao funcionamento descrito. O gerente do hotel avalia a evolução do negócio, através de relatórios de ocupação de quartos, cancelamento de reservas e pagamentos realizados.',
+      chips:[['ator','Gerente'],['func','Gerar relatórios']],
+      r:['O <strong>gerente</strong> é ator, ainda que nenhuma das 8 funções dadas na questão 2 seja dele.',
+         'Gerar relatório é caso de uso (o sistema coleta e monta); <em>solicitar</em> relatório é ação do ator, e não é caso de uso.'] }
+  ];
+  (function(){
+    var list = document.getElementById('p19ParaList'), read = document.getElementById('p19Read');
+    if(!list || !read) return;
+    function render(i){
+      var p = P19_PARAS[i];
+      read.innerHTML =
+        '<div class="p19-chips">' + p.chips.map(function(c){ return '<span class="p19-chip ' + c[0] + '">' + c[1] + '</span>'; }).join('') + '</div>' +
+        '<h4>O que este parágrafo entrega</h4>' +
+        '<ul>' + p.r.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>';
+      list.querySelectorAll('.p19-p').forEach(function(b){ b.classList.toggle('on', +b.dataset.pi === i); });
+    }
+    list.innerHTML = P19_PARAS.map(function(p, i){
+      return '<button class="p19-p" data-pi="' + i + '"><span class="p19-pn">' + p.n + '</span>' + p.t + '</button>';
+    }).join('');
+    list.querySelectorAll('.p19-p').forEach(function(b){
+      b.addEventListener('click', function(){ render(+b.dataset.pi); });
+    });
+    render(0);
+  })();
+
+  /* ---------- 10.3 triagem de atores ---------- */
+  var P19_ATORES = [
+    {n:'Cliente', ok:true,  w:'Interage com o sistema pelo site do hotel para fazer, alterar e consultar o próprio cadastro. Responsabilidade: realiza seu cadastro no sistema.'},
+    {n:'Recepcionista', ok:true, w:'Tipo de funcionário que atende o cliente na reserva do quarto, na chegada e na saída do hotel. É o ator de mais casos de uso da prova.'},
+    {n:'Camareira', ok:true, w:'Tipo de funcionário: confere o consumo do frigobar diariamente e lança a despesa. Entra como um dos tipos de Funcionário.'},
+    {n:'Funcionário do restaurante', ok:true, w:'Mesma situação da camareira: lança as despesas do seu setor. O enunciado pede explicitamente para discriminar os tipos de funcionário, porque cada tipo registra um tipo de despesa.'},
+    {n:'Gerente', ok:true, w:'Tipo de funcionário que analisa os relatórios do movimento do hotel para avaliar o desempenho do negócio.'},
+    {n:'Relógio', ok:true, w:'Dispositivo externo que informa o instante da cobrança da diária. Sem ele, o caso de uso Atualizar despesas de diária fica sem ator — ninguém o aciona.'},
+    {n:'Administrador de sistema', ok:true, w:'Aparece na solução como ator opcional: cadastra os funcionários do hotel, gerencia o sistema e tem acesso a todos os comandos. Não estava explícito no enunciado — se incluir, anote a hipótese.'},
+    {n:'Cartão de identificação', ok:false, w:'Não é ator. Fornece dados ao sistema quando é usado pelo recepcionista ou pelo funcionário: é forma alternativa ao teclado de informar a identificação do cliente.'},
+    {n:'Sistema de Gerência de Hotel', ok:false, w:'O sistema não é ator de si mesmo. Ator é elemento externo que interage com o sistema.'},
+    {n:'Boleto', ok:false, w:'É uma saída do sistema, e vira classe de controle na questão 5. Não troca informação com o sistema por vontade própria.'},
+    {n:'Quarto', ok:false, w:'Recurso do hotel gerenciado pelo sistema. Vira classe, com idQuarto, tipo e estado (livre / não livre).'},
+    {n:'Nota fiscal', ok:false, w:'Documento emitido pelo sistema — classe de controle NotaFiscal na questão 5, nunca ator.'}
+  ];
+  (function(){
+    var cloud = document.getElementById('p19AtorCloud'), det = document.getElementById('p19AtorDetail'), sc = document.getElementById('p19AtorScore');
+    if(!cloud || !det) return;
+    var seen = {};
+    det.innerHTML = '<p style="margin:0;color:var(--ink-faint);font-size:14.5px;">Clique em um candidato para ver se ele é ator e por quê.</p>';
+    cloud.innerHTML = P19_ATORES.map(function(a, i){ return '<button class="noun" data-ai="' + i + '">' + a.n + '</button>'; }).join('');
+    cloud.querySelectorAll('.noun').forEach(function(b){
+      b.addEventListener('click', function(){
+        var a = P19_ATORES[+b.dataset.ai];
+        cloud.querySelectorAll('.noun').forEach(function(o){ o.classList.remove('sel'); });
+        b.classList.add(a.ok ? 'keep' : 'drop');
+        b.classList.add('sel');
+        seen[b.dataset.ai] = 1;
+        sc.innerHTML = 'classificados: <strong>' + Object.keys(seen).length + '</strong> / ' + P19_ATORES.length;
+        det.innerHTML =
+          '<div style="font-family:var(--mono);font-size:12px;color:' + (a.ok ? 'var(--cyan)' : 'var(--rose)') + ';text-transform:uppercase;letter-spacing:.06em;">' +
+          (a.ok ? '✓ é ator' : '✗ não é ator') + '</div>' +
+          '<h4 style="font-family:var(--display);font-size:16px;margin:8px 0 8px;color:var(--ink);">' + a.n + '</h4>' +
+          '<p style="margin:0;color:var(--ink-soft);font-size:14.6px;line-height:1.6;">' + a.w + '</p>';
+      });
+    });
+  })();
+
+  /* ---------- 10.4 Tabela 1 · funções, casos de uso e atores ---------- */
+  var P19_FUNC = [
+    {f:'Cadastrar cliente', cus:[['Cadastrar cliente',1,'Cliente'],['Alterar cliente',0,'Cliente'],['Excluir cliente',0,'Administrador'],['Buscar cliente',0,'Cliente, Recepcionista'],['Listar cliente',0,'Recepcionista']],
+     nota:'Cinco casos de uso num pacote só. Excluir vai para o Administrador: apagar cadastro não é operação de balcão.'},
+    {f:'Reservar quarto', cus:[['Reservar quarto',1,'Recepcionista'],['Alterar reserva',0,'Recepcionista'],['Cancelar reserva',0,'Recepcionista'],['Buscar reserva',0,'Recepcionista']],
+     nota:'O exemplo já vinha dado no enunciado da questão. Note que o ator é o recepcionista, não o cliente — quem opera o sistema é ele.'},
+    {f:'Confirmar reserva', cus:[['Confirmar reserva',1,'Recepcionista'],['Cancelar confirmação da reserva',0,'Recepcionista']],
+     nota:'Pacote curto: só faz sentido confirmar e desfazer a confirmação. É o caso de uso que existe porque o pagamento da taxa chega fora do sistema.'},
+    {f:'Registrar chegada do cliente', cus:[['Registrar chegada',1,'Recepcionista'],['Cancelar chegada',0,'Recepcionista']],
+     nota:'Cancelar chegada cobre o engano de registro. Não aparece "alterar chegada": o que muda de fato é a reserva.'},
+    {f:'Registrar despesa', cus:[['Registrar despesa',1,'Funcionário'],['Alterar despesa',0,'Funcionário'],['Excluir despesa',0,'Funcionário'],['Listar despesas',0,'Funcionário']],
+     nota:'Ator genérico Funcionário — cada tipo (restaurante, lavanderia, academia, camareira) lança o seu tipo de despesa.'},
+    {f:'Atualizar despesas de diária', cus:[['Atualizar despesas de diária',1,'Relógio']],
+     nota:'Função única, sem relacionados, e o único caso de uso com ator não humano. Roda todo dia às 12h.'},
+    {f:'Registrar saída do cliente', cus:[['Registrar saída',1,'Recepcionista'],['Cancelar saída',0,'Recepcionista']],
+     nota:'A ficha desse caso de uso veio pronta na prova, como modelo de padrão para você seguir na questão 4.'},
+    {f:'Registrar pagamento', cus:[['Registrar pagamento',1,'Recepcionista'],['Alterar pagamento',0,'Recepcionista'],['Cancelar pagamento',0,'Recepcionista'],['Buscar pagamento',0,'Recepcionista'],['Listar pagamento',0,'Recepcionista']],
+     nota:'O pacote completo de cinco. Pagamento é registro financeiro: buscar e listar existem para conferência.'}
+  ];
+  (function(){
+    var body = document.getElementById('p19Tab1Body');
+    if(body){
+      body.innerHTML = P19_FUNC.map(function(f){
+        return f.cus.map(function(c, i){
+          return '<tr>' +
+            '<td>' + (i === 0 ? '<strong style="color:var(--ink)">' + f.f + '</strong>' : '') + '</td>' +
+            '<td class="uc">' + c[0] + '</td>' +
+            '<td style="text-align:center;color:' + (c[1] ? 'var(--cyan)' : 'var(--ink-faint)') + ';">' + (c[1] ? 'X' : '') + '</td>' +
+            '<td class="cand">' + c[2] + '</td></tr>';
+        }).join('');
+      }).join('');
+    }
+    var list = document.getElementById('p19FuncList'), det = document.getElementById('p19FuncDetail');
+    if(!list || !det) return;
+    function render(i){
+      var f = P19_FUNC[i];
+      det.innerHTML =
+        '<span class="hd-tag">Casos de uso do pacote</span><h3>' + f.f + '</h3>' +
+        '<ul>' + f.cus.map(function(c){
+          return '<li>' + (c[1] ? '<strong style="color:var(--ink)">' + c[0] + '</strong> <span style="font-family:var(--mono);font-size:10.5px;color:var(--cyan);">principal</span>' : c[0]) +
+                 ' <span style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);">· ' + c[2] + '</span></li>';
+        }).join('') + '</ul>' +
+        '<div class="hd-note">' + f.nota + '</div>';
+      list.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', +b.dataset.fi === i); });
+    }
+    list.innerHTML = P19_FUNC.map(function(f, i){
+      return '<button class="hotel-item" data-fi="' + i + '"><span class="hi-n">' + String(i+1).padStart(2,'0') + '</span>' + f.f + '</button>';
+    }).join('');
+    list.querySelectorAll('.hotel-item').forEach(function(b){ b.addEventListener('click', function(){ render(+b.dataset.fi); }); });
+    render(0);
+  })();
+
+  /* ---------- 10.5 treino · quem é o ator? ---------- */
+  var P19_ATQ = [
+    {cu:'Cadastrar cliente', a:'CLI', w:'O cadastro é feito pelo próprio cliente, no site do hotel, a qualquer hora e independentemente da reserva.'},
+    {cu:'Excluir cliente', a:'ADM', w:'Na solução da professora, excluir cadastro é operação do Administrador — não é atendimento de balcão.'},
+    {cu:'Reservar quarto', a:'REC', w:'O cliente pede a reserva à recepcionista; quem opera o sistema é ela. O cliente só aparece como quem recebe o boleto.'},
+    {cu:'Confirmar reserva', a:'REC', w:'O comprovante chega por e-mail ou fax e a recepcionista registra no sistema. O e-mail não aciona o sistema.'},
+    {cu:'Atualizar despesas de diária', a:'REL', w:'Único caso de uso disparado automaticamente, todo dia às 12h. Sem o ator Relógio, ficaria órfão.'},
+    {cu:'Registrar despesa do frigobar', a:'FUN', w:'Lançada pela camareira, que é um tipo de Funcionário. Cada setor lança o seu tipo de despesa.'},
+    {cu:'Registrar chegada', a:'REC', w:'É o recepcionista quem registra a chegada e entrega o cartão de identificação.'},
+    {cu:'Listar cliente', a:'REC', w:'Na Tabela 1 da solução, listar cliente é do recepcionista — é ele quem precisa varrer a base durante o atendimento.'},
+    {cu:'Registrar pagamento', a:'REC', w:'Pagas as despesas, o recepcionista registra o pagamento e o sistema emite a nota fiscal.'},
+    {cu:'Gerar relatório de ocupação de quartos', a:'GER', w:'O gerente avalia a evolução do negócio por relatórios de ocupação, cancelamento e pagamentos. Atenção: gerar relatório é caso de uso; solicitar relatório é ação do ator.'}
+  ];
+  var P19_ATQ_NOMES = {CLI:'Cliente', REC:'Recepcionista', FUN:'Funcionário', REL:'Relógio', ADM:'Administrador', GER:'Gerente'};
+  (function(){
+    var stmt = document.getElementById('p19AtQStmt'), opts = document.getElementById('p19AtQOpts');
+    if(!stmt || !opts) return;
+    var feed = document.getElementById('p19AtQFeed'), count = document.getElementById('p19AtQCount'),
+        score = document.getElementById('p19AtQScore'), reset = document.getElementById('p19AtQReset');
+    var st = {i:0, hits:0, answered:0, locked:false};
+    function render(){
+      stmt.textContent = P19_ATQ[st.i].cu;
+      count.textContent = 'Caso de uso ' + (st.i+1) + ' de ' + P19_ATQ.length;
+      opts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      feed.textContent = 'Escolha uma opção para ver a justificativa.';
+      score.innerHTML = 'Acertos: <strong>' + st.hits + '</strong> / ' + st.answered;
+      st.locked = false;
+    }
+    function answer(choice, btn){
+      if(st.locked) return;
+      st.locked = true; st.answered++;
+      var it = P19_ATQ[st.i], ok = choice === it.a;
+      if(ok) st.hits++;
+      opts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.atq === it.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      feed.innerHTML = (ok ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + P19_ATQ_NOMES[it.a] + '</span>') + '<br>' + it.w;
+      score.innerHTML = 'Acertos: <strong>' + st.hits + '</strong> / ' + st.answered;
+      setTimeout(function(){
+        if(st.i < P19_ATQ.length - 1){ st.i++; render(); }
+        else {
+          count.textContent = 'Fim · ' + P19_ATQ.length + ' casos de uso';
+          stmt.textContent = 'Você acertou ' + st.hits + ' de ' + P19_ATQ.length + '.';
+          feed.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 2600);
+    }
+    opts.querySelectorAll('.tab').forEach(function(b){ b.addEventListener('click', function(){ answer(b.dataset.atq, b); }); });
+    if(reset) reset.addEventListener('click', function(){ st.i = 0; st.hits = 0; st.answered = 0; render(); });
+    render();
+  })();
+
+  /* ---------- 10.6 diagrama de casos de uso ---------- */
+  (function(){
+    var host = document.getElementById('p19Diag');
+    if(!host) return;
+    var out = document.getElementById('p19DiagOut');
+    function E(cx, cy, lines, cls){ return ucCase(cx, cy, 105, 30, lines, cls); }
+    var body =
+      '<g class="ucd-step" data-s="0">' + ucBox(180, 40, 600, 560, 'Sistema de Gerência de Hotel') + '</g>' +
+      '<g class="ucd-step" data-s="1">' +
+        ucActor(70, 140, 'Cliente') + ucActor(70, 360, 'Recepcionista') +
+        ucActor(890, 190, 'Funcionário') + ucActor(890, 330, 'Relógio') + ucActor(890, 470, 'Gerente') +
+      '</g>' +
+      '<g class="ucd-step" data-s="2">' + E(330, 110, ['Cadastrar cliente']) + ucConn(92, 132, 223, 112, {}) + '</g>' +
+      '<g class="ucd-step" data-s="3">' + E(330, 195, ['Reservar quarto']) + E(330, 280, ['Confirmar reserva']) +
+        ucConn(92, 348, 223, 200, {}) + ucConn(92, 352, 223, 282, {}) + '</g>' +
+      '<g class="ucd-step" data-s="4">' + E(330, 365, ['Registrar chegada']) + E(330, 450, ['Registrar saída']) + E(330, 535, ['Registrar pagamento']) +
+        ucConn(92, 360, 223, 364, {}) + ucConn(92, 368, 223, 446, {}) + ucConn(92, 374, 223, 528, {}) + '</g>' +
+      '<g class="ucd-step" data-s="5">' + E(640, 190, ['Registrar despesa']) + ucConn(868, 190, 747, 190, {}) + '</g>' +
+      '<g class="ucd-step" data-s="6">' + E(640, 330, ['Atualizar despesas', 'de diária']) + ucConn(868, 330, 747, 330, {}) + '</g>' +
+      '<g class="ucd-step" data-s="7">' + E(640, 470, ['Gerar relatórios'], 'amber') + ucConn(868, 470, 747, 470, {}) + '</g>';
+    host.innerHTML = ucSVG(960, 620, body);
+    var steps = host.querySelectorAll('.ucd-step');
+    var READ = [
+      'Passo 0 · <strong>fronteira do sistema</strong> — o retângulo é opcional, mas deixa explícito o que é responsabilidade do sistema.',
+      'Passo 1 · <strong>atores</strong> — Cliente e Recepcionista à esquerda; Funcionário, Relógio e Gerente à direita. São eles que definem o contorno.',
+      'Passo 2 · <strong>Cadastrar cliente</strong> — o caso de uso do cliente, feito no site do hotel.',
+      'Passo 3 · <strong>Reservar quarto</strong> e <strong>Confirmar reserva</strong> — dois casos de uso separados, porque o pagamento da taxa chega fora do sistema.',
+      'Passo 4 · <strong>chegada, saída e pagamento</strong> — o trio de balcão do recepcionista.',
+      'Passo 5 · <strong>Registrar despesa</strong> — ator Funcionário, genérico: cada setor lança o seu tipo.',
+      'Passo 6 · <strong>Atualizar despesas de diária</strong> — ator Relógio. É o caso de uso que ninguém pede.',
+      'Passo 7 · <strong>Gerar relatórios</strong> — em âmbar porque não estava entre as 8 funções da questão 2, mas o Gerente é ator e o enunciado pede relatórios. Se incluir, anote a hipótese.'
+    ];
+    var idx = -1;
+    function paint(){
+      steps.forEach(function(g, i){ g.classList.toggle('on', i <= idx); });
+      out.innerHTML = idx < 0 ? 'Clique em <strong>Avançar</strong> para montar o diagrama elemento por elemento.' : READ[idx];
+    }
+    document.getElementById('p19DiagNext').addEventListener('click', function(){ if(idx < steps.length - 1){ idx++; paint(); } });
+    document.getElementById('p19DiagPrev').addEventListener('click', function(){ if(idx >= 0){ idx--; paint(); } });
+    document.getElementById('p19DiagAll').addEventListener('click', function(){ idx = steps.length - 1; paint(); });
+    document.getElementById('p19DiagClear').addEventListener('click', function(){ idx = -1; paint(); });
+    paint();
+  })();
+
+  /* ---------- 10.7 ordenar a sequência de eventos ---------- */
+  var P19_SEQ = [
+    'Recepcionista solicita reserva de quarto.',
+    'Sistema apresenta o formulário para reserva (CPF, tipo de quarto, período de estadia).',
+    'Recepcionista preenche o formulário.',
+    'Sistema verifica consistência dos dados.',
+    'Sistema procura cliente com o CPF dado.',
+    'Sistema procura quartos disponíveis com tipo e período solicitados e apresenta na tela.',
+    'Recepcionista seleciona uma das opções.',
+    'Sistema marca o quarto com reserva preliminar, monta o boleto e envia para o cliente.'
+  ];
+  (function(){
+    var pool = document.getElementById('p19SeqPool'), target = document.getElementById('p19SeqTarget');
+    if(!pool || !target) return;
+    var feed = document.getElementById('p19SeqFeed'), reset = document.getElementById('p19SeqReset');
+    var next = 0;
+    function shuffle(a){ a = a.slice(); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random()*(i+1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function build(){
+      next = 0;
+      target.innerHTML = '<div class="p19-empty">nenhum passo escolhido ainda</div>';
+      feed.textContent = 'Comece pelo passo que aciona o sistema.';
+      var order = shuffle(P19_SEQ.map(function(t, i){ return i; }));
+      pool.innerHTML = order.map(function(i){
+        return '<button class="p19-card" data-si="' + i + '"><span class="p19-cn">?</span><span>' + P19_SEQ[i] + '</span></button>';
+      }).join('');
+      pool.querySelectorAll('.p19-card').forEach(function(b){
+        b.addEventListener('click', function(){
+          var i = +b.dataset.si;
+          if(i === next){
+            b.remove();
+            if(next === 0) target.innerHTML = '';
+            var el = document.createElement('div');
+            el.className = 'p19-card right';
+            el.innerHTML = '<span class="p19-cn">' + (next+1) + '</span><span>' + P19_SEQ[i] + '</span>';
+            target.appendChild(el);
+            next++;
+            if(next === P19_SEQ.length){
+              feed.innerHTML = '<span class="ok">✓ sequência completa</span><br>Pós-condição: quarto com reserva preliminar e boleto enviado para o cliente. Repare que o caso de uso termina aqui — o pagamento é outro caso de uso.';
+            } else {
+              feed.innerHTML = '<span class="ok">✓ passo ' + next + ' correto</span><br>Faltam ' + (P19_SEQ.length - next) + ' passos.';
+            }
+          } else {
+            b.classList.add('wrong');
+            setTimeout(function(){ b.classList.remove('wrong'); }, 400);
+            feed.innerHTML = '<span class="warn">✗ ainda não</span><br>' +
+              (next === 0 ? 'O primeiro passo é a solicitação do comando pelo ator — colocar isso no passo 1 evita erros no início do caso de uso.'
+                          : 'Lembre: a cada ação do ator segue a resposta do sistema. O passo ' + (next+1) + ' vem logo depois de "' + P19_SEQ[next-1] + '"');
+          }
+        });
+      });
+    }
+    if(reset) reset.addEventListener('click', build);
+    build();
+  })();
+
+  /* ---------- 10.8 campos da ficha ---------- */
+  var P19_FICHA = [
+    {k:'Nome', v:['Um verbo e um substantivo, curto e padronizado.','O nome no diagrama de casos de uso tem que ser o mesmo da descrição detalhada.','Uniformize a prova inteira: ou tudo verbo (cadastrar cliente), ou tudo substantivo (cadastro de cliente).'], n:'Reservar quarto'},
+    {k:'Descrição', v:['Uma frase dizendo o que o caso de uso faz.','Não repete a sequência de eventos.'], n:'Descreve a reserva de um quarto.'},
+    {k:'Evento iniciador', v:['É o evento que aciona o sistema e desencadeia a execução da função.','Sem acionamento, o sistema fica em repouso.','Solicitação do cliente à recepcionista não aciona o sistema; comprovante por e-mail ou fax também não.','Tem que ser coerente com a pré-condição e com o primeiro passo da sequência.'], n:'Solicitação da reserva do quarto.'},
+    {k:'Ator', v:['Elemento externo que interage com o sistema — o sistema não é ator.','Pode haver mais de um: quem aciona e quem recebe algo.','Quem não interage não entra, mesmo que apareça na história.'], n:'Recepcionista (faz a reserva), Cliente (recebe o boleto).'},
+    {k:'Pré-condição', v:['Estado do sistema antes da execução: uma condição verdadeira ou falsa, não uma frase com sujeito e verbo.','Não coloque como pré-condição aquilo que o próprio caso de uso verifica.','"Cliente cadastrado" não é pré-condição de Reservar quarto.'], n:'Recepcionista autenticado no sistema.'},
+    {k:'Sequência de eventos', v:['Descreve tudo que dá certo, para uma alternativa.','Não é só a interação do ator: precisa dizer o que o sistema faz em resposta.','Passos numerados, porque extensões e inclusões referenciam esses números.','Coloque a solicitação do ator como passo 1.'], n:'8 passos, do pedido da reserva ao envio do boleto.'},
+    {k:'Pós-condição', v:['Estado do sistema depois da execução.','Também é condição, não frase com sujeito e verbo.'], n:'Quarto com reserva preliminar e boleto enviado para o cliente.'},
+    {k:'Extensões', v:['Alternativas e exceções que podem ocorrer na sequência.','Cada uma referencia o passo em que ocorre.','Descreva os passos decorrentes e diga para onde a execução é desviada no final.'], n:'3 extensões: dados com erro (4), cliente não cadastrado (5), sem quartos disponíveis (6).'},
+    {k:'Inclusões', v:['Casos de uso chamados em passos da sequência — sempre executam.','Cada uma referencia o passo em que ocorre.','Nem sempre aparecem no início da modelagem; podem ser inseridas quando o modelo amadurece.'], n:'Buscar cliente (5), Procurar quartos disponíveis (6), Cadastrar cliente (extensão 2a).'}
+  ];
+  (function(){
+    var list = document.getElementById('p19FichaList'), det = document.getElementById('p19FichaDetail');
+    if(!list || !det) return;
+    function render(i){
+      var f = P19_FICHA[i];
+      det.innerHTML = '<span class="hd-tag">Campo da ficha</span><h3>' + f.k + '</h3>' +
+        '<ul>' + f.v.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>' +
+        '<div class="hd-note">Em Reservar quarto · ' + f.n + '</div>';
+      list.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', +b.dataset.ki === i); });
+    }
+    list.innerHTML = P19_FICHA.map(function(f, i){
+      return '<button class="hotel-item" data-ki="' + i + '"><span class="hi-n">' + String(i+1).padStart(2,'0') + '</span>' + f.k + '</button>';
+    }).join('');
+    list.querySelectorAll('.hotel-item').forEach(function(b){ b.addEventListener('click', function(){ render(+b.dataset.ki); }); });
+    render(0);
+  })();
+
+  /* ---------- 10.9 triagem de classes ---------- */
+  var P19_CLS = [
+    {n:'Reserva', ok:true, w:'Representa o conjunto de dados da ocupação do quarto: idReserva, quarto, cliente, período e estado (preliminar ou definitiva).'},
+    {n:'Quarto', ok:true, w:'Representa os quartos do hotel: idQuarto, idTipoQuarto e estado (livre / não livre).'},
+    {n:'Cliente', ok:true, w:'Representa os clientes do hotel: idCliente, CPF, RG, telefone, endereço, dataNascimento. É classe aqui e ator no diagrama de casos de uso — elementos distintos com o mesmo nome.'},
+    {n:'Boleto', ok:true, w:'Entra como classe de controle: gera o boleto. Por isso não tem atributos próprios na Tabela 3.'},
+    {n:'Despesa', ok:true, w:'Representa as despesas totais do quarto: idDespesa, dataInicio, dataFim, valorTotal. O relatório tira o total daqui.'},
+    {n:'Nota fiscal', ok:true, w:'Classe de controle NotaFiscal: gera a nota fiscal ao final da estadia.'},
+    {n:'ItemDespesa', ok:true, w:'Não aparece entre as candidatas, mas o relatório de despesas mostra uma linha por consumo — alguém precisa guardar data, hora, tipo e valor de cada item.'},
+    {n:'TipoDespesa', ok:true, w:'O enunciado diz explicitamente que a descrição de um item é obtida da classe TipoDespesa. Guarda descrição e valor unitário.'},
+    {n:'TipoQuarto', ok:true, w:'Concentra a descrição do tipo (simples, duplo, especial) e o valorDiaria. Simplificação assumida na solução.'},
+    {n:'Sistema', ok:false, w:'Não é classe: o sistema contém todas as classes.'},
+    {n:'Formulário', ok:false, w:'Elemento de interface que aparece na sequência de eventos. Não é classe do modelo de análise.'},
+    {n:'CPF', ok:false, w:'É atributo de Cliente. Substantivo que pode ser atributo de uma classe não vira classe.'},
+    {n:'Período de estadia', ok:false, w:'Atributo de Reserva (períodoReserva), não classe.'},
+    {n:'Recepcionista', ok:false, w:'Neste estágio é ator, não classe. Viraria classe só se o sistema precisasse guardar dados de funcionários — o que a solução não modelou.'}
+  ];
+  (function(){
+    var cloud = document.getElementById('p19ClsCloud'), det = document.getElementById('p19ClsDetail'), sc = document.getElementById('p19ClsScore');
+    if(!cloud || !det) return;
+    var seen = {};
+    det.innerHTML = '<p style="margin:0;color:var(--ink-faint);font-size:14.5px;">Clique em um substantivo para ver se ele vira classe e por quê.</p>';
+    cloud.innerHTML = P19_CLS.map(function(c, i){ return '<button class="noun" data-ci="' + i + '">' + c.n + '</button>'; }).join('');
+    cloud.querySelectorAll('.noun').forEach(function(b){
+      b.addEventListener('click', function(){
+        var c = P19_CLS[+b.dataset.ci];
+        cloud.querySelectorAll('.noun').forEach(function(o){ o.classList.remove('sel'); });
+        b.classList.add(c.ok ? 'keep' : 'drop');
+        b.classList.add('sel');
+        seen[b.dataset.ci] = 1;
+        sc.innerHTML = 'classificados: <strong>' + Object.keys(seen).length + '</strong> / ' + P19_CLS.length;
+        det.innerHTML =
+          '<div style="font-family:var(--mono);font-size:12px;color:' + (c.ok ? 'var(--cyan)' : 'var(--rose)') + ';text-transform:uppercase;letter-spacing:.06em;">' +
+          (c.ok ? '✓ vira classe' : '✗ não vira classe') + '</div>' +
+          '<h4 style="font-family:var(--display);font-size:16px;margin:8px 0 8px;color:var(--ink);">' + c.n + '</h4>' +
+          '<p style="margin:0;color:var(--ink-soft);font-size:14.6px;line-height:1.6;">' + c.w + '</p>';
+      });
+    });
+  })();
+
+  /* ---------- 10.10 rubricas de autocorreção ---------- */
+  var P19_RUB = {
+    '1': {pts:1, crit:[
+      {t:'Listei pelo menos Cliente, Recepcionista, Funcionário, Gerente e Relógio.', w:0.4},
+      {t:'Discriminei os tipos de funcionário (restaurante, lavanderia, academia, camareira).', w:0.3},
+      {t:'Descrevi a responsabilidade em relação ao sistema — sem listar casos de uso.', w:0.3}
+    ]},
+    '2': {pts:3, crit:[
+      {t:'Cobri as 8 funções dadas no enunciado.', w:0.8},
+      {t:'Para cada função, defini o caso de uso principal e o marquei.', w:0.7},
+      {t:'Listei os relacionados (alterar, excluir, buscar, listar) manipulando o mesmo objeto.', w:0.6},
+      {t:'Associei atores coerentes a cada caso de uso.', w:0.5},
+      {t:'Usei Relógio como ator de Atualizar despesas de diária.', w:0.4}
+    ]},
+    '3': {pts:2, crit:[
+      {t:'Desenhei só os casos de uso principais, com nomes iguais aos da Tabela 1.', w:0.6},
+      {t:'Respeitei as convenções: boneco para ator, elipse para caso de uso, linha simples para comunicação.', w:0.6},
+      {t:'Não coloquei inclusões nem extensões no diagrama.', w:0.4},
+      {t:'Liguei todos os atores — inclusive o Relógio — aos seus casos de uso.', w:0.4}
+    ]},
+    '4': {pts:3, crit:[
+      {t:'Preenchi todos os campos do padrão (nome, descrição, evento iniciador, ator, pré, sequência, pós, extensões, inclusões).', w:0.6},
+      {t:'Evento iniciador é o que aciona o sistema, coerente com o passo 1.', w:0.5},
+      {t:'Pré-condição é estado (recepcionista autenticado), e não algo que o caso de uso verifica.', w:0.5},
+      {t:'A sequência alterna ação do ator e resposta do sistema, numerada, e termina no envio do boleto.', w:0.6},
+      {t:'Extensões referenciam o passo em que ocorrem e dizem para onde a execução desvia.', w:0.4},
+      {t:'Inclusões referenciam o passo (buscar cliente, procurar quartos disponíveis, cadastrar cliente).', w:0.4}
+    ]},
+    '5': {pts:2, crit:[
+      {t:'Levantei as candidatas por caso de uso (Tabela 2), a partir dos substantivos.', w:0.6},
+      {t:'Eliminei repetidas e descartei Sistema, atributos e verbos.', w:0.6},
+      {t:'Descrevi a responsabilidade de cada classe final.', w:0.5},
+      {t:'Identifiquei os atributos principais, incluindo os identificadores.', w:0.3}
+    ]}
+  };
+  (function(){
+    var boxes = document.querySelectorAll('.p19-rub[data-q]');
+    if(!boxes.length) return;
+    var state = {}, totalCrit = 0;
+    Object.keys(P19_RUB).forEach(function(q){ totalCrit += P19_RUB[q].crit.length; state[q] = {}; });
+    var progTxt = document.getElementById('p19ProgTxt'), progTot = document.getElementById('p19ProgTot'),
+        progBar = document.getElementById('p19ProgBar'), progNota = document.getElementById('p19ProgNota'),
+        finalNum = document.getElementById('p19FinalNum'), finalMsg = document.getElementById('p19FinalMsg'),
+        breakdown = document.getElementById('p19Breakdown');
+    if(progTot) progTot.textContent = totalCrit;
+    function fmt(v){ return v.toFixed(1).replace('.', ','); }
+    function qScore(q){ var s = 0; P19_RUB[q].crit.forEach(function(c, i){ if(state[q][i]) s += c.w; }); return s; }
+    function update(){
+      var marked = 0, nota = 0;
+      Object.keys(P19_RUB).forEach(function(q){
+        marked += Object.keys(state[q]).filter(function(k){ return state[q][k]; }).length;
+        nota += qScore(q);
+      });
+      if(progTxt) progTxt.textContent = marked;
+      if(progBar) progBar.style.width = (marked / totalCrit * 100) + '%';
+      if(progNota) progNota.textContent = fmt(nota);
+      if(finalNum) finalNum.innerHTML = fmt(nota) + '<small> / 11,0</small>';
+      if(breakdown){
+        breakdown.innerHTML = Object.keys(P19_RUB).map(function(q){
+          var s = qScore(q), full = Math.abs(s - P19_RUB[q].pts) < 0.001;
+          return '<div class="p19-bd' + (full ? ' full' : (s === 0 ? ' zero' : '')) + '">' +
+            '<div class="bdq">Questão ' + q + '</div><div class="bdv">' + fmt(s) +
+            '<span style="font-size:12px;color:var(--ink-faint);"> / ' + fmt(P19_RUB[q].pts) + '</span></div></div>';
+        }).join('');
+      }
+      if(finalMsg){
+        if(marked === 0){ finalMsg.textContent = 'Marque os critérios nas rubricas de cada questão para montar o diagnóstico.'; }
+        else {
+          var pior = null;
+          Object.keys(P19_RUB).forEach(function(q){
+            var frac = qScore(q) / P19_RUB[q].pts;
+            if(pior === null || frac < pior.f) pior = {q:q, f:frac};
+          });
+          finalMsg.innerHTML = nota >= 9.5
+            ? 'Prova praticamente fechada. Revise só as armadilhas de escrita — clareza e organização também valiam nota.'
+            : 'Seu ponto mais fraco está na <strong style="color:var(--ink)">questão ' + pior.q + '</strong>. Volte para ela, releia os comentários e refaça a resposta antes de passar para outra prova.';
+        }
+      }
+    }
+    boxes.forEach(function(box){
+      var q = box.dataset.q, r = P19_RUB[q];
+      box.innerHTML =
+        '<div class="p19-rub-head"><h4>Autocorreção da questão ' + q + '</h4>' +
+        '<div class="p19-rub-sc" id="p19RubSc' + q + '">nota: <strong>0,0</strong> / ' + fmt(r.pts) + '</div></div>' +
+        r.crit.map(function(c, i){
+          return '<button class="p19-crit" data-q="' + q + '" data-i="' + i + '"><span class="p19-box">✓</span><span>' + c.t + '</span><span class="p19-w">' + fmt(c.w) + ' pt</span></button>';
+        }).join('');
+      box.querySelectorAll('.p19-crit').forEach(function(b){
+        b.addEventListener('click', function(){
+          var i = +b.dataset.i;
+          state[q][i] = !state[q][i];
+          b.classList.toggle('on', !!state[q][i]);
+          var sc = document.getElementById('p19RubSc' + q);
+          if(sc) sc.innerHTML = 'nota: <strong>' + fmt(qScore(q)) + '</strong> / ' + fmt(r.pts);
+          update();
+        });
+      });
+    });
+    var rubReset = document.getElementById('p19RubReset');
+    if(rubReset){
+      rubReset.addEventListener('click', function(){
+        Object.keys(state).forEach(function(q){ state[q] = {}; });
+        document.querySelectorAll('.p19-crit').forEach(function(b){ b.classList.remove('on'); });
+        Object.keys(P19_RUB).forEach(function(q){
+          var sc = document.getElementById('p19RubSc' + q);
+          if(sc) sc.innerHTML = 'nota: <strong>0,0</strong> / ' + fmt(P19_RUB[q].pts);
+        });
+        update();
+      });
+    }
+    update();
+  })();
+
+  /* ---------- 10.11 quiz certo ou errado ---------- */
+  var P19_QZ = [
+    {t:'O cartão de identificação do cliente é ator do Sistema de Gerência de Hotel.', a:'E', w:'Não é. O cartão fornece dados ao sistema quando usado pelo recepcionista ou por um funcionário — é alternativa ao teclado para identificar o cliente.'},
+    {t:'"Cliente cadastrado" é pré-condição do caso de uso Reservar quarto.', a:'E', w:'Não é: o próprio caso de uso verifica se o cliente tem cadastro e desvia para Cadastrar cliente se não tiver. Nunca coloque como pré-condição o que o caso de uso vai verificar.'},
+    {t:'O caso de uso Atualizar despesas de diária tem o Relógio como ator.', a:'C', w:'Correto. O total de diárias é atualizado automaticamente às 12h; sem ator temporal, o caso de uso ficaria sem quem o acione.'},
+    {t:'Solicitar relatório é um caso de uso do Gerente.', a:'E', w:'Solicitar é ação do ator. O caso de uso é gerar relatório — o sistema coleta os dados pertinentes e monta o relatório solicitado.'},
+    {t:'Inclusões e extensões devem aparecer no diagrama de casos de uso da questão 3.', a:'E', w:'Não aparecem. Esses dados ficam explicitados na descrição detalhada dos casos de uso; o diagrama traz só os principais, para continuar compreensível.'},
+    {t:'Reservar quarto pode terminar com o registro do pagamento da taxa de reserva.', a:'E', w:'Não. O comprovante chega por e-mail ou fax e não aciona o sistema. Quando a sequência inclui evento sem previsão de ocorrer, separa-se em outro caso de uso: Confirmar reserva.'},
+    {t:'Cliente pode ser ator e classe ao mesmo tempo, e são elementos distintos.', a:'C', w:'Correto. Ator quando é elemento externo que aciona o sistema; classe quando é elemento interno que armazena os dados do cliente nos seus atributos.'},
+    {t:'O nome do caso de uso no diagrama pode ser diferente do nome na descrição detalhada, desde que o sentido seja o mesmo.', a:'E', w:'Não pode. O nome dos casos de uso no diagrama deve ser o mesmo da descrição detalhada.'},
+    {t:'Boleto e NotaFiscal entram na Tabela 3 como classes de controle, sem atributos.', a:'C', w:'Correto. Elas existem para gerar, respectivamente, o boleto e a nota fiscal — coordenam, não guardam dado próprio.'},
+    {t:'Substantivos que podem ser atributos de uma classe também podem ser classes.', a:'E', w:'Não. Na poda das candidatas, descarta-se o que é atributo de outra classe (CPF, período de estadia), os verbos e o próprio Sistema.'},
+    {t:'Os casos de uso relacionados a um principal, em geral, manipulam o mesmo objeto.', a:'C', w:'Correto: alterar, excluir, buscar e listar cliente manipulam Cliente. É a regra prática para montar cada pacote da Tabela 1.'},
+    {t:'É obrigatório usar o caso de uso gerenciar/manipular no diagrama de casos de uso.', a:'E', w:'Não é obrigatório — pode-se usar o nome do caso de uso principal do pacote. Mas se gerenciar/manipular for usado, os casos de uso que o compõem devem estar explicitados, por exemplo em uma tabela.'}
+  ];
+  (function(){
+    var stmt = document.getElementById('p19QzStmt'), opts = document.getElementById('p19QzOpts');
+    if(!stmt || !opts) return;
+    var feed = document.getElementById('p19QzFeed'), count = document.getElementById('p19QzCount'),
+        score = document.getElementById('p19QzScore'), reset = document.getElementById('p19QzReset');
+    var st = {i:0, hits:0, answered:0, locked:false};
+    function render(){
+      stmt.textContent = P19_QZ[st.i].t;
+      count.textContent = 'Afirmação ' + (st.i+1) + ' de ' + P19_QZ.length;
+      opts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      feed.textContent = 'Escolha uma opção para ver a justificativa.';
+      score.innerHTML = 'Acertos: <strong>' + st.hits + '</strong> / ' + st.answered;
+      st.locked = false;
+    }
+    function answer(choice, btn){
+      if(st.locked) return;
+      st.locked = true; st.answered++;
+      var it = P19_QZ[st.i], ok = choice === it.a;
+      if(ok) st.hits++;
+      opts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.qz === it.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      feed.innerHTML = (ok ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + (it.a === 'C' ? 'certo' : 'errado') + '</span>') + '<br>' + it.w;
+      score.innerHTML = 'Acertos: <strong>' + st.hits + '</strong> / ' + st.answered;
+      setTimeout(function(){
+        if(st.i < P19_QZ.length - 1){ st.i++; render(); }
+        else {
+          count.textContent = 'Fim · ' + P19_QZ.length + ' afirmações';
+          stmt.textContent = 'Você acertou ' + st.hits + ' de ' + P19_QZ.length + '.';
+          feed.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 3000);
+    }
+    opts.querySelectorAll('.tab').forEach(function(b){ b.addEventListener('click', function(){ answer(b.dataset.qz, b); }); });
+    if(reset) reset.addEventListener('click', function(){ st.i = 0; st.hits = 0; st.answered = 0; render(); });
+    render();
+  })();
 
 })();
 </script>

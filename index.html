@@ -944,110 +944,125 @@
   .flowctl-info .fc-op strong{ color:var(--ink); }
 
 
-  /* ---------- PROVA P1 2019 · HOTEL ABC ---------- */
-  .p19-exambar{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px;
+  /* ---------- MÓDULOS DE PROVA (2019 · p19- / 2025 · pv-) ---------- */
+  .p19-exambar, .pv-exambar{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px;
     box-shadow:var(--shadow); display:grid; grid-template-columns:auto 1fr auto; gap:20px; align-items:center; }
-  @media (max-width:760px){ .p19-exambar{ grid-template-columns:1fr; text-align:left; } }
-  .p19-clock{ font-family:var(--mono); font-size:34px; font-weight:700; color:var(--cyan); letter-spacing:.02em; line-height:1; }
-  .p19-clock.warn{ color:var(--amber); }
-  .p19-clock.over{ color:var(--rose); }
-  .p19-clock-sub{ font-family:var(--mono); font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.07em; margin-top:6px; }
-  .p19-clockbtns{ display:flex; gap:8px; flex-wrap:wrap; }
-  .p19-progress{ height:8px; border-radius:99px; background:var(--surface-2); overflow:hidden; border:1px solid var(--line); }
-  .p19-progress > i{ display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--indigo),var(--cyan)); transition:width .4s ease; }
-  .p19-progress-lab{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); margin-bottom:7px; }
-  .p19-progress-lab strong{ color:var(--ink); }
+  @media (max-width:760px){ .p19-exambar, .pv-exambar{ grid-template-columns:1fr; text-align:left; } }
+  .p19-clock, .pv-clock{ font-family:var(--mono); font-size:34px; font-weight:700; color:var(--cyan); letter-spacing:.02em; line-height:1; }
+  .p19-clock.warn, .pv-clock.warn{ color:var(--amber); }
+  .p19-clock.over, .pv-clock.over{ color:var(--rose); }
+  .p19-clock-sub, .pv-clock-sub{ font-family:var(--mono); font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.07em; margin-top:6px; }
+  .p19-clockbtns, .pv-clockbtns{ display:flex; gap:8px; flex-wrap:wrap; }
+  .p19-progress, .pv-progress{ height:8px; border-radius:99px; background:var(--surface-2); overflow:hidden; border:1px solid var(--line); }
+  .p19-progress > i, .pv-progress > i{ display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--indigo),var(--cyan)); transition:width .4s ease; }
+  .p19-progress-lab, .pv-progress-lab{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); margin-bottom:7px; }
+  .p19-progress-lab strong, .pv-progress-lab strong{ color:var(--ink); }
 
-  .p19-qhead{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
-  .p19-qnum{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--bg);
+  .p19-qhead, .pv-qhead{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
+  .p19-qnum, .pv-qnum{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--bg);
     background:var(--indigo); border-radius:99px; padding:5px 11px; font-weight:700; }
-  .p19-pts{ font-family:var(--mono); font-size:11.5px; color:var(--amber); border:1px solid rgba(240,169,60,.4);
+  .p19-pts, .pv-pts{ font-family:var(--mono); font-size:11.5px; color:var(--amber); border:1px solid rgba(240,169,60,.4);
     background:var(--amber-soft); border-radius:99px; padding:4px 10px; }
 
   /* enunciado interativo */
-  .p19-txt{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 26px; box-shadow:var(--shadow); }
-  .p19-p{ display:block; width:100%; text-align:left; cursor:pointer; font-family:var(--body); font-size:15.2px; line-height:1.72;
+  .p19-txt, .pv-txt{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:24px 26px; box-shadow:var(--shadow); }
+  .p19-p, .pv-p{ display:block; width:100%; text-align:left; cursor:pointer; font-family:var(--body); font-size:15.2px; line-height:1.72;
     color:var(--ink-soft); background:transparent; border:1px solid transparent; border-left:3px solid var(--line);
     border-radius:0 10px 10px 0; padding:11px 14px; margin-bottom:6px; transition:all .18s; }
-  .p19-p:hover{ background:var(--bg-1); color:var(--ink); }
-  .p19-p.on{ background:var(--indigo-soft); border-color:rgba(124,140,255,.4); border-left-color:var(--indigo); color:var(--ink); }
-  .p19-p .p19-pn{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); display:block; margin-bottom:3px; letter-spacing:.06em; }
-  .p19-read{ margin-top:16px; background:var(--bg-1); border:1px solid var(--line); border-radius:11px; padding:18px 20px; min-height:120px; }
-  .p19-read h4{ font-family:var(--display); font-size:15.5px; margin:0 0 10px; color:var(--ink); }
-  .p19-read ul{ margin:0; padding-left:18px; color:var(--ink-soft); font-size:14.6px; line-height:1.6; }
-  .p19-read li{ margin-bottom:6px; }
-  .p19-chips{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
-  .p19-chip{ font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; padding:4px 9px; border-radius:99px; border:1px solid var(--line); }
-  .p19-chip.ator{ color:var(--indigo); border-color:rgba(124,140,255,.45); background:var(--indigo-soft); }
-  .p19-chip.func{ color:var(--cyan); border-color:rgba(57,214,190,.45); background:var(--cyan-soft); }
-  .p19-chip.dado{ color:var(--amber); border-color:rgba(240,169,60,.45); background:var(--amber-soft); }
-  .p19-chip.reg{ color:var(--rose); border-color:rgba(241,89,111,.42); background:var(--rose-soft); }
+  .p19-p:hover, .pv-p:hover{ background:var(--bg-1); color:var(--ink); }
+  .p19-p.on, .pv-p.on{ background:var(--indigo-soft); border-color:rgba(124,140,255,.4); border-left-color:var(--indigo); color:var(--ink); }
+  .p19-p .p19-pn, .pv-p .pv-pn{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); display:block; margin-bottom:3px; letter-spacing:.06em; }
+  .p19-read, .pv-read{ margin-top:16px; background:var(--bg-1); border:1px solid var(--line); border-radius:11px; padding:18px 20px; min-height:120px; }
+  .p19-read h4, .pv-read h4{ font-family:var(--display); font-size:15.5px; margin:0 0 10px; color:var(--ink); }
+  .p19-read ul, .pv-read ul{ margin:0; padding-left:18px; color:var(--ink-soft); font-size:14.6px; line-height:1.6; }
+  .p19-read li, .pv-read li{ margin-bottom:6px; }
+  .p19-chips, .pv-chips{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+  .p19-chip, .pv-chip{ font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; padding:4px 9px; border-radius:99px; border:1px solid var(--line); }
+  .p19-chip.ator, .pv-chip.ator{ color:var(--indigo); border-color:rgba(124,140,255,.45); background:var(--indigo-soft); }
+  .p19-chip.func, .pv-chip.func{ color:var(--cyan); border-color:rgba(57,214,190,.45); background:var(--cyan-soft); }
+  .p19-chip.dado, .pv-chip.dado{ color:var(--amber); border-color:rgba(240,169,60,.45); background:var(--amber-soft); }
+  .p19-chip.reg, .pv-chip.reg{ color:var(--rose); border-color:rgba(241,89,111,.42); background:var(--rose-soft); }
 
   /* caixa de tentativa própria */
-  .p19-try{ background:var(--bg-1); border:1px dashed var(--line); border-radius:12px; padding:18px 20px; margin:18px 0; }
-  .p19-try .p19-try-lab{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--amber); }
-  .p19-try p.p19-ask{ margin:8px 0 12px; color:var(--ink); font-size:15.4px; }
-  .p19-try textarea{ width:100%; min-height:110px; resize:vertical; background:var(--surface); color:var(--ink);
+  .p19-try, .pv-try{ background:var(--bg-1); border:1px dashed var(--line); border-radius:12px; padding:18px 20px; margin:18px 0; }
+  .p19-try .p19-try-lab, .pv-try .pv-try-lab{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--amber); }
+  .p19-try p.p19-ask, .pv-try p.pv-ask{ margin:8px 0 12px; color:var(--ink); font-size:15.4px; }
+  .p19-try textarea, .pv-try textarea{ width:100%; min-height:110px; resize:vertical; background:var(--surface); color:var(--ink);
     border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:var(--body); font-size:14.6px; line-height:1.6; }
-  .p19-try textarea:focus{ outline:2px solid var(--indigo); outline-offset:1px; }
-  .p19-try .p19-try-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:10px;
+  .p19-try textarea:focus, .pv-try textarea:focus{ outline:2px solid var(--indigo); outline-offset:1px; }
+  .p19-try .p19-try-foot, .pv-try .pv-try-foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-top:10px;
     font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); }
 
   /* rubrica de autocorreção */
-  .p19-rub{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; box-shadow:var(--shadow); }
-  .p19-rub-head{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:14px; }
-  .p19-rub-head h4{ font-family:var(--display); font-size:16px; margin:0; color:var(--ink); }
-  .p19-rub-sc{ font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); }
-  .p19-rub-sc strong{ color:var(--cyan); font-size:15px; }
-  .p19-crit{ display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
+  .p19-rub, .pv-rub{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; box-shadow:var(--shadow); }
+  .p19-rub-head, .pv-rub-head{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:14px; }
+  .p19-rub-head h4, .pv-rub-head h4{ font-family:var(--display); font-size:16px; margin:0; color:var(--ink); }
+  .p19-rub-sc, .pv-rub-sc{ font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); }
+  .p19-rub-sc strong, .pv-rub-sc strong{ color:var(--cyan); font-size:15px; }
+  .p19-crit, .pv-crit{ display:flex; gap:12px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
     background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:11px 14px; margin-bottom:7px;
     color:var(--ink-soft); font-family:var(--body); font-size:14.4px; line-height:1.55; transition:all .15s; }
-  .p19-crit:hover{ border-color:var(--indigo); color:var(--ink); }
-  .p19-crit .p19-box{ font-family:var(--mono); font-size:12px; width:22px; height:22px; flex:0 0 22px; border:1px solid var(--line);
+  .p19-crit:hover, .pv-crit:hover{ border-color:var(--indigo); color:var(--ink); }
+  .p19-crit .p19-box, .pv-crit .pv-box{ font-family:var(--mono); font-size:12px; width:22px; height:22px; flex:0 0 22px; border:1px solid var(--line);
     border-radius:6px; display:flex; align-items:center; justify-content:center; color:transparent; margin-top:1px; }
-  .p19-crit.on{ background:var(--cyan-soft); border-color:rgba(57,214,190,.45); color:var(--ink); }
-  .p19-crit.on .p19-box{ color:var(--cyan); border-color:var(--cyan); }
-  .p19-crit .p19-w{ margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--ink-faint); white-space:nowrap; padding-top:2px; }
-  .p19-crit.on .p19-w{ color:var(--cyan); }
+  .p19-crit.on, .pv-crit.on{ background:var(--cyan-soft); border-color:rgba(57,214,190,.45); color:var(--ink); }
+  .p19-crit.on .p19-box, .pv-crit.on .pv-box{ color:var(--cyan); border-color:var(--cyan); }
+  .p19-crit .p19-w, .pv-crit .pv-w{ margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--ink-faint); white-space:nowrap; padding-top:2px; }
+  .p19-crit.on .p19-w, .pv-crit.on .pv-w{ color:var(--cyan); }
 
   /* ordenação da sequência de eventos */
-  .p19-seq{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
-  @media (max-width:820px){ .p19-seq{ grid-template-columns:1fr; } }
-  .p19-pane{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; box-shadow:var(--shadow); }
-  .p19-pane h4{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-faint); margin:0 0 12px; }
-  .p19-card{ display:flex; gap:10px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
+  .p19-seq, .pv-seq{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+  @media (max-width:820px){ .p19-seq, .pv-seq{ grid-template-columns:1fr; } }
+  .p19-pane, .pv-pane{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; box-shadow:var(--shadow); }
+  .p19-pane h4, .pv-pane h4{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--ink-faint); margin:0 0 12px; }
+  .p19-card, .pv-card{ display:flex; gap:10px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
     background:var(--bg-1); border:1px solid var(--line); border-radius:9px; padding:10px 12px; margin-bottom:7px;
     color:var(--ink-soft); font-family:var(--body); font-size:14px; line-height:1.5; transition:all .15s; }
-  .p19-card:hover{ border-color:var(--indigo); color:var(--ink); }
-  .p19-card .p19-cn{ font-family:var(--mono); font-size:11px; color:var(--indigo); flex:0 0 18px; padding-top:2px; }
-  .p19-card.right{ background:var(--cyan-soft); border-color:rgba(57,214,190,.5); color:var(--ink); }
-  .p19-card.right .p19-cn{ color:var(--cyan); }
-  .p19-card.wrong{ background:var(--rose-soft); border-color:var(--rose); color:var(--ink); animation:p19shake .3s; }
+  .p19-card:hover, .pv-card:hover{ border-color:var(--indigo); color:var(--ink); }
+  .p19-card .p19-cn, .pv-card .pv-cn{ font-family:var(--mono); font-size:11px; color:var(--indigo); flex:0 0 18px; padding-top:2px; }
+  .p19-card.right, .pv-card.right{ background:var(--cyan-soft); border-color:rgba(57,214,190,.5); color:var(--ink); }
+  .p19-card.right .p19-cn, .pv-card.right .pv-cn{ color:var(--cyan); }
+  .p19-card.wrong, .pv-card.wrong{ background:var(--rose-soft); border-color:var(--rose); color:var(--ink); animation:p19shake .3s; }
   @keyframes p19shake{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-5px);} 75%{transform:translateX(5px);} }
-  .p19-empty{ font-family:var(--mono); font-size:12px; color:var(--ink-faint); padding:10px 0; }
+  .p19-empty, .pv-empty{ font-family:var(--mono); font-size:12px; color:var(--ink-faint); padding:10px 0; }
 
   /* controles de passo do diagrama */
-  .p19-stepctl{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
-  .p19-stepout{ font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); background:var(--bg-1); border:1px solid var(--line);
+  .p19-stepctl, .pv-stepctl{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
+  .p19-stepout, .pv-stepout{ font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); background:var(--bg-1); border:1px solid var(--line);
     border-radius:9px; padding:11px 14px; margin-top:14px; line-height:1.6; min-height:42px; }
-  .p19-stepout strong{ color:var(--cyan); }
+  .p19-stepout strong, .pv-stepout strong{ color:var(--cyan); }
   .ucd-step{ opacity:0; transition:opacity .45s ease; }
   .ucd-step.on{ opacity:1; }
 
   /* placar final */
-  .p19-final{ background:linear-gradient(180deg,var(--surface),var(--bg-1)); border:1px solid var(--line); border-radius:var(--radius);
+  .p19-final, .pv-final{ background:linear-gradient(180deg,var(--surface),var(--bg-1)); border:1px solid var(--line); border-radius:var(--radius);
     padding:28px 30px; box-shadow:var(--shadow); text-align:center; }
-  .p19-final .p19-bignum{ font-family:var(--mono); font-size:56px; font-weight:700; color:var(--cyan); line-height:1; }
-  .p19-final .p19-bignum small{ font-size:20px; color:var(--ink-faint); font-weight:400; }
-  .p19-final p{ color:var(--ink-soft); margin:12px auto 0; max-width:54ch; font-size:15px; }
-  .p19-breakdown{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:22px; }
-  @media (max-width:700px){ .p19-breakdown{ grid-template-columns:repeat(2,1fr); } }
-  .p19-bd{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px 10px; }
-  .p19-bd .bdq{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; }
-  .p19-bd .bdv{ font-family:var(--mono); font-size:18px; color:var(--ink); margin-top:4px; }
-  .p19-bd.full{ border-color:rgba(57,214,190,.5); }
-  .p19-bd.full .bdv{ color:var(--cyan); }
-  .p19-bd.zero .bdv{ color:var(--ink-faint); }
+  .p19-final .p19-bignum, .pv-final .pv-bignum{ font-family:var(--mono); font-size:56px; font-weight:700; color:var(--cyan); line-height:1; }
+  .p19-final .p19-bignum small, .pv-final .pv-bignum small{ font-size:20px; color:var(--ink-faint); font-weight:400; }
+  .p19-final p, .pv-final p{ color:var(--ink-soft); margin:12px auto 0; max-width:54ch; font-size:15px; }
+  .p19-breakdown, .pv-breakdown{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:22px; }
+  @media (max-width:700px){ .p19-breakdown, .pv-breakdown{ grid-template-columns:repeat(2,1fr); } }
+  .p19-bd, .pv-bd{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px 10px; }
+  .p19-bd .bdq, .pv-bd .bdq{ font-family:var(--mono); font-size:10.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em; }
+  .p19-bd .bdv, .pv-bd .bdv{ font-family:var(--mono); font-size:18px; color:var(--ink); margin-top:4px; }
+  .p19-bd.full, .pv-bd.full{ border-color:rgba(57,214,190,.5); }
+  .p19-bd.full .bdv, .pv-bd.full .bdv{ color:var(--cyan); }
+  .p19-bd.zero .bdv, .pv-bd.zero .bdv{ color:var(--ink-faint); }
+
+
+  /* ---------- extras dos módulos de prova ---------- */
+  .pv-card.sel{ background:var(--indigo-soft); border-color:rgba(124,140,255,.55); color:var(--ink); }
+  .pv-card.sel .pv-cn{ color:var(--indigo); }
+  .pv-card.miss{ background:var(--amber-soft); border-color:rgba(240,169,60,.55); color:var(--ink); }
+  .pv-card.miss .pv-cn{ color:var(--amber); }
+  .pv-actions{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:14px; }
+  .pv-pickgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  @media (max-width:700px){ .pv-pickgrid{ grid-template-columns:1fr; } }
+  .pv-pickgrid .pv-card{ margin-bottom:0; }
+  .pv-tabsrow{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .pv-lede{ font-family:var(--mono); font-size:12px; color:var(--ink-faint); margin-bottom:10px; letter-spacing:.03em; }
+  .noun.dep{ background:var(--amber-soft); border-color:rgba(240,169,60,.5); color:var(--amber); }
+  .pv-fichabox{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:6px 4px; box-shadow:var(--shadow); }
 
   /* ---------- PLACEHOLDER (future modules) ---------- */
   .placeholder-wrap{ padding:110px 0 80px; }
@@ -7290,6 +7305,739 @@
       </div>
       <!-- ================= END MODULE: PROVA P1 2019 ================= -->
 
+      <!-- ================= MODULE 11: PROVA P1 2025 · SISTEMA CITY TOUR ================= -->
+      <div class="module-page" data-module="prova-2025" id="page-prova-2025">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Prova 2025 · City Tour</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="p25-prova">Modo prova</button>
+              <button class="navlink" data-target="p25-enunciado">Enunciado</button>
+              <button class="navlink" data-target="p25-funcoes">Funções</button>
+              <button class="navlink" data-target="p25-q1">Q1 Tabela 1</button>
+              <button class="navlink" data-target="p25-q2">Q2 Atores</button>
+              <button class="navlink" data-target="p25-q3">Q3 Ficha</button>
+              <button class="navlink" data-target="p25-q4">Q4 Classes</button>
+              <button class="navlink" data-target="p25-q5">Q5 Tabela 4</button>
+              <button class="navlink" data-target="p25-erros">Armadilhas</button>
+              <button class="navlink" data-target="p25-nota">Nota</button>
+              <button class="navlink" data-target="p25-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="p25-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 11 · Prova resolvida</div>
+              <h1>1ª Prova de 2025: <em>Sistema City Tour</em></h1>
+              <p class="lede">A prova de 09/09/2025, com a solução possível e os comentários de correção da professora. Mesma estrutura do módulo de 2019: você tenta, os jogos treinam o raciocínio, e a rubrica no fim estima a sua nota.</p>
+              <div class="hero-meta">
+                <span><strong>Data</strong> 09/09/2025</span>
+                <span><strong>Sistema</strong> SCT · agência de turismo</span>
+                <span><strong>Total</strong> 10 pontos</span>
+                <span><strong>Externos</strong> IARoteiro e Banco</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">prova2025.abrir()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="uc-badge">Q1</span> Tabela 1 · funções → casos de uso <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">1 pt</span></div>
+                  <div class="src-item"><span class="uc-badge">Q2</span> Tabela 2 · atores dos casos principais <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">1 pt</span></div>
+                  <div class="src-item"><span class="uc-badge in">Q3</span> Ficha de Reservar vagas no passeio <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">4 pt</span></div>
+                  <div class="src-item"><span class="uc-badge">Q4</span> Tabela 3 · classes por caso de uso <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">2 pt</span></div>
+                  <div class="src-item"><span class="uc-badge">Q5</span> Tabela 4 · classes e responsabilidades <span style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--amber);">2 pt</span></div>
+                </div>
+                <div class="src-out">quase metade da prova está em uma ficha de caso de uso</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ MODO PROVA ============ -->
+        <section class="section" id="p25-prova">
+          <div class="wrap">
+            <div class="eyebrow">Antes de começar</div>
+            <h2 class="reveal">Modo prova</h2>
+            <p class="intro reveal">A capa de 2025 não trazia a duração — o cronômetro está em 1h40, como na prova de 2019, só para dar ritmo. Escreva as respostas nas caixas de cada questão, revele os gabaritos depois e marque a rubrica para ver a nota estimada no fim.</p>
+
+            <div class="pv-exambar reveal">
+              <div>
+                <div class="pv-clock" id="p25Clock">1:40:00</div>
+                <div class="pv-clock-sub" id="p25ClockSub">cronômetro parado</div>
+              </div>
+              <div>
+                <div class="pv-progress-lab"><span>Autocorreção preenchida</span><span><strong id="p25ProgTxt">0</strong> / <span id="p25ProgTot">21</span> critérios</span></div>
+                <div class="pv-progress"><i id="p25ProgBar"></i></div>
+                <div class="pv-progress-lab" style="margin:8px 0 0;"><span>Nota parcial</span><span><strong id="p25ProgNota">0,0</strong> / 10,0</span></div>
+              </div>
+              <div class="pv-clockbtns">
+                <button class="tab active" id="p25Start">Iniciar</button>
+                <button class="tab" id="p25Pause">Pausar</button>
+                <button class="tab" id="p25Reset">Zerar</button>
+              </div>
+            </div>
+
+            <div class="def-grid reveal" style="margin-top:28px;">
+              <div class="def-card">
+                <span class="tag">Instruções originais</span>
+                <h3>O que estava escrito na capa</h3>
+                <p>Ler atentamente o enunciado; respostas claras e organizadas, sem ambiguidades; e <strong style="color:var(--ink)">todas as considerações sobre o enunciado e as hipóteses assumidas devem ser anotadas na prova</strong>, para evitar má interpretação. O enunciado ainda avisa: entender o contexto — os processos de negócio da agência — é o que sustenta as cinco questões.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Como ler o gabarito</span>
+                <h3>"Uma possível solução"</h3>
+                <p>O documento oficial se chama assim, e o de comentários reúne as observações anotadas durante a correção. Ou seja: divergência justificada não é erro — mas os comentários mostram exatamente onde a turma perdeu ponto, e essa lista é o que mais vale estudar.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ENUNCIADO ============ -->
+        <section class="section alt" id="p25-enunciado">
+          <div class="wrap">
+            <div class="eyebrow">Passo 1 · Análise do contexto</div>
+            <h2 class="reveal">O enunciado, parágrafo por parágrafo</h2>
+            <p class="intro reveal">Clique em um parágrafo e veja o que ele entrega para o modelo: <span class="pv-chip ator">ator</span> <span class="pv-chip func">função</span> <span class="pv-chip dado">classe</span> <span class="pv-chip reg">regra de negócio</span>. O SCT tem dois sistemas externos, e é neles que a maioria dos pontos foi perdida.</p>
+
+            <div class="hotel-grid reveal" style="grid-template-columns:1.25fr 0.75fr;">
+              <div class="pv-txt" id="p25ParaList"></div>
+              <div class="pv-read" id="p25Read"></div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:28px;">
+              <div class="eyebrow">Os dois atores esquecidos</div>
+              <p><strong style="color:var(--ink)">IARoteiro</strong> monta o roteiro a partir dos pontos turísticos selecionados, e <strong style="color:var(--ink)">Banco</strong> autoriza a venda. Os dois são agentes externos que trocam informação com o SCT — logo, são atores. Segundo os comentários de correção, "vários não consideraram o ator IARoteiro" e "vários se esqueceram de considerar o Banco como um ator".</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ FUNÇÕES ============ -->
+        <section class="section" id="p25-funcoes">
+          <div class="wrap">
+            <div class="eyebrow">O que o enunciado já entrega pronto</div>
+            <h2 class="reveal">As seis funções consideradas para a modelagem</h2>
+            <p class="intro reveal">A prova não pede para levantar funções: ela dá seis, com uma descrição resumida cada. Ler essas descrições com atenção é o que resolve as questões 1 e 2 — os atores estão escondidos nelas.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="p25FnList"></div>
+              <div class="hotel-detail" id="p25FnDetail"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 1 ============ -->
+        <section class="section alt" id="p25-q1">
+          <div class="wrap">
+            <div class="pv-qhead reveal"><span class="pv-qnum">Questão 1</span><span class="pv-pts">1 ponto</span></div>
+            <h2 class="reveal">Tabela 1 · de função para casos de uso</h2>
+            <p class="intro reveal">"Definir os casos de uso das funções <em>Cadastrar roteiro</em>, <em>Criar passeio</em> e <em>Reservar vagas no passeio</em> e preencher a Tabela 1." A regra dos comentários é curta: um elemento é manipulado por uma função, e para manipular o elemento direito são necessários casos de uso para <strong style="color:var(--ink)">cadastrar, alterar, excluir e buscar</strong> — a solução acrescenta ainda o listar.</p>
+
+            <div class="pv-try reveal">
+              <span class="pv-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="pv-ask">Escreva os casos de uso de cada uma das três funções.</p>
+              <textarea placeholder="Cadastrar roteiro → cadastrar roteiro, alterar roteiro, ..."></textarea>
+              <div class="pv-try-foot"><span>vale só 1 ponto, mas é a base das questões seguintes</span><span>~8 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Treino · monte o pacote da função</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Escolha a função, selecione os itens que são casos de uso dela e confira. Tem distrator no meio: descrição de função, ação de ator e caso de uso de outro pacote não entram.</p>
+
+            <div class="pv-pane reveal">
+              <div class="pv-tabsrow" id="p25PkTabs"></div>
+              <div class="pv-lede" id="p25PkLede">—</div>
+              <div class="pv-pickgrid" id="p25PkGrid"></div>
+              <div class="pv-actions">
+                <button class="tab active" id="p25PkCheck">Conferir</button>
+                <button class="tab" id="p25PkClear">Limpar</button>
+              </div>
+              <div class="cls-feedback" id="p25PkFeed" style="margin-top:14px;">Selecione os casos de uso da função e clique em Conferir.</div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Tabela 1 — funções e casos de uso</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Cinco casos de uso por função: criar, alterar, excluir, consultar e listar</div>
+                <div class="uctab-wrap" style="margin-top:14px;">
+                  <table class="uctab">
+                    <thead><tr><th style="width:60px;">Nº</th><th style="width:250px;">Função</th><th>Casos de uso</th></tr></thead>
+                    <tbody id="p25Tab1Body"></tbody>
+                  </table>
+                </div>
+                <p style="margin-top:14px;">Os nomes dos casos de uso relacionados <strong style="color:var(--ink)">não precisam ser padronizados</strong>, mas devem deixar claro o significado. O caso de uso de listar foi acrescentado pela solução, ainda sem considerar filtros.</p>
+              </div>
+            </div>
+
+            <div class="def-grid reveal" style="margin-top:24px;">
+              <div class="def-card">
+                <span class="tag">Comentário de correção</span>
+                <h3>Não confunda caso de uso com a descrição da função</h3>
+                <p>O enunciado descreve <em>Cadastrar roteiro</em> em três linhas — seleção de pontos turísticos, chamada ao IARoteiro, devolução do itinerário. Isso é a descrição da função. Os casos de uso são cadastrar, alterar, excluir, consultar e listar roteiro.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Comentário de correção</span>
+                <h3>Elemento, função, caso de uso</h3>
+                <p>Um <strong style="color:var(--ink)">elemento</strong> (roteiro) é manipulado por uma <strong style="color:var(--ink)">função</strong> (cadastrar roteiro), que se desdobra nos <strong style="color:var(--ink)">casos de uso</strong> que manipulam aquele elemento. Identificar o elemento primeiro deixa o pacote óbvio.</p>
+              </div>
+            </div>
+
+            <div class="pv-rub reveal" data-q="1" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 2 ============ -->
+        <section class="section" id="p25-q2">
+          <div class="wrap">
+            <div class="pv-qhead reveal"><span class="pv-qnum">Questão 2</span><span class="pv-pts">1 ponto</span></div>
+            <h2 class="reveal">Tabela 2 · atores dos casos de uso principais</h2>
+            <p class="intro reveal">"Entende-se, como caso de uso principal, aquele que <strong style="color:var(--ink)">cria o elemento</strong> da função." São seis casos de uso na tabela — e a armadilha está nos dois que têm sistema externo como ator, e nos três do guia, onde quem usa o sistema é só ele.</p>
+
+            <div class="pv-try reveal">
+              <span class="pv-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="pv-ask">Liste os atores de cada um dos seis casos de uso principais.</p>
+              <textarea placeholder="Cadastrar roteiro → ...&#10;Criar passeio → ...&#10;Reservar vagas no passeio → ..."></textarea>
+              <div class="pv-try-foot"><span>lembre dos sistemas externos</span><span>~7 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Treino · selecione todos os atores</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Pode haver mais de um ator por caso de uso — e é exatamente aí que a turma perdeu ponto. Selecione todos e confira.</p>
+
+            <div class="pv-pane reveal">
+              <div class="pv-tabsrow" id="p25AtTabs"></div>
+              <div class="pv-lede" id="p25AtLede">—</div>
+              <div class="pv-pickgrid" id="p25AtGrid"></div>
+              <div class="pv-actions">
+                <button class="tab active" id="p25AtCheck">Conferir</button>
+                <button class="tab" id="p25AtClear">Limpar</button>
+              </div>
+              <div class="cls-feedback" id="p25AtFeed" style="margin-top:14px;">Selecione os atores do caso de uso e clique em Conferir.</div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Tabela 2 — casos de uso e atores</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <table class="datatab" style="margin-top:14px;">
+                  <caption>Tabela 2 — solução possível</caption>
+                  <thead><tr><th style="width:60px;">Nº</th><th style="width:270px;">Caso de uso</th><th>Atores</th></tr></thead>
+                  <tbody>
+                    <tr><td>1</td><td>Cadastrar roteiro</td><td>Especialista em turismo, <strong style="color:var(--ink)">IARoteiro</strong></td></tr>
+                    <tr><td>2</td><td>Criar passeio</td><td>Gerente de passeios</td></tr>
+                    <tr><td>4</td><td>Reservar vagas no passeio</td><td>Cliente, <strong style="color:var(--ink)">Banco</strong></td></tr>
+                    <tr><td>5</td><td>Registrar chegada no passeio</td><td>Guia</td></tr>
+                    <tr><td>6</td><td>Registrar saída do passeio</td><td>Guia</td></tr>
+                    <tr><td>7</td><td>Finalizar passeio</td><td>Guia</td></tr>
+                  </tbody>
+                </table>
+                <p style="margin-top:14px;">A numeração com buracos é a da própria prova. Repare que nos casos 5, 6 e 7 <strong style="color:var(--ink)">apenas o guia usa o sistema</strong>: participantes, motorista e veículo aparecem na história, mas não trocam informação com o SCT.</p>
+              </div>
+            </div>
+
+            <div class="compare reveal" style="margin-top:28px;">
+              <div class="compare-card a">
+                <h3>É ator</h3>
+                <p>Especialista em turismo, Gerente de passeios, Cliente, Guia — e os sistemas externos <strong style="color:var(--ink)">IARoteiro</strong> e <strong style="color:var(--ink)">Banco</strong>, que recebem pedidos do SCT e devolvem resposta.</p>
+                <div class="verdict">troca informação com o SCT</div>
+              </div>
+              <div class="compare-card bad">
+                <span class="cc-tag">Não é ator</span>
+                <h4>Site, participante, motorista, veículo</h4>
+                <p>O <strong style="color:var(--ink)">site é o próprio sistema</strong>, não um agente externo. Participantes entram no passeio mas não operam o SCT — quem registra é o guia. Motorista e veículo são recursos alocados, representados por classes.</p>
+                <div class="cc-note">Comentário oficial: "os elementos externos que não usam o sistema não são atores".</div>
+              </div>
+            </div>
+
+            <div class="pv-rub reveal" data-q="2" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 3 ============ -->
+        <section class="section alt" id="p25-q3">
+          <div class="wrap">
+            <div class="pv-qhead reveal"><span class="pv-qnum">Questão 3</span><span class="pv-pts">4 pontos</span></div>
+            <h2 class="reveal">Detalhar o caso de uso <em>Reservar vagas no passeio</em></h2>
+            <p class="intro reveal">Quatro dos dez pontos da prova. O enunciado dá duas fichas prontas — <em>Cadastrar roteiro</em> e <em>Criar passeio</em> — e o padrão de descrição campo a campo. A tarefa é escrever a terceira ficha seguindo esse padrão.</p>
+
+            <div class="pv-try reveal">
+              <span class="pv-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="pv-ask">Escreva a ficha completa de <em>Reservar vagas no passeio</em>: nome, descrição, evento iniciador, ator, pré-condição, sequência numerada, pós-condição, extensões e inclusões.</p>
+              <textarea placeholder="Nome: Reservar vagas no passeio&#10;Descrição: ...&#10;Evento iniciador: ...&#10;Ator: ...&#10;Pré-condição: ...&#10;Sequência de eventos:&#10;1. ..." style="min-height:210px;"></textarea>
+              <div class="pv-try-foot"><span>40% da prova está nesta questão</span><span>~35 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">O padrão dado na prova</h3>
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="p25PadList"></div>
+              <div class="hotel-detail" id="p25PadDetail"></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:40px 0 16px;">As duas fichas que vieram prontas</h3>
+            <div class="qa-card reveal">
+              <span class="qlabel">Modelo 1</span>
+              <p class="q">Cadastrar roteiro — note o ator IARoteiro agindo no passo 5</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="ficha" style="margin-top:6px;">
+                  <span class="ficha-id">Ficha fornecida no enunciado</span>
+                  <h3 class="ficha-title">Cadastrar roteiro</h3>
+                  <div class="ficha-rows">
+                    <div class="ficha-row"><div class="fr-k">Descrição</div><div class="fr-v">Realiza o cadastro de roteiro.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Evento iniciador</div><div class="fr-v">Solicitação de cadastro de roteiro.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Ator</div><div class="fr-v">Especialista em turismo (ET), IARoteiro.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Pré-condição</div><div class="fr-v">Especialista em turismo autenticado no sistema.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Sequência de eventos</div><div class="fr-v"><ol>
+                      <li>ET solicita cadastro do roteiro.</li>
+                      <li>Sistema solicita os pontos turísticos.</li>
+                      <li>ET seleciona os pontos turísticos.</li>
+                      <li>Sistema fornece os pontos turísticos e solicita a geração de um roteiro ao IARoteiro.</li>
+                      <li>IARoteiro seleciona os pontos de encontro, gera um roteiro com os pontos turísticos e de encontro e devolve o roteiro solicitado.</li>
+                      <li>Sistema apresenta o resultado ao ET e solicita confirmação.</li>
+                      <li>ET confirma o roteiro.</li>
+                      <li>Sistema armazena o roteiro e apresenta a mensagem de cadastro realizado.</li>
+                    </ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Pós-condição</div><div class="fr-v">Roteiro cadastrado no sistema e mensagem apresentada ao ET.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Extensões</div><div class="fr-v"><ol>
+                      <li><span class="mark">passo 5</span> Os dados não configuram um roteiro: sistema apresenta a mensagem de roteiro não gerado, com os motivos, e desvia para o passo 2.</li>
+                      <li><span class="mark">passo 7</span> ET não confirma o roteiro: sistema desvia para o passo 2.</li>
+                    </ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Inclusões</div><div class="fr-v">Não necessárias por enquanto.</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Modelo 2</span>
+              <p class="q">Criar passeio — três extensões, uma delas encerrando o caso de uso</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="ficha" style="margin-top:6px;">
+                  <span class="ficha-id">Ficha fornecida no enunciado</span>
+                  <h3 class="ficha-title">Criar passeio</h3>
+                  <div class="ficha-rows">
+                    <div class="ficha-row"><div class="fr-k">Descrição</div><div class="fr-v">Definir o horário inicial e alocar recursos ao passeio.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Evento iniciador</div><div class="fr-v">Solicitação da criação do passeio.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Ator</div><div class="fr-v">Gerente de passeios (GP).</div></div>
+                    <div class="ficha-row"><div class="fr-k">Pré-condição</div><div class="fr-v">GP autenticado no sistema.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Sequência de eventos</div><div class="fr-v"><ol>
+                      <li>GP solicita criação de um passeio.</li>
+                      <li>Sistema solicita tipos de veículo, motorista e guia.</li>
+                      <li>GP fornece os tipos solicitados.</li>
+                      <li>Sistema busca os recursos do tipo solicitado, seleciona, reserva temporariamente e apresenta os recursos.</li>
+                      <li>Sistema pede confirmação.</li>
+                      <li>GP confirma os recursos.</li>
+                      <li>Sistema cria um passeio, define um horário de início e aloca os recursos ao passeio.</li>
+                      <li>Sistema apresenta o passeio criado.</li>
+                    </ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Pós-condição</div><div class="fr-v">Passeio criado e recursos atualizados no sistema.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Extensões</div><div class="fr-v"><ol>
+                      <li><span class="mark">passo 4</span> Alguns recursos não estão disponíveis: sistema apresenta os recursos não disponíveis e desvia a execução para o passo 2.</li>
+                      <li><span class="mark">passo 6</span> GP não confirma algum recurso: sistema seleciona, reserva temporariamente, apresenta os recursos e desvia para o passo 5.</li>
+                      <li><span class="mark">passo 6</span> GP cancela a operação: sistema encerra o caso de uso.</li>
+                    </ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Inclusões</div><div class="fr-v">Não necessárias por enquanto.</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:40px 0 10px;">Treino · monte a sequência de eventos</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Dezesseis passos. O critério que a correção cobra: <strong style="color:var(--ink)">diálogo sistemático</strong> — o ator só responde depois de o sistema pedir, e o sistema apresenta os passeios <em>daquele</em> roteiro, não todos.</p>
+
+            <div class="pv-seq reveal">
+              <div class="pv-pane">
+                <h4>Passos embaralhados</h4>
+                <div id="p25SeqPool"></div>
+              </div>
+              <div class="pv-pane">
+                <h4>Sua sequência</h4>
+                <div id="p25SeqTarget"><div class="pv-empty">nenhum passo escolhido ainda</div></div>
+                <div class="cls-feedback" id="p25SeqFeed" style="margin-top:14px;">Comece pelo passo coerente com a pré-condição: cliente autenticado.</div>
+                <div style="margin-top:12px;"><button class="tab" id="p25SeqReset">Embaralhar de novo</button></div>
+              </div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Ficha de <em>Reservar vagas no passeio</em> — solução possível</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="ficha" style="margin-top:6px;">
+                  <span class="ficha-id">Caso de uso principal · 4 pontos</span>
+                  <h3 class="ficha-title">Reservar vagas no passeio</h3>
+                  <div class="ficha-rows">
+                    <div class="ficha-row"><div class="fr-k">Descrição</div><div class="fr-v">Cliente reserva vagas em um passeio.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Evento iniciador</div><div class="fr-v">Solicitação de reserva de vagas no passeio.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Ator</div><div class="fr-v">Cliente, Banco.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Pré-condição</div><div class="fr-v">Cliente autenticado no sistema.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Sequência de eventos</div><div class="fr-v"><ol id="p25FichaSeq"></ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Pós-condição</div><div class="fr-v">Reservas efetuadas e confirmação enviada ao cliente.</div></div>
+                    <div class="ficha-row"><div class="fr-k">Extensões</div><div class="fr-v"><ol>
+                      <li><span class="mark">passo 8</span> Não existem vagas suficientes: sistema informa o cliente e desvia a execução para o passo 4, para escolher outro passeio.</li>
+                      <li><span class="mark">passo 9</span> Erro nos nomes e/ou CPF dos participantes: sistema informa o cliente e desvia a execução para o passo 6, para corrigir os dados.</li>
+                      <li><span class="mark">passo 11</span> Cliente cancela a reserva: sistema informa o cliente do cancelamento e encerra o caso de uso.</li>
+                      <li><span class="mark">passo 15</span> Banco não confirma a transação, por erro nos dados do cartão ou falta de saldo: sistema informa o cliente e encerra o caso de uso.</li>
+                    </ol></div></div>
+                    <div class="ficha-row"><div class="fr-k">Inclusões</div><div class="fr-v">Não necessárias por enquanto.</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">As quatro armadilhas desta questão</div>
+              <p><strong style="color:var(--ink)">1.</strong> O site não pode ser ator — ele é o próprio sistema; ator é o cliente. <strong style="color:var(--ink)">2.</strong> Evento iniciador é <em>solicitação da reserva de vagas no passeio</em>, e não "cliente solicitou reserva". <strong style="color:var(--ink)">3.</strong> Pré-condição é <em>cliente autenticado</em>, não <em>cliente cadastrado</em>: cadastro sozinho não dá acesso ao sistema. <strong style="color:var(--ink)">4.</strong> Não existe extensão de "cliente sem cadastro" — se ele está dialogando com o sistema, está autenticado, logo tem cadastro.</p>
+            </div>
+
+            <div class="def-grid reveal" style="margin-top:24px;">
+              <div class="def-card">
+                <span class="tag">Pós-condição</span>
+                <h3>Tem duas partes, e metade da turma esqueceu uma</h3>
+                <p>O caso de uso reserva as vagas <em>e</em> envia o comprovante. Logo: <strong style="color:var(--ink)">vagas reservadas e comprovante enviado ao cliente</strong>. Se o último passo produz duas coisas, a pós-condição também.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Sistema externo</span>
+                <h3>Consulta ao Banco não interrompe o caso de uso</h3>
+                <p>Os dados da reserva vão ao Banco para verificar cartão <strong style="color:var(--ink)">e</strong> saldo — uma condição só não autoriza. A resposta volta em seguida, então não há por que quebrar o caso de uso em dois. E os dois motivos de recusa têm tratamentos diferentes.</p>
+              </div>
+            </div>
+
+            <div class="pv-rub reveal" data-q="3" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 4 ============ -->
+        <section class="section" id="p25-q4">
+          <div class="wrap">
+            <div class="pv-qhead reveal"><span class="pv-qnum">Questão 4</span><span class="pv-pts">2 pontos</span></div>
+            <h2 class="reveal">Tabela 3 · classes de cada caso de uso</h2>
+            <p class="intro reveal">A partir das três fichas — <em>Cadastrar roteiro</em>, <em>Criar passeio</em> e <em>Reservar vagas no passeio</em> — identificar as classes de cada caso de uso e <strong style="color:var(--ink)">justificar a necessidade</strong> de cada uma. Classe é qualquer coisa que pode ser representada por um substantivo, no singular.</p>
+
+            <div class="pv-try reveal">
+              <span class="pv-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="pv-ask">Liste as classes de cada um dos três casos de uso e justifique por que cada uma é necessária ali.</p>
+              <textarea placeholder="Cadastrar roteiro → ...&#10;Criar passeio → ...&#10;Reservar vagas no passeio → ..." style="min-height:140px;"></textarea>
+              <div class="pv-try-foot"><span>a justificativa vale tanto quanto a lista</span><span>~20 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Treino · isso é classe?</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Vinte e três candidatos colhidos das fichas, do enunciado e dos comentários. Verde vira classe, vermelho não vira, âmbar só vale com ressalva.</p>
+
+            <div class="triage reveal">
+              <div class="triage-head">
+                <h4>Candidatos a classe do SCT</h4>
+                <div class="triage-score" id="p25ClsScore">classificados: <strong>0</strong> / 23</div>
+              </div>
+              <div class="noun-cloud" id="p25ClsCloud"></div>
+              <div class="noun-detail" id="p25ClsDetail"></div>
+              <div class="triage-legend">
+                verde = vira classe · vermelho riscado = não vira · âmbar = só com ressalva<br>
+                clique em um candidato para ver a justificativa da correção
+              </div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Tabela 3 — casos de uso e classes</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <table class="datatab" style="margin-top:14px;">
+                  <caption>Tabela 3 — solução possível</caption>
+                  <thead><tr><th style="width:60px;">Nº</th><th style="width:230px;">Caso de uso</th><th>Classes</th></tr></thead>
+                  <tbody>
+                    <tr><td>1</td><td>Cadastrar roteiro</td><td>Roteiro, PontoTurístico, PontoEncontro, InterfIARoteiro</td></tr>
+                    <tr><td>2</td><td>Criar passeio</td><td>Roteiro, Passeio, TipoVeículo, TipoMotorista, TipoGuia, Veículo, Motorista, Guia</td></tr>
+                    <tr><td>3</td><td>Reservar vagas no passeio</td><td>Cliente, Passeio, Roteiro, Participante, Reserva, InterfBanco</td></tr>
+                  </tbody>
+                </table>
+                <div class="tl" style="margin-top:22px;">
+                  <div class="tl-item"><span class="yr">Cadastrar roteiro</span><p><em>Roteiro</em> representa o itinerário de um passeio, e seu objeto é formado por objetos de <em>PontoTurístico</em> e <em>PontoEncontro</em> — agregação.</p></div>
+                  <div class="tl-item"><span class="yr">Criar passeio</span><p><em>Passeio</em> representa os passeios que podem ser gerados a partir de <em>Roteiro</em>. Um passeio fica disponível aos clientes quando os recursos (<em>Motorista</em>, <em>Guia</em>, <em>Veículo</em>) são alocados, de acordo com os tipos definidos pelo gerente.</p></div>
+                  <div class="tl-item"><span class="yr">Reservar vagas no passeio</span><p>Para o <em>Cliente</em> reservar vagas em um <em>Passeio</em> de um <em>Roteiro</em>, ele precisa de um objeto <em>Reserva</em> associado ao passeio — e essa reserva recupera as identificações dos <em>Participantes</em> sob responsabilidade do cliente.</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="docstruct reveal" style="margin-top:28px;grid-template-columns:1fr 1fr;">
+              <div class="doc-item">
+                <div class="di-n">NÃO É CLASSE</div>
+                <h4>A lista curta da correção</h4>
+                <ul>
+                  <li>Sistema — ele contém todas as classes.</li>
+                  <li>Ator — a <em>representação</em> do ator no sistema é que é classe.</li>
+                  <li>Função e caso de uso — são realizados através das classes.</li>
+                  <li>Sistema externo — a interface com ele é uma classe de fronteira.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">NÃO ENTRA NESTA FASE</div>
+                <h4>O que se deixa para depois</h4>
+                <ul>
+                  <li>Classes de controle de casos de uso.</li>
+                  <li>Classes que representam os atores para fins de autenticação.</li>
+                  <li>Nome de classe é substantivo <strong style="color:var(--ink)">singular</strong>: Roteiro, não Roteiros.</li>
+                  <li>Classe <em>Recurso</em>, se usada, precisa vir com as especializações Motorista, Guia e Veículo, que estão no enunciado.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pv-rub reveal" data-q="4" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ QUESTÃO 5 ============ -->
+        <section class="section alt" id="p25-q5">
+          <div class="wrap">
+            <div class="pv-qhead reveal"><span class="pv-qnum">Questão 5</span><span class="pv-pts">2 pontos</span></div>
+            <h2 class="reveal">Tabela 4 · uniformizar as classes e dizer a responsabilidade</h2>
+            <p class="intro reveal">Agora o conjunto das três listas vira um só: classes repetidas nos casos de uso 1, 2 e 3 são a mesma classe, sinônimos precisam ser resolvidos, e cada classe recebe uma responsabilidade. <strong style="color:var(--ink)">Responsabilidade é para que a classe serve no sistema</strong> — por que ela existe.</p>
+
+            <div class="pv-try reveal">
+              <span class="pv-try-lab">Sua resposta · tente antes de abrir</span>
+              <p class="pv-ask">Monte o conjunto final de classes e escreva a responsabilidade de cada uma.</p>
+              <textarea placeholder="Roteiro — representa...&#10;Passeio — representa..." style="min-height:140px;"></textarea>
+              <div class="pv-try-foot"><span>15 classes na solução possível</span><span>~15 min na prova</span></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:36px 0 10px;">Explore as 15 classes da solução</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">Clique em uma classe para ver a responsabilidade e em quais casos de uso ela apareceu.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="p25T4List"></div>
+              <div class="hotel-detail" id="p25T4Detail"></div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:28px;">
+              <span class="qlabel">Gabarito comentado</span>
+              <p class="q">Tabela 4 completa — classes, responsabilidades e casos de uso</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="uctab-wrap" style="margin-top:14px;">
+                  <table class="uctab">
+                    <thead><tr><th style="width:50px;">Nº</th><th style="width:170px;">Classe</th><th>Responsabilidade</th><th style="width:90px;">Casos de uso</th></tr></thead>
+                    <tbody id="p25T4Body"></tbody>
+                  </table>
+                </div>
+                <p style="margin-top:14px;">As classes <em>Roteiro</em> dos casos de uso 1, 2 e 3 representam o mesmo elemento — e o mesmo vale para <em>Passeio</em> nos casos 2 e 3. <span style="color:var(--ink-faint)">(Na tabela original, PontoTurístico e PontoEncontro aparecem marcados com "2"; pelas fichas, eles vêm do caso de uso 1, Cadastrar roteiro.)</span></p>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Sinônimos</div>
+              <p>A mesma classe às vezes recebe nomes diferentes — equipes diferentes do mesmo projeto batizam o conceito de formas distintas. Por isso a questão pede para <strong style="color:var(--ink)">analisar nomes sinônimos</strong> e decidir se são classes distintas. Na prova, alguns alunos criaram <em>Roteiro</em> e <em>Itinerário</em>: para efeito do enunciado, é uma classe única.</p>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:40px 0 16px;">Bônus · o mapa das classes do SCT</h3>
+            <p class="intro reveal" style="margin-bottom:20px;">A prova não pedia diagrama, mas ver as 15 classes agrupadas ajuda a memorizar por que cada uma existe. Roteiro é agregação de PontoTurístico e PontoEncontro; Passeio nasce de um Roteiro e consome os três recursos; Reserva liga Cliente, Participante e Passeio; as duas classes de interface ficam na fronteira.</p>
+
+            <div class="cdw reveal">
+              <svg class="cd-svg" viewBox="0 0 900 420" role="img" aria-label="Mapa das classes do Sistema City Tour agrupadas por caso de uso">
+                <text x="12" y="20" class="cd-note">caso de uso 1 · cadastrar roteiro</text>
+                <g class="cd-cls"><rect x="30" y="34" width="150" height="46" rx="4"/><text class="cn" x="105" y="62" text-anchor="middle">Roteiro</text></g>
+                <g class="cd-cls"><rect x="30" y="118" width="150" height="46" rx="4"/><text class="cn" x="105" y="146" text-anchor="middle">PontoTuristico</text></g>
+                <g class="cd-cls"><rect x="30" y="196" width="150" height="46" rx="4"/><text class="cn" x="105" y="224" text-anchor="middle">PontoEncontro</text></g>
+                <path class="cd-link" d="M105 80 L105 118"/>
+                <path class="cd-link" d="M105 164 L105 196"/>
+                <text class="cd-assoc" x="115" y="102">agregação</text>
+
+                <g class="cd-cls amber"><rect x="30" y="300" width="150" height="46" rx="4"/><text class="cn" x="105" y="328" text-anchor="middle">InterfIARoteiro</text></g>
+                <text class="cd-note" x="30" y="370">classe de fronteira ·</text>
+                <text class="cd-note" x="30" y="386">fala com o IARoteiro</text>
+
+                <text x="330" y="20" class="cd-note">caso de uso 2 · criar passeio</text>
+                <g class="cd-cls cyan"><rect x="330" y="34" width="150" height="46" rx="4"/><text class="cn" x="405" y="62" text-anchor="middle">Passeio</text></g>
+                <path class="cd-link" d="M180 57 L330 57"/>
+                <text class="cd-assoc" x="255" y="50" text-anchor="middle">gera</text>
+
+                <g class="cd-cls cyan"><rect x="300" y="130" width="120" height="42" rx="4"/><text class="cn" x="360" y="156" text-anchor="middle">Veiculo</text></g>
+                <g class="cd-cls cyan"><rect x="300" y="190" width="120" height="42" rx="4"/><text class="cn" x="360" y="216" text-anchor="middle">Motorista</text></g>
+                <g class="cd-cls cyan"><rect x="300" y="250" width="120" height="42" rx="4"/><text class="cn" x="360" y="276" text-anchor="middle">Guia</text></g>
+                <g class="cd-cls"><rect x="450" y="130" width="130" height="42" rx="4"/><text class="cn" x="515" y="156" text-anchor="middle">TipoVeiculo</text></g>
+                <g class="cd-cls"><rect x="450" y="190" width="130" height="42" rx="4"/><text class="cn" x="515" y="216" text-anchor="middle">TipoMotorista</text></g>
+                <g class="cd-cls"><rect x="450" y="250" width="130" height="42" rx="4"/><text class="cn" x="515" y="276" text-anchor="middle">TipoGuia</text></g>
+                <path class="cd-link" d="M420 151 L450 151"/>
+                <path class="cd-link" d="M420 211 L450 211"/>
+                <path class="cd-link" d="M420 271 L450 271"/>
+                <path class="cd-link" d="M405 80 L405 130"/>
+                <text class="cd-assoc" x="415" y="108">aloca</text>
+
+                <text x="660" y="20" class="cd-note">caso de uso 3 · reservar vagas</text>
+                <g class="cd-cls rose"><rect x="660" y="34" width="150" height="46" rx="4"/><text class="cn" x="735" y="62" text-anchor="middle">Reserva</text></g>
+                <g class="cd-cls rose"><rect x="660" y="130" width="150" height="46" rx="4"/><text class="cn" x="735" y="158" text-anchor="middle">Cliente</text></g>
+                <g class="cd-cls rose"><rect x="660" y="210" width="150" height="46" rx="4"/><text class="cn" x="735" y="238" text-anchor="middle">Participante</text></g>
+                <path class="cd-link" d="M480 57 L660 57"/>
+                <text class="cd-assoc" x="570" y="50" text-anchor="middle">tem vagas reservadas em</text>
+                <path class="cd-link" d="M735 80 L735 130"/>
+                <path class="cd-link" d="M735 176 L735 210"/>
+                <text class="cd-assoc" x="745" y="106">feita por</text>
+                <text class="cd-assoc" x="745" y="196">identifica</text>
+
+                <g class="cd-cls amber"><rect x="660" y="300" width="150" height="46" rx="4"/><text class="cn" x="735" y="328" text-anchor="middle">InterfBanco</text></g>
+                <path class="cd-link" d="M735 256 L735 300"/>
+                <text class="cd-note" x="660" y="370">classe de fronteira ·</text>
+                <text class="cd-note" x="660" y="386">autoriza a venda no Banco</text>
+              </svg>
+              <div class="cd-caption">Leitura livre das Tabelas 3 e 4 da solução possível — a prova de 2025 não pedia diagrama de classes. Azul: caso de uso 1. Ciano: caso de uso 2. Rosa: caso de uso 3. Âmbar: classes de interface com sistemas externos.</div>
+            </div>
+
+            <div class="pv-rub reveal" data-q="5" style="margin-top:28px;"></div>
+          </div>
+        </section>
+
+        <!-- ============ ARMADILHAS ============ -->
+        <section class="section" id="p25-erros">
+          <div class="wrap">
+            <div class="eyebrow">Documento de comentários da correção</div>
+            <h2 class="reveal">As armadilhas, questão por questão</h2>
+            <p class="intro reveal">Este é o documento mais valioso da prova de 2025: são as observações anotadas durante a correção, ou seja, os erros que a turma realmente cometeu. Clique em uma questão.</p>
+
+            <div class="hotel-grid reveal" style="grid-template-columns:0.6fr 1.4fr;">
+              <div class="hotel-list" id="p25ErrList"></div>
+              <div class="hotel-detail" id="p25ErrDetail"></div>
+            </div>
+
+            <div class="flow-note reveal">Padrão que se repete de 2019 para 2025: quase nenhum desconto vem de "não saber a matéria". Vem de ator esquecido, pré-condição errada, pós-condição incompleta e extensão sem número de passo.</div>
+          </div>
+        </section>
+
+        <!-- ============ NOTA ============ -->
+        <section class="section alt" id="p25-nota">
+          <div class="wrap">
+            <div class="eyebrow">Fechamento</div>
+            <h2 class="reveal">Sua nota estimada</h2>
+            <p class="intro reveal">Soma das rubricas que você marcou em cada questão. É diagnóstico, não previsão: clareza e organização sem ambiguidades também contam na correção.</p>
+
+            <div class="pv-final reveal">
+              <div class="pv-bignum" id="p25FinalNum">0,0<small> / 10,0</small></div>
+              <p id="p25FinalMsg">Marque os critérios nas rubricas de cada questão para montar o diagnóstico.</p>
+              <div class="pv-breakdown" id="p25Breakdown"></div>
+              <div style="margin-top:22px;"><button class="tab" id="p25RubReset">Limpar todas as rubricas</button></div>
+            </div>
+
+            <div class="compare reveal" style="margin-top:32px;">
+              <div class="compare-card a">
+                <h3>2019 · Hotel ABC</h3>
+                <p>Cinco questões, 11 pontos, com diagrama de casos de uso e tabela de atributos. O peso estava em levantar casos de uso (3 pt) e detalhar uma ficha (3 pt).</p>
+                <div class="verdict">mais amplo, menos profundo</div>
+              </div>
+              <div class="compare-card b">
+                <h3>2025 · City Tour</h3>
+                <p>Cinco questões, 10 pontos, sem diagrama e sem atributos — mas com <strong style="color:var(--ink)">4 pontos em uma única ficha</strong> e dois sistemas externos como atores.</p>
+                <div class="verdict">mais profundo na descrição detalhada</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">Se o tempo apertar numa prova como a de 2025, a ficha detalhada é onde investir: ela vale quase metade da nota.</div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section" id="p25-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Fixação</div>
+            <h2 class="reveal">Certo ou errado</h2>
+            <p class="intro reveal">Doze afirmações tiradas dos comentários de correção de 2025.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="p25QzCount">Afirmação 1 de 12</div>
+              <div class="cls-stmt" id="p25QzStmt">—</div>
+              <div class="cls-opts" id="p25QzOpts">
+                <button class="tab" data-qz="C">Certo</button>
+                <button class="tab" data-qz="E">Errado</button>
+              </div>
+              <div class="cls-feedback" id="p25QzFeed">Escolha uma opção para ver a justificativa.</div>
+              <div class="cls-score" id="p25QzScore">Acertos: <strong>0</strong> / 0</div>
+              <div style="margin-top:14px;"><button class="tab" id="p25QzReset">Reiniciar</button></div>
+            </div>
+
+            <h3 class="reveal" style="font-family:var(--display);font-size:18px;margin:40px 0 16px;">Perguntas abertas</h3>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Por que o IARoteiro é ator, e não uma classe do SCT?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Porque é um sistema externo que interage com o SCT</div>
+                <p>Ele recebe os pontos turísticos, define os pontos de encontro, gera o itinerário otimizado e devolve o roteiro. Isso é troca de informação com um agente externo — ator. O que existe dentro do sistema é a <strong style="color:var(--ink)">classe de interface</strong> <em>InterfIARoteiro</em>, que permite essa comunicação. Mesmo raciocínio para o Banco e <em>InterfBanco</em>.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">Qual é a diferença entre "cliente cadastrado" e "cliente autenticado" como pré-condição?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Cadastro não dá acesso; autenticação dá</div>
+                <p>Um cliente apenas cadastrado não tem acesso ao sistema. Depois de se autenticar, ele tem os comandos disponíveis na tela — e é justamente essa condição que permite o passo 1, a solicitação da reserva. Consequência direta: <strong style="color:var(--ink)">não existe extensão de "cliente sem cadastro"</strong>, porque quem está dialogando com o sistema já se autenticou.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Por que o sistema não deve apresentar todos os roteiros e todos os passeios de uma vez?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">O diálogo é sistemático: pergunta, resposta, pergunta</div>
+                <p>A correção pede a sequência assim: o sistema apresenta os roteiros e pede a seleção de um; depois da escolha, apresenta os passeios <strong style="color:var(--ink)">somente daquele roteiro</strong>. Jogar tudo na tela de uma vez quebra o diálogo e, na prática, é interface impossível de usar. O erro espelhado também foi cobrado: respostas do ator sem que o sistema tivesse pedido nada.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Por que existem as classes TipoVeículo, TipoMotorista e TipoGuia?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Porque o gerente aloca recursos por tipo, não por indivíduo</div>
+                <p>Na ficha de <em>Criar passeio</em>, o sistema pede os <em>tipos</em> de veículo, motorista e guia; só depois busca e reserva os recursos daquele tipo. Os exemplos da correção: TipoVeículo — veículo de passeio, van, ônibus; TipoMotorista — motorista de veículo de passeio, de van, de ônibus; TipoGuia — bilíngue, trilíngue, para 3ª idade. E o número máximo de participantes do passeio depende do tipo de veículo.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">O que significa dizer que <em>Roteiro</em> é uma agregação?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Uma classe pode ser composta por outras</div>
+                <p>O objeto <em>Roteiro</em> é formado por objetos de <em>PontoTurístico</em> e <em>PontoEncontro</em> — e cada uma dessas deve ser descrita como classe própria, com seus atributos e operações. Os pontos turísticos e de encontro podem participar de vários roteiros, o que é a marca da agregação: as partes existem independentemente do todo.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 6</span>
+              <p class="q">Como distribuir 1h40 entre as cinco questões desta prova?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Q3 primeiro, e com folga</div>
+                <p>A Q3 vale 4 dos 10 pontos e é a única que exige escrita longa — 16 passos, 4 extensões, 9 campos. Q1 e Q2 valem 1 ponto cada e saem em 15 minutos somadas, porque o enunciado já entrega as funções e as fichas modelo. Q4 e Q5 valem 2 pontos cada e se alimentam da Q3: quem escreveu bem a ficha já tem as classes e as responsabilidades quase de graça.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              PCS 3213 — Engenharia de Software · EPUSP — Dep. de Engenharia de Computação e Sistemas Digitais<br>
+              [1] 1ª Prova, 2º semestre de 2025 — Sistema City Tour (SCT), 09/09/2025<br>
+              [2] 1ª Prova 2025 — Uma Possível Solução<br>
+              [3] 1ª Prova 2025 — Comentários da correção<br>
+              [4] Módulos 03, 04, 06 e 10 deste guia — casos de uso, construção do modelo, modelo de classes e a prova de 2019
+            </div>
+            <div class="credit">P1 · Módulo 11 · Prova 2025 · Sistema City Tour — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: PROVA P1 2025 ================= -->
+
+
 
 
     </div>
@@ -7313,7 +8061,8 @@
     {id:'classificacao-classes', group:'P1', title:'Classificação de Classes'},
     {id:'construcao-modelo-classes', group:'P1', title:'Construção do Modelo de Classes'},
     {id:'modelo-interacao', group:'P1', title:'Modelo de Interação · Diagrama de Sequência'},
-    {id:'prova-2019', group:'P1', title:'Prova P1 2019 · Sistema de Gerência de Hotel'}
+    {id:'prova-2019', group:'P1', title:'Prova P1 2019 · Sistema de Gerência de Hotel'},
+    {id:'prova-2025', group:'P1', title:'Prova P1 2025 · Sistema City Tour'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -10364,6 +11113,727 @@
         else {
           count.textContent = 'Fim · ' + P19_QZ.length + ' afirmações';
           stmt.textContent = 'Você acertou ' + st.hits + ' de ' + P19_QZ.length + '.';
+          feed.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 3000);
+    }
+    opts.querySelectorAll('.tab').forEach(function(b){ b.addEventListener('click', function(){ answer(b.dataset.qz, b); }); });
+    if(reset) reset.addEventListener('click', function(){ st.i = 0; st.hits = 0; st.answered = 0; render(); });
+    render();
+  })();
+
+
+  /* ============================================================
+     MÓDULO 11 — PROVA P1 2025 · SISTEMA CITY TOUR (SCT)
+     ============================================================ */
+
+  /* ---------- 11.1 cronômetro ---------- */
+  (function(){
+    var clock = document.getElementById('p25Clock');
+    if(!clock) return;
+    var sub = document.getElementById('p25ClockSub');
+    var TOTAL = 100 * 60, left = TOTAL, timer = null;
+    function fmt(s){
+      var neg = s < 0; if(neg) s = -s;
+      var h = Math.floor(s/3600), m = Math.floor((s%3600)/60), x = s%60;
+      return (neg?'-':'') + h + ':' + String(m).padStart(2,'0') + ':' + String(x).padStart(2,'0');
+    }
+    function paint(){
+      clock.textContent = fmt(left);
+      clock.classList.toggle('warn', left <= 15*60 && left > 0);
+      clock.classList.toggle('over', left <= 0);
+    }
+    document.getElementById('p25Start').addEventListener('click', function(){
+      if(timer) return;
+      timer = setInterval(function(){
+        left--; paint();
+        if(left === 0) sub.textContent = 'tempo esgotado';
+      }, 1000);
+      sub.textContent = 'correndo · 1h40 de referência';
+    });
+    document.getElementById('p25Pause').addEventListener('click', function(){
+      if(!timer) return;
+      clearInterval(timer); timer = null;
+      sub.textContent = 'pausado em ' + fmt(left);
+    });
+    document.getElementById('p25Reset').addEventListener('click', function(){
+      if(timer){ clearInterval(timer); timer = null; }
+      left = TOTAL; paint(); sub.textContent = 'cronômetro parado';
+    });
+    paint();
+  })();
+
+  /* ---------- 11.2 enunciado interativo ---------- */
+  var P25_PARAS = [
+    { n:'§ 1 · CONTEXTO',
+      t:'Uma agência de turismo deseja desenvolver o Sistema City Tour (SCT), para gerenciar os passeios turísticos realizados na cidade. Os roteiros dos passeios são de diversos tipos, que variam no tema, na duração e nos pontos turísticos visitados. Cada roteiro possui, além de pontos turísticos a serem visitados, os pontos de encontro, onde os participantes iniciam e/ou terminam o passeio em horários pré-estabelecidos.',
+      chips:[['dado','Roteiro, PontoTuristico, PontoEncontro'],['reg','roteiro ≠ passeio']],
+      r:['<strong>Roteiro</strong> é o itinerário; <strong>Passeio</strong> é a realização dele em uma data e horário. Confundir os dois derruba as questões 1, 2 e 4.',
+         'O roteiro é formado por pontos turísticos <em>e</em> pontos de encontro — a agregação que aparece na Tabela 4.'] },
+    { n:'§ 2 · PONTOS',
+      t:'Os pontos turísticos são cadastrados no SCT, através da sua identificação, localização, fotos, descrição sucinta e duração da visita. Os pontos de encontro estão localizados em pontos pré-estabelecidos, como hotéis ou endereços de fácil acesso. Os pontos turísticos e de encontro podem fazer parte de diversos roteiros.',
+      chips:[['dado','PontoTuristico, PontoEncontro']],
+      r:['"Podem fazer parte de diversos roteiros" é o que garante que os pontos são <strong>classes próprias</strong>, e não atributos de Roteiro.',
+         'Identificação, localização, fotos, descrição e duração são os atributos de PontoTurístico — a prova de 2025 não pedia atributos, mas eles estão aqui.'] },
+    { n:'§ 3 · ESPECIALISTAS',
+      t:'Os especialistas em turismo da agência têm a responsabilidade de fazer a análise do mercado e identificar necessidade de criação de novos roteiros e da desativação daqueles de baixo interesse pelo público. A manutenção dos roteiros do SCT (cadastro, alteração e exclusão) é realizada pelos especialistas em turismo.',
+      chips:[['ator','Especialista em turismo'],['func','Manutenção de roteiros']],
+      r:['<strong>Analisar o mercado</strong> é trabalho dele fora do sistema — não vira caso de uso do SCT.',
+         '"Cadastro, alteração e exclusão" é o próprio pacote da Tabela 1: cadastrar, alterar, excluir (e mais consultar e listar).'] },
+    { n:'§ 4 · PASSEIOS E RECURSOS',
+      t:'Os gerentes de passeios fazem a manutenção dos passeios previstos ou em andamento, e devem resolver os problemas ocorridos durante os passeios. Um passeio é criado, pelo gerente de passeios, a partir de um roteiro existente, atribuindo uma data e horário para sua realização e alocando os recursos necessários: um veículo, um motorista e um guia. Um passeio tem um número máximo de participantes, que depende do tipo de veículo alocado. Após a alocação de recursos, um passeio fica liberado para reservas de vagas pelos clientes.',
+      chips:[['ator','Gerente de passeios'],['func','Criar passeio'],['dado','Passeio, Veiculo, Motorista, Guia, TipoVeiculo']],
+      r:['Três recursos, três classes — e o enunciado nomeia as especializações, por isso a classe <em>Recurso</em> genérica só vale se vier com elas.',
+         '"Número máximo depende do tipo de veículo" é a justificativa de <strong>TipoVeículo</strong> como classe.',
+         '"Fica liberado para reservas" encadeia o caso de uso 2 no caso de uso 3.'] },
+    { n:'§ 5 · RESERVA',
+      t:'A reserva em um passeio pode ser feita pelo cliente, através do site da agência de turismo. Para solicitar a reserva, o cliente deve estar cadastrado no SCT, com pelo menos CPF, RG, nome, telefone para contato e email. Para fazer a reserva, deve escolher um roteiro, através da lista fornecida pelo SCT, e o passeio, através da data/horário do passeio. O SCT apresenta o valor do passeio por pessoa, pede o nome e o CPF dos participantes e apresenta o valor total ao cliente. Após a confirmação, o SCT pede os dados do cartão para cobrança e contata a instituição financeira para a autorização da venda.',
+      chips:[['ator','Cliente, Banco'],['func','Reservar vagas no passeio'],['dado','Cliente, Participante, Reserva'],['reg','site não é ator']],
+      r:['<strong>O site é o próprio sistema</strong>, não um ator. Ator é o cliente, que solicita a reserva.',
+         'A ordem do diálogo está toda aqui: roteiro → passeio → participantes → valor total → cartão → banco.',
+         '<strong>Cliente</strong> e <strong>Participante</strong> são classes distintas: o cliente contrata e responde pelos participantes.'] },
+    { n:'§ 6 · CONFIRMAÇÃO',
+      t:'Ao receber a autorização para a venda, o SCT confirma a reserva no passeio e envia o comprovante ao cliente.',
+      chips:[['reg','pós-condição em duas partes']],
+      r:['Duas coisas acontecem: a reserva é efetivada <em>e</em> o comprovante é enviado. Logo a pós-condição tem <strong>duas partes</strong> — foi o esquecimento mais comum na correção.'] },
+    { n:'§ 7 · DESISTÊNCIA E CANCELAMENTO',
+      t:'A desistência é aceita até 48 horas antes do início do passeio e, nesse caso, a agência de turismo realiza o procedimento de devolução do valor pago. O passeio pode ser cancelado se, a 48 horas antes do passeio, não estiver com um número mínimo de reservas confirmadas.',
+      chips:[['reg','regras de 48 horas']],
+      r:['Regras de negócio que não entram na ficha de <em>Reservar vagas</em>: elas pertencem aos casos de uso de <strong>excluir vagas reservadas</strong> e de cancelar passeio.',
+         'Colocar a desistência como extensão da reserva é erro de escopo — o caso de uso tem que fazer o que o nome promete.'] },
+    { n:'§ 8 · EXECUÇÃO DO PASSEIO',
+      t:'Ao iniciar o passeio, o veículo passa nos pontos de encontro para receber os participantes e, em cada ponto de encontro, o guia confirma a chegada dos participantes no SCT, através do equipamento móvel. Após receber todos, é realizado o passeio através dos pontos turísticos. No final, o veículo passa pelos pontos de encontro para deixar os participantes e registra os passageiros que ficam nesses pontos. Qualquer acontecimento fora do previsto deve ser registrado pelo guia no SCT: incidentes com participantes, atrasos, acidentes, chegada e saída fora dos pontos de encontro etc.',
+      chips:[['ator','Guia'],['func','Registrar chegada, Registrar saída, Finalizar passeio']],
+      r:['Nos três casos de uso da execução, <strong>apenas o guia usa o sistema</strong>. Participante, motorista e veículo aparecem na cena e não são atores.',
+         'O equipamento móvel é o meio de acesso, não um ator — mesma lógica do cartão na prova de 2019.',
+         '"Qualquer acontecimento fora do previsto" é uma função a mais, que o enunciado não listou entre as seis.'] },
+    { n:'§ 9 · GERÊNCIA',
+      t:'O gerente da agência de turismo pode acessar o andamento dos passeios ou os dados estatísticos dos passeios a qualquer momento.',
+      chips:[['ator','Gerente da agência'],['func','Consultar andamento e estatísticas']],
+      r:['O gerente da agência é ator do SCT, mas <strong>nenhuma das seis funções listadas é dele</strong> — por isso ele não aparece na Tabela 2.',
+         'Não confunda com o <em>gerente de passeios</em>, que cria e mantém os passeios. São dois atores diferentes.'] }
+  ];
+  (function(){
+    var list = document.getElementById('p25ParaList'), read = document.getElementById('p25Read');
+    if(!list || !read) return;
+    function render(i){
+      var p = P25_PARAS[i];
+      read.innerHTML =
+        '<div class="pv-chips">' + p.chips.map(function(c){ return '<span class="pv-chip ' + c[0] + '">' + c[1] + '</span>'; }).join('') + '</div>' +
+        '<h4>O que este parágrafo entrega</h4>' +
+        '<ul>' + p.r.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>';
+      list.querySelectorAll('.pv-p').forEach(function(b){ b.classList.toggle('on', +b.dataset.pi === i); });
+    }
+    list.innerHTML = P25_PARAS.map(function(p, i){
+      return '<button class="pv-p" data-pi="' + i + '"><span class="pv-pn">' + p.n + '</span>' + p.t + '</button>';
+    }).join('');
+    list.querySelectorAll('.pv-p').forEach(function(b){ b.addEventListener('click', function(){ render(+b.dataset.pi); }); });
+    render(0);
+  })();
+
+  /* ---------- 11.3 as seis funções do SCT ---------- */
+  var P25_FN = [
+    {n:'1 · Cadastrar roteiro', a:'Especialista em turismo, IARoteiro',
+     d:'O especialista em turismo solicita a definição de um roteiro, através da seleção dos pontos turísticos. O sistema solicita a montagem do roteiro ao sistema externo IARoteiro, baseado em Inteligência Artificial. O IARoteiro analisa a coerência dos pontos turísticos, define os pontos de encontro, gera um itinerário otimizado em relação à distância percorrida e devolve ao sistema.',
+     nota:'Ficha fornecida na prova. É a descrição que revela o ator IARoteiro — quem leu rápido perdeu ponto na Tabela 2.'},
+    {n:'2 · Criar passeio', a:'Gerente de passeios',
+     d:'O gerente de passeios cria o passeio, a partir de um roteiro, definindo a data e o horário de início do passeio, e alocando os recursos necessários (veículo, motorista e guia).',
+     nota:'Ficha fornecida na prova. Ator único: o gerente de passeios. Os recursos são classes, não atores.'},
+    {n:'3 · Reservar vagas no passeio', a:'Cliente, Banco',
+     d:'O cliente reserva vagas em um passeio selecionado.',
+     nota:'É a ficha que você tinha que escrever — 4 pontos. A descrição de uma linha esconde 16 passos e 4 extensões.'},
+    {n:'4 · Registrar chegada no passeio', a:'Guia',
+     d:'O guia registra o cliente que se junta ao passeio, no ponto de encontro.',
+     nota:'Só o guia usa o sistema. O participante que embarca não interage com o SCT.'},
+    {n:'5 · Registrar saída do passeio', a:'Guia',
+     d:'O guia registra o cliente que deixa o passeio no ponto de encontro.',
+     nota:'Mesma lógica da chegada, no outro sentido: o veículo passa pelos pontos de encontro para deixar os participantes.'},
+    {n:'6 · Finalizar passeio', a:'Guia',
+     d:'O guia informa ao SCT o horário de término do passeio e os clientes que chegaram no ponto final do passeio.',
+     nota:'Fecha o ciclo do passeio. Note que a numeração da Tabela 2 pula o 3 — é assim na prova original.'}
+  ];
+  (function(){
+    var list = document.getElementById('p25FnList'), det = document.getElementById('p25FnDetail');
+    if(!list || !det) return;
+    function render(i){
+      var f = P25_FN[i];
+      det.innerHTML = '<span class="hd-tag">Função do SCT</span><h3>' + f.n + '</h3>' +
+        '<ul><li>' + f.d + '</li></ul>' +
+        '<div class="hd-note">Atores do caso de uso principal: <strong style="color:var(--ink)">' + f.a + '</strong><br>' + f.nota + '</div>';
+      list.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', +b.dataset.fi === i); });
+    }
+    list.innerHTML = P25_FN.map(function(f, i){
+      return '<button class="hotel-item" data-fi="' + i + '"><span class="hi-n">' + String(i+1).padStart(2,'0') + '</span>' + f.n.replace(/^\d+ · /, '') + '</button>';
+    }).join('');
+    list.querySelectorAll('.hotel-item').forEach(function(b){ b.addEventListener('click', function(){ render(+b.dataset.fi); }); });
+    render(0);
+  })();
+
+  /* ---------- 11.4 seletor genérico (usado nas questões 1 e 2) ---------- */
+  function pvPicker(cfg){
+    var tabsEl = document.getElementById(cfg.tabs), gridEl = document.getElementById(cfg.grid),
+        ledeEl = document.getElementById(cfg.lede), feedEl = document.getElementById(cfg.feed),
+        checkEl = document.getElementById(cfg.check), clearEl = document.getElementById(cfg.clear);
+    if(!tabsEl || !gridEl) return;
+    var cur = 0;
+    function draw(){
+      var g = cfg.groups[cur];
+      ledeEl.textContent = g.lede;
+      gridEl.innerHTML = g.pool.map(function(p, i){
+        return '<button class="pv-card" data-i="' + i + '"><span class="pv-cn">+</span><span>' + p.t + '</span></button>';
+      }).join('');
+      gridEl.querySelectorAll('.pv-card').forEach(function(b){
+        b.addEventListener('click', function(){
+          b.classList.remove('right','wrong','miss');
+          var on = b.classList.contains('sel');
+          if(on) b.classList.remove('sel'); else b.classList.add('sel');
+          var cn = b.getElementsByTagName('span')[0];
+          if(cn) cn.textContent = on ? '+' : '✓';
+        });
+      });
+      feedEl.textContent = cfg.prompt;
+      tabsEl.querySelectorAll('.tab').forEach(function(t, i){ t.classList.toggle('active', i === cur); });
+    }
+    function check(){
+      var g = cfg.groups[cur], hits = 0, wrong = [], missed = [];
+      gridEl.querySelectorAll('.pv-card').forEach(function(b){
+        var p = g.pool[+b.dataset.i], sel = b.classList.contains('sel');
+        b.classList.remove('right','wrong','miss');
+        if(sel && p.ok){ b.classList.add('right'); hits++; }
+        else if(sel && !p.ok){ b.classList.add('wrong'); wrong.push(p); }
+        else if(!sel && p.ok){ b.classList.add('miss'); missed.push(p); }
+      });
+      var total = g.pool.filter(function(p){ return p.ok; }).length;
+      var txt = (hits === total && !wrong.length)
+        ? '<span class="ok">✓ ' + hits + ' de ' + total + ' — resposta completa</span>'
+        : '<span class="warn">' + hits + ' de ' + total + ' corretos' + (wrong.length ? ' · ' + wrong.length + ' a mais' : '') + (missed.length ? ' · ' + missed.length + ' faltando' : '') + '</span>';
+      var det = wrong.concat(missed).slice(0, 4).map(function(p){
+        return '<br><strong style="color:var(--ink)">' + p.t + '</strong> — ' + p.w;
+      }).join('');
+      feedEl.innerHTML = txt + det + (g.nota ? '<br><br>' + g.nota : '');
+    }
+    tabsEl.innerHTML = cfg.groups.map(function(g, i){
+      return '<button class="tab' + (i === 0 ? ' active' : '') + '" data-g="' + i + '">' + g.label + '</button>';
+    }).join('');
+    tabsEl.querySelectorAll('.tab').forEach(function(t){
+      t.addEventListener('click', function(){ cur = +t.dataset.g; draw(); });
+    });
+    if(checkEl) checkEl.addEventListener('click', check);
+    if(clearEl) clearEl.addEventListener('click', draw);
+    draw();
+  }
+
+  /* ---------- 11.5 questão 1 · pacotes de casos de uso ---------- */
+  var P25_TAB1 = [
+    {f:'Cadastrar roteiro', cus:['Cadastrar roteiro','Alterar roteiro','Excluir roteiro','Consultar roteiro','Listar roteiros']},
+    {f:'Criar passeio', cus:['Criar passeio','Alterar passeio','Excluir passeio','Consultar passeio','Listar passeios']},
+    {f:'Reservar vagas no passeio', cus:['Reservar vagas','Alterar vagas reservadas','Excluir vagas reservadas','Consultar vagas reservadas','Listar vagas reservadas']}
+  ];
+  (function(){
+    var body = document.getElementById('p25Tab1Body');
+    if(body){
+      body.innerHTML = P25_TAB1.map(function(f, i){
+        return '<tr><td class="uc">' + (i+1) + '</td><td><strong style="color:var(--ink)">' + f.f + '</strong></td>' +
+               '<td class="cand">' + f.cus.map(function(c, j){
+                 return j === 0 ? '<strong style="color:var(--ink)">' + c + '</strong> <span style="font-family:var(--mono);font-size:10.5px;color:var(--cyan);">principal</span>' : c;
+               }).join(' · ') + '</td></tr>';
+      }).join('');
+    }
+    pvPicker({
+      tabs:'p25PkTabs', grid:'p25PkGrid', lede:'p25PkLede', feed:'p25PkFeed', check:'p25PkCheck', clear:'p25PkClear',
+      prompt:'Selecione os casos de uso da função e clique em Conferir.',
+      groups:[
+        { label:'Cadastrar roteiro', lede:'elemento manipulado: ROTEIRO',
+          nota:'A solução acrescentou o listar, sem considerar filtros por enquanto.',
+          pool:[
+            {t:'Cadastrar roteiro', ok:true,  w:'caso de uso principal: é o que cria o elemento.'},
+            {t:'Alterar roteiro', ok:true,  w:'manipula o mesmo elemento.'},
+            {t:'Excluir roteiro', ok:true,  w:'a manutenção dos roteiros inclui a exclusão, feita pelo especialista.'},
+            {t:'Consultar roteiro', ok:true,  w:'buscar o elemento é um dos quatro casos de uso mínimos.'},
+            {t:'Listar roteiros', ok:true,  w:'acrescentado pela solução, ainda sem filtros.'},
+            {t:'Analisar o mercado e identificar novos roteiros', ok:false, w:'é responsabilidade do especialista fora do sistema — não é função do SCT.'},
+            {t:'Selecionar pontos turísticos e pedir o roteiro ao IARoteiro', ok:false, w:'isso é a descrição da função (e a sequência de eventos), não um caso de uso do pacote.'},
+            {t:'Cadastrar ponto turístico', ok:false, w:'manipula outro elemento — é o pacote de PontoTurístico.'},
+            {t:'Desativar roteiro de baixo interesse', ok:false, w:'na solução, a desativação está coberta por alterar/excluir roteiro; criar um caso de uso novo aqui é invenção.'}
+          ]},
+        { label:'Criar passeio', lede:'elemento manipulado: PASSEIO',
+          nota:'Repare no nome do principal: criar, e não cadastrar — o enunciado usa o verbo criar para passeio.',
+          pool:[
+            {t:'Criar passeio', ok:true,  w:'caso de uso principal: cria o elemento passeio a partir de um roteiro.'},
+            {t:'Alterar passeio', ok:true,  w:'os gerentes fazem a manutenção dos passeios previstos ou em andamento.'},
+            {t:'Excluir passeio', ok:true,  w:'completa o pacote de manipulação do elemento.'},
+            {t:'Consultar passeio', ok:true,  w:'buscar o elemento criado.'},
+            {t:'Listar passeios', ok:true,  w:'acrescentado pela solução.'},
+            {t:'Alocar veículo, motorista e guia', ok:false, w:'é um passo da sequência de eventos de criar passeio, não um caso de uso do pacote.'},
+            {t:'Resolver problemas ocorridos durante o passeio', ok:false, w:'aparece no enunciado como atribuição do gerente, mas não está entre as funções consideradas para a modelagem.'},
+            {t:'Finalizar passeio', ok:false, w:'é a função 6, do guia — outro pacote.'},
+            {t:'Cadastrar tipo de veículo', ok:false, w:'manipula outro elemento (TipoVeículo).'}
+          ]},
+        { label:'Reservar vagas', lede:'elemento manipulado: RESERVA (vagas reservadas)',
+          nota:'Os nomes dos relacionados não precisam ser padronizados — precisam deixar claro o significado.',
+          pool:[
+            {t:'Reservar vagas', ok:true,  w:'caso de uso principal: cria a reserva.'},
+            {t:'Alterar vagas reservadas', ok:true,  w:'manipula a reserva criada.'},
+            {t:'Excluir vagas reservadas', ok:true,  w:'é por aqui que entra a desistência até 48 h antes.'},
+            {t:'Consultar vagas reservadas', ok:true,  w:'buscar a reserva do cliente.'},
+            {t:'Listar vagas reservadas', ok:true,  w:'acrescentado pela solução.'},
+            {t:'Autorizar a venda no cartão', ok:false, w:'quem autoriza é o Banco; no SCT isso é um passo da sequência, não caso de uso.'},
+            {t:'Cadastrar cliente', ok:false, w:'outro elemento — e o enunciado já pressupõe o cliente cadastrado e autenticado.'},
+            {t:'Registrar chegada no passeio', ok:false, w:'é a função 4, do guia.'},
+            {t:'Devolver o valor pago na desistência', ok:false, w:'procedimento da agência de turismo; o enunciado não o coloca como função do SCT.'}
+          ]}
+      ]
+    });
+  })();
+
+  /* ---------- 11.6 questão 2 · atores por caso de uso ---------- */
+  (function(){
+    function pool(sel){
+      var all = [
+        ['Especialista em turismo','ET solicita o cadastro do roteiro e seleciona os pontos turísticos.'],
+        ['IARoteiro','sistema externo que define os pontos de encontro e devolve o roteiro otimizado — troca informação com o SCT.'],
+        ['Gerente de passeios','cria o passeio a partir de um roteiro e aloca os recursos.'],
+        ['Cliente','solicita a reserva de vagas pelo site da agência.'],
+        ['Banco','instituição financeira que autoriza a venda; recebe os dados e devolve a confirmação.'],
+        ['Guia','único que usa o sistema durante o passeio, pelo equipamento móvel.'],
+        ['Motorista','recurso alocado ao passeio — não opera o SCT.'],
+        ['Site da agência','é o próprio sistema, não um agente externo.'],
+        ['Gerente da agência','consulta andamento e estatísticas, mas não participa destes casos de uso.'],
+        ['Participante','entra e sai do passeio, mas quem registra no SCT é o guia.']
+      ];
+      return all.map(function(a){ return {t:a[0], ok:sel.indexOf(a[0]) >= 0, w:a[1]}; });
+    }
+    pvPicker({
+      tabs:'p25AtTabs', grid:'p25AtGrid', lede:'p25AtLede', feed:'p25AtFeed', check:'p25AtCheck', clear:'p25AtClear',
+      prompt:'Selecione todos os atores do caso de uso e clique em Conferir.',
+      groups:[
+        {label:'1 · Cadastrar roteiro', lede:'caso de uso principal da função 1 — pode ter mais de um ator',
+         nota:'Comentário de correção: "vários não consideraram o ator IARoteiro".',
+         pool:pool(['Especialista em turismo','IARoteiro'])},
+        {label:'2 · Criar passeio', lede:'caso de uso principal da função 2',
+         nota:'Ator único. Veículo, motorista e guia entram como recursos — classes, não atores.',
+         pool:pool(['Gerente de passeios'])},
+        {label:'4 · Reservar vagas', lede:'caso de uso principal da função 3',
+         nota:'Comentário de correção: a maioria incluiu o pagamento na descrição, mas vários esqueceram o Banco como ator.',
+         pool:pool(['Cliente','Banco'])},
+        {label:'5 · Registrar chegada', lede:'execução do passeio, no ponto de encontro',
+         nota:'Nos casos 5, 6 e 7, apenas o guia usa o sistema.',
+         pool:pool(['Guia'])},
+        {label:'6 · Registrar saída', lede:'execução do passeio, no ponto de encontro',
+         nota:'Mesma resposta do caso 5 — e o participante continua não sendo ator.',
+         pool:pool(['Guia'])},
+        {label:'7 · Finalizar passeio', lede:'encerramento do passeio',
+         nota:'O guia informa o horário de término e os clientes que chegaram ao ponto final.',
+         pool:pool(['Guia'])}
+      ]
+    });
+  })();
+
+  /* ---------- 11.7 questão 3 · padrão da descrição ---------- */
+  var P25_PAD = [
+    {k:'Nome', v:['Um nome que identifica a atividade realizada pelo caso de uso.','Forma: verbo (ou substantivo que mostra ação) + objeto. Exemplo do enunciado: pagar conta ou pagamento da conta.'], n:'Reservar vagas no passeio'},
+    {k:'Descrição', v:['Uma breve descrição do caso de uso, identificando o seu objetivo.'], n:'Cliente reserva vagas em um passeio.'},
+    {k:'Evento iniciador', v:['Nome do evento que inicia a execução do caso de uso.','É um evento, não uma frase narrando o ator: "solicitação da reserva de vagas no passeio", e não "cliente solicitou reserva".'], n:'Solicitação de reserva de vagas no passeio.'},
+    {k:'Atores', v:['Agentes externos participantes do caso de uso, com breve descrição se necessária.','O site não é ator: ele é o próprio sistema.','Sistema externo que responde ao SCT é ator — aqui, o Banco.'], n:'Cliente, Banco.'},
+    {k:'Pré-condições', v:['Condições que permitem iniciar a execução do caso de uso.','Cliente autenticado — cadastro sozinho não dá acesso ao sistema.','Se o cliente não estiver cadastrado, ele não consegue se autenticar.'], n:'Cliente autenticado no sistema.'},
+    {k:'Sequência de eventos', v:['Descrição dos passos do fluxo principal, explicitando o que o sistema faz.','Os passos devem ser numerados.','Cada passo deve explicitar o sujeito da ação: ator ou sistema.','O diálogo tem que ser sistemático — o ator só responde depois de o sistema pedir.','O 1º passo deve ser coerente com a pré-condição.'], n:'16 passos, da solicitação da reserva à confirmação enviada.'},
+    {k:'Pós-condições', v:['Condições que devem ser verdadeiras após a execução.','Se o caso de uso reserva as vagas e envia o comprovante, a pós-condição tem duas partes.'], n:'Reservas efetuadas e confirmação enviada ao cliente.'},
+    {k:'Extensões', v:['Sequências de passos dos fluxos alternativos: operações alternativas e exceções.','Cada extensão ocorre em um passo — e o número desse passo deve estar explicitado.','Não existe extensão de "cliente sem cadastro": quem dialoga com o sistema está autenticado.','Motivos diferentes de recusa do banco (cartão inválido, saldo insuficiente) têm tratamentos diferentes.'], n:'4 extensões: passos 8, 9, 11 e 15.'},
+    {k:'Inclusões', v:['Lista de casos de uso usados pelo caso de uso corrente.','Exemplo do enunciado: busca de cliente nas operações de busca, alteração e remoção.'], n:'Não necessárias por enquanto.'}
+  ];
+  (function(){
+    var list = document.getElementById('p25PadList'), det = document.getElementById('p25PadDetail');
+    if(!list || !det) return;
+    function render(i){
+      var f = P25_PAD[i];
+      det.innerHTML = '<span class="hd-tag">Campo do padrão</span><h3>' + f.k + '</h3>' +
+        '<ul>' + f.v.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>' +
+        '<div class="hd-note">Em Reservar vagas no passeio · ' + f.n + '</div>';
+      list.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', +b.dataset.ki === i); });
+    }
+    list.innerHTML = P25_PAD.map(function(f, i){
+      return '<button class="hotel-item" data-ki="' + i + '"><span class="hi-n">' + String(i+1).padStart(2,'0') + '</span>' + f.k + '</button>';
+    }).join('');
+    list.querySelectorAll('.hotel-item').forEach(function(b){ b.addEventListener('click', function(){ render(+b.dataset.ki); }); });
+    render(0);
+  })();
+
+  /* ---------- 11.8 questão 3 · sequência de eventos ---------- */
+  var P25_SEQ = [
+    'Cliente solicita reserva de vagas em um passeio.',
+    'Sistema apresenta os roteiros com valor por pessoa.',
+    'Cliente seleciona um roteiro.',
+    'Sistema apresenta os passeios com vagas.',
+    'Cliente seleciona um passeio.',
+    'Sistema solicita nome e CPF dos participantes.',
+    'Cliente fornece os dados solicitados.',
+    'Sistema verifica as vagas disponíveis do passeio.',
+    'Sistema verifica a consistência dos dados dos participantes.',
+    'Sistema reserva as vagas temporariamente, apresenta o valor total e pede confirmação.',
+    'Cliente confirma a reserva.',
+    'Sistema solicita os dados do cartão.',
+    'Cliente fornece os dados do cartão.',
+    'Sistema envia os dados da reserva ao banco.',
+    'Banco confirma a transação.',
+    'Sistema efetiva as reservas e envia a confirmação ao cliente.'
+  ];
+  (function(){
+    var ol = document.getElementById('p25FichaSeq');
+    if(ol) ol.innerHTML = P25_SEQ.map(function(s){ return '<li>' + s + '</li>'; }).join('');
+    var pool = document.getElementById('p25SeqPool'), target = document.getElementById('p25SeqTarget');
+    if(!pool || !target) return;
+    var feed = document.getElementById('p25SeqFeed'), reset = document.getElementById('p25SeqReset');
+    var next = 0;
+    function shuffle(a){ a = a.slice(); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random()*(i+1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function build(){
+      next = 0;
+      target.innerHTML = '<div class="pv-empty">nenhum passo escolhido ainda</div>';
+      feed.textContent = 'Comece pelo passo coerente com a pré-condição: cliente autenticado.';
+      pool.innerHTML = shuffle(P25_SEQ.map(function(t, i){ return i; })).map(function(i){
+        return '<button class="pv-card" data-si="' + i + '"><span class="pv-cn">?</span><span>' + P25_SEQ[i] + '</span></button>';
+      }).join('');
+      pool.querySelectorAll('.pv-card').forEach(function(b){
+        b.addEventListener('click', function(){
+          var i = +b.dataset.si;
+          if(i === next){
+            b.remove();
+            if(next === 0) target.innerHTML = '';
+            var el = document.createElement('div');
+            el.className = 'pv-card right';
+            el.innerHTML = '<span class="pv-cn">' + (next+1) + '</span><span>' + P25_SEQ[i] + '</span>';
+            target.appendChild(el);
+            next++;
+            if(next === P25_SEQ.length){
+              feed.innerHTML = '<span class="ok">✓ sequência completa · 16 passos</span><br>Pós-condição: reservas efetuadas e confirmação enviada ao cliente — as duas partes.';
+            } else {
+              feed.innerHTML = '<span class="ok">✓ passo ' + next + ' correto</span><br>Faltam ' + (P25_SEQ.length - next) + ' passos.';
+            }
+          } else {
+            b.classList.add('wrong');
+            setTimeout(function(){ b.classList.remove('wrong'); }, 400);
+            feed.innerHTML = '<span class="warn">✗ ainda não</span><br>' +
+              (next === 0 ? 'O 1º passo é coerente com a pré-condição: o cliente já está autenticado, com os comandos na tela, e solicita a reserva.'
+                          : 'Diálogo sistemático: o ator só responde depois de o sistema pedir. O passo ' + (next+1) + ' vem logo depois de "' + P25_SEQ[next-1] + '"');
+          }
+        });
+      });
+    }
+    if(reset) reset.addEventListener('click', build);
+    build();
+  })();
+
+  /* ---------- 11.9 questão 4 · triagem de classes ---------- */
+  var P25_CLS = [
+    {n:'Roteiro', v:'ok', w:'Representa o itinerário de um roteiro. Aparece nos três casos de uso — e é a mesma classe nos três.'},
+    {n:'PontoTuristico', v:'ok', w:'Os pontos podem fazer parte de diversos roteiros, então têm existência própria. Roteiro é agregação de PontoTurístico e PontoEncontro.'},
+    {n:'PontoEncontro', v:'ok', w:'Onde os participantes iniciam e/ou terminam o passeio, em horários pré-estabelecidos. Classe própria, como o ponto turístico.'},
+    {n:'Passeio', v:'ok', w:'Representa os passeios que podem ser realizados com base em um roteiro. Nasce no caso de uso 2 e é usado no 3.'},
+    {n:'Veiculo', v:'ok', w:'Recurso alocado ao passeio. O enunciado nomeia as especializações, então elas entram como classes.'},
+    {n:'Motorista', v:'ok', w:'Recurso alocado ao passeio, buscado pelo tipo solicitado pelo gerente.'},
+    {n:'Guia', v:'ok', w:'Aqui é a classe que armazena os dados dos guias — não confundir com o ator Guia, que usa o sistema no passeio.'},
+    {n:'TipoVeiculo', v:'ok', w:'Veículo de passeio, van, ônibus. Existe porque o gerente aloca por tipo — e o máximo de participantes depende do tipo de veículo.'},
+    {n:'TipoMotorista', v:'ok', w:'Motorista de veículo de passeio, de van, de ônibus. Citada explicitamente nos comentários da correção.'},
+    {n:'TipoGuia', v:'ok', w:'Bilíngue, trilíngue, para 3ª idade. Mesma lógica dos outros dois tipos.'},
+    {n:'Cliente', v:'ok', w:'Representa os clientes que participam dos passeios. É ator no caso de uso 3 e classe na Tabela 4 — elementos distintos.'},
+    {n:'Participante', v:'ok', w:'Representa os participantes do passeio, sob responsabilidade do cliente contratante. É a classe que o objeto Reserva recupera.'},
+    {n:'Reserva', v:'ok', w:'Representa a reserva realizada pelo cliente em um passeio. Sem ela, não há como associar cliente, participantes e passeio.'},
+    {n:'InterfIARoteiro', v:'ok', w:'Classe de fronteira: permite a comunicação do sistema com o IARoteiro. Vários alunos esqueceram as classes de interface com sistemas externos.'},
+    {n:'IARoteiro', v:'no', w:'Sistema externo não é classe — é ator. O que existe dentro do sistema é a interface com ele (InterfIARoteiro).'},
+    {n:'Sistema', v:'no', w:'Não é classe: ele contém todas as classes.'},
+    {n:'Site da agência', v:'no', w:'É o próprio sistema, visto pelo cliente. Não é classe nem ator.'},
+    {n:'Reservar vagas', v:'no', w:'Função e caso de uso não são classes — eles são realizados através das classes. Classe é substantivo, não ação.'},
+    {n:'Roteiros', v:'no', w:'Nome de classe é substantivo no singular: Roteiro, não Roteiros.'},
+    {n:'Especialista em turismo', v:'no', w:'É ator. As classes que representam atores para fins de autenticação, em geral, não são representadas nesta fase.'},
+    {n:'ControleReserva', v:'no', w:'Classe de controle de caso de uso — em geral não é representada nesta fase da modelagem.'},
+    {n:'Recurso', v:'dep', w:'Só vale se for descrita através das suas especializações — Motorista, Guia e Veículo — porque essas especializações estão no texto do enunciado.'},
+    {n:'Itinerario', v:'dep', w:'Sinônimo de Roteiro. Para efeito do enunciado da prova, é uma classe única: se você usou os dois nomes, tinha que uniformizar na questão 5.'}
+  ];
+  (function(){
+    var cloud = document.getElementById('p25ClsCloud'), det = document.getElementById('p25ClsDetail'), sc = document.getElementById('p25ClsScore');
+    if(!cloud || !det) return;
+    var seen = {};
+    det.innerHTML = '<p style="margin:0;color:var(--ink-faint);font-size:14.5px;">Clique em um candidato para ver o veredito e a justificativa da correção.</p>';
+    cloud.innerHTML = P25_CLS.map(function(c, i){ return '<button class="noun" data-ci="' + i + '">' + c.n + '</button>'; }).join('');
+    if(sc) sc.innerHTML = 'classificados: <strong>0</strong> / ' + P25_CLS.length;
+    var LAB = {ok:['✓ vira classe','var(--cyan)','keep'], no:['✗ não vira classe','var(--rose)','drop'], dep:['~ só com ressalva','var(--amber)','dep']};
+    cloud.querySelectorAll('.noun').forEach(function(b){
+      b.addEventListener('click', function(){
+        var c = P25_CLS[+b.dataset.ci], L = LAB[c.v];
+        cloud.querySelectorAll('.noun').forEach(function(o){ o.classList.remove('sel'); });
+        b.classList.add(L[2]);
+        b.classList.add('sel');
+        seen[b.dataset.ci] = 1;
+        if(sc) sc.innerHTML = 'classificados: <strong>' + Object.keys(seen).length + '</strong> / ' + P25_CLS.length;
+        det.innerHTML =
+          '<div style="font-family:var(--mono);font-size:12px;color:' + L[1] + ';text-transform:uppercase;letter-spacing:.06em;">' + L[0] + '</div>' +
+          '<h4 style="font-family:var(--display);font-size:16px;margin:8px 0 8px;color:var(--ink);">' + c.n + '</h4>' +
+          '<p style="margin:0;color:var(--ink-soft);font-size:14.6px;line-height:1.6;">' + c.w + '</p>';
+      });
+    });
+  })();
+
+  /* ---------- 11.10 questão 5 · Tabela 4 ---------- */
+  var P25_T4 = [
+    {n:'Roteiro', r:'Representa o itinerário de um roteiro.', cu:'1, 2, 3', x:'É agregação de PontoTurístico e PontoEncontro. A mesma classe nos três casos de uso — foi o principal caso de uniformização da questão 5.'},
+    {n:'PontoTuristico', r:'Representa os pontos turísticos visitados pelo passeio.', cu:'1', x:'Cadastrado com identificação, localização, fotos, descrição sucinta e duração da visita.'},
+    {n:'PontoEncontro', r:'Representa os pontos de encontro do passeio.', cu:'1', x:'Hotéis ou endereços de fácil acesso, com horários pré-estabelecidos. Quem os define, no caso de uso 1, é o IARoteiro.'},
+    {n:'Passeio', r:'Representa os passeios que podem ser realizados com base em um roteiro.', cu:'2, 3', x:'Tem data, horário de início, recursos alocados e um número máximo de participantes que depende do tipo de veículo.'},
+    {n:'TipoVeiculo', r:'Representa os tipos de veículo que podem ser usados nos passeios.', cu:'2', x:'Veículo de passeio, van, ônibus. Define o máximo de participantes do passeio.'},
+    {n:'TipoMotorista', r:'Representa os tipos de motoristas que podem realizar os passeios.', cu:'2', x:'Motorista de veículo de passeio, de van, de ônibus — o tipo do motorista acompanha o tipo do veículo.'},
+    {n:'TipoGuia', r:'Representa os tipos de guias que podem participar dos passeios.', cu:'2', x:'Bilíngue, trilíngue, para 3ª idade. O gerente pede o tipo; o sistema busca o recurso.'},
+    {n:'Veiculo', r:'Representa os veículos que podem ser usados nos passeios.', cu:'2', x:'Recurso reservado temporariamente no passo 4 da ficha de Criar passeio e alocado no passo 7.'},
+    {n:'Motorista', r:'Representa os motoristas que podem realizar os passeios.', cu:'2', x:'Um dos três recursos necessários para liberar o passeio para reservas.'},
+    {n:'Guia', r:'Representa os guias que podem participar dos passeios.', cu:'2', x:'Classe que armazena os dados dos guias. O ator Guia é outro elemento: ele usa o sistema durante o passeio.'},
+    {n:'Cliente', r:'Representa os clientes que participam dos passeios.', cu:'3', x:'Cadastrado com pelo menos CPF, RG, nome, telefone e email. Precisa estar autenticado para reservar.'},
+    {n:'Participante', r:'Representa os participantes do passeio, sob responsabilidade do cliente contratante do passeio.', cu:'3', x:'O sistema pede nome e CPF de cada participante no passo 6 e verifica a consistência no passo 9.'},
+    {n:'Reserva', r:'Representa a reserva realizada pelo cliente em um passeio.', cu:'3', x:'Recupera as identificações dos participantes e fica associada a um passeio. É reservada temporariamente antes do pagamento.'},
+    {n:'InterfIARoteiro', r:'Permite a comunicação do sistema com o IARoteiro.', cu:'1', x:'Classe de fronteira. Existe porque o sistema externo é ator — e ator não é classe.'},
+    {n:'InterfBanco', r:'Permite a comunicação do sistema com o sistema do Banco.', cu:'3', x:'Classe de fronteira usada nos passos 14 e 15: envia os dados da reserva e recebe a confirmação da transação.'}
+  ];
+  (function(){
+    var body = document.getElementById('p25T4Body');
+    if(body){
+      body.innerHTML = P25_T4.map(function(c, i){
+        return '<tr><td class="uc">' + (i+1) + '</td><td class="uc"><strong style="color:var(--ink)">' + c.n + '</strong></td>' +
+               '<td>' + c.r + '</td><td class="fin">' + c.cu + '</td></tr>';
+      }).join('');
+    }
+    var list = document.getElementById('p25T4List'), det = document.getElementById('p25T4Detail');
+    if(!list || !det) return;
+    function render(i){
+      var c = P25_T4[i];
+      det.innerHTML = '<span class="hd-tag">Classe · casos de uso ' + c.cu + '</span><h3>' + c.n + '</h3>' +
+        '<ul><li><strong style="color:var(--ink)">Responsabilidade:</strong> ' + c.r + '</li><li>' + c.x + '</li></ul>' +
+        '<div class="hd-note">Responsabilidade é para que a classe serve no sistema — por que ela existe.</div>';
+      list.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', +b.dataset.ti === i); });
+    }
+    list.innerHTML = P25_T4.map(function(c, i){
+      return '<button class="hotel-item" data-ti="' + i + '"><span class="hi-n">' + String(i+1).padStart(2,'0') + '</span>' + c.n + '</button>';
+    }).join('');
+    list.querySelectorAll('.hotel-item').forEach(function(b){ b.addEventListener('click', function(){ render(+b.dataset.ti); }); });
+    render(0);
+  })();
+
+  /* ---------- 11.11 armadilhas por questão ---------- */
+  var P25_ERR = [
+    {q:'Questão 1', t:'Funções e casos de uso', l:[
+      'Um elemento (ex.: roteiro) é manipulado por uma função (ex.: cadastrar roteiro).',
+      'Para manipular adequadamente um elemento, são necessários casos de uso para cadastrar, alterar, excluir e buscar.',
+      'Não confundir os casos de uso de uma função com a descrição da função.'
+    ]},
+    {q:'Questão 2', t:'Atores dos casos de uso', l:[
+      'Para definir os atores, é preciso compreender a descrição resumida dos casos de uso fornecidos.',
+      'A ficha de Cadastrar roteiro já apresentava os atores — mas vários não consideraram o IARoteiro.',
+      'Na ficha de Reservar vagas, a maioria incluiu o pagamento e vários esqueceram o Banco como ator.',
+      'Os elementos externos que não usam o sistema não são atores: nos casos 5, 6 e 7, apenas o guia usa o sistema.'
+    ]},
+    {q:'Questão 3', t:'Descrição detalhada', l:[
+      'O site não pode ser ator, pois é o próprio sistema. Ator é quem solicita a reserva: o cliente.',
+      'Evento iniciador: "solicitação da reserva de vagas no passeio", e não "cliente solicitou reserva de vagas".',
+      'Pré-condição é cliente <strong>autenticado</strong>, não cadastrado: cadastro sozinho não dá acesso ao sistema.',
+      'A sequência deve apresentar o diálogo entre ator e sistema de forma sistemática — vários mostraram respostas do ator sem que o sistema tivesse pedido.',
+      'O 1º passo deve ser coerente com a pré-condição.',
+      'O sistema apresenta os roteiros, o cliente escolhe um, e só então o sistema apresenta os passeios daquele roteiro. Não é adequado apresentar todos os roteiros e todos os passeios.',
+      'Os dados da reserva vão ao Banco para verificar o cartão <strong>e</strong> o saldo — só uma das condições não autoriza a venda.',
+      'Consulta a sistema externo cuja resposta volta em seguida não precisa interromper o caso de uso.',
+      'Pós-condições: vagas reservadas <strong>e</strong> comprovante enviado — vários esqueceram a segunda parte.',
+      'Cada extensão ocorre em um passo, e o número do passo deve estar explicitado.',
+      'Não existe extensão de cliente sem cadastro: se ele dialoga com o sistema, está autenticado.',
+      'Recusa do banco por erro no cartão e por saldo insuficiente têm tratamentos diferentes.'
+    ]},
+    {q:'Questão 4', t:'Classes candidatas', l:[
+      'Classe é qualquer coisa que pode ser representada por um substantivo. Classe não é função.',
+      'Sistema não é classe: ele contém todas as classes.',
+      'Ator não é classe — a representação do ator no sistema é que é uma classe.',
+      'Função e caso de uso não são classes: eles são realizados através das classes.',
+      'Sistema externo não é classe; a interface com ele é uma classe de fronteira.',
+      'Em geral não se representam, nesta fase, as classes de controle de casos de uso nem as que representam atores para autenticação.',
+      'Nome de classe é substantivo singular: Roteiro, não Roteiros.',
+      'Não confundir o ator Guia (usa o sistema) com a classe Guia (armazena os dados dos guias).',
+      'Uma classe pode ser composta por outras: Roteiro é agregação de PontoTurístico e PontoEncontro, e cada uma se descreve como classe.',
+      'Classe Recurso, se usada, deve ser descrita pelas especializações Motorista, Guia e Veículo.',
+      'Existem TipoMotorista, TipoVeículo e TipoGuia — e os exemplos estão no enunciado.',
+      'Vários alunos se esqueceram das classes de interface com sistemas externos.'
+    ]},
+    {q:'Questão 5', t:'Classes finais e responsabilidades', l:[
+      'Responsabilidade da classe: para que ela serve no sistema; descreve por que a classe existe.',
+      'A mesma classe pode ter recebido nomes diferentes — equipes diferentes usam sinônimos.',
+      'Por isso é importante analisar nomes sinônimos para saber se são classes distintas: Roteiro e Itinerário, no enunciado desta prova, são uma classe única.'
+    ]}
+  ];
+  (function(){
+    var list = document.getElementById('p25ErrList'), det = document.getElementById('p25ErrDetail');
+    if(!list || !det) return;
+    function render(i){
+      var e = P25_ERR[i];
+      det.innerHTML = '<span class="hd-tag">' + e.q + ' · ' + e.l.length + ' observações</span><h3>' + e.t + '</h3>' +
+        '<ul>' + e.l.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>';
+      list.querySelectorAll('.hotel-item').forEach(function(b){ b.classList.toggle('active', +b.dataset.ei === i); });
+    }
+    list.innerHTML = P25_ERR.map(function(e, i){
+      return '<button class="hotel-item" data-ei="' + i + '"><span class="hi-n">' + String(i+1).padStart(2,'0') + '</span>' + e.q + '</button>';
+    }).join('');
+    list.querySelectorAll('.hotel-item').forEach(function(b){ b.addEventListener('click', function(){ render(+b.dataset.ei); }); });
+    render(0);
+  })();
+
+  /* ---------- 11.12 rubricas de autocorreção ---------- */
+  var P25_RUB = {
+    '1': {pts:1, crit:[
+      {t:'Identifiquei o elemento manipulado por cada função (roteiro, passeio, reserva).', w:0.3},
+      {t:'Dei os casos de uso de criar, alterar, excluir e consultar para cada função.', w:0.4},
+      {t:'Não confundi caso de uso com a descrição da função.', w:0.3}
+    ]},
+    '2': {pts:1, crit:[
+      {t:'Incluí o IARoteiro como ator de Cadastrar roteiro.', w:0.4},
+      {t:'Incluí o Banco como ator de Reservar vagas no passeio.', w:0.3},
+      {t:'Nos casos 5, 6 e 7 coloquei só o Guia — sem participante, motorista ou veículo.', w:0.3}
+    ]},
+    '3': {pts:4, crit:[
+      {t:'Evento iniciador escrito como evento (solicitação da reserva), não como frase do ator.', w:0.5},
+      {t:'Pré-condição: cliente autenticado no sistema — e o passo 1 é coerente com ela.', w:0.6},
+      {t:'Diálogo sistemático: cada resposta do ator vem depois de um pedido do sistema.', w:0.6},
+      {t:'Roteiro primeiro, passeios daquele roteiro depois — não apresentei tudo de uma vez.', w:0.6},
+      {t:'Envio ao Banco com verificação de cartão e saldo, sem interromper o caso de uso.', w:0.5},
+      {t:'Pós-condição em duas partes: vagas reservadas e confirmação enviada ao cliente.', w:0.6},
+      {t:'Extensões com o número do passo, sem inventar extensão de cliente sem cadastro.', w:0.6}
+    ]},
+    '4': {pts:2, crit:[
+      {t:'Listei as classes de cada um dos três casos de uso.', w:0.5},
+      {t:'Incluí as classes de interface com os sistemas externos (InterfIARoteiro, InterfBanco).', w:0.5},
+      {t:'Não coloquei Sistema, site, atores, funções nem casos de uso como classes.', w:0.5},
+      {t:'Justifiquei a necessidade de cada classe no respectivo caso de uso.', w:0.5}
+    ]},
+    '5': {pts:2, crit:[
+      {t:'Uniformizei as classes repetidas (Roteiro nos casos 1, 2 e 3; Passeio nos casos 2 e 3).', w:0.6},
+      {t:'Resolvi sinônimos, como Roteiro e Itinerário, em uma classe única.', w:0.4},
+      {t:'Escrevi a responsabilidade de cada classe — para que ela serve no sistema.', w:0.6},
+      {t:'Mantive os nomes no singular e tratei os tipos (TipoVeículo, TipoMotorista, TipoGuia).', w:0.4}
+    ]}
+  };
+  (function(){
+    var boxes = document.querySelectorAll('.pv-rub[data-q]');
+    if(!boxes.length) return;
+    var state = {}, totalCrit = 0, totalPts = 0;
+    Object.keys(P25_RUB).forEach(function(q){ totalCrit += P25_RUB[q].crit.length; totalPts += P25_RUB[q].pts; state[q] = {}; });
+    var progTxt = document.getElementById('p25ProgTxt'), progTot = document.getElementById('p25ProgTot'),
+        progBar = document.getElementById('p25ProgBar'), progNota = document.getElementById('p25ProgNota'),
+        finalNum = document.getElementById('p25FinalNum'), finalMsg = document.getElementById('p25FinalMsg'),
+        breakdown = document.getElementById('p25Breakdown');
+    if(progTot) progTot.textContent = totalCrit;
+    function fmt(v){ return v.toFixed(1).replace('.', ','); }
+    function qScore(q){ var s = 0; P25_RUB[q].crit.forEach(function(c, i){ if(state[q][i]) s += c.w; }); return s; }
+    function update(){
+      var marked = 0, nota = 0;
+      Object.keys(P25_RUB).forEach(function(q){
+        marked += Object.keys(state[q]).filter(function(k){ return state[q][k]; }).length;
+        nota += qScore(q);
+      });
+      if(progTxt) progTxt.textContent = marked;
+      if(progBar) progBar.style.width = (marked / totalCrit * 100) + '%';
+      if(progNota) progNota.textContent = fmt(nota);
+      if(finalNum) finalNum.innerHTML = fmt(nota) + '<small> / ' + fmt(totalPts) + '</small>';
+      if(breakdown){
+        breakdown.innerHTML = Object.keys(P25_RUB).map(function(q){
+          var s = qScore(q), full = Math.abs(s - P25_RUB[q].pts) < 0.001;
+          return '<div class="pv-bd' + (full ? ' full' : (s === 0 ? ' zero' : '')) + '">' +
+            '<div class="bdq">Questão ' + q + '</div><div class="bdv">' + fmt(s) +
+            '<span style="font-size:12px;color:var(--ink-faint);"> / ' + fmt(P25_RUB[q].pts) + '</span></div></div>';
+        }).join('');
+      }
+      if(finalMsg){
+        if(marked === 0){ finalMsg.textContent = 'Marque os critérios nas rubricas de cada questão para montar o diagnóstico.'; }
+        else {
+          var pior = null;
+          Object.keys(P25_RUB).forEach(function(q){
+            var frac = qScore(q) / P25_RUB[q].pts;
+            if(pior === null || frac < pior.f) pior = {q:q, f:frac};
+          });
+          finalMsg.innerHTML = nota >= 9
+            ? 'Prova praticamente fechada. Releia só a lista de armadilhas — quase todo desconto de 2025 veio de escrita, não de conceito.'
+            : 'Seu ponto mais fraco está na <strong style="color:var(--ink)">questão ' + pior.q + '</strong>. Volte às observações da correção dessa questão e refaça a resposta.';
+        }
+      }
+    }
+    boxes.forEach(function(box){
+      var q = box.dataset.q, r = P25_RUB[q];
+      box.innerHTML =
+        '<div class="pv-rub-head"><h4>Autocorreção da questão ' + q + '</h4>' +
+        '<div class="pv-rub-sc" id="p25RubSc' + q + '">nota: <strong>0,0</strong> / ' + fmt(r.pts) + '</div></div>' +
+        r.crit.map(function(c, i){
+          return '<button class="pv-crit" data-q="' + q + '" data-i="' + i + '"><span class="pv-box">✓</span><span>' + c.t + '</span><span class="pv-w">' + fmt(c.w) + ' pt</span></button>';
+        }).join('');
+      box.querySelectorAll('.pv-crit').forEach(function(b){
+        b.addEventListener('click', function(){
+          var i = +b.dataset.i;
+          state[q][i] = !state[q][i];
+          b.classList.toggle('on', !!state[q][i]);
+          var sc = document.getElementById('p25RubSc' + q);
+          if(sc) sc.innerHTML = 'nota: <strong>' + fmt(qScore(q)) + '</strong> / ' + fmt(r.pts);
+          update();
+        });
+      });
+    });
+    var rubReset = document.getElementById('p25RubReset');
+    if(rubReset){
+      rubReset.addEventListener('click', function(){
+        Object.keys(state).forEach(function(q){ state[q] = {}; });
+        document.querySelectorAll('.pv-crit').forEach(function(b){ b.classList.remove('on'); });
+        Object.keys(P25_RUB).forEach(function(q){
+          var sc = document.getElementById('p25RubSc' + q);
+          if(sc) sc.innerHTML = 'nota: <strong>0,0</strong> / ' + fmt(P25_RUB[q].pts);
+        });
+        update();
+      });
+    }
+    update();
+  })();
+
+  /* ---------- 11.13 quiz certo ou errado ---------- */
+  var P25_QZ = [
+    {t:'O site da agência de turismo é ator do SCT, porque é por ele que o cliente faz a reserva.', a:'E', w:'O site não pode ser ator: ele é o próprio sistema. Ator é quem solicita a reserva — o cliente.'},
+    {t:'O IARoteiro é ator do caso de uso Cadastrar roteiro.', a:'C', w:'Certo. Ele recebe os pontos turísticos, define os pontos de encontro, gera o itinerário otimizado e devolve o roteiro. A ficha fornecida na prova já listava os dois atores.'},
+    {t:'A pré-condição de Reservar vagas no passeio é "cliente cadastrado no sistema".', a:'E', w:'É "cliente autenticado no sistema". Um cliente apenas cadastrado não tem acesso; e quem não está cadastrado não consegue se autenticar.'},
+    {t:'Existe uma extensão para o caso de o cliente não ter cadastro.', a:'E', w:'Não existe: se o cliente está dialogando com o sistema, ele está autenticado e, portanto, tem cadastro.'},
+    {t:'Depois que o cliente escolhe o roteiro, o sistema deve apresentar os passeios apenas daquele roteiro.', a:'C', w:'Certo. Apresentar todos os roteiros e todos os passeios de uma vez não é adequado — o diálogo é passo a passo.'},
+    {t:'A pós-condição de Reservar vagas é apenas "vagas reservadas".', a:'E', w:'Tem duas partes: vagas reservadas e comprovante (confirmação) enviado ao cliente. Foi o esquecimento mais comum.'},
+    {t:'Basta o Banco verificar o saldo do cliente para autorizar a venda.', a:'E', w:'Os dados vão ao Banco para verificação dos dados do cartão e do saldo: apenas uma das condições não é suficiente. E os dois motivos de recusa têm tratamentos diferentes.'},
+    {t:'Como a resposta do Banco volta em seguida, não é necessário interromper o caso de uso.', a:'C', w:'Certo. No caso de consulta a sistema externo cuja resposta volta imediatamente, não se quebra o caso de uso em dois.'},
+    {t:'Sistema externo é uma classe do modelo.', a:'E', w:'Não. Sistema externo é ator; a interface com ele é que é classe — de fronteira. InterfIARoteiro e InterfBanco são exatamente isso.'},
+    {t:'O ator Guia e a classe Guia são o mesmo elemento.', a:'E', w:'São elementos distintos: o ator guia usa o sistema; a classe Guia armazena os dados dos guias.'},
+    {t:'A classe Roteiro pode ser definida como agregação de PontoTuristico e PontoEncontro.', a:'C', w:'Certo, e cada uma das partes deve ser descrita como classe, com seus atributos e operações.'},
+    {t:'Se aparecerem as classes Roteiro e Itinerário, são duas classes distintas.', a:'E', w:'Para efeito do enunciado desta prova, é uma classe única. Nomes sinônimos precisam ser analisados e uniformizados — é o que a questão 5 pede.'}
+  ];
+  (function(){
+    var stmt = document.getElementById('p25QzStmt'), opts = document.getElementById('p25QzOpts');
+    if(!stmt || !opts) return;
+    var feed = document.getElementById('p25QzFeed'), count = document.getElementById('p25QzCount'),
+        score = document.getElementById('p25QzScore'), reset = document.getElementById('p25QzReset');
+    var st = {i:0, hits:0, answered:0, locked:false};
+    function render(){
+      stmt.textContent = P25_QZ[st.i].t;
+      count.textContent = 'Afirmação ' + (st.i+1) + ' de ' + P25_QZ.length;
+      opts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      feed.textContent = 'Escolha uma opção para ver a justificativa.';
+      score.innerHTML = 'Acertos: <strong>' + st.hits + '</strong> / ' + st.answered;
+      st.locked = false;
+    }
+    function answer(choice, btn){
+      if(st.locked) return;
+      st.locked = true; st.answered++;
+      var it = P25_QZ[st.i], ok = choice === it.a;
+      if(ok) st.hits++;
+      opts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.qz === it.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      feed.innerHTML = (ok ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + (it.a === 'C' ? 'certo' : 'errado') + '</span>') + '<br>' + it.w;
+      score.innerHTML = 'Acertos: <strong>' + st.hits + '</strong> / ' + st.answered;
+      setTimeout(function(){
+        if(st.i < P25_QZ.length - 1){ st.i++; render(); }
+        else {
+          count.textContent = 'Fim · ' + P25_QZ.length + ' afirmações';
+          stmt.textContent = 'Você acertou ' + st.hits + ' de ' + P25_QZ.length + '.';
           feed.textContent = 'Clique em "Reiniciar" para rodar de novo.';
         }
       }, 3000);

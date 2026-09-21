@@ -5628,6 +5628,749 @@
       </div>
       <!-- ================= END MODULE: CONSTRUÇÃO DO MODELO DE CLASSES ================= -->
 
+      <!-- ================= MODULE 09: EXERCÍCIO SGRB · MODELO DE CLASSES ================= -->
+      <div class="module-page" data-module="exercicio-classes-sgrb" id="page-exercicio-classes-sgrb">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P1 · Exercício SGRB · Classes</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="exc-enunciado">Enunciado</button>
+              <button class="navlink" data-target="exc-fichas">Apêndice A</button>
+              <button class="navlink" data-target="exc-triagem">Triagem</button>
+              <button class="navlink" data-target="exc-tabela1">Tabela 1</button>
+              <button class="navlink" data-target="exc-tabela2">Tabela 2</button>
+              <button class="navlink" data-target="exc-diagrama">Diagrama</button>
+              <button class="navlink" data-target="exc-revisao">Revisão</button>
+              <button class="navlink" data-target="exc-parcial">Parcial</button>
+              <button class="navlink" data-target="exc-armadilhas">Armadilhas</button>
+              <button class="navlink" data-target="exc-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="exc-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P1 · Módulo 09 · Projeto Parte 2</div>
+              <h1>Exercício: <em>Modelo de Classes do SGRB</em></h1>
+              <p class="lede">O módulo 05 levou o Sistema de Gerência de Reparo de Buracos até o modelo de casos de uso. Aqui o mesmo sistema atravessa o procedimento do módulo 08: quatro casos de uso detalhados entram, onze classes e um diagrama parcial saem. Com a solução divulgada em 03/09 ao lado — inclusive nos pontos em que ela se contradiz.</p>
+              <div class="hero-meta">
+                <span><strong>Enunciado</strong> 31/08/2026</span>
+                <span><strong>Solução</strong> 03/09/2026</span>
+                <span><strong>Entrega</strong> 1 relatório por grupo</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">sgrb.classes()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="uc-badge">01</span> Rever o modelo de casos de uso</div>
+                  <div class="src-item"><span class="uc-badge">02</span> Identificar as classes</div>
+                  <div class="src-item"><span class="uc-badge in">03</span> Construir o diagrama de classes</div>
+                  <div class="src-item"><span class="uc-badge in">04</span> Rever o modelo de classes</div>
+                </div>
+                <div class="src-out">3 tabelas + 1 diagrama = relatório</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ ENUNCIADO ============ -->
+        <section class="section" id="exc-enunciado">
+          <div class="wrap">
+            <div class="eyebrow">O que a Parte 2 pede</div>
+            <h2 class="reveal">Quatro passos, quatro casos de uso</h2>
+            <p class="intro reveal">O enunciado é curto porque o procedimento já está na apostila — é o mesmo do <strong style="color:var(--ink)">módulo 08</strong>. O que muda é a entrada: em vez do SVIE, a descrição detalhada de quatro casos de uso do SGRB, entregue pronta no Apêndice A. O exercício registra passo a passo por motivo didático; em projeto real nem todos os passos viram documento.</p>
+
+            <div class="proc reveal">
+              <div class="proc-step">
+                <div class="ps-n">1</div>
+                <h4>Revisão do Modelo de Casos de Uso</h4>
+                <p>Comparar a descrição detalhada que o subgrupo escreveu com a versão do Apêndice A e registrar as diferenças.</p>
+                <div class="ps-out">saída: seção 1 do relatório</div>
+              </div>
+              <div class="proc-step s2">
+                <div class="ps-n">2</div>
+                <h4>Identificação das Classes</h4>
+                <p>Extrair as classes candidatas de cada caso de uso, filtrar, eliminar repetidas e descrever responsabilidade e atributos.</p>
+                <div class="ps-out">saída: Tabelas 1 e 2</div>
+              </div>
+              <div class="proc-step s3">
+                <div class="ps-n">3</div>
+                <h4>Construção do Diagrama</h4>
+                <p>Desenhar as classes da Tabela 2 com relacionamentos nomeados e com multiplicidade. O diagrama é parcial — e o relatório precisa explicar por quê.</p>
+                <div class="ps-out">saída: diagrama de classes</div>
+              </div>
+              <div class="proc-step s4">
+                <div class="ps-n">4</div>
+                <h4>Revisão do Modelo de Classes</h4>
+                <p>Percorrer cada passo da descrição detalhada perguntando qual classe executa aquilo. O que faltar entra na Tabela 3.</p>
+                <div class="ps-out">saída: Tabela 3 + diagrama revisto</div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">Os quatro casos de uso considerados</div>
+              <p>1 · <strong style="color:var(--ink)">Cadastrar cidadão</strong> — cadastra um cidadão, se ele ainda não estiver cadastrado.<br>
+              2 · <strong style="color:var(--ink)">Registrar buraco</strong> — registra um buraco, se ele ainda não estiver registrado.<br>
+              3 · <strong style="color:var(--ink)">Preencher ordem de serviço</strong> — atribui os recursos necessários à OS do buraco considerado.<br>
+              4 · <strong style="color:var(--ink)">Registrar resultado do reparo</strong> — armazena se o reparo foi concluído e o que foi usado.</p>
+              <p>São quatro dos dezesseis casos de uso levantados no módulo 05. É essa escolha, e só ela, que torna o modelo parcial.</p>
+            </div>
+
+            <div class="def-grid reveal" style="margin-top:28px;">
+              <div class="def-card">
+                <span class="tag">Observação do enunciado</span>
+                <h3>Relacionamento sem nome não conta</h3>
+                <p>O enunciado é explícito: os relacionamentos devem ter <strong style="color:var(--ink)">nome e multiplicidade</strong>. Uma linha nua entre duas classes não comunica nada — e é o desconto mais fácil de aplicar na correção.</p>
+              </div>
+              <div class="def-card">
+                <span class="tag">Observação do enunciado</span>
+                <h3>Classe isolada pode existir</h3>
+                <p>No exemplo da apostila, <em>InterfaceSOAD</em>, <em>Comprovante</em> e <em>Ingresso</em> ficam sem relacionamento: são classes de fronteira e de controle. O enunciado manda <strong style="color:var(--ink)">verificar se esses tipos são necessários aqui</strong> — a resposta da solução foi não.</p>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Detalhe do documento</div>
+              <blockquote>"Foram selecionados os seguintes casos de uso para serem considerados no Modelo de Classes Parcial do Sistema Drogaria Online"</blockquote>
+              <p>O Apêndice A traz essa frase no meio da lista dos casos de uso do SGRB. É sobra de um enunciado anterior, reaproveitado. Não muda nada do exercício, mas vale saber que está lá para não travar na leitura.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ APÊNDICE A ============ -->
+        <section class="section alt" id="exc-fichas">
+          <div class="wrap">
+            <div class="eyebrow">Passo 1 · Apêndice A</div>
+            <h2 class="reveal">As quatro descrições detalhadas</h2>
+            <p class="intro reveal">Esta é a matéria-prima do modelo de classes: nada que não esteja aqui deveria aparecer no diagrama. Clique em cada caso de uso para ver a ficha completa e, ao lado, o que cada passo entrega para a identificação de classes.</p>
+
+            <div class="hotel-grid reveal">
+              <div class="hotel-list" id="excFichaList"></div>
+              <div class="hotel-detail" id="excFichaDetail"></div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">Seção 1 do relatório</div>
+              <p>A primeira pergunta do relatório não é sobre classes: é comparar a <strong style="color:var(--ink)">sua</strong> descrição de "Registrar buraco" e "Preencher ordem de serviço" com a do Apêndice A e classificar — semelhantes (muito, médio, pouco), mais detalhadas (sim, não) ou incomparáveis. A solução oficial responde "depende dos casos de uso elaborados pelos grupos", ou seja: essa parte é sua e vale ser honesta. As diferenças que mais aparecem estão abaixo.</p>
+            </div>
+
+            <div class="docstruct reveal" style="margin-top:24px;">
+              <div class="doc-item">
+                <div class="di-n">DIFERENÇA TÍPICA 01</div>
+                <h4>Pré-condição de "Registrar buraco"</h4>
+                <ul>
+                  <li>Apêndice A: <em>Cidadão autenticado no sistema</em>.</li>
+                  <li>Versão comum dos grupos: <em>cidadão cadastrado</em> — que é mais fraco, porque cadastrado não implica estar autenticado agora.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">DIFERENÇA TÍPICA 02</div>
+                <h4>Autenticar virou inclusão ou pré-condição?</h4>
+                <ul>
+                  <li>No Apêndice A, autenticação está na pré-condição e a única inclusão é <em>Buscar buraco</em> (passo 4).</li>
+                  <li>No módulo 05, "autenticar cidadão" aparecia como caso de uso incluído. As duas leituras são defensáveis; o que não pode é ter as duas ao mesmo tempo.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">DIFERENÇA TÍPICA 03</div>
+                <h4>Ator de "Preencher ordem de serviço"</h4>
+                <ul>
+                  <li>Apêndice A: <strong style="color:var(--ink)">Funcionário de Manutenção</strong>, sozinho.</li>
+                  <li>No módulo 05 havia também o Sistema de Alocação de Recursos como ator secundário. O Apêndice A resolve a consulta de recursos dentro do próprio sistema.</li>
+                </ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">DIFERENÇA TÍPICA 04</div>
+                <h4>Granularidade dos passos</h4>
+                <ul>
+                  <li>Descrições dos grupos costumam ter mais passos (mensagens de tela, confirmações intermediárias).</li>
+                  <li>Mais detalhe não é melhor por si: o que interessa é se cada passo tem sujeito explícito e se nenhum dado relevante ficou de fora.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TRIAGEM ============ -->
+        <section class="section" id="exc-triagem">
+          <div class="wrap">
+            <div class="eyebrow">Passo 2 · Interativo</div>
+            <h2 class="reveal">Triagem: os substantivos do Apêndice A</h2>
+            <p class="intro reveal">Todos os termos abaixo aparecem nas quatro descrições detalhadas. O procedimento manda listar como candidatas as que você tem certeza <em>e</em> as que ainda estão em dúvida — e só depois filtrar. Antes de clicar, decida: <em style="font-style:normal;color:var(--ink)">esta vira classe na solução?</em></p>
+
+            <div class="triage reveal">
+              <div class="triage-head">
+                <h4>Classes candidatas · quatro casos de uso do SGRB</h4>
+                <span class="triage-score">analisadas <strong id="excTriCount">0</strong> / 26</span>
+              </div>
+              <div class="noun-cloud" id="excNouns"></div>
+              <div class="noun-detail">
+                <div class="nd-verdict" id="excNdVerdict">—</div>
+                <div class="nd-name" id="excNdName">Escolha uma candidata</div>
+                <p class="nd-why" id="excNdWhy">O veredicto de cada termo é o da solução divulgada em 03/09. Onde a solução deixa margem, a justificativa diz qual é a outra leitura defensável.</p>
+              </div>
+              <div class="triage-legend">
+                <span style="color:var(--cyan)">■</span> vira classe &nbsp;·&nbsp; <span style="color:var(--rose)">■</span> descartada<br>
+                Resultado da solução: <strong style="color:var(--cyan)">Cidadão, Buraco, OrdemServiço, Recurso, Material, Equipamento, Equipe, Veículo, RegistroReparo, ItinerarioReparo e ResponsavelReparo</strong> — onze classes.<br>
+                <span style="color:var(--ink-faint)">Nota: quatro dessas onze (Material, Equipamento, Equipe e Veículo) estão na Tabela 2 mas não foram desenhadas no diagrama.</span>
+              </div>
+            </div>
+
+            <div class="callout rose reveal" style="margin-top:32px;">
+              <div class="eyebrow">Os descartes que ensinam mais</div>
+              <p><strong>Sistema</strong> é o sujeito de quase todo passo e não é classe — é o software inteiro. <strong>Mensagem</strong>, <strong>confirmação</strong>, <strong>tela inicial</strong> e <strong>formulário</strong> caem juntas: são comunicação e interface, não conceitos do domínio. <strong>CPF</strong>, <strong>dimensão</strong> e <strong>nível de obstrução</strong> são atributos — têm valor, não identidade. E <strong>reparo</strong> não vira classe sozinho: o que o sistema guarda é o <em>registro</em> do reparo.</p>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:20px;">
+              <div class="eyebrow">Onde a solução abre margem</div>
+              <p>Dois atores viraram classe (<strong style="color:var(--ink)">Cidadão</strong> e <strong style="color:var(--ink)">ResponsavelReparo</strong>) e um não (<strong style="color:var(--ink)">Funcionário de Manutenção</strong>). O critério da apostila é o mesmo para os três: o sistema precisa guardar dados dessa pessoa? Se o funcionário se autentica — e a pré-condição diz que sim —, o sistema guarda dados dele. Incluir <em>FuncionarioManutencao</em> como classe é defensável; se você incluir, justifique no relatório.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TABELA 1 ============ -->
+        <section class="section alt" id="exc-tabela1">
+          <div class="wrap">
+            <div class="eyebrow">Passo 2 · Tabela 1</div>
+            <h2 class="reveal">Classes candidatas e classes finais</h2>
+            <p class="intro reveal">A tabela é preenchida em duas passadas: primeiro as candidatas de cada caso de uso, depois a coluna final, já sem repetição. O que se aprende está na <strong style="color:var(--ink)">diferença entre as duas colunas</strong> — e na coluna de observações, que é onde as decisões de modelagem ficam registradas.</p>
+
+            <div class="uctab-wrap reveal">
+              <table class="uctab">
+                <thead>
+                  <tr>
+                    <th style="width:180px;">Caso de uso</th>
+                    <th style="width:270px;">Classes candidatas (leitura do texto)</th>
+                    <th style="width:230px;">Classes finais (solução)</th>
+                    <th>Observações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="uc">Cadastrar cidadão</td>
+                    <td class="cand">cidadão, cadastro, dados do cidadão, nome, CPF, RG, endereço, celular, sistema, tela inicial, formulário, mensagem</td>
+                    <td class="fin">Cidadão</td>
+                    <td>Um único conceito sobrevive. Os cinco dados fornecidos no passo 3 viram atributos; tela e mensagem são interface.</td>
+                  </tr>
+                  <tr>
+                    <td class="uc">Registrar buraco</td>
+                    <td class="cand">buraco, cidadão, endereço, dimensão, localização na via, nível de obstrução, foto, reclamação, registro, confirmação</td>
+                    <td class="fin">Buraco, Cidadão</td>
+                    <td>Cidadão reaparece: é o sistema que <strong style="color:var(--ink)">associa o Cidadão ao Buraco</strong>. Essa observação da solução é o que justifica a associação "informado por" no diagrama.</td>
+                  </tr>
+                  <tr>
+                    <td class="uc">Preencher ordem de serviço</td>
+                    <td class="cand">ordem de serviço, buraco, recursos, material, equipamento, equipe, veículo, funcionário de manutenção, conjunto de ordens</td>
+                    <td class="fin">OrdemServiço, Buraco, Recurso, Material, Equipamento, Equipe, Veículo</td>
+                    <td>Recurso para conserto = material, equipamento, equipe e veículo. São os quatro tipos citados no passo 5, e é daí que sai a multiplicidade 0..4 do diagrama.</td>
+                  </tr>
+                  <tr>
+                    <td class="uc">Registrar resultado do reparo</td>
+                    <td class="cand">resultado do reparo, dados do reparo, buraco, itinerário, responsável pelo reparo, material, equipamento, estado</td>
+                    <td class="fin">ResultadoReparo, Buraco, ItinerarioReparo</td>
+                    <td>A própria solução avisa: o caso de uso usa <em>resultado do reparo</em> e <em>dados do reparo</em> para a mesma coisa, e a classe foi chamada de ResultadoReparo. Nas etapas seguintes ela vira RegistroReparo.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout reveal" style="margin-top:28px;">
+              <div class="eyebrow">Inconsistência da solução — e o que fazer com ela</div>
+              <p>A mesma classe aparece com <strong style="color:var(--ink)">dois nomes</strong>: <em>ResultadoReparo</em> na Tabela 1 e <em>RegistroReparo</em> na Tabela 2 e no diagrama. O erro é justamente o que o procedimento manda evitar — dois termos para um elemento. Escolha um nome, use em todo o relatório e registre a escolha. Aqui o guia usa <strong style="color:var(--ink)">RegistroReparo</strong>, que é o nome que sobreviveu no diagrama.</p>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:20px;">
+              <div class="eyebrow">Outra ausência</div>
+              <p><strong style="color:var(--ink)">ResponsavelReparo</strong> não aparece na coluna de classes finais da Tabela 1, mas está na Tabela 2 e no diagrama. Se você montar sua Tabela 1 a partir do diagrama, inclua-o na linha de "Registrar resultado do reparo" — o ator do caso de uso é ele.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TABELA 2 ============ -->
+        <section class="section" id="exc-tabela2">
+          <div class="wrap">
+            <div class="eyebrow">Passo 2 · Tabela 2</div>
+            <h2 class="reveal">Descrição das onze classes</h2>
+            <p class="intro reveal">A Tabela 2 tem três colunas: classe, responsabilidade e atributos principais. As responsabilidades abaixo são as da solução, palavra por palavra. <strong style="color:var(--ink)">A coluna de atributos foi deixada em branco na solução divulgada</strong> — os atributos marcados aqui são propostos a partir do enunciado do SGRB e da descrição detalhada, e é o que se espera que o grupo preencha.</p>
+
+            <div class="cdesc reveal">
+              <div class="cdesc-card">
+                <h4>Cidadão</h4>
+                <p class="cd-resp">Representa os cidadãos.</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>nome</li><li>cpf</li><li>rg</li><li>endereco</li><li>celular</li></ul>
+                <div class="cd-lab">de onde saem</div>
+                <ul><li>Passo 3 de "Cadastrar cidadão": os cinco dados fornecidos.</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>Buraco</h4>
+                <p class="cd-resp">Representa os buracos.</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>endereco</li><li>dimensaoAproximada</li><li>localizacaoNaVia</li><li>nivelObstrucao</li><li>foto</li><li>estado</li><li>qtdeReclamacoes</li></ul>
+                <div class="cd-lab">de onde saem</div>
+                <ul><li>Passo 3 de "Registrar buraco"; <em>estado</em> vem do passo 6 de "Registrar resultado do reparo" ("marca o buraco como reparado") e <em>qtdeReclamacoes</em> da extensão 1 ("contabiliza a reclamação").</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>OrdemServiço</h4>
+                <p class="cd-resp">Representa as ordens de serviço para reparo de buracos.</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>numero</li><li>dataAbertura</li><li>prioridade</li><li>situacao</li></ul>
+                <div class="cd-lab">de onde saem</div>
+                <ul><li><em>situacao</em> é o que sustenta o passo 2 ("ordens que precisam ser preenchidas") e a inclusão "Listar Ordens de Serviço sem preenchimento".</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>Recurso</h4>
+                <p class="cd-resp">Representa os recursos necessários para reparo do buraco.</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>identificacao</li><li>descricao</li><li>disponibilidade</li></ul>
+                <div class="cd-lab">papel no modelo</div>
+                <ul><li>É a generalização de Material, Equipamento, Equipe e Veículo — a solução escreve "tipo de Recurso" nas quatro, mas não desenha a herança.</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>Material</h4>
+                <p class="cd-resp">Representa os materiais (tipo de Recurso).</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>tipo</li><li>quantidade</li><li>unidade</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>Equipamento</h4>
+                <p class="cd-resp">Representa os equipamentos (tipo de Recurso).</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>tipo</li><li>patrimonio</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>Equipe</h4>
+                <p class="cd-resp">Representa as equipes (tipo de Recurso).</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>identificacao</li><li>qtdeMembros</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>Veículo</h4>
+                <p class="cd-resp">Representa os veículos (tipo de Recurso).</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>placa</li><li>tipo</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>RegistroReparo</h4>
+                <p class="cd-resp">Representa o resultado do reparo do buraco.</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>dataReparo</li><li>concluido</li><li>materialUtilizado</li><li>equipamentoUtilizado</li></ul>
+                <div class="cd-lab">de onde saem</div>
+                <ul><li>Passos 5 e 6 de "Registrar resultado do reparo": material e equipamentos utilizados, e se o reparo foi concluído ou não.</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>ItinerarioReparo</h4>
+                <p class="cd-resp">Representa a sequência em que os buracos são reparados.</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>data</li><li>regiao</li><li>ordemDeVisita</li></ul>
+                <div class="cd-lab">de onde sai</div>
+                <ul><li>Passo 2 e a inclusão "Listar buracos do itinerário do reparo".</li></ul>
+              </div>
+              <div class="cdesc-card">
+                <h4>ResponsavelReparo</h4>
+                <p class="cd-resp">Representa o funcionário que confirma o reparo realizado no buraco.</p>
+                <div class="cd-lab">atributos propostos</div>
+                <ul class="attrs"><li>nome</li><li>matricula</li></ul>
+                <div class="cd-lab">observação</div>
+                <ul><li>É ator do caso de uso 4 e classe ao mesmo tempo — mesma situação de Cidadão.</li></ul>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">Como escrever uma responsabilidade</div>
+              <p>Repare no padrão da solução: <em>"Representa os buracos"</em>, <em>"Representa as ordens de serviço para reparo de buracos"</em>. Uma frase, começando por um verbo, dizendo o que a classe representa ou sabe fazer — não como ela é implementada, não quais são seus atributos. Responsabilidade que precisa de três linhas costuma ser sinal de duas classes.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ DIAGRAMA ============ -->
+        <section class="section alt" id="exc-diagrama">
+          <div class="wrap">
+            <div class="eyebrow">Passo 3</div>
+            <h2 class="reveal">O diagrama de classes, montado por partes</h2>
+            <p class="intro reveal">O diagrama da solução tem sete caixas e cinco relacionamentos. Avance passo a passo: cada etapa acrescenta uma classe e explica de onde vem a multiplicidade. O oitavo passo mostra o que está na Tabela 2 mas <strong style="color:var(--ink)">não</strong> foi desenhado.</p>
+
+            <div class="pv-stepctl reveal">
+              <button class="sim-btn" id="excDgNext">Avançar</button>
+              <button class="sim-btn ghost" id="excDgPrev">Voltar</button>
+              <button class="sim-btn ghost" id="excDgAll">Mostrar tudo</button>
+              <button class="sim-btn ghost" id="excDgClear">Limpar</button>
+            </div>
+            <div class="pv-stepout reveal" id="excDgOut">Passo 0 de 8 — o diagrama começa vazio. Clique em Avançar.</div>
+
+            <div class="cdw reveal" style="margin-top:16px;">
+              <svg class="cd-svg" id="excDgSvg" viewBox="0 0 940 580" role="img" aria-label="Diagrama de classes parcial do SGRB com Cidadão, Buraco, RegistroReparo, OrdemServiço, Recurso, ItinerarioReparo e ResponsavelReparo">
+
+                <!-- 1 · Buraco -->
+                <g class="cd-step" data-s="1">
+                  <g class="cd-cls cyan">
+                    <rect x="355" y="196" width="170" height="46" rx="4"/>
+                    <text class="cn" x="440" y="224" text-anchor="middle">Buraco</text>
+                  </g>
+                  <text class="cd-note" x="20" y="146">Buraco: classe central</text>
+                  <text class="cd-note" x="20" y="160">aparece em 3 dos 4 casos de uso</text>
+                </g>
+
+                <!-- 2 · Cidadão -->
+                <g class="cd-step" data-s="2">
+                  <g class="cd-cls">
+                    <rect x="355" y="26" width="170" height="46" rx="4"/>
+                    <text class="cn" x="440" y="54" text-anchor="middle">Cidadão</text>
+                  </g>
+                  <path class="cd-link" d="M440 72 L440 196"/>
+                  <path d="M434 130 L446 130 L440 116 Z" fill="var(--ink)" stroke="none"/>
+                  <text class="cd-assoc" x="428" y="140" text-anchor="end">informado por</text>
+                  <text class="cd-mult" x="450" y="92">1..n</text>
+                  <text class="cd-mult" x="450" y="190">n</text>
+                </g>
+
+                <!-- 3 · RegistroReparo -->
+                <g class="cd-step" data-s="3">
+                  <g class="cd-cls">
+                    <rect x="55" y="196" width="180" height="46" rx="4"/>
+                    <text class="cn" x="145" y="224" text-anchor="middle">RegistroReparo</text>
+                  </g>
+                  <path class="cd-link" d="M355 219 L235 219"/>
+                  <path d="M295 213 L295 225 L281 219 Z" fill="var(--ink)" stroke="none"/>
+                  <text class="cd-assoc" x="295" y="206" text-anchor="middle">possui</text>
+                  <text class="cd-mult" x="349" y="237" text-anchor="end">1</text>
+                  <text class="cd-mult" x="241" y="237">0..n</text>
+                </g>
+
+                <!-- 4 · OrdemServiço -->
+                <g class="cd-step" data-s="4">
+                  <g class="cd-cls">
+                    <rect x="645" y="196" width="180" height="46" rx="4"/>
+                    <text class="cn" x="735" y="224" text-anchor="middle">OrdemServiço</text>
+                  </g>
+                  <path class="cd-link" d="M525 219 L645 219"/>
+                  <path d="M585 213 L585 225 L599 219 Z" fill="var(--ink)" stroke="none"/>
+                  <text class="cd-assoc" x="585" y="206" text-anchor="middle">possui</text>
+                  <text class="cd-mult" x="531" y="237">1</text>
+                  <text class="cd-mult" x="639" y="237" text-anchor="end">0..1</text>
+                </g>
+
+                <!-- 5 · Recurso -->
+                <g class="cd-step" data-s="5">
+                  <g class="cd-cls">
+                    <rect x="645" y="340" width="180" height="46" rx="4"/>
+                    <text class="cn" x="735" y="368" text-anchor="middle">Recurso</text>
+                  </g>
+                  <path class="cd-link" d="M735 242 L735 340"/>
+                  <path d="M729 288 L741 288 L735 302 Z" fill="var(--ink)" stroke="none"/>
+                  <text class="cd-assoc" x="723" y="295" text-anchor="end">possui</text>
+                  <text class="cd-mult" x="747" y="262">n</text>
+                  <text class="cd-mult" x="747" y="334">0..4</text>
+                </g>
+
+                <!-- 6 · ItinerarioReparo -->
+                <g class="cd-step" data-s="6">
+                  <g class="cd-cls">
+                    <rect x="355" y="360" width="170" height="46" rx="4"/>
+                    <text class="cn" x="440" y="388" text-anchor="middle">ItinerarioReparo</text>
+                  </g>
+                  <path class="cd-link" d="M440 242 L440 336"/>
+                  <polygon class="cd-dia" points="440,336 450,348 440,360 430,348"/>
+                  <text class="cd-note" x="462" y="310">agregação · sem multiplicidade na solução</text>
+                </g>
+
+                <!-- 7 · ResponsavelReparo -->
+                <g class="cd-step" data-s="7">
+                  <g class="cd-cls">
+                    <rect x="355" y="486" width="170" height="46" rx="4"/>
+                    <text class="cn" x="440" y="514" text-anchor="middle">ResponsavelReparo</text>
+                  </g>
+                  <path class="cd-link" d="M440 406 L440 486"/>
+                  <path d="M434 448 L446 448 L440 434 Z" fill="var(--ink)" stroke="none"/>
+                  <text class="cd-assoc" x="428" y="458" text-anchor="end">responsável por</text>
+                  <text class="cd-mult" x="450" y="424">n</text>
+                  <text class="cd-mult" x="450" y="480">1</text>
+                </g>
+
+                <!-- 8 · o que a Tabela 2 lista e o diagrama não desenha -->
+                <g class="cd-step" data-s="8">
+                  <g class="cd-cls rose">
+                    <rect x="500" y="450" width="92" height="34" rx="4"/>
+                    <text class="cn" x="546" y="472" text-anchor="middle">Material</text>
+                  </g>
+                  <g class="cd-cls rose">
+                    <rect x="600" y="450" width="104" height="34" rx="4"/>
+                    <text class="cn" x="652" y="472" text-anchor="middle">Equipamento</text>
+                  </g>
+                  <g class="cd-cls rose">
+                    <rect x="712" y="450" width="80" height="34" rx="4"/>
+                    <text class="cn" x="752" y="472" text-anchor="middle">Equipe</text>
+                  </g>
+                  <g class="cd-cls rose">
+                    <rect x="800" y="450" width="86" height="34" rx="4"/>
+                    <text class="cn" x="843" y="472" text-anchor="middle">Veículo</text>
+                  </g>
+                  <polygon class="cd-tri" points="735,386 727,402 743,402"/>
+                  <path class="cd-link dash" d="M735 402 L735 420"/>
+                  <path class="cd-link dash" d="M546 420 L843 420"/>
+                  <path class="cd-link dash" d="M546 420 L546 450"/>
+                  <path class="cd-link dash" d="M652 420 L652 450"/>
+                  <path class="cd-link dash" d="M752 420 L752 450"/>
+                  <path class="cd-link dash" d="M843 420 L843 450"/>
+                  <text class="cd-note" x="560" y="512">generalização implícita na Tabela 2 ("tipo de Recurso"),</text>
+                  <text class="cd-note" x="560" y="526">ausente no diagrama da solução</text>
+                </g>
+
+                <text class="cd-note" x="20" y="560">modelo parcial · 4 dos 16 casos de uso do SGRB</text>
+              </svg>
+              <div class="cd-caption">Um <strong style="color:var(--ink)">Buraco</strong> é informado por <strong style="color:var(--cyan)">1..n</strong> <strong style="color:var(--ink)">Cidadãos</strong> — o mesmo buraco pode ser reclamado por várias pessoas. Um buraco possui <strong style="color:var(--cyan)">0..n</strong> <strong style="color:var(--ink)">RegistroReparo</strong>: zero enquanto não foi reparado, mais de um se o reparo não saiu na primeira tentativa. Possui <strong style="color:var(--cyan)">0..1</strong> <strong style="color:var(--ink)">OrdemServiço</strong>: a OS só nasce depois da vistoria. Uma OS possui <strong style="color:var(--cyan)">0..4</strong> <strong style="color:var(--ink)">Recursos</strong> — material, equipamento, equipe e veículo, e zero enquanto ela não foi preenchida. O <strong style="color:var(--ink)">ItinerarioReparo</strong> agrega buracos, e cada itinerário tem <strong style="color:var(--cyan)">1</strong> <strong style="color:var(--ink)">ResponsavelReparo</strong>.</div>
+            </div>
+
+            <div class="def-grid reveal three" style="margin-top:32px;">
+              <div class="def-card">
+                <div class="dc-k">por que 1..n cidadãos por buraco</div>
+                <p>A extensão de "Registrar buraco" diz que, se o buraco já estiver cadastrado, o sistema <strong style="color:var(--ink)">contabiliza a reclamação</strong>. Contabilizar só faz sentido se o sistema souber quem reclamou — logo, vários cidadãos por buraco.</p>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">por que 0..1 ordem de serviço</div>
+                <p>Um buraco recém-registrado ainda não tem OS; ela é gerada depois da confirmação. O zero é obrigatório na multiplicidade porque existe um instante em que o buraco existe sem ordem.</p>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">por que 0..4 recursos</div>
+                <p>O passo 5 lista quatro tipos: material, equipamentos, equipe e veículo. O limite superior 4 é uma leitura literal do texto — se a OS puder alocar dois equipamentos, o certo seria <strong style="color:var(--ink)">0..n</strong>. É um ponto onde outra resposta é defensável.</p>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:28px;">
+              <div class="eyebrow">Três coisas para conferir antes de copiar este diagrama</div>
+              <p>1 · <strong style="color:var(--ink)">A herança não está desenhada.</strong> A Tabela 2 diz "tipo de Recurso" quatro vezes; o diagrama mostra só Recurso. Desenhar a generalização é mais coerente com a tabela — e é o que o oitavo passo acima mostra.<br>
+              2 · <strong style="color:var(--ink)">A agregação Buraco–ItinerarioReparo está sem multiplicidade</strong>, contra a observação 1 do próprio enunciado. Uma leitura razoável: itinerário agrega <em>1..n</em> buracos, e um buraco está em <em>0..n</em> itinerários.<br>
+              3 · <strong style="color:var(--ink)">RegistroReparo liga-se a Buraco, não a OrdemServiço.</strong> Ligar o registro à OS também se defende — mas então o buraco só chega ao registro passando pela ordem, e o caso de uso 4 não menciona OS nenhuma.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ REVISÃO ============ -->
+        <section class="section" id="exc-revisao">
+          <div class="wrap">
+            <div class="eyebrow">Passo 4 · Tabelas 3 a 6</div>
+            <h2 class="reveal">Revisão: cada passo tem uma classe responsável?</h2>
+            <p class="intro reveal">A revisão é mecânica e por isso é confiável: percorra a descrição detalhada passo a passo e pergunte <em style="font-style:normal;color:var(--ink)">qual classe executa isto</em>. Passo de ator não tem operação — e isso é resposta válida. Passo do sistema sem classe responsável é classe faltando. Escolha um caso de uso e clique nos passos.</p>
+
+            <div class="act-tabs reveal" id="excTraceTabs"></div>
+            <div class="trace reveal" id="excTrace"></div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">Conclusão da solução</div>
+              <p>Depois de preencher as quatro tabelas: <strong style="color:var(--ink)">o conjunto de classes não foi alterado</strong> e <strong style="color:var(--ink)">o diagrama de classes não foi alterado</strong>. Ou seja, a Tabela 3 do relatório (classes incluídas, alteradas ou excluídas) fica vazia — mas só depois de feita a verificação. Entregar a tabela vazia sem mostrar as tabelas de operações é entregar a conclusão sem o trabalho.</p>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:20px;">
+              <div class="eyebrow">O que a revisão deixa passar</div>
+              <p>Nas Tabelas 5 e 6 da solução, as operações de Material, Equipamento, Equipe e Veículo aparecem (<em>buscar material()</em>, <em>alterar equipamento()</em>…) — as mesmas quatro classes que não estão no diagrama. A revisão confirma que elas são necessárias e mesmo assim o diagrama não foi alterado. É a melhor evidência de que a generalização deveria estar desenhada.</p>
+            </div>
+
+            <div class="callout reveal" style="margin-top:20px;">
+              <div class="eyebrow">Erro de digitação da solução</div>
+              <p>Na Tabela 5 lê-se <em>"buscar veículo ( ) / alterar equipe veículo ( )"</em> — a palavra "equipe" sobrou de um copiar e colar. E na Tabela 6, <em>ItinerarioReparo</em> não aparece como responsável do passo 2, apesar de a inclusão ser "Listar buracos do itinerário do reparo"; a solução atribui a operação a <em>Buraco</em>. As duas leituras se defendem — a operação lista buracos, mas quem conhece a sequência é o itinerário.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PARCIAL ============ -->
+        <section class="section alt" id="exc-parcial">
+          <div class="wrap">
+            <div class="eyebrow">Pergunta do enunciado</div>
+            <h2 class="reveal">Por que o diagrama é parcial?</h2>
+            <p class="intro reveal">Essa pergunta está no enunciado e a resposta precisa estar no relatório. Ela é curta, mas exige dizer as duas coisas: por que é parcial e como seria o completo.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Por que é parcial</h3>
+                <p>Porque foram considerados apenas quatro casos de uso do SGRB. O Modelo de Classes é construído a partir da descrição detalhada dos casos de uso: se doze dos dezesseis ficam de fora, as classes que só aparecem neles ficam de fora também.</p>
+                <ul>
+                  <li>Vistoria, prioridade e itinerário de validação não entram — nenhum caso de uso selecionado fala deles.</li>
+                  <li>Programação de reparos, liberação de recursos e relatórios gerenciais também não.</li>
+                  <li>Atributos e operações das classes que entraram podem estar incompletos, porque os passos que os exigiriam estão nos casos de uso que ficaram fora.</li>
+                </ul>
+                <div class="verdict">Modelo parcial = subconjunto de casos de uso</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Como seria o completo</h3>
+                <p>Aplicando o mesmo procedimento aos dezesseis casos de uso e consolidando: para cada caso de uso, extrair candidatas, filtrar e descrever; depois eliminar repetidas, unificar as versões de uma mesma classe e refazer o diagrama com o conjunto completo.</p>
+                <ul>
+                  <li>Classes prováveis que surgiriam: <strong style="color:var(--ink)">Vistoria</strong>, <strong style="color:var(--ink)">ItinerarioVistoria</strong>, <strong style="color:var(--ink)">ProgramacaoReparo</strong>, <strong style="color:var(--ink)">Relatorio</strong> e <strong style="color:var(--ink)">FuncionarioVistoria</strong>.</li>
+                  <li>Só então valeria discutir subsistemas — o enunciado do módulo 08 sugere fatiar o modelo quando ele fica grande demais.</li>
+                </ul>
+                <div class="verdict">Mesma receita, todos os casos de uso</div>
+              </div>
+            </div>
+
+            <div class="qa-card reveal" style="margin-top:32px;">
+              <span class="qlabel">Formulação sugerida</span>
+              <p class="q">Como escrever essa resposta em três linhas no relatório</p>
+              <button class="qa-toggle">Revelar</button>
+              <div class="qa-answer">
+                <div class="verdict">Direto ao ponto, sem rodeio</div>
+                <p>"O diagrama é parcial porque foi construído a partir de quatro dos dezesseis casos de uso do SGRB, e o Modelo de Classes deriva da descrição detalhada dos casos de uso. O diagrama completo seria obtido aplicando o mesmo procedimento aos demais casos de uso e consolidando as classes resultantes — eliminando repetições e unificando as versões de uma mesma classe — antes de redesenhar o diagrama."</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ARMADILHAS ============ -->
+        <section class="section" id="exc-armadilhas">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">As armadilhas deste exercício</h2>
+            <p class="intro reveal">Oito erros que aparecem na primeira versão do relatório do modelo de classes. Os quatro primeiros são da identificação; os quatro últimos, do diagrama.</p>
+
+            <div class="docstruct reveal">
+              <div class="doc-item">
+                <div class="di-n">01</div>
+                <h4>Transformar todo substantivo em classe</h4>
+                <ul><li>Vinte e seis candidatas, onze classes. Nome, CPF, dimensão e nível de obstrução são atributos: têm valor, não identidade.</li><li>O teste: o sistema precisa distinguir dois objetos desse tipo? Se não, é atributo.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">02</div>
+                <h4>Descartar o ator por ser ator</h4>
+                <ul><li>Cidadão é ator <em>e</em> classe. Ator é quem interage de fora; classe é o que o sistema guarda sobre ele.</li><li>Mesma coisa com ResponsavelReparo. São conceitos diferentes com o mesmo nome.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">03</div>
+                <h4>Dois nomes para a mesma classe</h4>
+                <ul><li>ResultadoReparo na Tabela 1, RegistroReparo na Tabela 2 — a própria solução tropeça nisso.</li><li>Escolha um nome e propague para tabelas, diagrama e operações.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">04</div>
+                <h4>Classe com nome de operação</h4>
+                <ul><li>"Cadastro", "Registro", "Preenchimento" são o que o caso de uso faz, não o que o sistema representa.</li><li>Nome de classe é substantivo do domínio, no <strong style="color:var(--ink)">singular</strong>: Buraco, não Buracos.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">05</div>
+                <h4>Relacionamento sem nome ou sem multiplicidade</h4>
+                <ul><li>O enunciado pede os dois, explicitamente. Uma linha nua não diz se um buraco tem uma ou muitas ordens de serviço.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">06</div>
+                <h4>Esquecer o zero na multiplicidade</h4>
+                <ul><li>Buraco possui <em>0..1</em> OS e <em>0..n</em> registros de reparo. Escrever 1 e 1..n descreve um sistema em que todo buraco já nasce reparado.</li><li>Pergunte sempre: existe um instante em que esse lado é zero?</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">07</div>
+                <h4>Classe na tabela que não está no diagrama</h4>
+                <ul><li>É o que acontece com Material, Equipamento, Equipe e Veículo na solução oficial.</li><li>Ou desenha, ou explica por escrito por que não desenhou.</li></ul>
+              </div>
+              <div class="doc-item">
+                <div class="di-n">08</div>
+                <h4>Pular o passo 4 e entregar a Tabela 3 vazia</h4>
+                <ul><li>A tabela vazia é um resultado legítimo — depois da verificação passo a passo, não antes.</li><li>Sem as tabelas de operações, não há como mostrar que a revisão foi feita.</li></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="exc-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Fixação</div>
+            <h2 class="reveal">Certo ou errado</h2>
+            <p class="intro reveal">Doze afirmações sobre este exercício. Decida antes de clicar; a justificativa aparece em seguida.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="excQzCounter">Afirmação 1 de 12</div>
+              <div class="cls-stmt" id="excQzStmt">—</div>
+              <div class="cls-opts" id="excQzOpts">
+                <button class="tab" data-excqz="C">Certo</button>
+                <button class="tab" data-excqz="E">Errado</button>
+              </div>
+              <div class="cls-feedback" id="excQzFeedback">Escolha uma opção para ver a justificativa.</div>
+              <div class="cls-score" id="excQzScore">Acertos: <strong>0</strong> / 0</div>
+              <button class="sim-btn ghost" id="excQzReset" style="margin-left:0; margin-top:16px;">Reiniciar</button>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Perguntas abertas</h3>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">Por que Cidadão vira classe se ele é ator do sistema?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Ator e classe respondem a perguntas diferentes</div>
+                <p>Ator é quem troca informação com o sistema, de fora. Classe é o conceito cujos dados o sistema precisa guardar. "Cadastrar cidadão" existe justamente para armazenar nome, CPF, RG, endereço e celular — se o sistema guarda isso, existe a classe. O mesmo raciocínio vale para ResponsavelReparo.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">De onde sai a multiplicidade 0..4 entre OrdemServiço e Recurso?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Dos quatro tipos de recurso citados no passo 5</div>
+                <p>"Preenche a ordem de serviço com os recursos necessários (material, equipamentos, equipe, veículo)". O zero cobre a OS ainda não preenchida — que é exatamente o estado em que o caso de uso 3 a encontra. Se a OS puder ter dois equipamentos diferentes, o limite superior deixa de ser 4 e passa a ser n; vale registrar a hipótese.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Quantas classes a solução descreve na Tabela 2 e quantas aparecem no diagrama? Por que a diferença importa?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Onze na tabela, sete no diagrama</div>
+                <p>Material, Equipamento, Equipe e Veículo ficam de fora do desenho, ainda que a Tabela 2 as declare como "tipo de Recurso" e as Tabelas 5 e 6 listem operações delas. Importa porque o diagrama é o documento que os modelos seguintes usam: o que não está lá não existe para o Modelo de Interação.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">O que a revisão do passo 4 verifica, concretamente?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Se cada passo do caso de uso tem classe responsável</div>
+                <p>Percorre-se a descrição detalhada e, para cada passo executado pelo sistema, anota-se a operação e a classe que a realiza. Passo de ator não gera operação. Se um passo do sistema não encontra classe responsável, falta classe — ou falta operação em uma classe existente. Neste exercício a conclusão foi que nada mudou.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Por que "buscar cidadão (CPF)" é operação de Cidadão e não do sistema?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Porque a responsabilidade segue o dado</div>
+                <p>Quem conhece os cidadãos armazenados é a classe Cidadão; ela é a única que pode decidir se aquele CPF já existe. "Sistema" não é classe — é o conjunto de todas elas. Atribuir a operação ao sistema é o mesmo que não atribuir a ninguém, e é o erro que o passo 4 existe para pegar.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 6</span>
+              <p class="q">A classe Buraco tem atributo "estado". Por que não criar uma classe EstadoBuraco?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Estado é valor, não conceito com identidade</div>
+                <p>"Registrado", "confirmado", "reparado" são valores que o atributo assume ao longo do tempo. Uma classe se justificaria se o estado tivesse dados próprios — data da mudança, quem mudou, motivo. Nesse caso, porém, o que você criou foi um histórico, e o nome certo seria outro.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Exercício SGRB · Projeto Parte 2 · EPUSP — Dep. de Engenharia de Computação e Sistemas Digitais<br>
+              [1] Projeto Parte 2 — Enunciado: Construção do Modelo de Classes, PCS3213, 31/08/2026 (com Apêndice A e modelo do relatório)<br>
+              [2] Modelo de Classes — Uma Solução, PCS3213, 03/09/2026<br>
+              [3] Apostila de Construção do Modelo de Classes — módulo 08 deste guia<br>
+              [4] Exercício: Modelo de Casos de Uso do SGRB — módulo 05 deste guia<br>
+              [5] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 3ª ed., Elsevier, 2015
+            </div>
+            <div class="credit">P1 · Módulo 09 · Exercício SGRB · Modelo de Classes — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: EXERCÍCIO SGRB · MODELO DE CLASSES ================= -->
+
       <!-- ================= MODULE 09: MODELO DE INTERAÇÃO ================= -->
       <div class="module-page" data-module="modelo-interacao" id="page-modelo-interacao">
 
@@ -5654,7 +6397,7 @@
         <header class="hero" id="mi-hero">
           <div class="wrap hero-grid">
             <div>
-              <div class="eyebrow">P1 · Módulo 09 · 9ª aula</div>
+              <div class="eyebrow">P1 · Módulo 10 · 9ª aula</div>
               <h1>Modelo de Interação · <em>Diagrama de Sequência</em></h1>
               <p class="lede">Os casos de uso disseram <strong style="color:var(--ink)">o que</strong> o sistema faz. O modelo de classes disse <strong style="color:var(--ink)">com quais peças</strong>. Falta a parte dinâmica: um caso de uso é executado através da <strong style="color:var(--ink)">troca de mensagens entre os objetos participantes</strong> — e é isso que o Diagrama de Sequência desenha, no tempo, mensagem por mensagem.</p>
               <div class="hero-meta">
@@ -6645,7 +7388,7 @@
               [3] Análise e Projeto Orientado a Objetos, 2ª e 3ª ed. — figuras dos quadros de interação e dos fluxos de controle, conforme creditado nos slides<br>
               [4] Exemplo SVIE construído a partir dos módulos 04 e 08 deste guia
             </div>
-            <div class="credit">P1 · Módulo 09 · Profa. Selma S. S. Melnikoff e Prof. Jorge Luiz Risco Becerra — EPUSP · PCS 3213</div>
+            <div class="credit">P1 · Módulo 10 · Profa. Selma S. S. Melnikoff e Prof. Jorge Luiz Risco Becerra — EPUSP · PCS 3213</div>
           </div>
         </div>
 
@@ -6676,7 +7419,7 @@
         <header class="hero" id="p19-hero">
           <div class="wrap hero-grid">
             <div>
-              <div class="eyebrow">P1 · Módulo 10 · Prova resolvida</div>
+              <div class="eyebrow">P1 · Módulo 11 · Prova resolvida</div>
               <h1>1ª Prova de 2019: <em>Sistema de Gerência de Hotel</em></h1>
               <p class="lede">A prova de 28/03/2019 da Profa. Selma Melnikoff, inteira, com os comentários oficiais de 10/04. Este módulo é feito para você <strong style="color:var(--ink)">tentar antes de ver</strong>: cada questão tem caixa de resposta, jogo de treino e uma rubrica de autocorreção que soma a sua nota no fim.</p>
               <div class="hero-meta">
@@ -7298,7 +8041,7 @@
               [2] Comentários da 1ª Prova — versão de 10/04/2019, Profa. Selma S. S. Melnikoff<br>
               [3] Módulos 03, 04 e 06 deste guia — casos de uso, construção do modelo e modelo de classes
             </div>
-            <div class="credit">P1 · Módulo 10 · Prova 2019 · Hotel ABC — EPUSP · PCS 3213</div>
+            <div class="credit">P1 · Módulo 11 · Prova 2019 · Hotel ABC — EPUSP · PCS 3213</div>
           </div>
         </div>
 
@@ -7330,7 +8073,7 @@
         <header class="hero" id="p25-hero">
           <div class="wrap hero-grid">
             <div>
-              <div class="eyebrow">P1 · Módulo 11 · Prova resolvida</div>
+              <div class="eyebrow">P1 · Módulo 12 · Prova resolvida</div>
               <h1>1ª Prova de 2025: <em>Sistema City Tour</em></h1>
               <p class="lede">A prova de 09/09/2025, com a solução possível e os comentários de correção da professora. Mesma estrutura do módulo de 2019: você tenta, os jogos treinam o raciocínio, e a rubrica no fim estima a sua nota.</p>
               <div class="hero-meta">
@@ -8030,7 +8773,7 @@
               [3] 1ª Prova 2025 — Comentários da correção<br>
               [4] Módulos 03, 04, 06 e 10 deste guia — casos de uso, construção do modelo, modelo de classes e a prova de 2019
             </div>
-            <div class="credit">P1 · Módulo 11 · Prova 2025 · Sistema City Tour — EPUSP · PCS 3213</div>
+            <div class="credit">P1 · Módulo 12 · Prova 2025 · Sistema City Tour — EPUSP · PCS 3213</div>
           </div>
         </div>
 
@@ -8060,6 +8803,7 @@
     {id:'modelo-classes', group:'P1', title:'Modelo de Classes'},
     {id:'classificacao-classes', group:'P1', title:'Classificação de Classes'},
     {id:'construcao-modelo-classes', group:'P1', title:'Construção do Modelo de Classes'},
+    {id:'exercicio-classes-sgrb', group:'P1', title:'Exercício: Modelo de Classes do SGRB'},
     {id:'modelo-interacao', group:'P1', title:'Modelo de Interação · Diagrama de Sequência'},
     {id:'prova-2019', group:'P1', title:'Prova P1 2019 · Sistema de Gerência de Hotel'},
     {id:'prova-2025', group:'P1', title:'Prova P1 2025 · Sistema City Tour'}
@@ -11842,6 +12586,411 @@
     if(reset) reset.addEventListener('click', function(){ st.i = 0; st.hits = 0; st.answered = 0; render(); });
     render();
   })();
+
+
+  /* ============================================================
+     MÓDULO 09 — EXERCÍCIO SGRB · CLASSES
+     ============================================================ */
+
+  /* ---------- 9e.1 fichas do Apêndice A ---------- */
+  var EXC_FICHAS = [
+    {
+      nome: 'Cadastrar cidadão',
+      desc: 'Cadastra um cidadão no sistema.',
+      evento: 'Solicitação de cadastro do cidadão.',
+      ator: 'Cidadão.',
+      pre: 'Tela inicial com solicitação de cadastro.',
+      seq: [
+        'Cidadão solicita seu cadastro.',
+        'Sistema solicita os dados do cidadão.',
+        'Cidadão fornece os seus dados (nome, CPF, RG, endereço, número do celular).',
+        'Sistema verifica se cidadão está cadastrado.',
+        'Sistema verifica a consistência dos demais dados.',
+        'Sistema armazena os dados do novo cidadão e apresenta a mensagem de confirmação.'
+      ],
+      pos: 'Cidadão cadastrado no sistema e mensagem apresentada.',
+      ext: [
+        'O cidadão está cadastrado <span class="mark">(passo 4)</span>: sistema apresenta mensagem de cidadão já cadastrado e termina o caso de uso.',
+        'Existem erros no preenchimento do formulário <span class="mark">(passo 5)</span>: sistema apresenta os erros e volta para o passo 3.'
+      ],
+      inc: ['Buscar cidadão <span class="mark">(passo 4)</span>.'],
+      entrega: 'Uma classe: <strong style="color:var(--ink)">Cidadão</strong>. Os cinco dados do passo 3 são os atributos. A inclusão "Buscar cidadão" já anuncia a operação buscar cidadão (CPF).'
+    },
+    {
+      nome: 'Registrar buraco',
+      desc: 'Registra um buraco no sistema.',
+      evento: 'Solicitação de registro de buraco.',
+      ator: 'Cidadão.',
+      pre: 'Cidadão autenticado no sistema.',
+      seq: [
+        'Cidadão solicita registro de buraco.',
+        'Sistema solicita os dados do buraco.',
+        'Cidadão fornece os dados do buraco (endereço, dimensão aproximada, localização na via — meio ou meio-fio —, nível de obstrução de trânsito — alto, médio, baixo — e uma foto, opcional).',
+        'Sistema verifica se o buraco não está cadastrado.',
+        'Sistema armazena os dados do buraco e apresenta confirmação do registro.'
+      ],
+      pos: 'Buraco registrado no sistema, confirmação apresentada.',
+      ext: ['Buraco já cadastrado <span class="mark">(passo 4)</span>: sistema contabiliza a reclamação, apresenta mensagem e encerra o caso de uso.'],
+      inc: ['Buscar buraco <span class="mark">(passo 4)</span>.'],
+      entrega: 'Duas classes: <strong style="color:var(--ink)">Buraco</strong> e <strong style="color:var(--ink)">Cidadão</strong> — o sistema associa um ao outro. "Contabiliza a reclamação" é o que sustenta a multiplicidade 1..n de cidadãos por buraco.'
+    },
+    {
+      nome: 'Preencher ordem de serviço',
+      desc: 'Atribui os recursos necessários na ordem de serviço do buraco considerado.',
+      evento: 'Solicitação de preenchimento da Ordem de Serviço.',
+      ator: 'Funcionário de Manutenção.',
+      pre: 'Funcionário de Manutenção autenticado no sistema.',
+      seq: [
+        'Funcionário de Manutenção solicita preenchimento da Ordem de Serviço.',
+        'Sistema apresenta o conjunto de Ordens de Serviço que precisam ser preenchidas.',
+        'Funcionário de Manutenção seleciona uma Ordem de Serviço.',
+        'Sistema acessa os dados do buraco.',
+        'Funcionário de Manutenção analisa os dados do buraco e preenche a ordem de serviço com os recursos necessários (material, equipamentos, equipe, veículo).',
+        'Sistema verifica se existem os recursos necessários.',
+        'Sistema armazena a ordem de serviço com recursos alocados e apresenta para o Funcionário de Manutenção.'
+      ],
+      pos: 'Ordem de Serviço preenchida com os recursos necessários para reparo do buraco e apresentada.',
+      ext: [
+        'Não existem Ordens de Serviço a ser preenchidas <span class="mark">(passo 2)</span>: sistema apresenta a mensagem e encerra o caso de uso.',
+        'Não existem todos os recursos necessários <span class="mark">(passo 6)</span>: sistema avisa, funcionário altera o preenchimento e o sistema desvia para o passo 6.'
+      ],
+      inc: [
+        'Listar Ordens de Serviço sem preenchimento <span class="mark">(passo 2)</span>.',
+        'Buscar Buraco <span class="mark">(passo 4)</span>.'
+      ],
+      entrega: 'Sete classes: <strong style="color:var(--ink)">OrdemServiço</strong>, <strong style="color:var(--ink)">Buraco</strong>, <strong style="color:var(--ink)">Recurso</strong> e os quatro tipos de recurso citados no passo 5. É o caso de uso que mais alimenta o diagrama.'
+    },
+    {
+      nome: 'Registrar resultado do reparo',
+      desc: 'Armazena o resultado do reparo de um buraco: se foi concluído ou não, material e equipamentos utilizados.',
+      evento: 'Solicitação do registro do resultado do reparo.',
+      ator: 'Responsável pelo reparo.',
+      pre: 'Responsável pelo reparo autenticado no sistema.',
+      seq: [
+        'Responsável pelo reparo solicita registro do resultado do reparo.',
+        'Sistema apresenta o conjunto de buracos a serem reparados no seu itinerário.',
+        'Responsável pelo reparo seleciona um dos buracos.',
+        'Sistema solicita os dados do reparo.',
+        'Responsável pelo reparo fornece os dados (material e equipamentos utilizados).',
+        'Sistema marca o buraco como reparado e registra os dados do reparo.'
+      ],
+      pos: 'Buraco com estado reparado, dados de reparo registrados.',
+      ext: ['Não existem extensões.'],
+      inc: ['Listar buracos do itinerário do reparo <span class="mark">(passo 2)</span>.'],
+      entrega: 'Três classes na Tabela 1 — <strong style="color:var(--ink)">RegistroReparo</strong>, <strong style="color:var(--ink)">Buraco</strong> e <strong style="color:var(--ink)">ItinerarioReparo</strong> — mais <strong style="color:var(--ink)">ResponsavelReparo</strong>, que só aparece na Tabela 2 e no diagrama.'
+    }
+  ];
+  var excFichaList = document.getElementById('excFichaList');
+  var excFichaDetail = document.getElementById('excFichaDetail');
+  if(excFichaList && excFichaDetail){
+    function excFichaRow(k, v){
+      return '<div class="ficha-row"><div class="fr-k">' + k + '</div><div class="fr-v">' + v + '</div></div>';
+    }
+    function excFichaOl(arr){
+      return '<ol><li>' + arr.join('</li><li>') + '</li></ol>';
+    }
+    function excFichaShow(i){
+      var f = EXC_FICHAS[i];
+      if(!f) return;
+      excFichaDetail.innerHTML =
+        '<div class="hd-tag">Apêndice A · caso de uso ' + (i + 1) + '</div>' +
+        '<h3>' + f.nome + '</h3>' +
+        '<div class="ficha-rows">' +
+          excFichaRow('Descrição', f.desc) +
+          excFichaRow('Evento iniciador', f.evento) +
+          excFichaRow('Ator', f.ator) +
+          excFichaRow('Pré-condição', f.pre) +
+          excFichaRow('Sequência de eventos', excFichaOl(f.seq)) +
+          excFichaRow('Pós-condição', f.pos) +
+          excFichaRow('Extensões', excFichaOl(f.ext)) +
+          excFichaRow('Inclusões', excFichaOl(f.inc)) +
+        '</div>' +
+        '<div class="hd-note">O que este caso de uso entrega para o modelo de classes: ' + f.entrega + '</div>';
+      var items = excFichaList.querySelectorAll('.hotel-item');
+      for(var k = 0; k < items.length; k++){
+        items[k].classList.toggle('active', Number(items[k].dataset.i) === i);
+      }
+    }
+    EXC_FICHAS.forEach(function(f, i){
+      var b = document.createElement('button');
+      b.className = 'hotel-item';
+      b.dataset.i = String(i);
+      b.innerHTML = '<span class="hi-n">' + (i + 1) + '</span><span>' + f.nome + '</span>';
+      b.addEventListener('click', function(){ excFichaShow(i); });
+      excFichaList.appendChild(b);
+    });
+    excFichaShow(0);
+  }
+
+  /* ---------- 9e.2 triagem de substantivos ---------- */
+  var EXC_NOUNS = [
+    {n:'Cidadão', keep:true, w:'Classe, apesar de ser <strong style="color:var(--ink)">ator</strong>. O caso de uso 1 existe para armazenar nome, CPF, RG, endereço e celular — se o sistema guarda esses dados, existe a classe. Ator Cidadão e classe Cidadão são coisas diferentes com o mesmo nome.'},
+    {n:'Buraco', keep:true, w:'Conceito central do domínio: é o que o SGRB existe para gerenciar. Aparece em três dos quatro casos de uso considerados.'},
+    {n:'Ordem de serviço', keep:true, w:'Vira <strong style="color:var(--ink)">OrdemServiço</strong>. Tem dados próprios (recursos alocados, situação, prioridade) e ciclo de vida: nasce vazia, é preenchida, é executada.'},
+    {n:'Recurso', keep:true, w:'Representa os recursos necessários para o reparo. Na Tabela 2 é a generalização dos quatro tipos citados no passo 5 do caso de uso 3.'},
+    {n:'Material', keep:true, w:'Tipo de Recurso. Está na Tabela 2 e tem operações nas Tabelas 5 e 6 da revisão — mas não foi desenhado no diagrama da solução.'},
+    {n:'Equipamento', keep:true, w:'Tipo de Recurso, mesma situação de Material: descrito na Tabela 2, com operações na revisão, ausente do diagrama.'},
+    {n:'Equipe', keep:true, w:'Tipo de Recurso. Note a diferença em relação ao módulo 05: lá a equipe não era <em>ator</em> porque não interage com o sistema; aqui ela é <em>classe</em> porque o sistema precisa alocá-la.'},
+    {n:'Veículo', keep:true, w:'Tipo de Recurso. Quarto e último item da lista do passo 5, e a razão da multiplicidade 0..4 no diagrama.'},
+    {n:'Resultado do reparo', keep:true, w:'Vira classe, mas com <strong style="color:var(--ink)">dois nomes na solução</strong>: ResultadoReparo na Tabela 1 e RegistroReparo na Tabela 2 e no diagrama. A própria solução avisa que o caso de uso usa "resultado do reparo" e "dados do reparo" para o mesmo elemento.'},
+    {n:'Itinerário', keep:true, w:'Vira <strong style="color:var(--ink)">ItinerarioReparo</strong>: representa a sequência em que os buracos são reparados. Sai do passo 2 e da inclusão "Listar buracos do itinerário do reparo".'},
+    {n:'Responsável pelo reparo', keep:true, w:'Ator do caso de uso 4 e classe na Tabela 2: representa o funcionário que confirma o reparo realizado. Não aparece na coluna de classes finais da Tabela 1 — uma omissão da solução.'},
+    {n:'Funcionário de Manutenção', keep:false, w:'A solução <strong style="color:var(--ink)">não</strong> o transformou em classe, embora tenha feito isso com Cidadão e com Responsável pelo reparo. O critério é o mesmo para os três: o sistema guarda dados dessa pessoa? A pré-condição diz que ele se autentica, então provavelmente sim. Incluir é defensável — justifique.'},
+    {n:'Sistema', keep:false, w:'Sujeito de quase todo passo ("sistema solicita", "sistema verifica", "sistema armazena"). É o software inteiro: contém todas as classes, logo não pode ser uma delas.'},
+    {n:'Dados do cidadão', keep:false, w:'É o conjunto dos atributos de Cidadão, não um conceito à parte. "Dados de X" quase nunca é classe — é a própria classe X vista de outro ângulo.'},
+    {n:'CPF', keep:false, w:'Atributo de Cidadão, e o identificador usado na operação buscar cidadão (CPF). Tem valor, não identidade própria.'},
+    {n:'Nome, RG, endereço, celular', keep:false, w:'Os outros quatro dados do passo 3 do caso de uso 1. Todos atributos de Cidadão. Endereço poderia virar classe em um sistema que precisasse comparar ou georreferenciar endereços — aqui, não.'},
+    {n:'Tela inicial', keep:false, w:'Aparece na pré-condição do caso de uso 1. É interface com o usuário: o enunciado manda verificar se classes de fronteira são necessárias, e neste modelo não são.'},
+    {n:'Formulário', keep:false, w:'Citado na extensão 2 do caso de uso 1 ("erros no preenchimento do formulário"). Elemento de interface, não do domínio.'},
+    {n:'Mensagem', keep:false, w:'Informação que o sistema apresenta ao ator. É forma de comunicação, não conceito armazenado.'},
+    {n:'Confirmação', keep:false, w:'Tipo de mensagem — cai pelo mesmo motivo. Repare no padrão: mensagem, confirmação e solicitação são sempre descartadas nesta disciplina.'},
+    {n:'Dimensão aproximada', keep:false, w:'Atributo de Buraco, fornecido no passo 3 do caso de uso 2.'},
+    {n:'Localização na via', keep:false, w:'Atributo de Buraco com domínio fechado: meio da via ou meio-fio. Valor enumerado, não classe.'},
+    {n:'Nível de obstrução', keep:false, w:'Atributo de Buraco: alto, médio ou baixo. Mesmo raciocínio — três valores possíveis, nenhuma identidade própria.'},
+    {n:'Foto', keep:false, w:'Atributo opcional de Buraco. Viraria classe se o sistema precisasse guardar várias fotos por buraco, com data e autor — o enunciado fala em uma foto, no singular.'},
+    {n:'Reclamação', keep:false, w:'Aparece na extensão do caso de uso 2: "sistema contabiliza a reclamação". Contabilizar sugere um contador — atributo de Buraco. Modelar Reclamacao como classe é defensável se você quiser saber <em>quem</em> reclamou e <em>quando</em>.'},
+    {n:'Estado do buraco', keep:false, w:'Atributo de Buraco: registrado, confirmado, reparado. O passo 6 do caso de uso 4 "marca o buraco como reparado" — é atualização de atributo, não criação de objeto.'}
+  ];
+  var excNouns = document.getElementById('excNouns');
+  if(excNouns){
+    var excNdVerdict = document.getElementById('excNdVerdict');
+    var excNdName = document.getElementById('excNdName');
+    var excNdWhy = document.getElementById('excNdWhy');
+    var excTriCount = document.getElementById('excTriCount');
+    var excSeen = {};
+
+    EXC_NOUNS.forEach(function(c, i){
+      var b = document.createElement('button');
+      b.className = 'noun';
+      b.dataset.i = String(i);
+      b.textContent = c.n;
+      excNouns.appendChild(b);
+    });
+
+    function excNounShow(i){
+      var c = EXC_NOUNS[i];
+      if(!c) return;
+      excSeen[i] = true;
+      excTriCount.textContent = Object.keys(excSeen).length;
+      excNdVerdict.className = 'nd-verdict ' + (c.keep ? 'keep' : 'drop');
+      excNdVerdict.textContent = c.keep ? '✓ vira classe' : '✗ descartada';
+      excNdName.textContent = c.n;
+      excNdWhy.innerHTML = c.w;
+      excNouns.querySelectorAll('.noun').forEach(function(b){
+        var bi = Number(b.dataset.i);
+        b.classList.toggle('sel', bi === i);
+        if(excSeen[bi]){ b.classList.add(EXC_NOUNS[bi].keep ? 'keep' : 'drop'); }
+      });
+    }
+    excNouns.querySelectorAll('.noun').forEach(function(b){
+      b.addEventListener('click', function(){ excNounShow(Number(b.dataset.i)); });
+    });
+  }
+
+  /* ---------- 9e.3 diagrama de classes passo a passo ---------- */
+  var excDgSvg = document.getElementById('excDgSvg');
+  if(excDgSvg){
+    var EXC_DG_TXT = [
+      'Passo 0 de 8 — o diagrama começa vazio. Clique em Avançar.',
+      'Passo 1 de 8 — <strong>Buraco</strong>. A classe que aparece em três dos quatro casos de uso: tudo se organiza em volta dela.',
+      'Passo 2 de 8 — <strong>Cidadão</strong>, informado por <strong>1..n</strong>. A observação da Tabela 1 é explícita: o sistema associa o Cidadão ao Buraco.',
+      'Passo 3 de 8 — <strong>RegistroReparo</strong>, <strong>0..n</strong> por buraco. Zero enquanto o reparo não aconteceu; mais de um se a primeira tentativa não concluiu.',
+      'Passo 4 de 8 — <strong>OrdemServiço</strong>, <strong>0..1</strong>. A OS só é gerada depois que a vistoria confirma o buraco.',
+      'Passo 5 de 8 — <strong>Recurso</strong>, <strong>0..4</strong> por ordem de serviço: material, equipamento, equipe e veículo.',
+      'Passo 6 de 8 — <strong>ItinerarioReparo</strong>, ligado a Buraco por <strong>agregação</strong> (losango vazado). A solução não anota as multiplicidades desse relacionamento.',
+      'Passo 7 de 8 — <strong>ResponsavelReparo</strong>, <strong>1</strong> por itinerário. Este é o diagrama completo da solução: sete classes, cinco relacionamentos.',
+      'Passo 8 de 8 — o que <strong>falta</strong>: a generalização de Recurso. Os quatro tipos estão na Tabela 2 e têm operações nas Tabelas 5 e 6, mas não foram desenhados.'
+    ];
+    var excDgSteps = excDgSvg.querySelectorAll('.cd-step');
+    var excDgMax = 8;
+    var excDgCur = 0;
+    var excDgOut = document.getElementById('excDgOut');
+
+    function excDgRender(){
+      for(var i = 0; i < excDgSteps.length; i++){
+        var s = Number(excDgSteps[i].getAttribute('data-s'));
+        excDgSteps[i].classList.toggle('on', s <= excDgCur);
+      }
+      if(excDgOut) excDgOut.innerHTML = EXC_DG_TXT[excDgCur];
+    }
+    function excDgBind(id, fn){
+      var b = document.getElementById(id);
+      if(b) b.addEventListener('click', fn);
+    }
+    excDgBind('excDgNext', function(){ if(excDgCur < excDgMax){ excDgCur++; excDgRender(); } });
+    excDgBind('excDgPrev', function(){ if(excDgCur > 0){ excDgCur--; excDgRender(); } });
+    excDgBind('excDgAll', function(){ excDgCur = excDgMax; excDgRender(); });
+    excDgBind('excDgClear', function(){ excDgCur = 0; excDgRender(); });
+    excDgRender();
+  }
+
+  /* ---------- 9e.4 revisão: passo → operação → classe ---------- */
+  var EXC_TRACE = [
+    {uc:'Cadastrar cidadão', tab:'1 · Cadastrar cidadão', steps:[
+      {n:1, actor:true, t:'Cidadão solicita seu cadastro.', ops:[]},
+      {n:2, t:'Sistema solicita os dados do cidadão.', ops:[], nota:'A solução não atribui operação aqui: é apresentação de tela, e não existe classe de fronteira neste modelo.'},
+      {n:3, actor:true, t:'Cidadão fornece os seus dados (nome, CPF, RG, endereço, celular).', ops:[]},
+      {n:4, t:'Sistema verifica se cidadão está cadastrado.', ops:[{c:'Cidadão', o:'buscar cidadão (CPF)'}]},
+      {n:5, t:'Sistema verifica a consistência dos demais dados.', ops:[], nota:'Sem operação na solução. Uma leitura alternativa: validar dados () em Cidadão, já que é ela que conhece o formato dos próprios atributos.'},
+      {n:6, t:'Sistema armazena os dados do novo cidadão e apresenta a mensagem de confirmação.', ops:[{c:'Cidadão', o:'armazenar cidadão (dados do cidadão)'}]}
+    ]},
+    {uc:'Registrar buraco', tab:'2 · Registrar buraco', steps:[
+      {n:1, actor:true, t:'Cidadão solicita registro de buraco.', ops:[]},
+      {n:2, t:'Sistema solicita os dados do buraco.', ops:[]},
+      {n:3, actor:true, t:'Cidadão fornece os dados do buraco.', ops:[]},
+      {n:4, t:'Sistema verifica se o buraco não está cadastrado.', ops:[{c:'Buraco', o:'buscar buraco (parâmetros adequados)'}]},
+      {n:5, t:'Sistema armazena os dados do buraco e apresenta confirmação do registro.', ops:[{c:'Buraco', o:'armazenar buraco (dados do buraco)'}], nota:'A Tabela 4 da solução coloca essa operação no "passo 6" — mas este caso de uso tem só cinco passos. É erro de numeração: a operação é deste passo.'},
+      {n:'E1', ext:true, t:'Extensão · Buraco já cadastrado (passo 4): sistema contabiliza a reclamação, apresenta mensagem e encerra o caso de uso.', ops:[{c:'Buraco', o:'contabilizar reclamação ()'}], nota:'Operação não listada na solução. Sem ela, a associação 1..n com Cidadão não se sustenta.'}
+    ]},
+    {uc:'Preencher ordem de serviço', tab:'3 · Preencher OS', steps:[
+      {n:1, actor:true, t:'Funcionário de Manutenção solicita preenchimento da Ordem de Serviço.', ops:[]},
+      {n:2, t:'Sistema apresenta o conjunto de Ordens de Serviço que precisam ser preenchidas.', ops:[{c:'OrdemServiço', o:'listar ordem de serviço (região)'}]},
+      {n:3, actor:true, t:'Funcionário de Manutenção seleciona uma Ordem de Serviço.', ops:[]},
+      {n:4, t:'Sistema acessa os dados do buraco.', ops:[{c:'Buraco', o:'buscar buraco (parâmetros adequados)'}]},
+      {n:5, actor:true, t:'Funcionário de Manutenção analisa os dados do buraco e preenche a ordem de serviço com os recursos necessários.', ops:[
+        {c:'Material', o:'buscar material () / alterar material ()'},
+        {c:'Equipamento', o:'buscar equipamento () / alterar equipamento ()'},
+        {c:'Equipe', o:'buscar equipe () / alterar equipe ()'},
+        {c:'Veículo', o:'buscar veículo () / alterar veículo ()'}
+      ], nota:'Passo do ator com operações atribuídas: o funcionário só consegue preencher se o sistema consultar cada tipo de recurso. Na Tabela 5 a última linha está escrita "alterar equipe veículo ()" — sobra de copiar e colar.'},
+      {n:6, t:'Sistema verifica se existem os recursos necessários.', ops:[
+        {c:'Material', o:'buscar material () / alterar material ()'},
+        {c:'Equipamento', o:'buscar equipamento () / alterar equipamento ()'},
+        {c:'Equipe', o:'buscar equipe () / alterar equipe ()'},
+        {c:'Veículo', o:'buscar veículo () / alterar veículo ()'}
+      ]},
+      {n:7, t:'Sistema armazena a ordem de serviço com recursos alocados e apresenta para o Funcionário de Manutenção.', ops:[{c:'OrdemServiço', o:'armazenar ordem de serviço'}]}
+    ]},
+    {uc:'Registrar resultado do reparo', tab:'4 · Resultado do reparo', steps:[
+      {n:1, actor:true, t:'Responsável pelo reparo solicita registro do resultado do reparo.', ops:[]},
+      {n:2, t:'Sistema apresenta o conjunto de buracos a serem reparados no seu itinerário.', ops:[{c:'Buraco', o:'listar buracos do itinerário (itinerário)'}], nota:'A solução atribui a operação a Buraco. ItinerarioReparo também se defende: quem conhece a sequência é o itinerário, e a classe existe justamente para isso.'},
+      {n:3, actor:true, t:'Responsável pelo reparo seleciona um dos buracos.', ops:[]},
+      {n:4, t:'Sistema solicita os dados do reparo.', ops:[]},
+      {n:5, actor:true, t:'Responsável pelo reparo fornece os dados (material e equipamentos utilizados).', ops:[
+        {c:'Material', o:'buscar material () / alterar material ()'},
+        {c:'Equipamento', o:'buscar equipamento () / alterar equipamento ()'}
+      ]},
+      {n:6, t:'Sistema marca o buraco como reparado e registra os dados do reparo.', ops:[
+        {c:'Buraco', o:'atualizar estado do buraco ()'},
+        {c:'Material', o:'buscar material () / alterar material ()'},
+        {c:'Equipamento', o:'buscar equipamento () / alterar equipamento ()'}
+      ], nota:'Falta na solução a operação armazenar registro de reparo () em RegistroReparo — a classe que o passo 6 diz estar sendo criada. É a lacuna mais evidente da revisão.'}
+    ]}
+  ];
+  var excTrace = document.getElementById('excTrace');
+  var excTraceTabs = document.getElementById('excTraceTabs');
+  if(excTrace && excTraceTabs){
+    function excTraceRender(ui){
+      var uc = EXC_TRACE[ui];
+      var html = '<div class="trace-steps">';
+      uc.steps.forEach(function(s, i){
+        html +=
+          '<button class="trace-step' + (s.actor ? ' actor' : '') + '" data-i="' + i + '">' +
+            '<span class="tsn">' + s.n + '</span><span>' + s.t + '</span>' +
+          '</button>' +
+          '<div class="trace-ops">' +
+            (s.ops.length
+              ? s.ops.map(function(o){
+                  return '<div class="trace-op">' + o.o + ' <span class="tocls">· classe ' + o.c + '</span></div>';
+                }).join('')
+              : '<div class="trace-none">passo sem operação de classe na solução</div>') +
+            (s.nota
+              ? '<div class="trace-op" style="border-left-color:var(--amber); color:var(--amber);">nota · ' + s.nota + '</div>'
+              : '') +
+          '</div>';
+      });
+      html += '</div>';
+      excTrace.innerHTML = html;
+      excTrace.querySelectorAll('.trace-step').forEach(function(b){
+        b.addEventListener('click', function(){ b.classList.toggle('on'); });
+      });
+      var first = excTrace.querySelector('.trace-step:not(.actor)');
+      if(first) first.classList.add('on');
+      excTraceTabs.querySelectorAll('.tab').forEach(function(t){
+        t.classList.toggle('active', Number(t.dataset.i) === ui);
+      });
+    }
+    EXC_TRACE.forEach(function(uc, i){
+      var b = document.createElement('button');
+      b.className = 'tab';
+      b.dataset.i = String(i);
+      b.textContent = uc.tab;
+      b.addEventListener('click', function(){ excTraceRender(i); });
+      excTraceTabs.appendChild(b);
+    });
+    excTraceRender(0);
+  }
+
+  /* ---------- 9e.5 quiz certo ou errado ---------- */
+  var EXC_QZ = [
+    {t:'Cidadão é ator do SGRB, portanto não pode ser classe do modelo de classes.', a:'E', w:'Ator e classe respondem a perguntas diferentes. O caso de uso 1 existe para guardar os dados do cidadão — logo a classe existe. Cidadão e ResponsavelReparo são ator e classe ao mesmo tempo.'},
+    {t:'A Tabela 2 da solução descreve onze classes, mas o diagrama mostra apenas sete.', a:'C', w:'Material, Equipamento, Equipe e Veículo ficam de fora do desenho, mesmo aparecendo na Tabela 2 e nas tabelas de operações da revisão.'},
+    {t:'A multiplicidade entre Buraco e OrdemServiço é 1 para 1, já que todo buraco gera uma ordem de serviço.', a:'E', w:'É 1 para <strong>0..1</strong>. O buraco existe desde o registro do cidadão; a OS só nasce depois da confirmação na vistoria. Existe um intervalo em que o buraco não tem ordem nenhuma.'},
+    {t:'Na solução, RegistroReparo está associado a Buraco, e não a OrdemServiço.', a:'C', w:'Buraco possui 0..n RegistroReparo. Ligar o registro à OS é defensável, mas o caso de uso 4 não menciona ordem de serviço em nenhum passo.'},
+    {t:'O relacionamento entre ItinerarioReparo e Buraco é uma agregação.', a:'C', w:'Losango vazado do lado do itinerário: o itinerário é o todo, os buracos são as partes. Como é agregação e não composição, o buraco continua existindo se o itinerário for excluído.'},
+    {t:'Como a Tabela 3 ficou vazia, o passo 4 da revisão podia ter sido pulado.', a:'E', w:'A tabela vazia é o <em>resultado</em> da revisão, não a dispensa dela. Sem as Tabelas 3 a 6 de operações não há como mostrar que a verificação passo a passo foi feita.'},
+    {t:'"Sistema verifica se cidadão está cadastrado" é um passo sem classe responsável, porque quem verifica é o sistema.', a:'E', w:'A classe responsável é Cidadão, com a operação buscar cidadão (CPF). "Sistema" não é classe: atribuir a operação a ele é o mesmo que não atribuir a ninguém.'},
+    {t:'O diagrama é parcial porque o exercício considerou apenas quatro dos casos de uso do SGRB.', a:'C', w:'O Modelo de Classes é derivado da descrição detalhada dos casos de uso. Com quatro dos dezesseis, as classes que só apareceriam nos outros doze ficam de fora.'},
+    {t:'Segundo a Tabela 2, Material, Equipamento, Equipe e Veículo são tipos de Recurso.', a:'C', w:'A responsabilidade de cada uma é escrita como "Representa os materiais (tipo de Recurso)" e assim por diante. É uma generalização declarada em texto e não desenhada.'},
+    {t:'Foto deve ser uma classe, porque o cidadão pode anexar uma imagem ao registrar o buraco.', a:'E', w:'É atributo opcional de Buraco. Viraria classe se o sistema precisasse guardar várias fotos por buraco, com data e autor — o enunciado fala em uma foto.'},
+    {t:'A solução usa dois nomes para a mesma classe: ResultadoReparo e RegistroReparo.', a:'C', w:'ResultadoReparo na Tabela 1, RegistroReparo na Tabela 2 e no diagrama. É exatamente o problema que o procedimento manda evitar — escolha um nome e propague.'},
+    {t:'O enunciado exige que o diagrama de classes seja feito em ferramenta digital.', a:'E', w:'O enunciado permite o diagrama feito à mão, desde que a imagem resultante (digitalização ou foto) esteja nítida. Também permite entregá-lo em arquivo separado.'}
+  ];
+  var excQzStmt = document.getElementById('excQzStmt');
+  var excQzOpts = document.getElementById('excQzOpts');
+  if(excQzStmt && excQzOpts){
+    var excQzFeedback = document.getElementById('excQzFeedback');
+    var excQzCounter = document.getElementById('excQzCounter');
+    var excQzScore = document.getElementById('excQzScore');
+    var excQzResetBtn = document.getElementById('excQzReset');
+    var excQzState = { i:0, hits:0, answered:0, locked:false };
+
+    function excQzRender(){
+      excQzStmt.innerHTML = EXC_QZ[excQzState.i].t;
+      excQzCounter.textContent = 'Afirmação ' + (excQzState.i + 1) + ' de ' + EXC_QZ.length;
+      excQzOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      excQzFeedback.textContent = 'Escolha uma opção para ver a justificativa.';
+      excQzScore.innerHTML = 'Acertos: <strong>' + excQzState.hits + '</strong> / ' + excQzState.answered;
+      excQzState.locked = false;
+    }
+    function excQzAnswer(choice, btn){
+      if(excQzState.locked) return;
+      excQzState.locked = true;
+      excQzState.answered++;
+      var item = EXC_QZ[excQzState.i];
+      var correct = choice === item.a;
+      if(correct) excQzState.hits++;
+      excQzOpts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.excqz === item.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      excQzFeedback.innerHTML =
+        (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + (item.a === 'C' ? 'certo' : 'errado') + '</span>') +
+        '<br>' + item.w;
+      excQzScore.innerHTML = 'Acertos: <strong>' + excQzState.hits + '</strong> / ' + excQzState.answered;
+      setTimeout(function(){
+        if(excQzState.i < EXC_QZ.length - 1){
+          excQzState.i++;
+          excQzRender();
+        } else {
+          excQzCounter.textContent = 'Fim · ' + EXC_QZ.length + ' afirmações';
+          excQzStmt.innerHTML = 'Você acertou ' + excQzState.hits + ' de ' + EXC_QZ.length + '.';
+          excQzFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo. Recarregar a página também zera tudo — nada é salvo.';
+        }
+      }, 3200);
+    }
+    excQzOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ excQzAnswer(btn.dataset.excqz, btn); });
+    });
+    if(excQzResetBtn){
+      excQzResetBtn.addEventListener('click', function(){
+        excQzState.i = 0; excQzState.hits = 0; excQzState.answered = 0;
+        excQzRender();
+      });
+    }
+    excQzRender();
+  }
+
 
 })();
 </script>

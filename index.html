@@ -1064,6 +1064,101 @@
   .noun.dep{ background:var(--amber-soft); border-color:rgba(240,169,60,.5); color:var(--amber); }
   .pv-fichabox{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:6px 4px; box-shadow:var(--shadow); }
 
+  /* ============================================================
+     MÓDULO 13 — MODELO DE ESTADOS (DTE)
+     ============================================================ */
+  .dte-svg{ display:block; width:100%; height:auto; }
+  .dte-svg text{ font-family:var(--mono); font-size:10px; fill:var(--ink-soft); }
+  .dte-state rect{ fill:var(--surface-2); stroke:var(--indigo); stroke-width:1.6; }
+  .dte-state text{ font-family:"Space Grotesk", sans-serif; font-size:11px; font-weight:600; fill:var(--ink); }
+  .dte-state.cyan rect{ stroke:var(--cyan); }
+  .dte-state.amber rect{ stroke:var(--amber); }
+  .dte-state.rose rect{ stroke:var(--rose); }
+  .dte-state.on rect{ fill:var(--cyan-soft); stroke:var(--cyan); stroke-width:2.4; }
+  .dte-state.on text{ fill:var(--cyan); }
+  .dte-state .ds-act{ font-family:var(--mono); font-size:8.5px; font-weight:400; fill:var(--ink-faint); }
+  .dte-init{ fill:var(--ink); }
+  .dte-final-outer{ fill:none; stroke:var(--ink); stroke-width:1.5; }
+  .dte-final-inner{ fill:var(--ink); }
+  .dte-tr{ stroke:var(--ink-faint); stroke-width:1.5; fill:none; }
+  .dte-tr-head{ fill:var(--ink-faint); stroke:none; }
+  .dte-lbl{ font-family:var(--mono); font-size:9.5px; fill:var(--ink-soft); }
+  .dte-lbl .ev{ fill:var(--ink); }
+  .dte-lbl .gd{ fill:var(--amber); }
+  .dte-lbl .ac{ fill:var(--cyan); }
+  .dte-edge{ opacity:.22; transition:opacity .35s ease; }
+  .dte-edge.on{ opacity:1; }
+  .dte-edge.cur .dte-tr{ stroke:var(--cyan); stroke-width:2.4; }
+  .dte-edge.cur .dte-tr-head{ fill:var(--cyan); }
+  .dte-edge.cur .dte-lbl{ fill:var(--cyan); }
+  .dte-junction{ fill:var(--surface-2); stroke:var(--amber); stroke-width:1.8; }
+  .dte-composite rect{ fill:none; stroke:var(--cyan); stroke-width:1.5; stroke-dasharray:none; }
+  .dte-composite .dc-name{ font-family:"Space Grotesk", sans-serif; font-size:11px; font-weight:600; fill:var(--cyan); }
+
+  /* simulador do portão / despertador */
+  .dtesim{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px 24px; box-shadow:var(--shadow); }
+  .dtesim-head{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:18px; }
+  .dtesim-stage{ background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:18px 12px; }
+  .dtesim-read{ margin-top:16px; background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:15px 17px; min-height:78px; }
+  .dtesim-read .dr-k{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--indigo); }
+  .dtesim-read .dr-t{ margin:6px 0 0; color:var(--ink); font-size:15px; line-height:1.6; }
+  .dtesim-read .dr-t em{ font-style:normal; color:var(--cyan); }
+  .dtesim-read .dr-t strong{ color:var(--amber); font-weight:600; }
+  .dtesim-ev{ display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; align-items:center; }
+  .dtesim-log{ margin-top:14px; font-family:var(--mono); font-size:11.5px; color:var(--ink-faint); line-height:1.9; max-height:132px; overflow:auto; }
+  .dtesim-log b{ color:var(--cyan); font-weight:500; }
+  .dtesim-badge{ font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint); border:1px solid var(--line); border-radius:999px; padding:4px 11px; }
+  .dtesim-badge.live{ color:var(--cyan); border-color:rgba(57,214,190,.45); }
+
+  /* anatomia da transição */
+  .tranat{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px 24px; box-shadow:var(--shadow); }
+  .tranat-expr{ font-family:var(--mono); font-size:17px; text-align:center; letter-spacing:.01em; line-height:2.2; }
+  .tranat-expr .tp{ padding:4px 7px; border-radius:6px; border:1px solid transparent; cursor:pointer; transition:all .18s ease; }
+  .tranat-expr .tp:hover{ border-color:var(--line); }
+  .tranat-expr .tp.on{ background:var(--indigo-soft); border-color:rgba(124,140,255,.5); color:var(--indigo); }
+  .tranat-expr .tp.ev.on{ background:var(--cyan-soft); border-color:rgba(57,214,190,.5); color:var(--cyan); }
+  .tranat-expr .tp.gd.on{ background:var(--amber-soft); border-color:rgba(240,169,60,.5); color:var(--amber); }
+  .tranat-expr .tp.ac.on{ background:var(--rose-soft); border-color:rgba(241,89,111,.5); color:var(--rose); }
+  .tranat-out{ margin-top:20px; background:var(--bg-1); border:1px solid var(--line); border-radius:10px; padding:16px 18px; min-height:96px; }
+  .tranat-out .to-k{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); }
+  .tranat-out h4{ margin:6px 0 8px; font-family:var(--display); font-size:16px; }
+  .tranat-out p{ margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.65; }
+  .tranat-out code{ font-family:var(--mono); font-size:12.5px; color:var(--cyan); }
+
+  /* grade de tipos de evento */
+  .evt-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  @media (max-width:860px){ .evt-grid{ grid-template-columns:1fr; } }
+  .evt-card{ background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--indigo); border-radius:12px; padding:20px 22px; }
+  .evt-card.sig{ border-left-color:var(--cyan); }
+  .evt-card.tmp{ border-left-color:var(--amber); }
+  .evt-card.chg{ border-left-color:var(--rose); }
+  .evt-card h4{ margin:0 0 8px; font-family:var(--display); font-size:16.5px; }
+  .evt-card p{ margin:0 0 10px; color:var(--ink-soft); font-size:14.5px; line-height:1.62; }
+  .evt-card p:last-child{ margin-bottom:0; }
+  .evt-card .ec-syn{ font-family:var(--mono); font-size:12px; color:var(--cyan); background:var(--bg-1); border:1px solid var(--line); border-radius:8px; padding:9px 12px; display:block; }
+  .evt-card.tmp .ec-syn{ color:var(--amber); }
+  .evt-card.chg .ec-syn{ color:var(--rose); }
+
+  /* jarra / ciclo de vida */
+  .lifecycle{ display:flex; gap:0; align-items:stretch; flex-wrap:wrap; }
+  .lc-node{ flex:1 1 150px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; text-align:center; }
+  .lc-node .lc-k{ font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); }
+  .lc-node .lc-n{ font-family:var(--display); font-weight:600; font-size:16px; margin-top:5px; }
+  .lc-node.ev{ border-style:dashed; border-color:rgba(57,214,190,.45); background:transparent; }
+  .lc-node.ev .lc-n{ color:var(--cyan); font-family:var(--mono); font-size:13px; font-weight:400; }
+  .lc-arrow{ display:flex; align-items:center; padding:0 10px; color:var(--ink-faint); font-size:19px; }
+  @media (max-width:760px){ .lc-arrow{ transform:rotate(90deg); padding:6px 0; width:100%; justify-content:center; } }
+
+  /* tabela de estados × eventos do portão */
+  .gate-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); }
+  .gate-tab{ width:100%; border-collapse:collapse; font-size:14px; min-width:640px; }
+  .gate-tab th{ background:var(--surface-2); text-align:left; padding:12px 14px; font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); border-bottom:1px solid var(--line); }
+  .gate-tab td{ padding:12px 14px; border-bottom:1px solid var(--line-soft); color:var(--ink-soft); vertical-align:top; }
+  .gate-tab tr:last-child td{ border-bottom:none; }
+  .gate-tab td.st{ color:var(--ink); font-weight:500; font-family:var(--display); }
+  .gate-tab td.nx{ color:var(--cyan); font-family:var(--mono); font-size:12.5px; }
+  .gate-tab td.na{ color:var(--ink-faint); font-family:var(--mono); font-size:12.5px; }
+
   /* ---------- PLACEHOLDER (future modules) ---------- */
   .placeholder-wrap{ padding:110px 0 80px; }
   .placeholder-dots{ margin-top:40px; display:grid; grid-template-columns:repeat(16,1fr); gap:8px; max-width:520px; }
@@ -8780,6 +8875,920 @@
       </div>
       <!-- ================= END MODULE: PROVA P1 2025 ================= -->
 
+      <!-- ================= MODULE 13: MODELO DE ESTADOS ================= -->
+      <div class="module-page" data-module="modelo-estados" id="page-modelo-estados">
+
+        <div class="page-subnav">
+          <div class="page-subnav-inner">
+            <span class="psn-title">P2 · Modelo de Estados</span>
+            <div class="navlinks">
+              <button class="navlink" data-target="me-conceito">Conceito</button>
+              <button class="navlink" data-target="me-ciclo">Ciclo de vida</button>
+              <button class="navlink" data-target="me-dte">O DTE</button>
+              <button class="navlink" data-target="me-elementos">Elementos</button>
+              <button class="navlink" data-target="me-eventos">Eventos</button>
+              <button class="navlink" data-target="me-guarda">Guarda · Ações</button>
+              <button class="navlink" data-target="me-juncao">Junção</button>
+              <button class="navlink" data-target="me-aninhados">Aninhados</button>
+              <button class="navlink" data-target="me-simulador">Simulador</button>
+              <button class="navlink" data-target="me-contexto">Contexto</button>
+              <button class="navlink" data-target="me-treino">Treino</button>
+              <button class="navlink" data-target="me-quiz">Quiz</button>
+            </div>
+          </div>
+        </div>
+
+        <header class="hero" id="me-hero">
+          <div class="wrap hero-grid">
+            <div>
+              <div class="eyebrow">P2 · Módulo 01 · 11ª aula</div>
+              <h1>Modelagem Dinâmica · <em>Modelo de Estados</em></h1>
+              <p class="lede">O Diagrama de Sequência mostrou a conversa entre vários objetos durante <strong style="color:var(--ink)">um caso de uso</strong>. O Diagrama de Transição de Estados vira a câmera: fixa <strong style="color:var(--ink)">um objeto</strong> e mostra o seu <strong style="color:var(--ink)">ciclo de vida inteiro</strong> — por quais situações ele passa, qual evento o empurra de uma para outra, e sob que condição.</p>
+              <div class="hero-meta">
+                <span><strong>Profs.</strong> Selma S. S. Melnikoff · Jorge Luis Risco Becerra</span>
+                <span><strong>Material</strong> 11ª aula · 30/09/2026</span>
+                <span><strong>Foco</strong> Modelagem Dinâmica</span>
+              </div>
+            </div>
+            <div>
+              <div class="hero-card">
+                <div class="hp-titlebar">
+                  <span class="hp-dot r"></span><span class="hp-dot y"></span><span class="hp-dot g"></span>
+                  <span class="hp-label">portao.cicloDeVida()</span>
+                </div>
+                <div class="src-list">
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">fechado</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">abrindo</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">parado na abertura</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">aberto</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">fechando</span></div>
+                  <div class="src-item"><span class="si-dot"></span><span class="si-name">parado no fechamento</span></div>
+                </div>
+                <div class="src-out">o mesmo clique no controle faz coisas diferentes — <strong>o efeito do evento depende do estado anterior</strong></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ============ CONCEITO ============ -->
+        <section class="section" id="me-conceito">
+          <div class="wrap">
+            <div class="eyebrow">Conceito sobre estados</div>
+            <h2 class="reveal">O que é um estado</h2>
+            <p class="intro reveal">A definição da aula é deliberadamente simples: <strong style="color:var(--ink)">um estado é a maneira como um objeto se apresenta</strong>. Um objeto do mundo real se encontra em estados particulares em cada momento — e passa de um para outro quando algo acontece.</p>
+
+            <h3 class="reveal">O exemplo mínimo: a jarra</h3>
+            <p class="intro reveal">Três peças e já está tudo lá: dois estados e, entre eles, um evento que provoca a <strong style="color:var(--ink)">transição</strong>.</p>
+
+            <div class="lifecycle reveal">
+              <div class="lc-node">
+                <div class="lc-k">estado</div>
+                <div class="lc-n">vazia</div>
+              </div>
+              <div class="lc-arrow">→</div>
+              <div class="lc-node ev">
+                <div class="lc-k">evento</div>
+                <div class="lc-n">encher de água</div>
+              </div>
+              <div class="lc-arrow">→</div>
+              <div class="lc-node">
+                <div class="lc-k">estado</div>
+                <div class="lc-n">cheia</div>
+              </div>
+            </div>
+            <div class="flow-note reveal">A jarra está vazia <em>(estado)</em>. Alguém começa a enchê-la de água <em>(evento)</em>. A jarra fica cheia de água <em>(estado)</em>. O que liga o primeiro ao terceiro é a <strong style="color:var(--ink)">transição</strong> — ela não é um estado, é a passagem entre dois.</div>
+
+            <h3 class="reveal" style="margin-top:52px;">O exemplo que já não cabe em duas caixas: o portão da garagem</h3>
+            <p class="intro reveal">A descrição em linguagem natural do portão da garagem começa bem e termina em "etc.". É esse "etc." que motiva o diagrama.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Abrindo</h3>
+                <ul>
+                  <li>O portão está fechado</li>
+                  <li>O controle do portão é acionado</li>
+                  <li>O portão começa a abrir</li>
+                  <li>O controle do portão é acionado</li>
+                  <li>O portão para</li>
+                </ul>
+                <div class="verdict">cinco passos e o texto já se repete</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Fechando</h3>
+                <ul>
+                  <li>O controle do portão é acionado</li>
+                  <li>O portão começa a fechar</li>
+                  <li>Se o controle não for acionado, o portão fecha</li>
+                  <li>Se o controle for acionado, o portão para</li>
+                  <li>Se o controle for acionado de novo, o portão abre — <em>etc.</em></li>
+                </ul>
+                <div class="verdict">o "etc." é o sintoma: a linguagem natural não fecha o ciclo</div>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Separando estados de eventos</h3>
+            <p class="intro reveal">Repare que são <strong style="color:var(--ink)">seis estados</strong> e apenas <strong style="color:var(--ink)">dois eventos</strong>. É uma proporção que se repete na prática: poucos eventos, muitos estados — e o mesmo evento significando coisas diferentes em cada um.</p>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Estados do portão</h4>
+                <p>Fechado · Aberto · Fechando · Abrindo · Parado no fechamento · Parado na abertura</p>
+                <div class="uml-ex">seis situações distinguíveis</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Eventos que podem ocorrer</h4>
+                <p>Clique no controle do portão · Fim do curso do portão</p>
+                <div class="uml-ex">dois acontecimentos, só isso</div>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">A frase que a aula grifa</div>
+              <p>O efeito do evento do acionamento do controle <strong>depende do estado anterior do portão</strong>. Um clique em "fechado" abre; em "abrindo" para; em "parado na abertura" fecha. Não existe "o que o clique faz" — existe o que o clique faz <em>neste estado</em>. É por isso que o comportamento não cabe em uma lista de regras por evento: ele é uma matriz estado × evento.</p>
+            </div>
+
+            <div class="gate-wrap reveal" style="margin-top:28px;">
+              <table class="gate-tab">
+                <thead>
+                  <tr><th>Estado atual</th><th>Clique no controle</th><th>Fim do curso</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="st">Fechado</td><td class="nx">→ Abrindo</td><td class="na">—</td></tr>
+                  <tr><td class="st">Abrindo</td><td class="nx">→ Parado na abertura</td><td class="nx">→ Aberto</td></tr>
+                  <tr><td class="st">Parado na abertura</td><td class="nx">→ Fechando</td><td class="na">—</td></tr>
+                  <tr><td class="st">Aberto</td><td class="nx">→ Fechando</td><td class="na">—</td></tr>
+                  <tr><td class="st">Fechando</td><td class="nx">→ Parado no fechamento</td><td class="nx">→ Fechado</td></tr>
+                  <tr><td class="st">Parado no fechamento</td><td class="nx">→ Abrindo</td><td class="na">—</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flow-note reveal">Leia a tabela por linha e você tem a resposta de "o que acontece se eu clicar agora?". Leia por coluna e você tem a prova de que o evento sozinho não decide nada. O DTE é exatamente esta tabela desenhada.</div>
+          </div>
+        </section>
+
+        <!-- ============ CICLO DE VIDA / OBJETO DE SOFTWARE ============ -->
+        <section class="section alt" id="me-ciclo">
+          <div class="wrap">
+            <div class="eyebrow">Do mundo real para o software</div>
+            <h2 class="reveal">Estado de objeto de software</h2>
+            <p class="intro reveal">Um objeto de software também tem um estado em um instante e realiza transições para outros estados <strong style="color:var(--ink)">em função do evento recebido</strong>. A diferença é que aqui o estado é definido pelos <strong style="color:var(--ink)">valores dos seus atributos</strong> — não por uma observação física.</p>
+
+            <h3 class="reveal">O caso da aula: objeto <em>Ocupação</em> do Sistema de Gerência de Hotel</h3>
+            <p class="intro reveal">A regra de negócio, em cinco linhas — e repare como cada frase do enunciado é, na verdade, um estado ou uma transição.</p>
+
+            <div class="proc reveal">
+              <div class="proc-step">
+                <div class="ps-n">01</div>
+                <h4>Pedido de reserva</h4>
+                <p>Um cliente pede reserva de quarto no hotel. O sistema cria um objeto <strong style="color:var(--ink)">Ocupação</strong> e busca quarto livre.</p>
+                <div class="ps-out">criação do objeto</div>
+              </div>
+              <div class="proc-step s2">
+                <div class="ps-n">02</div>
+                <h4>Existe quarto disponível</h4>
+                <p>O objeto vai para <strong style="color:var(--ink)">reserva provisória</strong> e é disparada a cobrança da taxa de reserva.</p>
+                <div class="ps-out">estado: reserva provisória · ação: gerar cobrança</div>
+              </div>
+              <div class="proc-step s3">
+                <div class="ps-n">03</div>
+                <h4>Não existe quarto disponível</h4>
+                <p>O objeto fica no estado <strong style="color:var(--ink)">pendente</strong>, aguardando a liberação de um quarto.</p>
+                <div class="ps-out">estado: reserva pendente</div>
+              </div>
+              <div class="proc-step s4">
+                <div class="ps-n">04</div>
+                <h4>Cliente paga a taxa</h4>
+                <p>O banco informa o pagamento ao sistema e o estado vai para <strong style="color:var(--ink)">reservado</strong>.</p>
+                <div class="ps-out">estado: quarto reservado</div>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">A ramificação que fecha o ciclo</div>
+              <p>Depois de algum tempo, a recepcionista informa a saída de um cliente. O sistema procura um objeto <em>Ocupação</em> com estado <strong style="color:var(--ink)">reserva pendente</strong>: se encontrar, aquele objeto vai para <strong style="color:var(--ink)">reserva provisória</strong> e a cobrança da taxa é gerada; se não encontrar, o quarto é simplesmente liberado. Ou seja: a liberação de um quarto é um <em>evento</em> que muda o estado de <em>outro</em> objeto, que estava esperando por ele.</p>
+              <blockquote>A descrição não é completa. — a própria aula admite, logo depois de duas colunas de texto</blockquote>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Ciclo de vida</h3>
+            <p class="intro reveal">O ciclo de vida de um objeto é constituído pelos <strong style="color:var(--ink)">seus estados</strong> e pelas <strong style="color:var(--ink)">transições possíveis entre eles</strong>. Construir o DTE é, na prática, responder duas perguntas para cada estado: quais são os próximos estados possíveis, e qual evento causa cada uma dessas transições.</p>
+
+            <div class="concept-chain reveal">
+              <span class="cc-node">estado atual</span>
+              <span class="cc-arrow">+</span>
+              <span class="cc-node hi">evento recebido</span>
+              <span class="cc-arrow">+</span>
+              <span class="cc-node hi">condição satisfeita</span>
+              <span class="cc-arrow">→</span>
+              <span class="cc-node">próximo estado</span>
+            </div>
+
+            <div class="callout rose reveal" style="margin-top:32px;">
+              <div class="eyebrow">Por que o texto não serve</div>
+              <p>Pelos exemplos do controle do portão e da reserva de quarto de hotel, nota-se que <strong>a linguagem natural não é uma boa forma de descrever os estados e as transições</strong>. Ela é ambígua, incompleta e não deixa testar a cobertura: você não consegue olhar um parágrafo e afirmar que todo estado tem saída. Uma boa opção é o <strong>Diagrama de Transição de Estados (DTE)</strong>, baseado nos conceitos de máquina de estados finitos propostos por Harel.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ O DTE / MODELO DE ESTADOS ============ -->
+        <section class="section" id="me-dte">
+          <div class="wrap">
+            <div class="eyebrow">Onde isso se encaixa</div>
+            <h2 class="reveal">Modelo de Estados × Diagrama de Transição de Estados</h2>
+            <p class="intro reveal">Os dois nomes não são sinônimos, e a distinção costuma valer ponto na prova. O <strong style="color:var(--ink)">DTE</strong> é o diagrama de <em>um</em> objeto; o <strong style="color:var(--ink)">Modelo de Estados</strong> é o conjunto dos DTEs das classes de um escopo — componente, subsistema ou até o sistema inteiro.</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <div class="dc-k">unidade</div>
+                <h3>Diagrama de Transição de Estados</h3>
+                <p>Descreve o <strong style="color:var(--ink)">ciclo de vida de um objeto</strong> de forma mais precisa do que o texto: todos os estados, todas as transições, os eventos que as disparam e as condições que as autorizam.</p>
+                <div class="dc-ex">um diagrama, uma classe</div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">conjunto</div>
+                <h3>Modelo de Estados</h3>
+                <p>É constituído pelos <strong style="color:var(--ink)">DTEs do conjunto de classes</strong> do sistema, componente ou subsistema. É a parte do Modelo Dinâmico que trata do comportamento interno dos objetos.</p>
+                <div class="dc-ex">vários diagramas, um modelo</div>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">A regra que evita trabalho inútil</div>
+              <p>O DTE <strong>não é construído para todas as classes do sistema</strong> — apenas para as que apresentam <strong>estados relevantes</strong>. Uma classe cujo objeto nasce, guarda dados e morre sem mudar de comportamento não precisa de diagrama. Os candidatos típicos são objetos com ciclo de vida longo e com regras que mudam conforme a fase: <em>Ocupação</em>, <em>Pedido</em>, <em>Conta</em>, <em>Empréstimo</em>, <em>Chamado</em>.</p>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Os três modelos, de novo</h3>
+            <p class="intro reveal">Esta aula fecha o Modelo Dinâmico: a parte de interação já foi vista, e agora entra a de estados.</p>
+
+            <div class="flow reveal">
+              <div class="flow-box">
+                <div class="fb-label">funções</div>
+                <div class="fb-title">Modelo de Casos de Uso</div>
+                <div class="fb-cluster">Diagrama de Casos de Uso</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box">
+                <div class="fb-label">estrutura</div>
+                <div class="fb-title">Modelo de Classes</div>
+                <div class="fb-cluster">Diagrama de Classes</div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-box" style="border-color:var(--cyan)">
+                <div class="fb-label">comportamento</div>
+                <div class="fb-title">Modelo Dinâmico</div>
+                <div class="fb-cluster">Diagrama de Interação · <strong style="color:var(--cyan)">Diagrama de Transição de Estados</strong></div>
+              </div>
+            </div>
+            <div class="flow-note reveal">Diagrama de Interação: vários objetos, um caso de uso, eixo do tempo. DTE: um objeto, todos os casos de uso que o tocam, eixo nenhum — o tempo está implícito nas setas.</div>
+          </div>
+        </section>
+
+        <!-- ============ ELEMENTOS ============ -->
+        <section class="section alt" id="me-elementos">
+          <div class="wrap">
+            <div class="eyebrow">Notação</div>
+            <h2 class="reveal">Os elementos do DTE</h2>
+            <p class="intro reveal">Sete elementos. Os quatro primeiros aparecem em qualquer diagrama; os três últimos são recursos para organizar diagramas que cresceram.</p>
+
+            <div class="ucd-wrap reveal">
+              <svg class="dte-svg" viewBox="0 0 820 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomia do diagrama de transição de estados">
+                <circle class="dte-init" cx="36" cy="80" r="8"/>
+                <line class="dte-tr" x1="44" y1="80" x2="104" y2="80"/>
+                <path class="dte-tr-head" d="M104 74 L116 80 L104 86 Z"/>
+                <g class="dte-state"><rect x="118" y="54" width="160" height="52" rx="10"/><text x="198" y="85" text-anchor="middle">estado 1</text></g>
+                <line class="dte-tr" x1="278" y1="80" x2="472" y2="80"/>
+                <path class="dte-tr-head" d="M472 74 L484 80 L472 86 Z"/>
+                <text class="dte-lbl" x="382" y="56" text-anchor="middle"><tspan class="ev">evento (atributo)</tspan></text>
+                <text class="dte-lbl" x="382" y="70" text-anchor="middle"><tspan class="gd">[condição 1]</tspan> / <tspan class="ac">ação | atividade</tspan></text>
+                <g class="dte-state cyan"><rect x="486" y="54" width="160" height="52" rx="10"/><text x="566" y="85" text-anchor="middle">estado 2</text></g>
+                <line class="dte-tr" x1="646" y1="80" x2="724" y2="80"/>
+                <path class="dte-tr-head" d="M724 74 L736 80 L724 86 Z"/>
+                <circle class="dte-final-outer" cx="750" cy="80" r="12"/>
+                <circle class="dte-final-inner" cx="750" cy="80" r="6.5"/>
+                <text x="48" y="118" text-anchor="middle">estado inicial</text>
+                <text x="198" y="128" text-anchor="middle">estado</text>
+                <text x="382" y="104" text-anchor="middle">transição</text>
+                <text x="750" y="118" text-anchor="middle">estado final</text>
+              </svg>
+              <div class="ucd-caption">A sintaxe completa de um rótulo de transição: <code>evento (lista-parâmetros) [guarda] / ação</code>. As três partes são independentes — qualquer uma pode faltar.</div>
+            </div>
+
+            <div class="uc-elems reveal" style="margin-top:40px;">
+              <div class="uc-elem">
+                <div class="ue-glyph">
+                  <svg viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dte-svg">
+                    <g class="dte-state"><rect x="20" y="12" width="110" height="34" rx="8"/><text x="75" y="33" text-anchor="middle">estado</text></g>
+                  </svg>
+                </div>
+                <h4>1 · Estado</h4>
+                <p>Situação em que um objeto <strong style="color:var(--ink)">satisfaz uma condição</strong>, <strong style="color:var(--ink)">realiza uma atividade</strong> ou <strong style="color:var(--ink)">espera um evento</strong>. É definido pelos valores dos seus atributos — o livro da biblioteca com <code>reservado = true</code>, a conta bancária com <code>saldo &lt; 0</code>.</p>
+              </div>
+              <div class="uc-elem">
+                <div class="ue-glyph">
+                  <svg viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dte-svg">
+                    <circle class="dte-init" cx="46" cy="29" r="9"/>
+                    <circle class="dte-final-outer" cx="104" cy="29" r="12"/>
+                    <circle class="dte-final-inner" cx="104" cy="29" r="6.5"/>
+                  </svg>
+                </div>
+                <h4>2 · Estados inicial e final</h4>
+                <p>O inicial indica o estado do objeto <strong style="color:var(--ink)">quando ele é criado</strong> — só pode haver <strong style="color:var(--ink)">um</strong> por DTE. O final indica o fim do ciclo de vida: é <strong style="color:var(--ink)">opcional</strong> e pode haver <strong style="color:var(--ink)">mais de um</strong>, dependendo do comportamento.</p>
+              </div>
+              <div class="uc-elem">
+                <div class="ue-glyph">
+                  <svg viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dte-svg">
+                    <line class="dte-tr" x1="16" y1="34" x2="124" y2="34"/>
+                    <path class="dte-tr-head" d="M124 28 L136 34 L124 40 Z"/>
+                    <text class="dte-lbl" x="70" y="22" text-anchor="middle">evento [g] / a</text>
+                  </svg>
+                </div>
+                <h4>3 · Transição</h4>
+                <p>Relacionamento entre dois estados. Indica que um objeto em um dado estado vai para outro <strong style="color:var(--ink)">quando um evento ocorre</strong>, <strong style="color:var(--ink)">com certas condições satisfeitas</strong>, e <strong style="color:var(--ink)">realizando certas ações</strong>.</p>
+              </div>
+              <div class="uc-elem">
+                <div class="ue-glyph">
+                  <svg viewBox="0 0 150 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dte-svg">
+                    <circle class="dte-junction" cx="75" cy="29" r="11"/>
+                    <line class="dte-tr" x1="16" y1="29" x2="60" y2="29"/>
+                    <path class="dte-tr-head" d="M60 24 L70 29 L60 34 Z"/>
+                    <line class="dte-tr" x1="86" y1="24" x2="134" y2="10"/>
+                    <line class="dte-tr" x1="86" y1="34" x2="134" y2="48"/>
+                  </svg>
+                </div>
+                <h4>4 · Ponto de junção</h4>
+                <p>Representa a situação em que o <strong style="color:var(--ink)">próximo estado não é único</strong>, em função de condições existentes no sistema — e também permite que duas ou mais transições <strong style="color:var(--ink)">compartilhem uma trajetória</strong>.</p>
+              </div>
+            </div>
+
+            <div class="np-grid reveal" style="margin-top:36px;">
+              <div class="np-card"><div class="n">5</div><p><strong style="color:var(--ink)">Evento</strong> — a ocorrência que dispara a transição. Quatro tipos, detalhados na próxima seção.</p></div>
+              <div class="np-card"><div class="n">6</div><p><strong style="color:var(--ink)">Condição de guarda</strong> — expressão lógica entre colchetes que autoriza (ou não) o disparo.</p></div>
+              <div class="np-card"><div class="n">7</div><p><strong style="color:var(--ink)">Ações e atividades</strong> — o que o objeto faz na transição e dentro do estado.</p></div>
+              <div class="np-card"><div class="n">+</div><p><strong style="color:var(--ink)">Estados aninhados</strong> — um estado contendo outros, para simplificar o diagrama.</p></div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:56px;">Um DTE completo: classe ContaBancaria</h3>
+            <p class="intro reveal">O exemplo clássico, e a pergunta que a aula deixa no ar em cima dele: <strong style="color:var(--ink)">e se a quantia for menor que o saldo? E se for maior?</strong> A resposta é a condição de guarda — sem ela, o diagrama é ambíguo.</p>
+
+            <div class="ucd-wrap reveal">
+              <svg class="dte-svg" viewBox="0 0 860 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de transição de estados da classe ContaBancaria">
+                <circle class="dte-init" cx="40" cy="96" r="7"/>
+                <line class="dte-tr" x1="47" y1="96" x2="106" y2="96"/>
+                <path class="dte-tr-head" d="M106 90 L118 96 L106 102 Z"/>
+                <text class="dte-lbl" x="80" y="86" text-anchor="middle">abrir(dep)</text>
+
+                <g class="dte-state"><rect x="120" y="70" width="200" height="52" rx="10"/><text x="220" y="101" text-anchor="middle">saldo positivo</text></g>
+
+                <path class="dte-tr" d="M175 122 C175 170 265 170 265 128"/>
+                <path class="dte-tr-head" d="M259 130 L265 120 L271 130 Z"/>
+                <text class="dte-lbl" x="220" y="186" text-anchor="middle">depositar(q) / saldo := saldo + q</text>
+
+                <line class="dte-tr" x1="320" y1="96" x2="407" y2="96"/>
+                <path class="dte-tr-head" d="M407 90 L419 96 L407 102 Z"/>
+                <text class="dte-lbl" x="366" y="86" text-anchor="middle"><tspan class="ev">sacar(q)</tspan></text>
+                <circle class="dte-junction" cx="430" cy="96" r="10"/>
+
+                <polyline class="dte-tr" points="430,86 430,46 230,46 230,64"/>
+                <path class="dte-tr-head" d="M224 64 L230 74 L236 64 Z"/>
+                <text class="dte-lbl" x="330" y="38" text-anchor="middle"><tspan class="gd">[q &lt;= saldo]</tspan> / <tspan class="ac">saldo := saldo − q</tspan></text>
+
+                <polyline class="dte-tr" points="430,106 430,256 528,256"/>
+                <path class="dte-tr-head" d="M528 250 L540 256 L528 262 Z"/>
+                <text class="dte-lbl" x="440" y="180"><tspan class="gd">[q &gt; saldo]</tspan></text>
+                <text class="dte-lbl" x="440" y="194">/ saldo := saldo − q</text>
+
+                <g class="dte-state rose"><rect x="540" y="230" width="200" height="52" rx="10"/><text x="640" y="261" text-anchor="middle">saldo negativo</text></g>
+
+                <path class="dte-tr" d="M590 282 C590 330 680 330 680 288"/>
+                <path class="dte-tr-head" d="M674 290 L680 280 L686 290 Z"/>
+                <text class="dte-lbl" x="635" y="348" text-anchor="middle">depositar(q) [q &lt; dívida]</text>
+
+                <polyline class="dte-tr" points="640,230 640,160 300,160 300,130"/>
+                <path class="dte-tr-head" d="M294 130 L300 120 L306 130 Z"/>
+                <text class="dte-lbl" x="470" y="152" text-anchor="middle">depositar(q) <tspan class="gd">[q &gt;= dívida]</tspan></text>
+
+                <polyline class="dte-tr" points="150,122 150,256 54,256"/>
+                <path class="dte-tr-head" d="M54 250 L42 256 L54 262 Z"/>
+                <text class="dte-lbl" x="158" y="198">encerrar <tspan class="gd">[saldo = 0]</tspan></text>
+                <circle class="dte-final-outer" cx="30" cy="256" r="12"/>
+                <circle class="dte-final-inner" cx="30" cy="256" r="6.5"/>
+              </svg>
+              <div class="ucd-caption">Dois estados, um ponto de junção e um estado final. O evento <code>sacar(q)</code> é um só — quem decide o destino é a guarda. Figura reconstruída a partir de Bezerra, <em>Análise e Projeto de Sistemas com UML</em>, 3ª ed.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ EVENTOS ============ -->
+        <section class="section" id="me-eventos">
+          <div class="wrap">
+            <div class="eyebrow">Tipos de evento</div>
+            <h2 class="reveal">Quatro maneiras de uma transição ser disparada</h2>
+            <p class="intro reveal">A ocorrência de um evento sobre um objeto causa uma transição entre seus estados. Exemplo mínimo: objeto <em>Fatura</em>, estado inicial <strong style="color:var(--ink)">enviada para cliente</strong>, evento <strong style="color:var(--ink)">ocorrência de pagamento</strong>, novo estado <strong style="color:var(--ink)">paga</strong>. O que muda entre os quatro tipos é <em>de onde vem</em> o evento e <em>se alguém espera</em> por ele.</p>
+
+            <div class="evt-grid reveal">
+              <div class="evt-card">
+                <h4>Evento de chamada</h4>
+                <p>Ocorre quando o objeto <strong style="color:var(--ink)">recebe uma mensagem de outro objeto</strong>. O objeto solicitante <strong style="color:var(--ink)">espera a execução do pedido</strong>.</p>
+                <code class="ec-syn">sacar(quantia)</code>
+              </div>
+              <div class="evt-card sig">
+                <h4>Evento de sinal</h4>
+                <p>Tipo especial do evento de chamada: o objeto solicitante <strong style="color:var(--ink)">continua o seu processamento após enviar o sinal</strong> — não espera o final da execução.</p>
+                <code class="ec-syn">notificarAuditoria()</code>
+              </div>
+              <div class="evt-card tmp">
+                <h4>Evento temporal</h4>
+                <p>Especificado com a cláusula <strong style="color:var(--ink)">after</strong> seguida de um intervalo de tempo, ou com <strong style="color:var(--ink)">when</strong> seguida de uma expressão lógica sobre tempo.</p>
+                <code class="ec-syn">after (30 segundos)<br>when (data = 13/07/2027)<br>when (horário = 00:00h)</code>
+              </div>
+              <div class="evt-card chg">
+                <h4>Evento de mudança</h4>
+                <p>Especificado com a cláusula <strong style="color:var(--ink)">when</strong> seguida por uma expressão de valor lógico: a transição é disparada quando o valor do atributo satisfaz a expressão.</p>
+                <code class="ec-syn">when (saldo &gt; 0)</code>
+              </div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">O detalhe que confunde na prova</div>
+              <p><code>after</code> é sempre relativo ao estado atual: <code>after (30 segundos)</code> significa que a transição será disparada 30 segundos <strong style="color:var(--ink)">após o objeto ter entrado no estado atual</strong> — não 30 segundos depois de qualquer outra coisa. Já o <code>when</code> aparece nos dois últimos tipos e é o mesmo símbolo com leituras diferentes: em <strong style="color:var(--ink)">evento temporal</strong>, a expressão fala de relógio ou calendário (<code>when (horário = 00:00h)</code>); em <strong style="color:var(--ink)">evento de mudança</strong>, a expressão fala de atributo do objeto (<code>when (saldo &gt; 0)</code>). O que diferencia não é a notação, é sobre o que a expressão fala.</p>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Guarda não é evento</div>
+              <p>Uma armadilha frequente: <code>when (saldo &gt; 0)</code> e <code>[saldo &gt; 0]</code> parecem a mesma coisa e não são. O <strong>evento de mudança</strong> dispara a transição <em>sozinho</em>, no instante em que o atributo muda de valor. A <strong>condição de guarda</strong> não dispara nada — ela só autoriza, e precisa de um evento acontecendo ao mesmo tempo. Notação: parênteses depois de <code>when</code> para o evento, colchetes para a guarda.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ GUARDA, AÇÕES, ATIVIDADES ============ -->
+        <section class="section alt" id="me-guarda">
+          <div class="wrap">
+            <div class="eyebrow">Anatomia do rótulo</div>
+            <h2 class="reveal">Guarda, ação e atividade</h2>
+            <p class="intro reveal">Clique em cada parte da expressão para ver o que ela significa, o que acontece quando ela falta, e onde ela costuma ser escrita errado.</p>
+
+            <div class="tranat reveal">
+              <div class="tranat-expr" id="meTrExpr">
+                <span class="tp ev" data-tp="ev">evento</span><span class="tp par" data-tp="par">(lista-parâmetros)</span> <span class="tp gd" data-tp="gd">[guarda]</span> <span class="tp" data-tp="bar">/</span> <span class="tp ac" data-tp="ac">ação</span>
+              </div>
+              <div class="tranat-out" id="meTrOut">
+                <div class="to-k">selecione uma parte</div>
+                <h4>A sintaxe completa</h4>
+                <p>Um rótulo de transição tem até quatro partes, e <strong style="color:var(--ink)">todas são opcionais exceto o evento na maioria dos casos</strong>. Uma transição sem guarda é sempre disparada quando o evento ocorre; uma transição sem ação apenas muda o estado.</p>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Condição de guarda</h3>
+            <p class="intro reveal">É uma expressão lógica que <strong style="color:var(--ink)">condiciona o disparo</strong> de uma transição. A transição correspondente é disparada <strong style="color:var(--ink)">se e somente se</strong> o evento associado ocorre <strong style="color:var(--ink)">e</strong> a condição de guarda é verdadeira.</p>
+
+            <div class="compare reveal">
+              <div class="compare-card a">
+                <h3>Com guarda</h3>
+                <p style="color:var(--ink-soft); margin:0"><code>sacar(q) [q &lt;= saldo]</code></p>
+                <ul>
+                  <li>Evento ocorre + guarda verdadeira → dispara</li>
+                  <li>Evento ocorre + guarda falsa → <strong style="color:var(--ink)">nada acontece</strong></li>
+                  <li>Permite duas transições com o mesmo evento saindo do mesmo estado</li>
+                </ul>
+                <div class="verdict">é o que torna o DTE determinístico</div>
+              </div>
+              <div class="compare-card b">
+                <h3>Sem guarda</h3>
+                <p style="color:var(--ink-soft); margin:0"><code>sacar(q)</code></p>
+                <ul>
+                  <li>É <strong style="color:var(--ink)">sempre disparada</strong> quando o evento ocorre</li>
+                  <li>Duas transições iguais sem guarda saindo do mesmo estado = diagrama ambíguo</li>
+                  <li>Perfeitamente válida quando o destino é único</li>
+                </ul>
+                <div class="verdict">simples, e correta quando não há escolha a fazer</div>
+              </div>
+            </div>
+
+            <h3 class="reveal" style="margin-top:52px;">Ações × atividades</h3>
+            <p class="intro reveal">A distinção é curta e cai muito: <strong style="color:var(--ink)">ação é atômica e vive na transição; atividade pode ser interrompida e vive dentro do estado</strong>.</p>
+
+            <div class="def-grid reveal">
+              <div class="def-card">
+                <div class="dc-k">na transição</div>
+                <h3>Ação</h3>
+                <p>Um objeto pode realizar uma ou mais ações ao <strong style="color:var(--ink)">transitar de um estado para outro</strong>. É uma expressão definida em termos dos atributos, operações e associações da classe, ou dos parâmetros do evento. É executada <strong style="color:var(--ink)">se e somente se a transição for disparada</strong> e é <strong style="color:var(--ink)">atômica</strong>: não pode ser interrompida.</p>
+                <div class="dc-ex">notação: depois da barra · <code>/ saldo := saldo − q</code></div>
+              </div>
+              <div class="def-card">
+                <div class="dc-k">dentro do estado</div>
+                <h3>Atividade</h3>
+                <p>Um objeto pode executar uma sequência de ações e atividades <strong style="color:var(--ink)">quando está em um estado</strong>. Uma atividade <strong style="color:var(--ink)">pode ser interrompida</strong> durante a sua execução — o estado "impressão de relatório" pode ser interrompido se ocorrer um evento mais prioritário.</p>
+                <div class="dc-ex">notação: dentro da caixa · <code>entry / n := n+1</code>, <code>do / imprimir()</code></div>
+              </div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">O teste de uma linha</div>
+              <p>Pergunte: <strong>isso pode ser abortado no meio?</strong> Se não pode, é ação e fica na seta. Se pode, é atividade e fica na caixa. Atribuir um valor a um atributo é ação. Imprimir um relatório de 400 páginas é atividade.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ PONTO DE JUNÇÃO ============ -->
+        <section class="section" id="me-juncao">
+          <div class="wrap">
+            <div class="eyebrow">Ponto de junção</div>
+            <h2 class="reveal">Quando o próximo estado não é único</h2>
+            <p class="intro reveal">O próximo estado de um objeto pode não ser único, em função de condições existentes no sistema. Essa situação é representada no DTE através de um <strong style="color:var(--ink)">ponto de junção</strong> — e ele serve também para o caminho inverso: permitir que <strong style="color:var(--ink)">duas ou mais transições compartilhem uma trajetória</strong>.</p>
+
+            <div class="ucd-wrap reveal">
+              <svg class="dte-svg" viewBox="0 0 780 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ponto de junção com duas condições de saída">
+                <g class="dte-state"><rect x="40" y="90" width="170" height="52" rx="10"/><text x="125" y="121" text-anchor="middle">estado A</text></g>
+                <line class="dte-tr" x1="210" y1="116" x2="307" y2="116"/>
+                <path class="dte-tr-head" d="M307 110 L319 116 L307 122 Z"/>
+                <text class="dte-lbl" x="262" y="106" text-anchor="middle"><tspan class="ev">evento(p)</tspan></text>
+                <circle class="dte-junction" cx="331" cy="116" r="11"/>
+
+                <polyline class="dte-tr" points="340,110 430,58 558,58"/>
+                <path class="dte-tr-head" d="M558 52 L570 58 L558 64 Z"/>
+                <text class="dte-lbl" x="480" y="48" text-anchor="middle"><tspan class="gd">[condição 1]</tspan></text>
+                <g class="dte-state cyan"><rect x="572" y="32" width="170" height="52" rx="10"/><text x="657" y="63" text-anchor="middle">estado B</text></g>
+
+                <polyline class="dte-tr" points="340,122 430,176 558,176"/>
+                <path class="dte-tr-head" d="M558 170 L570 176 L558 182 Z"/>
+                <text class="dte-lbl" x="480" y="198" text-anchor="middle"><tspan class="gd">[condição 2]</tspan></text>
+                <g class="dte-state amber"><rect x="572" y="150" width="170" height="52" rx="10"/><text x="657" y="181" text-anchor="middle">estado C</text></g>
+              </svg>
+              <div class="ucd-caption">Um evento, duas saídas mutuamente exclusivas. O evento e qualquer ação comum ficam <strong>antes</strong> da junção; só as guardas ficam depois — é isso que evita repetir o mesmo rótulo em duas setas.</div>
+            </div>
+
+            <div class="uml-grid reveal" style="margin-top:36px;">
+              <div class="uml-card">
+                <h4>Uso 1 · divergência</h4>
+                <p>Um evento, vários destinos possíveis. As guardas nos ramos de saída devem ser <strong style="color:var(--ink)">mutuamente exclusivas</strong> e, de preferência, <strong style="color:var(--ink)">exaustivas</strong> — senão existe combinação de evento + estado sem destino definido.</p>
+                <div class="uml-ex">sacar(q) → [q &lt;= saldo] ou [q &gt; saldo]</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Uso 2 · convergência</h4>
+                <p>Várias transições diferentes que terminam no mesmo lugar passam a <strong style="color:var(--ink)">compartilhar uma trajetória</strong>. Em vez de dez setas chegando em um estado, dez setas chegam na junção e uma sai dela.</p>
+                <div class="uml-ex">reduz cruzamento de linhas sem mudar a semântica</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ ESTADOS ANINHADOS ============ -->
+        <section class="section alt" id="me-aninhados">
+          <div class="wrap">
+            <div class="eyebrow">Estados aninhados</div>
+            <h2 class="reveal">Um estado dentro de outro</h2>
+            <p class="intro reveal">É um recurso para <strong style="color:var(--ink)">facilitar o entendimento</strong> do diagrama. Um estado pode conter outros estados aninhados dentro dele — esse estado é chamado de <strong style="color:var(--ink)">estado composto</strong>. E a regra que faz o recurso valer a pena: <strong style="color:var(--ink)">os estados dentro de um estado composto herdam qualquer transição do estado composto</strong>.</p>
+
+            <h3 class="reveal">O exemplo: despertador</h3>
+            <p class="intro reveal">O enunciado da aula, literal: <em>o despertador armado toca durante 10 segundos, desliga o alarme e acerta-se para tocar daqui a 5 minutos. Repete o procedimento 3 vezes no total e, após a terceira vez, volta para o estado desarmado. Se alguém desarmar o alarme, fica desarmado.</em></p>
+
+            <div class="uml-grid reveal">
+              <div class="uml-card">
+                <h4>Estados</h4>
+                <p>Desarmado · Esperando · Tocando alarme</p>
+                <div class="uml-ex">dois deles vivem dentro de "armado"</div>
+              </div>
+              <div class="uml-card dyn">
+                <h4>Eventos</h4>
+                <p>Armar alarme · Desarmar · Chegada do horário para tocar · Fim de 10 segundos · Tocou 3 vezes</p>
+                <div class="uml-ex">dois temporais, dois de chamada, um de mudança</div>
+              </div>
+            </div>
+
+            <div class="ucd-wrap reveal" style="margin-top:36px;">
+              <svg class="dte-svg" viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de estados do despertador com estado composto armado">
+                <circle class="dte-init" cx="36" cy="80" r="7"/>
+                <line class="dte-tr" x1="43" y1="80" x2="78" y2="80"/>
+                <path class="dte-tr-head" d="M78 74 L90 80 L78 86 Z"/>
+                <g class="dte-state"><rect x="90" y="56" width="170" height="48" rx="10"/><text x="175" y="85" text-anchor="middle">desarmado</text></g>
+
+                <line class="dte-tr" x1="260" y1="66" x2="406" y2="66"/>
+                <path class="dte-tr-head" d="M406 60 L418 66 L406 72 Z"/>
+                <text class="dte-lbl" x="330" y="28" text-anchor="middle"><tspan class="ev">Armar alarme(horario)</tspan></text>
+                <text class="dte-lbl" x="330" y="42" text-anchor="middle"><tspan class="ac">/ horarioDef := horario, n := 0</tspan></text>
+
+                <g class="dte-composite">
+                  <rect x="420" y="40" width="400" height="280" rx="14"/>
+                  <text class="dc-name" x="440" y="62">armado</text>
+                </g>
+
+                <circle class="dte-init" cx="460" cy="114" r="6"/>
+                <line class="dte-tr" x1="466" y1="114" x2="506" y2="114"/>
+                <path class="dte-tr-head" d="M506 108 L518 114 L506 120 Z"/>
+
+                <g class="dte-state cyan">
+                  <rect x="520" y="86" width="240" height="56" rx="10"/>
+                  <text x="640" y="110" text-anchor="middle">esperando</text>
+                  <text class="ds-act" x="640" y="128" text-anchor="middle">entry / n := n + 1</text>
+                </g>
+
+                <line class="dte-tr" x1="600" y1="142" x2="600" y2="214"/>
+                <path class="dte-tr-head" d="M594 214 L600 226 L606 214 Z"/>
+                <text class="dte-lbl" x="615" y="170"><tspan class="ev">when (horarioDef =</tspan></text>
+                <text class="dte-lbl" x="615" y="184"><tspan class="ev">agora ())</tspan></text>
+
+                <g class="dte-state amber">
+                  <rect x="520" y="226" width="240" height="56" rx="10"/>
+                  <text x="640" y="250" text-anchor="middle">tocando alarme</text>
+                  <text class="ds-act" x="640" y="268" text-anchor="middle">entry / tocarAlarme(10)</text>
+                </g>
+
+                <polyline class="dte-tr" points="760,254 800,254 800,114 772,114"/>
+                <path class="dte-tr-head" d="M772 108 L760 114 L772 120 Z"/>
+                <text class="dte-lbl" x="755" y="198" text-anchor="end"><tspan class="ac">/ horarioDef :=</tspan></text>
+                <text class="dte-lbl" x="755" y="212" text-anchor="end"><tspan class="ac">horarioDef + 5 min</tspan></text>
+
+                <polyline class="dte-tr" points="420,140 200,140 200,116"/>
+                <path class="dte-tr-head" d="M194 116 L200 104 L206 116 Z"/>
+                <text class="dte-lbl" x="312" y="132" text-anchor="middle"><tspan class="ev">when (n &gt; 3)</tspan></text>
+
+                <polyline class="dte-tr" points="420,290 150,290 150,116"/>
+                <path class="dte-tr-head" d="M144 116 L150 104 L156 116 Z"/>
+                <text class="dte-lbl" x="290" y="306" text-anchor="middle"><tspan class="ev">Desarmar alarme</tspan></text>
+              </svg>
+              <div class="ucd-caption">As duas setas que saem da <strong>borda</strong> de "armado" valem para qualquer estado interno: é a herança de transição. Figura reconstruída a partir de Bezerra, 3ª ed.</div>
+            </div>
+
+            <div class="curio reveal">
+              <div class="eyebrow">Como ler esse diagrama</div>
+              <p>O evento <strong style="color:var(--ink)">Armar alarme</strong> aciona o estado inicial <em>do estado composto</em> — a seta chega na borda e quem decide onde entrar é o pseudo-estado inicial interno, que leva a <em>esperando</em>. Já o evento <strong style="color:var(--ink)">Desarmar alarme</strong> pode ser gerado tanto a partir de <em>esperando</em> (a pessoa acordou antes e não quer ouvir o despertador) quanto de <em>tocando alarme</em> (acordou e não quer ouvir mais). Desenhar duas setas, uma de cada estado interno, daria o mesmo resultado — e é exatamente o trabalho que o estado composto economiza.</p>
+              <blockquote>Os estados dentro de um estado composto herdam qualquer transição do estado composto.</blockquote>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:28px;">
+              <div class="eyebrow">Onde mora o contador</div>
+              <p>O <code>n</code> começa em 0 na <strong>ação da transição de entrada</strong>, e é incrementado no <code>entry</code> de <em>esperando</em> — ou seja, uma vez por ciclo, no momento em que o objeto entra no estado, não quando sai. Por isso a guarda de saída é <code>when (n &gt; 3)</code> e não <code>n = 3</code>: na quarta entrada em <em>esperando</em>, o alarme já tocou três vezes e o composto é abandonado.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ SIMULADOR ============ -->
+        <section class="section" id="me-simulador">
+          <div class="wrap">
+            <div class="eyebrow">Simulador</div>
+            <h2 class="reveal">Rode o DTE do portão da garagem</h2>
+            <p class="intro reveal">Seis estados, dois eventos. Dispare os eventos e veja por que o mesmo clique produz resultados diferentes — e por que "fim do curso" simplesmente <strong style="color:var(--ink)">não existe</strong> em quatro dos seis estados.</p>
+
+            <div class="dtesim reveal">
+              <div class="dtesim-head">
+                <span class="dtesim-badge live" id="meSimBadge">estado atual · fechado</span>
+                <span class="dtesim-badge" id="meSimCount">0 eventos disparados</span>
+              </div>
+
+              <div class="dtesim-stage">
+                <svg class="dte-svg" viewBox="0 0 860 410" xmlns="http://www.w3.org/2000/svg" id="meSimSvg" role="img" aria-label="Diagrama de transição de estados do portão da garagem">
+                  <circle class="dte-init" cx="130" cy="18" r="7"/>
+                  <line class="dte-tr" x1="130" y1="25" x2="130" y2="38"/>
+                  <path class="dte-tr-head" d="M124 38 L130 50 L136 38 Z"/>
+
+                  <g class="dte-state" id="meS-fechado"><rect x="40" y="50" width="180" height="48" rx="10"/><text x="130" y="79" text-anchor="middle">fechado</text></g>
+                  <g class="dte-state" id="meS-abrindo"><rect x="330" y="50" width="180" height="48" rx="10"/><text x="420" y="79" text-anchor="middle">abrindo</text></g>
+                  <g class="dte-state" id="meS-aberto"><rect x="620" y="50" width="180" height="48" rx="10"/><text x="710" y="79" text-anchor="middle">aberto</text></g>
+                  <g class="dte-state" id="meS-parado_abertura"><rect x="330" y="180" width="180" height="48" rx="10"/><text x="420" y="203" text-anchor="middle">parado na</text><text x="420" y="219" text-anchor="middle">abertura</text></g>
+                  <g class="dte-state" id="meS-fechando"><rect x="330" y="310" width="180" height="48" rx="10"/><text x="420" y="339" text-anchor="middle">fechando</text></g>
+                  <g class="dte-state" id="meS-parado_fechamento"><rect x="40" y="310" width="180" height="48" rx="10"/><text x="130" y="333" text-anchor="middle">parado no</text><text x="130" y="349" text-anchor="middle">fechamento</text></g>
+
+                  <g class="dte-edge" id="meE-fechado-clique">
+                    <line class="dte-tr" x1="220" y1="74" x2="318" y2="74"/>
+                    <path class="dte-tr-head" d="M318 68 L330 74 L318 80 Z"/>
+                    <text class="dte-lbl" x="275" y="64" text-anchor="middle">clique</text>
+                  </g>
+                  <g class="dte-edge" id="meE-abrindo-fim">
+                    <line class="dte-tr" x1="510" y1="74" x2="608" y2="74"/>
+                    <path class="dte-tr-head" d="M608 68 L620 74 L608 80 Z"/>
+                    <text class="dte-lbl" x="565" y="64" text-anchor="middle">fim de curso</text>
+                  </g>
+                  <g class="dte-edge" id="meE-abrindo-clique">
+                    <line class="dte-tr" x1="420" y1="98" x2="420" y2="168"/>
+                    <path class="dte-tr-head" d="M414 168 L420 180 L426 168 Z"/>
+                    <text class="dte-lbl" x="430" y="140">clique</text>
+                  </g>
+                  <g class="dte-edge" id="meE-parado_abertura-clique">
+                    <line class="dte-tr" x1="420" y1="228" x2="420" y2="298"/>
+                    <path class="dte-tr-head" d="M414 298 L420 310 L426 298 Z"/>
+                    <text class="dte-lbl" x="430" y="270">clique</text>
+                  </g>
+                  <g class="dte-edge" id="meE-aberto-clique">
+                    <polyline class="dte-tr" points="710,98 710,334 522,334"/>
+                    <path class="dte-tr-head" d="M522 328 L510 334 L522 340 Z"/>
+                    <text class="dte-lbl" x="720" y="220">clique</text>
+                  </g>
+                  <g class="dte-edge" id="meE-fechando-clique">
+                    <line class="dte-tr" x1="330" y1="334" x2="232" y2="334"/>
+                    <path class="dte-tr-head" d="M232 328 L220 334 L232 340 Z"/>
+                    <text class="dte-lbl" x="275" y="326" text-anchor="middle">clique</text>
+                  </g>
+                  <g class="dte-edge" id="meE-parado_fechamento-clique">
+                    <polyline class="dte-tr" points="130,310 130,142 395,142 395,110"/>
+                    <path class="dte-tr-head" d="M389 110 L395 98 L401 110 Z"/>
+                    <text class="dte-lbl" x="262" y="134" text-anchor="middle">clique</text>
+                  </g>
+                  <g class="dte-edge" id="meE-fechando-fim">
+                    <polyline class="dte-tr" points="420,358 420,388 20,388 20,74 28,74"/>
+                    <path class="dte-tr-head" d="M28 68 L40 74 L28 80 Z"/>
+                    <text class="dte-lbl" x="230" y="382" text-anchor="middle">fim de curso</text>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="dtesim-ev">
+                <button class="sim-btn" id="meSimClique">Clique no controle</button>
+                <button class="sim-btn" id="meSimFim">Fim do curso</button>
+                <button class="sim-btn ghost" id="meSimReset">Reiniciar</button>
+              </div>
+
+              <div class="dtesim-read">
+                <div class="dr-k" id="meSimK">estado inicial</div>
+                <p class="dr-t" id="meSimT">O portão foi criado no estado <em>fechado</em>. Dispare um evento para ver a transição.</p>
+              </div>
+
+              <div class="dtesim-log" id="meSimLog"></div>
+            </div>
+
+            <div class="callout amber reveal" style="margin-top:32px;">
+              <div class="eyebrow">Experimente isto</div>
+              <p>Dispare <strong>fim do curso</strong> com o portão parado. Nada acontece — e essa é a resposta correta, não um bug: quando não existe transição definida para o par (estado, evento), <strong>o evento é descartado</strong>. Esse é o principal uso prático do DTE em revisão de requisitos: ele torna visíveis as combinações que ninguém especificou.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CONTEXTO ============ -->
+        <section class="section alt" id="me-contexto">
+          <div class="wrap">
+            <div class="eyebrow">Contexto dos modelos no desenvolvimento</div>
+            <h2 class="reveal">Para que serve o Modelo de Estados</h2>
+            <p class="intro reveal">O Modelo de Estados entra <strong style="color:var(--ink)">depois</strong> do modelo de classes e do modelo de interação, e faz com eles o mesmo que o diagrama de sequência fez: devolve correções. Aqui, o que ele descobre são <strong style="color:var(--ink)">atributos de controle que faltavam</strong> e <strong style="color:var(--ink)">regras que ninguém escreveu</strong>.</p>
+
+            <div class="tl reveal">
+              <div class="tl-item">
+                <div class="yr">entrada · modelo de classes</div>
+                <p>As classes já existem, com atributos e operações. Entre elas, algumas têm ciclo de vida longo e comportamento que muda conforme a fase — essas são as candidatas a DTE.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">entrada · modelo de interação</div>
+                <p>Os diagramas de sequência já mostraram quais mensagens cada objeto recebe. <strong style="color:var(--ink)">Cada mensagem recebida é um candidato a evento</strong> no DTE daquele objeto.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">construção · DTE por classe relevante</div>
+                <p>Para cada estado, identificar os próximos estados possíveis e o evento que causa cada transição. Onde o destino não é único, guarda e ponto de junção. Onde o diagrama crescer demais, estados aninhados.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">retorno · modelos anteriores</div>
+                <p>O DTE expõe atributos que faltavam (o <code>n</code> do despertador, o <code>horarioDefinido</code>), operações sem receptor e, principalmente, <strong style="color:var(--ink)">combinações de estado e evento que a especificação nunca mencionou</strong>.</p>
+              </div>
+              <div class="tl-item">
+                <div class="yr">saída · implementação e teste</div>
+                <p>O diagrama vira código quase diretamente (atributo de estado + <em>switch</em>, ou o padrão State) e vira plano de teste: cada transição é um caso de teste, cada par (estado, evento) sem transição é um teste negativo.</p>
+              </div>
+            </div>
+
+            <div class="callout cyan reveal" style="margin-top:32px;">
+              <div class="eyebrow">O argumento de custo</div>
+              <p>Como o DTE só é feito para as classes com estados relevantes, ele costuma ser barato: poucos diagramas por iteração. O retorno é desproporcional porque ele é o único dos modelos vistos que faz a pergunta <strong>"e se este evento chegar agora?"</strong> para <em>todas</em> as situações possíveis do objeto, em vez de seguir um fluxo feliz por vez.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ TREINO ============ -->
+        <section class="section" id="me-treino">
+          <div class="wrap">
+            <div class="eyebrow">Treino</div>
+            <h2 class="reveal">Que elemento do DTE é esse?</h2>
+            <p class="intro reveal">Doze trechos. Decida se cada um é um <strong style="color:var(--ink)">estado</strong>, um <strong style="color:var(--ink)">evento</strong>, uma <strong style="color:var(--ink)">condição de guarda</strong> ou uma <strong style="color:var(--ink)">ação / atividade</strong>. A justificativa aparece depois de cada escolha.</p>
+
+            <div class="cls-box reveal">
+              <div class="cls-counter" id="meTrCounter">Situação 1 de 12</div>
+              <div class="cls-stmt" id="meTrStmt">—</div>
+              <div class="cls-opts" id="meTrOpts">
+                <button class="tab" data-metr="EST">Estado</button>
+                <button class="tab" data-metr="EVT">Evento</button>
+                <button class="tab" data-metr="GRD">Condição de guarda</button>
+                <button class="tab" data-metr="ACT">Ação / atividade</button>
+              </div>
+              <div class="cls-feedback" id="meTrFeedback">Escolha uma opção para ver a justificativa.</div>
+              <div class="cls-score" id="meTrScore">Acertos: <strong>0</strong> / 0</div>
+              <div style="margin-top:16px;">
+                <button class="sim-btn ghost" id="meTrReset" style="margin-left:0">Reiniciar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ QUIZ ============ -->
+        <section class="section alt" id="me-quiz">
+          <div class="wrap">
+            <div class="eyebrow">Revisão</div>
+            <h2 class="reveal">Quiz de fechamento</h2>
+            <p class="intro reveal">As cinco perguntas de resumo da aula, mais quatro que costumam decidir nota. Tente responder antes de revelar.</p>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 1</span>
+              <p class="q">O que o Modelo de Estados representa?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">O ciclo de vida dos objetos das classes com estados relevantes</div>
+                <p>Ele é constituído pelos <strong>DTEs do conjunto de classes</strong> de um escopo — componente, subsistema ou sistema. Cada DTE descreve o ciclo de vida de um objeto: os seus estados e as transições possíveis entre eles. É a parte do Modelo Dinâmico que olha para dentro de um objeto, enquanto o Diagrama de Interação olha para a conversa entre vários.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 2</span>
+              <p class="q">Quais são os principais elementos do DTE?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Estado, transição, evento, condição de guarda, ações, atividades, pontos de junção e estados aninhados</div>
+                <p>Acrescente os dois pseudo-estados: o <strong>inicial</strong> (um só por diagrama, indica o estado do objeto quando ele é criado) e o <strong>final</strong> (opcional, pode haver mais de um). O rótulo de uma transição segue a forma <code>evento (lista-parâmetros) [guarda] / ação</code>.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 3</span>
+              <p class="q">Como identificar os principais elementos?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Estados a partir dos valores de atributos; eventos a partir das mensagens recebidas pelo objeto</div>
+                <p>Um estado é definido pelos <strong>valores dos atributos</strong> do objeto — o livro com <code>reservado = true</code>, a conta com saldo negativo. Os eventos saem em grande parte do modelo de interação: cada mensagem que o objeto recebe é candidata a evento, mais os eventos temporais (<code>after</code>, <code>when</code> de relógio) e os de mudança (<code>when</code> sobre atributo). Em seguida, para cada estado, pergunte quais são os próximos estados e qual evento causa cada transição.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 4</span>
+              <p class="q">Como construir o modelo?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Escolher as classes com estados relevantes e, para cada uma, varrer estado por estado</div>
+                <p>O DTE <strong>não é construído para todas as classes</strong>. Selecionadas as classes relevantes, o procedimento é: listar os estados; para cada estado, identificar os próximos estados possíveis e o evento que causa a transição; acrescentar guardas onde o destino depende de condição; usar <strong>ponto de junção</strong> quando o próximo estado não é único ou quando várias transições compartilham trajetória; usar <strong>estados aninhados</strong> quando o diagrama ficar difícil de ler.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 5</span>
+              <p class="q">Para que serve o modelo no desenvolvimento de software?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para descrever o comportamento de um objeto com precisão — e, com isso, completar os modelos anteriores</div>
+                <p>A linguagem natural não é boa forma de descrever estados e transições: os exemplos do portão e da reserva de hotel terminam em "etc." e a própria aula admite que "a descrição não é completa". O DTE fecha esse buraco e, de quebra, expõe atributos de controle que faltavam no modelo de classes e combinações de estado e evento que a especificação nunca tratou. Depois vira código e vira plano de teste quase diretamente.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 6</span>
+              <p class="q">Qual a diferença entre ação e atividade?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Ação é atômica e pertence à transição; atividade pode ser interrompida e pertence ao estado</div>
+                <p>A <strong>ação</strong> é uma expressão definida em termos dos atributos, operações e associações da classe ou dos parâmetros do evento; é associada a uma transição, executada <strong>se e somente se</strong> a transição for disparada, e é <strong>atômica</strong> — não pode ser interrompida. A <strong>atividade</strong> é executada enquanto o objeto está <em>em</em> um estado e <strong>pode ser interrompida</strong>: o exemplo da aula é o estado de impressão de relatório, que pode ser interrompido se ocorrer um evento mais prioritário.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 7</span>
+              <p class="q">Quais são os tipos de evento e como se escrevem?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Chamada, sinal, temporal e de mudança</div>
+                <p><strong>Chamada</strong>: o objeto recebe uma mensagem de outro objeto e o solicitante <em>espera</em> a execução. <strong>Sinal</strong>: tipo especial do de chamada em que o solicitante <em>continua o processamento</em> após enviar, sem esperar o fim. <strong>Temporal</strong>: cláusula <code>after</code> com intervalo — <code>after (30 segundos)</code> dispara 30 segundos depois de o objeto ter entrado no estado atual — ou cláusula <code>when</code> com expressão de tempo, como <code>when (data = 13/07/2027)</code> ou <code>when (horário = 00:00h)</code>. <strong>Mudança</strong>: cláusula <code>when</code> seguida de expressão lógica sobre atributo, como <code>when (saldo &gt; 0)</code>.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 8</span>
+              <p class="q">Para que serve o ponto de junção, e quando a condição de guarda é obrigatória?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Para representar que o próximo estado não é único — e a guarda é obrigatória sempre que houver essa escolha</div>
+                <p>O próximo estado de um objeto pode não ser único, em função de condições existentes no sistema; o ponto de junção representa isso no DTE. Ele também permite que <strong>duas ou mais transições compartilhem uma trajetória</strong>. Sobre a guarda: a transição é disparada <strong>se e somente se</strong> o evento associado ocorre <em>e</em> a condição é verdadeira; uma transição <strong>sem</strong> guarda é sempre disparada quando o evento ocorre. Logo, duas transições com o mesmo evento saindo do mesmo estado exigem guardas mutuamente exclusivas, senão o diagrama é ambíguo.</p>
+              </div>
+            </div>
+
+            <div class="qa-card reveal">
+              <span class="qlabel">Pergunta 9</span>
+              <p class="q">O que significa dizer que estados aninhados "herdam" transições?</p>
+              <button class="qa-toggle">Revelar resposta</button>
+              <div class="qa-answer">
+                <div class="verdict">Uma transição desenhada na borda do estado composto vale para todos os estados internos</div>
+                <p>Um estado composto é um estado que contém outros estados aninhados dentro dele, e os estados internos <strong>herdam qualquer transição do estado composto</strong>. No despertador: a seta <em>Desarmar alarme</em> sai da borda de <strong>armado</strong>, e por isso vale tanto em <em>esperando</em> (a pessoa acordou antes) quanto em <em>tocando alarme</em> (acordou e quer silêncio). Na entrada, o caminho é o inverso: o evento <em>Armar alarme</em> chega na borda e aciona o <strong>estado inicial do estado composto</strong>, que leva a <em>esperando</em>. O recurso existe para facilitar o entendimento do diagrama: ele substitui N setas repetidas por uma.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-footer">
+          <div class="wrap">
+            <div class="refs">
+              Modelagem Dinâmica · Modelo de Estados — EPUSP · PCS · 2026<br>
+              [1] MELNIKOFF, S. S. S.; RISCO BECERRA, J. L. Modelagem Dinâmica — Modelo de Estados, 11ª aula, 30/09/2026<br>
+              [2] BEZERRA, E. Princípios de Análise e Projeto de Sistemas com UML, 3ª ed., Elsevier — figuras da ContaBancaria, do ponto de junção e do despertador<br>
+              [3] HAREL, D. Statecharts: a visual formalism for complex systems — base conceitual da máquina de estados finitos usada na UML<br>
+              [4] Módulo 10 deste guia — Modelo de Interação, de onde saem os eventos candidatos
+            </div>
+            <div class="credit">P2 · Módulo 01 · Profa. Selma S. S. Melnikoff e Prof. Jorge Luis Risco Becerra — EPUSP · PCS 3213</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ================= END MODULE: MODELO DE ESTADOS ================= -->
+
+
 
 
 
@@ -8806,7 +9815,8 @@
     {id:'exercicio-classes-sgrb', group:'P1', title:'Exercício: Modelo de Classes do SGRB'},
     {id:'modelo-interacao', group:'P1', title:'Modelo de Interação · Diagrama de Sequência'},
     {id:'prova-2019', group:'P1', title:'Prova P1 2019 · Sistema de Gerência de Hotel'},
-    {id:'prova-2025', group:'P1', title:'Prova P1 2025 · Sistema City Tour'}
+    {id:'prova-2025', group:'P1', title:'Prova P1 2025 · Sistema City Tour'},
+    {id:'modelo-estados', group:'P2', title:'Modelo de Estados · Diagrama de Transição de Estados'}
   ];
 
   const nav = document.getElementById('moduleNav');
@@ -12989,6 +13999,204 @@
       });
     }
     excQzRender();
+  }
+
+
+  /* ============================================================
+     MÓDULO 13 — MODELO DE ESTADOS
+     ============================================================ */
+
+  /* ---------- 13.1 anatomia do rótulo de transição ---------- */
+  var ME_TP = {
+    ev:{k:'parte 1 · obrigatória na prática', t:'Evento',
+        d:'A ocorrência que <strong style="color:var(--ink)">dispara</strong> a transição. Pode ser de chamada (mensagem de outro objeto, com o solicitante esperando), de sinal (o solicitante continua sem esperar), temporal (<code>after (30 segundos)</code>, <code>when (horário = 00:00h)</code>) ou de mudança (<code>when (saldo &gt; 0)</code>). Sem evento, a transição só é válida em casos especiais, como a saída de um pseudo-estado inicial.'},
+    par:{k:'parte 2 · opcional', t:'Lista de parâmetros',
+        d:'Os dados que o evento carrega, e que as guardas e as ações podem usar. Em <code>sacar(q) [q &lt;= saldo] / saldo := saldo − q</code>, o <code>q</code> vem do evento e aparece nas duas outras partes. É o mesmo princípio do diagrama de sequência: a mensagem precisa trazer informação suficiente para que a operação seja executada.'},
+    gd:{k:'parte 3 · opcional', t:'Condição de guarda',
+        d:'Expressão lógica que <strong style="color:var(--ink)">condiciona o disparo</strong>. A transição é disparada <strong style="color:var(--ink)">se e somente se</strong> o evento ocorre <em>e</em> a guarda é verdadeira. Uma transição sem guarda é sempre disparada quando o evento ocorre. Se o evento ocorre e a guarda é falsa, nada acontece — o objeto permanece no estado.'},
+    bar:{k:'separador', t:'A barra',
+        d:'Separa a parte que <strong style="color:var(--ink)">decide</strong> (evento e guarda) da parte que <strong style="color:var(--ink)">executa</strong> (ação). Tudo à esquerda da barra é condição de disparo; tudo à direita é efeito. Se não há efeito algum além da mudança de estado, a barra não aparece.'},
+    ac:{k:'parte 4 · opcional', t:'Ação',
+        d:'O que o objeto faz <strong style="color:var(--ink)">ao transitar</strong>. Expressão definida em termos dos atributos, operações e associações da classe, ou dos parâmetros do evento. É executada se e somente se a transição for disparada, e é <strong style="color:var(--ink)">atômica</strong>: não pode ser interrompida. O que pode ser interrompido é atividade e fica dentro do estado, não aqui.'}
+  };
+  var meTrExpr = document.getElementById('meTrExpr');
+  if(meTrExpr){
+    var meTrOut = document.getElementById('meTrOut');
+    meTrExpr.querySelectorAll('.tp').forEach(function(sp){
+      sp.addEventListener('click', function(){
+        var key = sp.getAttribute('data-tp');
+        var d = ME_TP[key];
+        if(!d) return;
+        meTrExpr.querySelectorAll('.tp').forEach(function(o){ o.classList.toggle('on', o === sp); });
+        meTrOut.innerHTML = '<div class="to-k">' + d.k + '</div><h4>' + d.t + '</h4><p>' + d.d + '</p>';
+      });
+    });
+  }
+
+  /* ---------- 13.2 simulador do DTE do portão ---------- */
+  var ME_GATE = {
+    fechado: {
+      nome:'fechado',
+      clique:{to:'abrindo', edge:'meE-fechado-clique', txt:'O portão estava <em>fechado</em>. O clique no controle o põe em movimento: novo estado <em>abrindo</em>.'},
+      fim:null
+    },
+    abrindo: {
+      nome:'abrindo',
+      clique:{to:'parado_abertura', edge:'meE-abrindo-clique', txt:'O mesmo evento, outro efeito: em <em>abrindo</em>, o clique <strong>interrompe</strong> o movimento. Novo estado <em>parado na abertura</em>.'},
+      fim:{to:'aberto', edge:'meE-abrindo-fim', txt:'O portão chegou ao fim do curso sem ser interrompido: novo estado <em>aberto</em>.'}
+    },
+    aberto: {
+      nome:'aberto',
+      clique:{to:'fechando', edge:'meE-aberto-clique', txt:'Em <em>aberto</em>, o clique inverte o sentido: novo estado <em>fechando</em>.'},
+      fim:null
+    },
+    parado_abertura: {
+      nome:'parado na abertura',
+      clique:{to:'fechando', edge:'meE-parado_abertura-clique', txt:'Parado durante a abertura, o próximo clique <strong>inverte o sentido</strong>: novo estado <em>fechando</em>.'},
+      fim:null
+    },
+    fechando: {
+      nome:'fechando',
+      clique:{to:'parado_fechamento', edge:'meE-fechando-clique', txt:'Em <em>fechando</em>, o clique interrompe o movimento: novo estado <em>parado no fechamento</em>.'},
+      fim:{to:'fechado', edge:'meE-fechando-fim', txt:'O portão completou o curso: novo estado <em>fechado</em>. O ciclo de vida voltou ao início.'}
+    },
+    parado_fechamento: {
+      nome:'parado no fechamento',
+      clique:{to:'abrindo', edge:'meE-parado_fechamento-clique', txt:'Parado durante o fechamento, o próximo clique inverte o sentido: novo estado <em>abrindo</em>.'},
+      fim:null
+    }
+  };
+  var ME_GATE_NOMES = {clique:'clique no controle', fim:'fim do curso'};
+
+  var meSimSvg = document.getElementById('meSimSvg');
+  if(meSimSvg){
+    var meSimBadge = document.getElementById('meSimBadge');
+    var meSimCount = document.getElementById('meSimCount');
+    var meSimK = document.getElementById('meSimK');
+    var meSimT = document.getElementById('meSimT');
+    var meSimLog = document.getElementById('meSimLog');
+    var meSimState = {cur:'fechado', n:0};
+
+    function meSimPaint(edgeId){
+      Object.keys(ME_GATE).forEach(function(s){
+        var g = document.getElementById('meS-' + s);
+        if(g) g.classList.toggle('on', s === meSimState.cur);
+      });
+      meSimSvg.querySelectorAll('.dte-edge').forEach(function(e){
+        var st = e.id.replace('meE-','').replace(/-(clique|fim)$/,'');
+        var reachable = (st === meSimState.cur);
+        e.classList.toggle('on', reachable || e.id === edgeId);
+        e.classList.toggle('cur', e.id === edgeId);
+      });
+      meSimBadge.textContent = 'estado atual · ' + ME_GATE[meSimState.cur].nome;
+      meSimCount.textContent = meSimState.n + (meSimState.n === 1 ? ' evento disparado' : ' eventos disparados');
+    }
+    function meSimLogAdd(html){
+      var line = document.createElement('div');
+      line.innerHTML = html;
+      meSimLog.insertBefore(line, meSimLog.firstChild);
+    }
+    function meSimFire(ev){
+      var from = meSimState.cur;
+      var tr = ME_GATE[from][ev];
+      meSimState.n++;
+      if(!tr){
+        meSimK.textContent = 'evento descartado';
+        meSimT.innerHTML = 'Não existe transição para o par (<em>' + ME_GATE[from].nome + '</em>, <strong>' + ME_GATE_NOMES[ev] + '</strong>). O evento é <strong>descartado</strong> e o objeto permanece no mesmo estado — isso não é falha do diagrama, é o diagrama dizendo que essa combinação não foi especificada.';
+        meSimLogAdd('<b>' + ME_GATE_NOMES[ev] + '</b> em ' + ME_GATE[from].nome + ' → descartado');
+        meSimPaint(null);
+        return;
+      }
+      meSimState.cur = tr.to;
+      meSimK.textContent = ME_GATE_NOMES[ev] + ' · transição disparada';
+      meSimT.innerHTML = tr.txt;
+      meSimLogAdd('<b>' + ME_GATE_NOMES[ev] + '</b> · ' + ME_GATE[from].nome + ' → ' + ME_GATE[tr.to].nome);
+      meSimPaint(tr.edge);
+    }
+    var meSimCliqueBtn = document.getElementById('meSimClique');
+    var meSimFimBtn = document.getElementById('meSimFim');
+    var meSimResetBtn = document.getElementById('meSimReset');
+    if(meSimCliqueBtn) meSimCliqueBtn.addEventListener('click', function(){ meSimFire('clique'); });
+    if(meSimFimBtn) meSimFimBtn.addEventListener('click', function(){ meSimFire('fim'); });
+    if(meSimResetBtn) meSimResetBtn.addEventListener('click', function(){
+      meSimState.cur = 'fechado'; meSimState.n = 0;
+      meSimLog.innerHTML = '';
+      meSimK.textContent = 'estado inicial';
+      meSimT.innerHTML = 'O portão foi criado no estado <em>fechado</em>. Dispare um evento para ver a transição.';
+      meSimPaint(null);
+    });
+    meSimPaint(null);
+  }
+
+  /* ---------- 13.3 treino: que elemento do DTE é esse? ---------- */
+  var METR_ITEMS = [
+    {t:'<code>reserva provisória</code> — o objeto <em>Ocupação</em> foi criado, existe quarto livre e o sistema aguarda o pagamento da taxa.', a:'EST', w:'Estado: é a situação em que o objeto espera um evento. Também é definido por valores de atributos — aqui, a reserva existe mas a taxa ainda não foi paga.'},
+    {t:'<code>when (saldo &gt; 0)</code>', a:'EVT', w:'Evento de mudança: cláusula <code>when</code> seguida de expressão lógica sobre um atributo. Ele <strong>dispara</strong> a transição sozinho, no instante em que o saldo fica positivo. Repare nos parênteses — guarda usaria colchetes.'},
+    {t:'<code>[quantia &gt; saldo]</code>', a:'GRD', w:'Condição de guarda: expressão lógica entre colchetes que condiciona o disparo. Ela não dispara nada sozinha — precisa de um evento ocorrendo ao mesmo tempo.'},
+    {t:'<code>/ horarioDefinido := horario, n := 0</code>', a:'ACT', w:'Ação: vem depois da barra, está associada à transição e é atômica. É escrita em termos dos atributos da classe e dos parâmetros do evento.'},
+    {t:'<code>after (30 segundos)</code>', a:'EVT', w:'Evento temporal: a transição será disparada 30 segundos <strong>após o objeto ter entrado no estado atual</strong>. O <code>after</code> é sempre relativo à entrada no estado.'},
+    {t:'O relatório está sendo impresso, e a impressão pode ser interrompida se chegar um evento mais prioritário.', a:'ACT', w:'Atividade: executada enquanto o objeto está <em>em</em> um estado e <strong>pode ser interrompida</strong>. É exatamente o exemplo da aula. Se não pudesse ser interrompida, seria ação e ficaria na seta.'},
+    {t:'<code>parado na abertura</code> — o portão foi interrompido no meio do curso de subida.', a:'EST', w:'Estado: uma das seis situações do portão. Note que ele só é distinguível de "parado no fechamento" porque guarda o sentido anterior do movimento — por isso são dois estados, não um.'},
+    {t:'O recepcionista informa ao sistema a saída de um cliente do hotel.', a:'EVT', w:'Evento de chamada: o objeto recebe uma mensagem de outro objeto. É ele que faz um objeto <em>Ocupação</em> em reserva pendente passar para reserva provisória.'},
+    {t:'<code>[saldo = 0]</code> na seta que leva ao estado final da conta bancária.', a:'GRD', w:'Guarda: a conta só pode ser encerrada se o saldo estiver zerado. O evento é <code>encerrar</code>; a guarda apenas autoriza. Se o evento chegar com saldo diferente de zero, nada acontece.'},
+    {t:'<code>entry / n := n + 1</code> escrito dentro da caixa do estado <em>esperando</em>.', a:'ACT', w:'Ação de entrada: executada no momento em que o objeto entra no estado. Está dentro da caixa, mas é ação (atômica), não atividade — atribuir um valor a um atributo não pode ser interrompido no meio.'},
+    {t:'<code>when (data = 13/07/2027)</code>', a:'EVT', w:'Evento temporal. Mesma cláusula <code>when</code> do evento de mudança, mas a expressão fala de calendário, não de atributo do objeto. O que diferencia os dois tipos é sobre o que a expressão fala.'},
+    {t:'<code>pendente</code> — não existe quarto disponível e o objeto aguarda a liberação de um.', a:'EST', w:'Estado: o objeto satisfaz uma condição e espera um evento (a liberação de um quarto). Era a terceira situação possível do objeto <em>Ocupação</em> no exemplo do hotel.'}
+  ];
+  var METR_NAMES = {EST:'Estado', EVT:'Evento', GRD:'Condição de guarda', ACT:'Ação / atividade'};
+  var meTrStmt = document.getElementById('meTrStmt');
+  var meTrOpts = document.getElementById('meTrOpts');
+  if(meTrStmt && meTrOpts){
+    var meTrFeedback = document.getElementById('meTrFeedback');
+    var meTrCounter = document.getElementById('meTrCounter');
+    var meTrScore = document.getElementById('meTrScore');
+    var meTrResetBtn = document.getElementById('meTrReset');
+    var meTrState = { i:0, hits:0, answered:0, locked:false };
+
+    function meTrRender(){
+      meTrStmt.innerHTML = METR_ITEMS[meTrState.i].t;
+      meTrCounter.textContent = 'Situação ' + (meTrState.i + 1) + ' de ' + METR_ITEMS.length;
+      meTrOpts.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('right','wrong'); });
+      meTrFeedback.textContent = 'Escolha uma opção para ver a justificativa.';
+      meTrScore.innerHTML = 'Acertos: <strong>' + meTrState.hits + '</strong> / ' + meTrState.answered;
+      meTrState.locked = false;
+    }
+    function meTrAnswer(choice, btn){
+      if(meTrState.locked) return;
+      meTrState.locked = true;
+      meTrState.answered++;
+      var item = METR_ITEMS[meTrState.i];
+      var correct = choice === item.a;
+      if(correct) meTrState.hits++;
+      meTrOpts.querySelectorAll('.tab').forEach(function(b){
+        if(b.dataset.metr === item.a) b.classList.add('right');
+        else if(b === btn) b.classList.add('wrong');
+      });
+      meTrFeedback.innerHTML =
+        (correct ? '<span class="ok">✓ correto</span>' : '<span class="warn">✗ era ' + METR_NAMES[item.a] + '</span>') +
+        '<br>' + item.w;
+      meTrScore.innerHTML = 'Acertos: <strong>' + meTrState.hits + '</strong> / ' + meTrState.answered;
+      setTimeout(function(){
+        if(meTrState.i < METR_ITEMS.length - 1){
+          meTrState.i++;
+          meTrRender();
+        } else {
+          meTrCounter.textContent = 'Fim · ' + METR_ITEMS.length + ' situações';
+          meTrStmt.innerHTML = 'Você acertou ' + meTrState.hits + ' de ' + METR_ITEMS.length + '.';
+          meTrFeedback.textContent = 'Clique em "Reiniciar" para rodar de novo.';
+        }
+      }, 3500);
+    }
+    meTrOpts.querySelectorAll('.tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ meTrAnswer(btn.dataset.metr, btn); });
+    });
+    if(meTrResetBtn){
+      meTrResetBtn.addEventListener('click', function(){
+        meTrState.i = 0; meTrState.hits = 0; meTrState.answered = 0;
+        meTrRender();
+      });
+    }
+    meTrRender();
   }
 
 
